@@ -5,9 +5,9 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/js/index',
+  entry: './js/index',
   output: {
-    path: path.resolve('./frontend/bundles/'),
+    path: path.resolve('./bundles/'),
     publicPath: 'http://localhost:3000/dist/',
     filename: "[name]-[hash].js",
     chunkFilename: "[name]-[hash].js"

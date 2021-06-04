@@ -3,8 +3,6 @@
 # https://hub.docker.com/r/nikolaik/python-nodejs
 FROM python:3.8-slim AS app
 
-WORKDIR /code
-
 # Install node prereqs, nodejs and yarn
 # Slim image needs wget and gnupg2 installed
 
@@ -27,8 +25,11 @@ RUN apt-get update && \
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY package.json webpack.config.js .
+WORKDIR /code/frontend
+
 RUN npm install
+
+WORKDIR /code
 
 # Sets the local timezone of the docker image
 ARG TZ
