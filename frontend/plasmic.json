@@ -1,0 +1,29 @@
+{
+  "platform": "react",
+  "code": {
+    "lang": "js",
+    "scheme": "blackbox",
+    "reactRuntime": "classic"
+  },
+  "style": {
+    "scheme": "css",
+    "defaultStyleCssFilePath": ""
+  },
+  "images": {
+    "scheme": "public-files",
+    "publicDir": "../public",
+    "publicUrlPrefix": "/static/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "components",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [],
+  "globalVariants": {
+    "variantGroups": []
+  },
+  "cliVersion": "0.1.152",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.152/dist/plasmic.schema.json"
+}
