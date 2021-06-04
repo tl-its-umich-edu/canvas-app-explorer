@@ -1,0 +1,66 @@
+.LinkButton__root__yNFi {
+  display: flex;
+  width: 168px;
+  height: 58px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.LinkButton__root__type_solidOrange__yNFiI5Pxg {
+  background: rgb(233, 156, 46);
+}
+.LinkButton__root__type_solidGray__yNFiGiboD {
+  background: rgb(95, 91, 87);
+}
+.LinkButton__root__type_outlineGray__yNFiVqldC {
+  border: 1px solid rgb(95, 91, 87) /* plasmic-token: 2HX8dakuYo2K9 */;
+}
+.LinkButton__root__size_small__yNFiSQAk {
+  width: 100px;
+  height: 48px;
+}
+.LinkButton__root__type_solidOrange__yNFiI5Pxg:hover {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+}
+.LinkButton__root__type_solidGray__yNFiGiboD:hover {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(95, 91, 87) /* plasmic-token: 2HX8dakuYo2K9 */;
+}
+.LinkButton__root__type_blankOrange__yNFi2KHft:hover {
+  border: 1px solid rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+}
+.LinkButton__root__type_outlineGray__yNFiVqldC:hover {
+  background: rgb(95, 91, 87);
+}
+.LinkButton__slotText__type_solidOrange__ewQcHi5Pxg {
+  color: rgb(255, 255, 255) /* plasmic-token: maWCPk1v_oCK */;
+}
+.LinkButton__slotText__type_solidGray__ewQcHGiboD {
+  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+}
+.LinkButton__slotText__type_blankOrange__ewQcH2KHft {
+  color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+}
+.LinkButton__slotText__type_outlineGray__ewQcHVqldC {
+  color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
+}
+.LinkButton__slotText__type_blankGray__ewQcHff2A {
+  color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
+}
+.LinkButton__root__type_solidOrange__yNFiI5Pxg:hover
+  .LinkButton__slotText__type_solidOrange__ewQcHi5Pxg {
+  color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+}
+.LinkButton__root__type_solidGray__yNFiGiboD:hover
+  .LinkButton__slotText__type_solidGray__ewQcHGiboD {
+  color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
+}
+.LinkButton__root__type_outlineGray__yNFiVqldC:hover
+  .LinkButton__slotText__type_outlineGray__ewQcHVqldC {
+  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+}
+.LinkButton__root__type_blankGray__yNFiff2A:hover
+  .LinkButton__slotText__type_blankGray__ewQcHff2A {
+  color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+}

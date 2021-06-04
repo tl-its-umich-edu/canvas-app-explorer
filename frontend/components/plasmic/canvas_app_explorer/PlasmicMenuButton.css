@@ -1,0 +1,35 @@
+.MenuButton__root__aKm5 {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  position: relative;
+}
+.MenuButton__box__qg29I {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 5px;
+  border: 1px solid rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+}
+.MenuButton__svg___07On {
+  position: relative;
+  object-fit: cover;
+  color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.MenuButton__svg__vNni9 {
+  position: relative;
+  object-fit: cover;
+  color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}

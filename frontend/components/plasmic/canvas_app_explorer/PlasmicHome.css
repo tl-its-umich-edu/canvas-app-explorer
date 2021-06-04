@@ -1,0 +1,213 @@
+.Home__root__rfWi8 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.Home__textbox__kcHjj {
+  position: relative;
+  width: 180px;
+}
+.Home__box___8LuQk {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  max-width: 1600px;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+.Home__header__iXzGr.__wab_instance {
+  position: relative;
+}
+.Home__textbox__y0QeV {
+  position: relative;
+  width: 180px;
+}
+.Home__box__d20ZQ {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 16px;
+  margin-bottom: 64px;
+}
+.Home__box__k3LxN {
+  position: relative;
+  color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
+  font-size: 20px;
+  font-weight: 500;
+  background: rgb(234, 234, 234);
+}
+.Home__box___92DMt {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 1240px;
+  height: auto;
+  overflow: visible;
+  flex-shrink: 0;
+  flex-grow: 1;
+  left: auto;
+  top: auto;
+  margin: 25px;
+}
+.Home__box___92DMt > .__wab_flex-container {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: calc(0px - 25px);
+  width: calc(100% + 25px);
+  margin-top: calc(0px - 25px);
+  height: calc(100% + 25px);
+}
+.Home__box___92DMt > .__wab_flex-container > *,
+.Home__box___92DMt > .__wab_flex-container > .__wab_slot > * {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .Home__box___92DMt {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .Home__box___92DMt > .__wab_flex-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .Home__box___92DMt > .__wab_flex-container > *,
+  .Home__box___92DMt > .__wab_flex-container > .__wab_slot > * {
+    margin-left: 0px;
+  }
+}
+.Home__productCard__foQyr.__wab_instance {
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+.Home__img__zw5Ho {
+  position: relative;
+  object-fit: cover;
+  width: 340px;
+  height: auto;
+  border: 0px solid rgb(239, 206, 74) /* plasmic-token: RZT0kXS0Ln7NE */;
+}
+.Home__ratings__yXulX.__wab_instance {
+  position: relative;
+}
+.Home__img__zZtPf {
+  position: relative;
+  object-fit: cover;
+  height: 79px;
+  left: auto;
+  top: auto;
+  width: 180px;
+  align-self: auto;
+}
+.Home__box__c1Y5M {
+  padding: 0px 15px;
+  background: #ffffff;
+}
+.Home__productCard__gpGZx.__wab_instance {
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+.Home__img__psMY {
+  position: relative;
+  object-fit: cover;
+  width: 340px;
+  height: auto;
+  border: 0px solid rgb(239, 206, 74) /* plasmic-token: RZT0kXS0Ln7NE */;
+}
+.Home__ratings__iUUiJ.__wab_instance {
+  position: relative;
+}
+.Home__img__u0Ib1 {
+  position: relative;
+  object-fit: cover;
+  height: 79px;
+  left: auto;
+  top: auto;
+  width: 180px;
+  align-self: auto;
+}
+.Home__box__jl7El {
+  padding: 0px 15px;
+}
+.Home__productCard___71L95.__wab_instance {
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+.Home__img__fApwR {
+  position: relative;
+  object-fit: cover;
+  width: 340px;
+  border: 0px solid rgb(239, 206, 74) /* plasmic-token: RZT0kXS0Ln7NE */;
+}
+.Home__ratings___14DWe.__wab_instance {
+  position: relative;
+}
+.Home__img__eqcPf {
+  position: relative;
+  object-fit: cover;
+  height: 79px;
+  left: auto;
+  top: auto;
+  width: 180px;
+  align-self: auto;
+}
+.Home__box__qBpZp {
+  padding: 0px 15px;
+}
+.Home__productCard__fdYsT.__wab_instance {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 350px;
+  flex-shrink: 0;
+}
+.Home__screenshot__th2S7.__wab_instance {
+  position: relative;
+}
+.Home__ratings__pMbc.__wab_instance {
+  position: relative;
+}
+.Home__img__lDmp9 {
+  position: relative;
+  object-fit: cover;
+  height: 79px;
+  left: auto;
+  top: auto;
+  width: 257px;
+  align-self: center;
+}
+.Home__box__te2Ty {
+  width: 343px;
+  padding: 0px 15px;
+}
+.Home__footer__sUgvZ.__wab_instance {
+  position: relative;
+}
+.Home__textbox__triAl {
+  position: relative;
+  width: 180px;
+}

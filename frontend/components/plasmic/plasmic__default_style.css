@@ -1,0 +1,121 @@
+.plasmic_default__all {
+  display: block;
+  white-space: inherit;
+  grid-row: auto;
+  grid-column: auto;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  box-sizing: border-box;
+  text-decoration-line: none;
+  transition-property: all;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-duration: 0s;
+  margin: 0;
+  border-width: 0px;
+}
+.plasmic_default__img {
+  display: inline-block;
+}
+.plasmic_default__input {
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-transform: inherit;
+  padding: 2px;
+  background: #ffffff;
+  border: 1px solid lightgray;
+}
+.plasmic_default__textarea {
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-transform: inherit;
+  padding: 2px;
+  border: 1px solid lightgray;
+}
+.plasmic_default__button {
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-transform: inherit;
+  padding: 2px 6px;
+  background: none;
+  border: 1px solid lightgray;
+}
+.plasmic_default__code {
+  font-family: inherit;
+  line-height: inherit;
+}
+.plasmic_default__pre {
+  font-family: inherit;
+  line-height: inherit;
+}
+.plasmic_default__h1 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.plasmic_default__h2 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.plasmic_default__h3 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.plasmic_default__h4 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.plasmic_default__h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.plasmic_default__h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.plasmic_default__address {
+  font-style: inherit;
+}
+.plasmic_default__ol {
+  list-style-type: none;
+  padding: 0;
+}
+.plasmic_default__ul {
+  list-style-type: none;
+  padding: 0;
+}
+.plasmic_default__select {
+  padding: 2px 6px;
+}
+.plasmic_default__li {
+  list-style-type: none;
+}
+.plasmic_default__component_wrapper {
+  display: grid;
+}
+.__wab_text {
+  display: inline-block;
+}
+.plasmic_page_wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-items: stretch;
+  align-self: start;
+}
+.plasmic_page_wrapper > * {
+  height: auto !important;
+}
