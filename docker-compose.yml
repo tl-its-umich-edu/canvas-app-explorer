@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/code:delegated
       # use the container's node_modules folder (don't override)
-      - /code/node_modules/
+      - /code/frontend/node_modules/
       - /code/static/
       - ${HOME}/mylasecrets:/secrets
     ports:
