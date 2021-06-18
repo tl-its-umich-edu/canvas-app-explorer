@@ -1,6 +1,8 @@
-g# Project files
+# Project files
 
 webpack-stats.json
+# MySQL data files
+.data
 
 # https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
 # Byte-compiled / optimized / DLL files

@@ -1,5 +1,7 @@
 from django.db import models
 
+# Create your models here.
+
 class LtiTool(models.Model):
     name = models.CharField(max_length=50)
     logo_image = models.BinaryField()
@@ -12,4 +14,3 @@ class LtiTool(models.Model):
 
 class CanvasPlacement(models.Model):
     name = models.CharField(max_length=150)
-
