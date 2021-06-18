@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+class CanvasPlacement(models.Model):
+    name = models.CharField(max_length=150)
+
 class LtiTool(models.Model):
     name = models.CharField(max_length=50)
     logo_image = models.BinaryField()
@@ -10,7 +13,4 @@ class LtiTool(models.Model):
     long_description = models.TextField()
     privacy_agreement = models.TextField()
     support_resources = models.TextField()
-    canvas_placmenet = models.IntegerField()
-
-class CanvasPlacement(models.Model):
-    name = models.CharField(max_length=150)
+    canvas_placement = models.ManyToManyField(CanvasPlacement)
