@@ -3,7 +3,6 @@
 import os
 import sys
 
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
@@ -17,6 +16,8 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "backend"))
 
 if __name__ == '__main__':
     main()
