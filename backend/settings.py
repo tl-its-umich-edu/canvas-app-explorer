@@ -16,6 +16,9 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), ".."),
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -33,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'backend.canvas_app_explorer',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,11 +113,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/django_static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend'),
 )
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 WEBPACK_LOADER = {
     'DEFAULT': {
