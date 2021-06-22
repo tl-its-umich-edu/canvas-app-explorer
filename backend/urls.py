@@ -23,12 +23,17 @@ from django.views import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    # TODO: Switch this to collectstatic and put it in static
-    re_path(r'^%s(?P<path>.*)$' % settings.STATIC_URL[1:], 
-        view = static.serve, 
-        kwargs = {'document_root': 
-            os.path.join(settings.BASE_DIR, 'frontend/public/'), 
-            'show_indexes' : True
+]
+
+# TODO: This is to aid local development. Switch this to collectstatic and put it in static
+# This exposes the frontend/public/plasmic directory on a url in static
+if settings.DEBUG:
+    urlpatterns += [
+        re_path(r'^static/plasmic/(?P<path>.*)$', 
+            view = static.serve, 
+            kwargs = {
+                'document_root': os.path.join(settings.BASE_DIR, 'frontend/public/plasmic'), 
+                'show_indexes' : True
             }
         )
     ]
