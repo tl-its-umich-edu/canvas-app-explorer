@@ -12,6 +12,4 @@ class LTIToolViewSet(viewsets.ModelViewSet):
     queryset = models.LtiTool.objects.all()
     serializer_class = serializers.LtiToolSerializer
 
-    # This may later change to DjangoModelPermissions, or IsAdminUser might be fine
-    # This allows ReadOnly to GET but only Admin can modify
-    permission_classes = [permissions.IsAdminUser, permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
