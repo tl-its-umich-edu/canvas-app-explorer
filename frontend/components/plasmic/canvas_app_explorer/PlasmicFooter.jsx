@@ -9,9 +9,7 @@
 // Plasmic Project: mXv5TZ5SUPGRneH9RoMn6q
 // Component: SxuS7aSzfTV9l
 import * as React from "react";
-import * as p from "@plasmicapp/react-web";
 import {
-  hasVariant,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
@@ -53,9 +51,7 @@ function PlasmicFooter__RenderFunc(props) {
           "Footer__box__zZokF"
         )}
       >
-        <p.Stack
-          as={"div"}
-          hasGap={hasVariant(globalVariants, "screen", "mobile") ? true : false}
+        <div
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
@@ -86,7 +82,7 @@ function PlasmicFooter__RenderFunc(props) {
           >
             {"University of Michigan"}
           </a>
-        </p.Stack>
+        </div>
       </div>
     </div>
   );

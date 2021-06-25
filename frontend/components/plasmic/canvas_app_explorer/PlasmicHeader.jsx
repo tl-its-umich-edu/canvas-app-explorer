@@ -109,7 +109,7 @@ function PlasmicHeader__RenderFunc(props) {
             "Header__box__keObZ"
           )}
         >
-          {"LTI Organizer"}
+          {"Canvas App Explorer"}
         </div>
 
         <p.Stack

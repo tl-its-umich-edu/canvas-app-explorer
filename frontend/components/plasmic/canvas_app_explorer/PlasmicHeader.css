@@ -15,6 +15,7 @@
   height: auto;
   min-width: 0;
   padding: 32px;
+  background: rgb(255, 255, 255) repeat;
 }
 .Header__box__ikq92 > .__wab_flex-container {
   justify-content: space-between;
@@ -51,8 +52,9 @@
 .Header__box__keObZ {
   position: relative;
   height: 41px;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 800;
+  color: #00274c /* plasmic-token: HxoWIRXur */;
 }
 .Header__box__zcEqf {
   display: inline-flex;
