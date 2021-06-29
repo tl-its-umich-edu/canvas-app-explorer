@@ -691,6 +691,16 @@
       }
     },
     {
+      "name": "Michigan Yellow",
+      "type": "color",
+      "value": "rgb(97,96,96)",
+      "category": "color",
+      "meta": {
+        "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
+        "id": "Nqkhu5Hmc"
+      }
+    },
+    {
       "name": "Spectrum/Blue/00",
       "type": "color",
       "value": "rgb(0,11,27)",
@@ -3003,7 +3013,7 @@
     {
       "name": "Umich Blue",
       "type": "color",
-      "value": "#08244C",
+      "value": "#00274C",
       "category": "color",
       "meta": {
         "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
@@ -3013,7 +3023,7 @@
     {
       "name": "Umich Yellow",
       "type": "color",
-      "value": "#F6C904",
+      "value": "#FFCB05",
       "category": "color",
       "meta": {
         "projectId": "mXv5TZ5SUPGRneH9RoMn6q",

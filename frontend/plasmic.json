@@ -29,7 +29,8 @@
       "components": [],
       "icons": [],
       "images": [],
-      "projectApiToken": "nPw276qGsy9kISQCHrcRrsj3Y9Yva9TMyYKNUpoOMOHgRj1A51qOC6LMB2185QlA52K87n32oQJHSi5be9w"
+      "projectApiToken": "nPw276qGsy9kISQCHrcRrsj3Y9Yva9TMyYKNUpoOMOHgRj1A51qOC6LMB2185QlA52K87n32oQJHSi5be9w",
+      "jsBundleThemes": []
     },
     {
       "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
@@ -155,19 +156,6 @@
           "componentType": "component"
         },
         {
-          "id": "I3rygGi43X",
-          "name": "LearnMoreCard",
-          "type": "managed",
-          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
-          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreCard.jsx",
-          "importSpec": {
-            "modulePath": "LearnMoreCard.jsx"
-          },
-          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreCard.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "fUpKi24Qhx",
           "name": "Screenshot",
           "type": "managed",
@@ -203,6 +191,19 @@
             "modulePath": "LearnMoreTool.jsx"
           },
           "cssFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreTool.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "dm73fzeGC7",
+          "name": "LearnMoreButton",
+          "type": "managed",
+          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
+          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreButton.jsx",
+          "importSpec": {
+            "modulePath": "LearnMoreButton.jsx"
+          },
+          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreButton.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -351,7 +352,8 @@
           "filePath": "../public/plasmic/canvas_app_explorer/images/panoptoVideoPlatformInVideoQuizzing1280X662Jpg.jpeg"
         }
       ],
-      "projectApiToken": "EQH0PU2EOqaN7jOntDWszrnR6TNivmUyHmhXFSJgHjQVznQcnbtgOiQdQiyEqwRU062gJqQB9ELOPVBCQ"
+      "projectApiToken": "EQH0PU2EOqaN7jOntDWszrnR6TNivmUyHmhXFSJgHjQVznQcnbtgOiQdQiyEqwRU062gJqQB9ELOPVBCQ",
+      "codeComponents": []
     }
   ],
   "globalVariants": {
@@ -364,6 +366,6 @@
       }
     ]
   },
-  "cliVersion": "0.1.152",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.152/dist/plasmic.schema.json"
+  "cliVersion": "0.1.157",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.157/dist/plasmic.schema.json"
 }

@@ -14,7 +14,6 @@ import {
   hasVariant,
   classNames,
   createPlasmicElementProxy,
-  useTrigger,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import LearnMoreTool from "../../LearnMoreTool"; // plasmic-import: 50HKxnb8xJ/component
@@ -22,6 +21,7 @@ import ScreenshotBackground from "../../ScreenshotBackground"; // plasmic-import
 import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import LinkButton from "../../LinkButton"; // plasmic-import: tr5phcLQqCoEx/component
 import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
+import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
@@ -29,7 +29,8 @@ import "./PlasmicProductCard.css"; // plasmic-import: zc_-JZqmkLhAk/css
 
 export const PlasmicProductCard__VariantProps = new Array(
   "withReviews",
-  "withoutScreenshot"
+  "withoutScreenshot",
+  "learnMore"
 );
 
 export const PlasmicProductCard__ArgProps = new Array(
@@ -38,16 +39,16 @@ export const PlasmicProductCard__ArgProps = new Array(
   "ratings",
   "logo",
   "description",
-  "children"
+  "children",
+  "toolLearnMore",
+  "descriptionLearnMore",
+  "privacyAgreementLearnMore",
+  "placementsInCanvasLearnMore",
+  "supportResourcesLearnMore"
 );
 
 function PlasmicProductCard__RenderFunc(props) {
   const { variants, args, overrides, forNode, dataFetches } = props;
-  const [isRootActive, triggerRootActiveProps] = useTrigger("usePressed", {});
-  const triggers = {
-    active_root: isRootActive
-  };
-
   return (
     <p.Stack
       as={"div"}
@@ -62,6 +63,12 @@ function PlasmicProductCard__RenderFunc(props) {
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "ProductCard__root___1U08P",
         {
+          ProductCard__root__learnMore___1U08POklBv: hasVariant(
+            variants,
+            "learnMore",
+            "learnMore"
+          ),
+
           ProductCard__root__withReviews___1U08PvvVo9: hasVariant(
             variants,
             "withReviews",
@@ -75,7 +82,6 @@ function PlasmicProductCard__RenderFunc(props) {
           )
         }
       )}
-      data-plasmic-trigger-props={[triggerRootActiveProps]}
     >
       {false ? (
         <LearnMoreTool
@@ -87,7 +93,7 @@ function PlasmicProductCard__RenderFunc(props) {
           )}
         />
       ) : null}
-      {(triggers.active_root ? true : false) ? (
+      {false ? (
         <div
           className={classNames(
             "plasmic_default__all",
@@ -95,7 +101,7 @@ function PlasmicProductCard__RenderFunc(props) {
             "ProductCard__box__fjr2W"
           )}
         >
-          {(triggers.active_root ? true : false) ? (
+          {false ? (
             <div
               className={classNames(
                 "plasmic_default__all",
@@ -104,21 +110,12 @@ function PlasmicProductCard__RenderFunc(props) {
                 "ProductCard__box__kpIdU"
               )}
             >
-              {triggers.active_root ? (
-                <span>
-                  <span style={{ fontWeight: 700 }}>{"Privacy Agreement"}</span>
-                  <React.Fragment>
-                    {"\nData Protection Addendum"}
-                  </React.Fragment>
-                </span>
-              ) : (
-                "Enter some text"
-              )}
+              {"Enter some text"}
             </div>
           ) : null}
         </div>
       ) : null}
-      {(triggers.active_root ? true : false) ? (
+      {false ? (
         <div
           className={classNames(
             "plasmic_default__all",
@@ -126,7 +123,7 @@ function PlasmicProductCard__RenderFunc(props) {
             "ProductCard__box__fGeZt"
           )}
         >
-          {(triggers.active_root ? true : false) ? (
+          {false ? (
             <div
               className={classNames(
                 "plasmic_default__all",
@@ -135,21 +132,12 @@ function PlasmicProductCard__RenderFunc(props) {
                 "ProductCard__box__t9Ot"
               )}
             >
-              {triggers.active_root ? (
-                <span>
-                  <span style={{ fontWeight: 700 }}>{"Description"}</span>
-                  <React.Fragment>
-                    {"\nProvides access to the Zoom video conference platform"}
-                  </React.Fragment>
-                </span>
-              ) : (
-                "Enter some text"
-              )}
+              {"Enter some text"}
             </div>
           ) : null}
         </div>
       ) : null}
-      {(triggers.active_root ? true : false) ? (
+      {false ? (
         <div
           className={classNames(
             "plasmic_default__all",
@@ -157,7 +145,7 @@ function PlasmicProductCard__RenderFunc(props) {
             "ProductCard__box__pdlFp"
           )}
         >
-          {(triggers.active_root ? true : false) ? (
+          {false ? (
             <div
               className={classNames(
                 "plasmic_default__all",
@@ -166,19 +154,12 @@ function PlasmicProductCard__RenderFunc(props) {
                 "ProductCard__box__pcpps"
               )}
             >
-              {triggers.active_root ? (
-                <span>
-                  <span style={{ fontWeight: 700 }}>{"Tool"}</span>
-                  <React.Fragment>{"\nZoom"}</React.Fragment>
-                </span>
-              ) : (
-                "Enter some text"
-              )}
+              {"Enter some text"}
             </div>
           ) : null}
         </div>
       ) : null}
-      {(triggers.active_root ? true : false) ? (
+      {false ? (
         <div
           className={classNames(
             "plasmic_default__all",
@@ -186,7 +167,7 @@ function PlasmicProductCard__RenderFunc(props) {
             "ProductCard__box___5MRxG"
           )}
         >
-          {(triggers.active_root ? true : false) ? (
+          {false ? (
             <div
               className={classNames(
                 "plasmic_default__all",
@@ -195,21 +176,12 @@ function PlasmicProductCard__RenderFunc(props) {
                 "ProductCard__box__tCd2V"
               )}
             >
-              {triggers.active_root ? (
-                <span>
-                  <span style={{ fontWeight: 700 }}>
-                    {"Placements in Canvas"}
-                  </span>
-                  <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                </span>
-              ) : (
-                "Enter some text"
-              )}
+              {"Enter some text"}
             </div>
           ) : null}
         </div>
       ) : null}
-      {(triggers.active_root ? true : false) ? (
+      {false ? (
         <div
           className={classNames(
             "plasmic_default__all",
@@ -217,7 +189,7 @@ function PlasmicProductCard__RenderFunc(props) {
             "ProductCard__box__oShwi"
           )}
         >
-          {(triggers.active_root ? true : false) ? (
+          {false ? (
             <div
               className={classNames(
                 "plasmic_default__all",
@@ -226,27 +198,24 @@ function PlasmicProductCard__RenderFunc(props) {
                 "ProductCard__box__wABx5"
               )}
             >
-              {triggers.active_root ? (
-                <span>
-                  <span style={{ fontWeight: 700 }}>{"Support Resources"}</span>
-                  <React.Fragment>
-                    {"\nITS Teaching with Zoom Guide (link)"}
-                  </React.Fragment>
-                </span>
-              ) : (
-                "Enter some text"
-              )}
+              {"Enter some text"}
             </div>
           ) : null}
         </div>
       ) : null}
-      {(triggers.active_root ? false : true) ? (
+      {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
         <div
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
             "ProductCard__box__l71Vb",
             {
+              ProductCard__box__learnMore__l71VbOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              ),
+
               ProductCard__box__withReviews__l71VBvvVo9: hasVariant(
                 variants,
                 "withReviews",
@@ -255,15 +224,22 @@ function PlasmicProductCard__RenderFunc(props) {
             }
           )}
         >
-          {(triggers.active_root ? false : true) ? (
+          {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
             <div
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__div",
-                "ProductCard__box__hJJoE"
+                "ProductCard__box__hJJoE",
+                {
+                  ProductCard__box__learnMore__hJJoEOklBv: hasVariant(
+                    variants,
+                    "learnMore",
+                    "learnMore"
+                  )
+                }
               )}
             >
-              {(triggers.active_root ? false : true)
+              {(hasVariant(variants, "learnMore", "learnMore") ? false : true)
                 ? p.renderPlasmicSlot({
                     defaultContents: (
                       <img
@@ -287,14 +263,14 @@ function PlasmicProductCard__RenderFunc(props) {
           ) : null}
         </div>
       ) : null}
-      {(triggers.active_root ? false : true)
+      {(hasVariant(variants, "learnMore", "learnMore") ? false : true)
         ? p.renderPlasmicSlot({
             defaultContents:
               "Panopto is used to record, share and manage videos.",
             value: args.description
           })
         : null}
-      {(triggers.active_root ? false : true) ? (
+      {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
         <ScreenshotBackground
           data-plasmic-name={"screenshotBackground"}
           data-plasmic-override={overrides.screenshotBackground}
@@ -302,6 +278,8 @@ function PlasmicProductCard__RenderFunc(props) {
             "__wab_instance",
             "ProductCard__screenshotBackground__gjUdG",
             {
+              ProductCard__screenshotBackground__learnMore__gjUdGOklBv:
+                hasVariant(variants, "learnMore", "learnMore"),
               ProductCard__screenshotBackground__withReviews__gjUdGvvVo9:
                 hasVariant(variants, "withReviews", "withReviews"),
               ProductCard__screenshotBackground__withoutScreenshot__gjUdGutYkz:
@@ -333,13 +311,7 @@ function PlasmicProductCard__RenderFunc(props) {
           })}
         />
       ) : null}
-      {(
-        triggers.active_root
-          ? false
-          : hasVariant(variants, "withReviews", "withReviews")
-          ? true
-          : false
-      )
+      {(hasVariant(variants, "withReviews", "withReviews") ? true : false)
         ? p.renderPlasmicSlot({
             defaultContents: (
               <Ratings
@@ -353,79 +325,134 @@ function PlasmicProductCard__RenderFunc(props) {
             value: args.ratings
           })
         : null}
-      {(triggers.active_root ? false : true) ? (
+      {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
         <p.Stack
           as={"div"}
           hasGap={true}
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__sbbu9"
+            "ProductCard__box__sbbu9",
+            {
+              ProductCard__box__learnMore__sbbu9OklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
           )}
         >
-          {(triggers.active_root ? false : true)
+          {(hasVariant(variants, "learnMore", "learnMore") ? false : true)
             ? p.renderPlasmicSlot({
                 defaultContents: "Title",
                 value: args.title,
-                className: classNames("ProductCard__slotTitle__kXepm")
+                className: classNames("ProductCard__slotTitle__kXepm", {
+                  ProductCard__slotTitle__learnMore__kXepmOklBv: hasVariant(
+                    variants,
+                    "learnMore",
+                    "learnMore"
+                  )
+                })
               })
             : null}
         </p.Stack>
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <img
+          alt={""}
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__img",
+            "ProductCard__img__vbid0",
+            {
+              ProductCard__img__learnMore__vbid0OklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+          role={"img"}
+          src={
+            hasVariant(variants, "learnMore", "learnMore")
+              ? "/static/plasmic/canvas_app_explorer/images/zoom.png"
+              : undefined
+          }
+        />
       ) : null}
 
       <div
         className={classNames(
           "plasmic_default__all",
           "plasmic_default__div",
-          "ProductCard__box__wMuGj"
+          "ProductCard__box__wMuGj",
+          {
+            ProductCard__box__learnMore__wMuGjOklBv: hasVariant(
+              variants,
+              "learnMore",
+              "learnMore"
+            )
+          }
         )}
       >
+        {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
+          <LinkButton
+            className={classNames(
+              "__wab_instance",
+              "ProductCard__linkButton__cT7H",
+              {
+                ProductCard__linkButton__learnMore__cT7HOklBv: hasVariant(
+                  variants,
+                  "learnMore",
+                  "learnMore"
+                ),
+
+                ProductCard__linkButton__withoutScreenshot__cT7HUtYkz:
+                  hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
+              }
+            )}
+            text={p.renderPlasmicSlot({
+              defaultContents: (
+                <AddRemoveButton
+                  className={classNames(
+                    "__wab_instance",
+                    "ProductCard__addRemoveButton___794LZ"
+                  )}
+                  removeToolFromSite={"removeToolFromSite"}
+                />
+              ),
+
+              value: args.children
+            })}
+          />
+        ) : null}
+
         <LinkButton
           className={classNames(
             "__wab_instance",
-            "ProductCard__linkButton__cT7H"
-          )}
-          text={
-            (triggers.active_root ? false : true)
-              ? p.renderPlasmicSlot({
-                  defaultContents: (
-                    <AddRemoveButton
-                      className={classNames(
-                        "__wab_instance",
-                        "ProductCard__addRemoveButton___794LZ"
-                      )}
-                      removeToolFromSite={"removeToolFromSite"}
-                    />
-                  ),
-
-                  value: args.children
-                })
-              : null
-          }
-        />
-
-        <LinkButton
-          className={classNames(
-            "__wab_instance",
-            "ProductCard__linkButton__cX8QG"
+            "ProductCard__linkButton__cX8QG",
+            {
+              ProductCard__linkButton__withoutScreenshot__cX8QGutYkz:
+                hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
+            }
           )}
           text={
             <React.Fragment>
-              {(triggers.active_root ? false : true) ? (
-                <div
+              {(
+                hasVariant(variants, "learnMore", "learnMore") ? false : true
+              ) ? (
+                <LearnMoreButton
+                  data-plasmic-name={"learnMoreButton"}
+                  data-plasmic-override={overrides.learnMoreButton}
                   className={classNames(
-                    "plasmic_default__all",
-                    "plasmic_default__div",
-                    "__wab_text",
-                    "ProductCard__box__ihxgX",
+                    "__wab_instance",
+                    "ProductCard__learnMoreButton__uLwn9",
                     {
-                      ProductCard__box__withReviews__ihxgXvvVo9: hasVariant(
-                        variants,
-                        "withReviews",
-                        "withReviews"
-                      ),
-
-                      ProductCard__box__withoutScreenshot__ihxgXutYkz:
+                      ProductCard__learnMoreButton__learnMore__uLwn9OklBv:
+                        hasVariant(variants, "learnMore", "learnMore"),
+                      ProductCard__learnMoreButton__withReviews__uLwn9VvVo9:
+                        hasVariant(variants, "withReviews", "withReviews"),
+                      ProductCard__learnMoreButton__withoutScreenshot__uLwn9UtYkz:
                         hasVariant(
                           variants,
                           "withoutScreenshot",
@@ -433,11 +460,14 @@ function PlasmicProductCard__RenderFunc(props) {
                         )
                     }
                   )}
-                >
-                  {"Learn More"}
-                </div>
+                  learnMore={
+                    hasVariant(variants, "learnMore", "learnMore")
+                      ? "learnMore"
+                      : undefined
+                  }
+                />
               ) : null}
-              {(triggers.active_root ? false : false) ? (
+              {false ? (
                 <svg
                   data-plasmic-name={"svg"}
                   data-plasmic-override={overrides.svg}
@@ -454,10 +484,8 @@ function PlasmicProductCard__RenderFunc(props) {
         />
       </div>
 
-      {(triggers.active_root ? true : false) ? (
+      {false ? (
         <img
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
           alt={""}
           className={classNames(
             "plasmic_default__all",
@@ -465,23 +493,195 @@ function PlasmicProductCard__RenderFunc(props) {
             "ProductCard__img__bTZld"
           )}
           role={"img"}
-          src={
-            triggers.active_root
-              ? "/static/plasmic/canvas_app_explorer/images/zoom.png"
-              : undefined
-          }
         />
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? false : false) ? (
+        <div
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box__aSszv",
+            {
+              ProductCard__box__learnMore__aSszvOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+        >
+          {false ? (
+            <div
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__div",
+                "__wab_text",
+                "ProductCard__box__bjM9S"
+              )}
+            >
+              {"Enter some text"}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <div
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box__pggEe",
+            {
+              ProductCard__box__learnMore__pggEeOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <span>
+                <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+                <React.Fragment>{"\nZoom"}</React.Fragment>
+              </span>
+            ),
+
+            value: args.toolLearnMore
+          })}
+        </div>
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <div
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box___0HGbF",
+            {
+              ProductCard__box__learnMore___0HGbFOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <span>
+                <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                <React.Fragment>
+                  {"\nProvides access to the Zoom video conference platform"}
+                </React.Fragment>
+              </span>
+            ),
+
+            value: args.descriptionLearnMore
+          })}
+        </div>
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <div
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box__vBf2M",
+            {
+              ProductCard__box__learnMore__vBf2MOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <span>
+                <span style={{ fontWeight: 700 }}>{"Privacy Agreement"}</span>
+                <React.Fragment>{"\nData Protection Addendum"}</React.Fragment>
+              </span>
+            ),
+
+            value: args.privacyAgreementLearnMore
+          })}
+        </div>
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <div
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box__emvgm",
+            {
+              ProductCard__box__learnMore__emvgmOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <span>
+                <span style={{ fontWeight: 700 }}>
+                  {"Placements in Canvas"}
+                </span>
+                <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
+              </span>
+            ),
+
+            value: args.placementsInCanvasLearnMore
+          })}
+        </div>
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <div
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box__wfCuQ",
+            {
+              ProductCard__box__learnMore__wfCuQOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <span>
+                <span style={{ fontWeight: 700 }}>{"Support Resources"}</span>
+                <React.Fragment>
+                  {"\nITS Teaching with Zoom Guide (link)"}
+                </React.Fragment>
+              </span>
+            ),
+
+            value: args.supportResourcesLearnMore
+          })}
+        </div>
       ) : null}
     </p.Stack>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "learnMoreTool", "screenshotBackground", "svg", "img"],
+  root: [
+    "root",
+    "learnMoreTool",
+    "screenshotBackground",
+    "learnMoreButton",
+    "svg"
+  ],
+
   learnMoreTool: ["learnMoreTool"],
   screenshotBackground: ["screenshotBackground"],
-  svg: ["svg"],
-  img: ["img"]
+  learnMoreButton: ["learnMoreButton"],
+  svg: ["svg"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -517,8 +717,8 @@ export const PlasmicProductCard = Object.assign(
     // Helper components rendering sub-elements
     learnMoreTool: makeNodeComponent("learnMoreTool"),
     screenshotBackground: makeNodeComponent("screenshotBackground"),
+    learnMoreButton: makeNodeComponent("learnMoreButton"),
     svg: makeNodeComponent("svg"),
-    img: makeNodeComponent("img"),
     // Metadata about props expected for PlasmicProductCard
     internalVariantProps: PlasmicProductCard__VariantProps,
     internalArgProps: PlasmicProductCard__ArgProps

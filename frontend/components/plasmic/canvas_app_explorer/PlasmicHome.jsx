@@ -20,7 +20,6 @@ import Header from "../../Header"; // plasmic-import: rgvwcoUrD14Pp/component
 import ProductCard from "../../ProductCard"; // plasmic-import: zc_-JZqmkLhAk/component
 import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
-import Screenshot from "../../Screenshot"; // plasmic-import: fUpKi24Qhx/component
 import Footer from "../../Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -68,10 +67,12 @@ function PlasmicHome__RenderFunc(props) {
           ) : null}
 
           <div
+            data-plasmic-name={"appContainer"}
+            data-plasmic-override={overrides.appContainer}
             className={classNames(
               "plasmic_default__all",
               "plasmic_default__div",
-              "Home__box___8LuQk"
+              "Home__appContainer___8LuQk"
             )}
           >
             <Header
@@ -96,10 +97,12 @@ function PlasmicHome__RenderFunc(props) {
             ) : null}
 
             <div
+              data-plasmic-name={"caeDescriptionContainer"}
+              data-plasmic-override={overrides.caeDescriptionContainer}
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__div",
-                "Home__box__d20ZQ"
+                "Home__caeDescriptionContainer__d20ZQ"
               )}
             >
               <div
@@ -111,24 +114,28 @@ function PlasmicHome__RenderFunc(props) {
                 )}
               >
                 {
-                  "LTI Organizer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
+                  "Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
                 }
               </div>
             </div>
 
             <p.Stack
               as={"div"}
+              data-plasmic-name={"productCardContainer"}
+              data-plasmic-override={overrides.productCardContainer}
               hasGap={true}
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__div",
-                "Home__box___92DMt"
+                "Home__productCardContainer___92DMt"
               )}
             >
               <ProductCard
+                data-plasmic-name={"zoomCard"}
+                data-plasmic-override={overrides.zoomCard}
                 className={classNames(
                   "__wab_instance",
-                  "Home__productCard__foQyr"
+                  "Home__zoomCard__foQyr"
                 )}
                 description={
                   <div
@@ -156,6 +163,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
+                learnMore={"learnMore"}
                 logo={
                   <img
                     alt={""}
@@ -181,7 +189,6 @@ function PlasmicHome__RenderFunc(props) {
                   />
                 }
                 title={"Zoom"}
-                withReviews={"withReviews"}
               >
                 <AddRemoveButton
                   className={classNames(
@@ -192,9 +199,11 @@ function PlasmicHome__RenderFunc(props) {
               </ProductCard>
 
               <ProductCard
+                data-plasmic-name={"myLaCard"}
+                data-plasmic-override={overrides.myLaCard}
                 className={classNames(
                   "__wab_instance",
-                  "Home__productCard__gpGZx"
+                  "Home__myLaCard__gpGZx"
                 )}
                 description={
                   <div
@@ -239,17 +248,18 @@ function PlasmicHome__RenderFunc(props) {
                   />
                 }
                 ratings={
-                  <Ratings
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__ratings__iUUiJ"
-                    )}
-                    numReviews={"(45 Review)"}
-                    stars={"five"}
-                  />
+                  true ? (
+                    <Ratings
+                      className={classNames(
+                        "__wab_instance",
+                        "Home__ratings__iUUiJ"
+                      )}
+                      numReviews={"(45 Review)"}
+                      stars={"five"}
+                    />
+                  ) : null
                 }
                 title={"My Learning Analytics"}
-                withReviews={"withReviews"}
               >
                 <AddRemoveButton
                   className={classNames(
@@ -260,9 +270,11 @@ function PlasmicHome__RenderFunc(props) {
               </ProductCard>
 
               <ProductCard
+                data-plasmic-name={"piazzaCard"}
+                data-plasmic-override={overrides.piazzaCard}
                 className={classNames(
                   "__wab_instance",
-                  "Home__productCard___71L95"
+                  "Home__piazzaCard___71L95"
                 )}
                 description={
                   <div
@@ -317,7 +329,6 @@ function PlasmicHome__RenderFunc(props) {
                   />
                 }
                 title={"Piazza"}
-                withReviews={"withReviews"}
               >
                 <AddRemoveButton
                   className={classNames(
@@ -329,9 +340,11 @@ function PlasmicHome__RenderFunc(props) {
               </ProductCard>
 
               <ProductCard
+                data-plasmic-name={"panoptoCard"}
+                data-plasmic-override={overrides.panoptoCard}
                 className={classNames(
                   "__wab_instance",
-                  "Home__productCard__fdYsT"
+                  "Home__panoptoCard__cv5Of"
                 )}
                 description={
                   <div
@@ -339,43 +352,23 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__all",
                       "plasmic_default__div",
                       "__wab_text",
-                      "Home__box__te2Ty"
+                      "Home__box__p0Nci"
                     )}
                   >
-                    {"Used to record, share, and manage videos."}
+                    {"Panopto is used to record, share and manage videos."}
                   </div>
                 }
-                image={
-                  <Screenshot
-                    data-plasmic-name={"screenshot"}
-                    data-plasmic-override={overrides.screenshot}
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__screenshot__th2S7"
-                    )}
-                  />
-                }
-                ratings={
-                  <Ratings
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__ratings__pMbc"
-                    )}
-                    numReviews={"(45 Review)"}
-                    stars={"three"}
-                  />
-                }
                 title={"Panopto"}
-                withReviews={"withReviews"}
-                withoutScreenshot={"withoutScreenshot"}
               />
             </p.Stack>
 
-            <Footer
-              data-plasmic-name={"footer"}
-              data-plasmic-override={overrides.footer}
-              className={classNames("__wab_instance", "Home__footer__sUgvZ")}
-            />
+            {true ? (
+              <Footer
+                data-plasmic-name={"footer"}
+                data-plasmic-override={overrides.footer}
+                className={classNames("__wab_instance", "Home__footer__sUgvZ")}
+              />
+            ) : null}
           </div>
 
           {false ? (
@@ -398,9 +391,45 @@ function PlasmicHome__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "screenshot", "footer"],
+  root: [
+    "root",
+    "appContainer",
+    "header",
+    "caeDescriptionContainer",
+    "productCardContainer",
+    "zoomCard",
+    "myLaCard",
+    "piazzaCard",
+    "panoptoCard",
+    "footer"
+  ],
+
+  appContainer: [
+    "appContainer",
+    "header",
+    "caeDescriptionContainer",
+    "productCardContainer",
+    "zoomCard",
+    "myLaCard",
+    "piazzaCard",
+    "panoptoCard",
+    "footer"
+  ],
+
   header: ["header"],
-  screenshot: ["screenshot"],
+  caeDescriptionContainer: ["caeDescriptionContainer"],
+  productCardContainer: [
+    "productCardContainer",
+    "zoomCard",
+    "myLaCard",
+    "piazzaCard",
+    "panoptoCard"
+  ],
+
+  zoomCard: ["zoomCard"],
+  myLaCard: ["myLaCard"],
+  piazzaCard: ["piazzaCard"],
+  panoptoCard: ["panoptoCard"],
   footer: ["footer"]
 };
 
@@ -435,8 +464,14 @@ export const PlasmicHome = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    appContainer: makeNodeComponent("appContainer"),
     header: makeNodeComponent("header"),
-    screenshot: makeNodeComponent("screenshot"),
+    caeDescriptionContainer: makeNodeComponent("caeDescriptionContainer"),
+    productCardContainer: makeNodeComponent("productCardContainer"),
+    zoomCard: makeNodeComponent("zoomCard"),
+    myLaCard: makeNodeComponent("myLaCard"),
+    piazzaCard: makeNodeComponent("piazzaCard"),
+    panoptoCard: makeNodeComponent("panoptoCard"),
     footer: makeNodeComponent("footer"),
     // Metadata about props expected for PlasmicHome
     internalVariantProps: PlasmicHome__VariantProps,
