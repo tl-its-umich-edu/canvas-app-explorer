@@ -24,7 +24,7 @@ async function Home_(props, ref) {
   // Fetch json data from /api/lti_tools/
   const url = "http://localhost:5000/api/lti_tools/"
 	let tools = new Array ();
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 4; i++) { // just using this manual for loop for now
     const response = await fetch(url);
     const data = await response.json();
 		let obj = JSON.parse(data)
@@ -84,7 +84,7 @@ async function Home_(props, ref) {
 		}
 	})
 
-	
+
   return <PlasmicHome root={{ ref }} {...props} />;
 }
 
