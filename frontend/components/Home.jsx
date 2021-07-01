@@ -37,13 +37,14 @@ async function FetchData() {
 	data.forEach(obj => {
 		tools.push(obj);
 	})
+    return tools;
 }
 
 function Home__RenderFunc(props,ref) {  
 
 	// Fetch json data
-	// tools = FetchData()
-
+	let tools = FetchData();
+    console.log(tools)
 	const { variants, args, overrides, forNode, dataFetches } = props;
 	const globalVariants = ensureGlobalVariants({
 		screen: useScreenVariants()
@@ -142,8 +143,7 @@ function Home__RenderFunc(props,ref) {
 								"Home__productCardContainer___92DMt"
 							)}
 						>
-							{/* CODE TO IMPLEMENT EACH CARD
-							tools.map(tool => ( //Not sure if this should be called children or something else
+							{/*tools.map(tool => {
 								<ProductCard
 									className={classNames(
 										"__wab_instance",	
@@ -157,6 +157,7 @@ function Home__RenderFunc(props,ref) {
 											)}
 										>    
 											{tool.name}
+                                            console.log(tool.name)
 										</div>
 									}
 									image={
@@ -189,7 +190,7 @@ function Home__RenderFunc(props,ref) {
 										)}
 									/>
 								</ProductCard>
-							*/}
+                            })*/}    
 							<ProductCard
 								data-plasmic-name={"zoomCard"}
 								data-plasmic-override={overrides.zoomCard}
@@ -206,7 +207,7 @@ function Home__RenderFunc(props,ref) {
 											"Home__box__c1Y5M"
 										)}
 									>
-										{"Provides access to the Zoom video conference platform."}
+										{"Zoom long description"}
 									</div>
 								}
 								image={
