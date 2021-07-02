@@ -26,22 +26,8 @@ export const Home__VariantProps = new Array();
 
 export const Home__ArgProps = new Array();
 
-//   return <PlasmicHome root={{ ref }} {...props} />;
-
-/*async function FetchData() {
-	// Fetch json data from /api/lti_tools/
-	const url = "http://localhost:5000/api/lti_tools/";  
-	let tools = new Array ();
-	const response = await fetch(url);
-	const data = await response.json();
-	data.forEach(obj => {
-		tools.push(obj);
-	})
-    return tools;
-} */
-
 function Home__RenderFunc(props,ref) {  
-    const [tools, setTools] = useState([]);
+    const [tools, setTools] = useState(null);
 
     useEffect(async () => {
         const url = "http://localhost:5000/api/lti_tools/";
@@ -50,9 +36,8 @@ function Home__RenderFunc(props,ref) {
         setTools(data)
     }, []);
 
-	// Fetch json data
-	//let tools = FetchData();
-    console.log(tools)
+    console.log("Tools");
+    console.log(tools);
 	const { variants, args, overrides, forNode, dataFetches } = props;
 	const globalVariants = ensureGlobalVariants({
 		screen: useScreenVariants()
@@ -151,284 +136,82 @@ function Home__RenderFunc(props,ref) {
 								"Home__productCardContainer___92DMt"
 							)}
 						>
-							{/*tools.map(tool => {
-								<ProductCard
-									className={classNames(
-										"__wab_instance",	
-									)}
-									description={
-										<div
-											className={classNames(
-												"plasmic_default__all",
-												"plasmic_default__div",
-												"__wab_text",
-											)}
-										>    
-											{tool.name}
-                                            console.log(tool.name)
-										</div>
-									}
-									image={
-										<img
-											alt={""}
-											className={classNames(
-												"plasmic_default__all",
-												"plasmic_default__img",
-											)}
-											role={"img"}
-											src={tool.main_image} // Image not currently in API?
-										/>
-									}
-									logo={
-										<img
-											alt={""}
-											className={classNames(
-												"plasmic_default__all",
-												"plasmic_default__img",
-											)}
-											role={"img"}
-											src={tool.logo_image}
-										/>
-									}
-									title={tool.name}
-								>
-									<AddRemoveButton
-										className={classNames(
-											"__wab_instance",
-										)}
-									/>
-								</ProductCard>
-                            })*/}    
-							<ProductCard
-								data-plasmic-name={"zoomCard"}
-								data-plasmic-override={overrides.zoomCard}
-								className={classNames(
-									"__wab_instance",
-									"Home__zoomCard__foQyr"
-								)}
-								description={
-									<div
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__div",
-											"__wab_text",
-											"Home__box__c1Y5M"
-										)}
-									>
-										{tools[0].long_description}
-									</div>
-								}
-								image={
-									<img
-										alt={""}
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__img",
-											"Home__img__zw5Ho"
-										)}
-										role={"img"}
-										src={
-											"/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
-										}
-									/>
-								}
-								learnMore={"learnMore"}
-								logo={
-									<img
-										alt={""}
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__img",
-											"Home__img__zZtPf"
-										)}
-										role={"img"}
-										src={
-											"/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
-										}
-									/>
-								}
-								ratings={
-									<Ratings
-										className={classNames(
-											"__wab_instance",
-											"Home__ratings__yXulX"
-										)}
-										numReviews={"(45 Review)"}
-										stars={"four"}
-									/>
-								}
-								title={"Zoom"}
-							>
-								<AddRemoveButton
-									className={classNames(
-										"__wab_instance",
-										"Home__addRemoveButton___3D93M"
-									)}
-								/>
-							</ProductCard>
-
-							<ProductCard
-								data-plasmic-name={"myLaCard"}
-								data-plasmic-override={overrides.myLaCard}
-								className={classNames(
-									"__wab_instance",
-									"Home__myLaCard__gpGZx"
-								)}
-								description={
-									<div
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__div",
-											"__wab_text",
-											"Home__box__jl7El"
-										)}
-									>
-										{
-											"Dashboard that provides students with information about engagement with course."
-										}
-									</div>
-								}
-								image={
-									<img
-										alt={""}
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__img",
-											"Home__img__psMY"
-										)}
-										role={"img"}
-										src={
-											"/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
-										}
-									/>
-								}
-								logo={
-									<img
-										alt={""}
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__img",
-											"Home__img__u0Ib1"
-										)}
-										role={"img"}
-										src={
-											"/static/plasmic/canvas_app_explorer/images/myLaLogo.png"
-										}
-									/>
-								}
-								ratings={
-									true ? (
-										<Ratings
-											className={classNames(
-												"__wab_instance",
-												"Home__ratings__iUUiJ"
-											)}
-											numReviews={"(45 Review)"}
-											stars={"five"}
-										/>
-									) : null
-								}
-								title={"My Learning Analytics"}
-							>
-								<AddRemoveButton
-									className={classNames(
-										"__wab_instance",
-										"Home__addRemoveButton__bH9Sb"
-									)}
-								/>
-							</ProductCard>
-
-							<ProductCard
-								data-plasmic-name={"piazzaCard"}
-								data-plasmic-override={overrides.piazzaCard}
-								className={classNames(
-									"__wab_instance",
-									"Home__piazzaCard___71L95"
-								)}
-								description={
-									<div
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__div",
-											"__wab_text",
-											"Home__box__qBpZp"
-										)}
-									>
-										{
-											"Class discussion/Q&A site with link to course navigation for Piazza discussions."
-										}
-									</div>
-								}
-								image={
-									<img
-										alt={""}
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__img",
-											"Home__img__fApwR"
-										)}
-										role={"img"}
-										src={
-											"/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
-										}
-									/>
-								}
-								logo={
-									<img
-										alt={""}
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__img",
-											"Home__img__eqcPf"
-										)}
-										role={"img"}
-										src={
-											"/static/plasmic/canvas_app_explorer/images/piazzaLogo.png"
-										}
-									/>
-								}
-								ratings={
-									<Ratings
-										className={classNames(
-											"__wab_instance",
-											"Home__ratings___14DWe"
-										)}
-										numReviews={"(45 Review)"}
-										stars={"five"}
-									/>
-								}
-								title={"Piazza"}
-							>
-								<AddRemoveButton
-									className={classNames(
-										"__wab_instance",
-										"Home__addRemoveButton___6ByWv"
-									)}
-									removeToolFromSite={"removeToolFromSite"}
-								/>
-							</ProductCard>
-
-							<ProductCard
-								data-plasmic-name={"panoptoCard"}
-								data-plasmic-override={overrides.panoptoCard}
-								className={classNames(
-									"__wab_instance",
-									"Home__panoptoCard__cv5Of"
-								)}
-								description={
-									<div
-										className={classNames(
-											"plasmic_default__all",
-											"plasmic_default__div",
-											"__wab_text",
-											"Home__box__p0Nci"
-										)}
-									>
-										{"Panopto is used to record, share and manage videos."}
-									</div>
-								}
-								title={"Panopto"}
-							/>
+                        {tools === null ? (<div>Loading . . . </div>) : (
+							tools.map(tool => ( 
+                                <ProductCard
+                                    data-plasmic-name={tool.name+"Card"}
+                                    data-plasmic-override={overrides.zoomCard}
+                                    className={classNames(
+                                        "__wab_instance",	
+                                        // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
+                                    )}
+                                    description={
+                                        <div
+                                            className={classNames(
+                                                "plasmic_default__all",
+                                                "plasmic_default__div",
+                                                "__wab_text",
+                                                "Home__box__c1Y5M" // if this line isn't here, the description won't be formatted
+                                            )}
+                                        >    
+                                            {tool.short_description}
+                                        </div>
+                                    }
+                                    image={
+                                        <img
+                                            alt={""}
+                                            className={classNames(
+                                                "plasmic_default__all",
+                                                "plasmic_default__img",
+                                                "Home__img__psMY" // if this line isn't here, the image won't be formatted
+                                            )}
+                                            role={"img"}
+                                            // src={tool.main_image} // Image not currently in API
+                                            src={
+                                                "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
+                                            }
+                                        />
+                                    }
+                                    // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
+                                    logo={
+                                        <img
+                                            alt={""}
+                                            className={classNames(
+                                                "plasmic_default__all",
+                                                "plasmic_default__img",
+                                                "Home__img__u0Ib1" // if this line isn't here, the images won't be formatted
+                                            )}
+                                            role={"img"}
+                                            // src={tool.logo_image}
+                                            src={
+                                                "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
+                                            }
+                                        />
+                                    }
+                                    ratings={ // Optional ratings addition, currently is not active
+                                        true ? (
+                                          <Ratings
+                                            className={classNames(
+                                              "__wab_instance",
+                                              "Home__ratings__iUUiJ"
+                                            )}
+                                            numReviews={"(45 Review)"}
+                                            stars={"five"}
+                                          />
+                                        ) : null
+                                    }
+                                    title={tool.name}
+                                >
+                                    <AddRemoveButton
+                                        className={classNames(
+                                            "__wab_instance",
+                                        )}
+                                    />
+                                </ProductCard>   
+                            ))
+                                        
+                        )}
+	
 						</p.Stack>
 
 						{true ? (
@@ -458,8 +241,6 @@ function Home__RenderFunc(props,ref) {
 		</React.Fragment>
 	);
 };    
-
-//const Home = React.forwardRef(Home_);
 
 const PlasmicDescendants = {
   root: [
