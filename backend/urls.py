@@ -33,6 +33,9 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    # For file storage
+    re_path(r'^files/', include('db_file_storage.urls')),
+
 ]
 
 # TODO: This is to aid local development. Switch this to collectstatic and put it in static
