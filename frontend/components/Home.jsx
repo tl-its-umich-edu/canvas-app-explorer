@@ -166,10 +166,7 @@ function Home__RenderFunc(props,ref) {
                                                 "Home__img__psMY" // if this line isn't here, the image won't be formatted
                                             )}
                                             role={"img"}
-                                            // src={tool.main_image} // Image not currently in API
-                                            src={
-                                                "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
-                                            }
+                                            src={tool.main_image} // Image not currently in API
                                         />
                                     }
                                     // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
@@ -182,10 +179,7 @@ function Home__RenderFunc(props,ref) {
                                                 "Home__img__u0Ib1" // if this line isn't here, the images won't be formatted
                                             )}
                                             role={"img"}
-                                            // src={tool.logo_image}
-                                            src={
-                                                "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
-                                            }
+                                            src={tool.logo_image}
                                         />
                                     }
                                     ratings={ // Optional ratings addition, currently is not active
