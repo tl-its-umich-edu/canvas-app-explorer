@@ -79,7 +79,7 @@ function PlasmicHome__RenderFunc(props) {
               data-plasmic-name={"header"}
               data-plasmic-override={overrides.header}
               className={classNames("__wab_instance", "Home__header__iXzGr")}
-              withSearchBar={"withSearchBar"}
+              noSearchBarOrSettings={"noSearchBarOrSettings"}
             />
 
             {false ? (
@@ -157,13 +157,14 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__zw5Ho"
                     )}
+                    height={330}
                     role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
                     }
+                    width={680}
                   />
                 }
-                learnMore={"learnMore"}
                 logo={
                   <img
                     alt={""}
@@ -172,10 +173,12 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__zZtPf"
                     )}
+                    height={177}
                     role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
                     }
+                    width={284}
                   />
                 }
                 ratings={
@@ -227,10 +230,12 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__psMY"
                     )}
+                    height={683}
                     role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
                     }
+                    width={1607}
                   />
                 }
                 logo={
@@ -241,10 +246,12 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__u0Ib1"
                     )}
+                    height={137}
                     role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/myLaLogo.png"
                     }
+                    width={280}
                   />
                 }
                 ratings={
@@ -298,10 +305,12 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__fApwR"
                     )}
+                    height={800}
                     role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
                     }
+                    width={1280}
                   />
                 }
                 logo={
@@ -312,10 +321,12 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__eqcPf"
                     )}
+                    height={200}
                     role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/piazzaLogo.png"
                     }
+                    width={200}
                   />
                 }
                 ratings={

@@ -249,10 +249,12 @@ function PlasmicProductCard__RenderFunc(props) {
                           "plasmic_default__img",
                           "ProductCard__img___0SrCv"
                         )}
+                        height={159}
                         role={"img"}
                         src={
                           "/static/plasmic/canvas_app_explorer/images/panoptoLogo2.png"
                         }
+                        width={318}
                       />
                     ),
 
@@ -295,8 +297,10 @@ function PlasmicProductCard__RenderFunc(props) {
                   "plasmic_default__img",
                   "ProductCard__img__z4Zz"
                 )}
+                height={630}
                 role={"img"}
                 src={"/static/plasmic/canvas_app_explorer/images/panopto.png"}
+                width={1280}
               />
             ),
 
@@ -372,11 +376,17 @@ function PlasmicProductCard__RenderFunc(props) {
               )
             }
           )}
+          height={
+            hasVariant(variants, "learnMore", "learnMore") ? 181 : undefined
+          }
           role={"img"}
           src={
             hasVariant(variants, "learnMore", "learnMore")
               ? "/static/plasmic/canvas_app_explorer/images/zoom.png"
               : undefined
+          }
+          width={
+            hasVariant(variants, "learnMore", "learnMore") ? 279 : undefined
           }
         />
       ) : null}

@@ -58,8 +58,10 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
               "plasmic_default__img",
               "ScreenshotBackground__img___96UW3"
             )}
+            height={630}
             role={"img"}
             src={"/static/plasmic/canvas_app_explorer/images/panopto.png"}
+            width={1280}
           />
         ),
 

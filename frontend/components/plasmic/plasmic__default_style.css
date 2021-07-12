@@ -18,6 +18,8 @@
 }
 .plasmic_default__img {
   display: inline-block;
+  width: auto;
+  height: auto;
 }
 .plasmic_default__input {
   font-family: inherit;

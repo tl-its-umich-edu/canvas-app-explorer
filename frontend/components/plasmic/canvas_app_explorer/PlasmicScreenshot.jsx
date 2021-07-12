@@ -38,10 +38,12 @@ function PlasmicScreenshot__RenderFunc(props) {
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "Screenshot__root__mhd7D"
       )}
+      height={662}
       role={"img"}
       src={
         "/static/plasmic/canvas_app_explorer/images/panoptoVideoPlatformInVideoQuizzing1280X662Jpg.jpeg"
       }
+      width={1280}
     />
   );
 }
