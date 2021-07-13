@@ -381,77 +381,95 @@ function PlasmicProductCard__RenderFunc(props) {
           }
         />
       ) : null}
-
-      <div
-        className={classNames(
-          "plasmic_default__all",
-          "plasmic_default__div",
-          "ProductCard__box__wMuGj",
-          {
-            ProductCard__box__learnMore__wMuGjOklBv: hasVariant(
-              variants,
-              "learnMore",
-              "learnMore"
-            )
-          }
-        )}
-      >
-        {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
-          <LinkButton
-            className={classNames(
-              "__wab_instance",
-              "ProductCard__linkButton__cT7H",
-              {
-                ProductCard__linkButton__learnMore__cT7HOklBv: hasVariant(
-                  variants,
-                  "learnMore",
-                  "learnMore"
-                ),
-
-                ProductCard__linkButton__withoutScreenshot__cT7HUtYkz:
-                  hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
-              }
-            )}
-            text={p.renderPlasmicSlot({
-              defaultContents: (
-                <AddRemoveButton
-                  className={classNames(
-                    "__wab_instance",
-                    "ProductCard__addRemoveButton___794LZ"
-                  )}
-                  removeToolFromSite={"removeToolFromSite"}
-                />
-              ),
-
-              value: args.addRemoveSlot
-            })}
-          />
-        ) : null}
-
-        <LinkButton
+      {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
+        <div
           className={classNames(
-            "__wab_instance",
-            "ProductCard__linkButton__cX8QG",
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__box__wMuGj",
             {
-              ProductCard__linkButton__withoutScreenshot__cX8QGutYkz:
-                hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
+              ProductCard__box__learnMore__wMuGjOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
             }
           )}
-          text={p.renderPlasmicSlot({
-            defaultContents: (
-              <LearnMoreButton
-                className={classNames(
-                  "__wab_instance",
-                  "ProductCard__learnMoreButton___0AuCk"
-                )}
-              />
-            ),
+        >
+          {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "ProductCard__linkButton__cT7H",
+                {
+                  ProductCard__linkButton__learnMore__cT7HOklBv: hasVariant(
+                    variants,
+                    "learnMore",
+                    "learnMore"
+                  ),
 
-            value: args.learnMoreSlot
-          })}
-        />
-      </div>
+                  ProductCard__linkButton__withoutScreenshot__cT7HUtYkz:
+                    hasVariant(
+                      variants,
+                      "withoutScreenshot",
+                      "withoutScreenshot"
+                    )
+                }
+              )}
+              text={p.renderPlasmicSlot({
+                defaultContents: (
+                  <AddRemoveButton
+                    className={classNames(
+                      "__wab_instance",
+                      "ProductCard__addRemoveButton___794LZ"
+                    )}
+                    removeToolFromSite={"removeToolFromSite"}
+                  />
+                ),
 
+                value: args.addRemoveSlot
+              })}
+            />
+          ) : null}
+          {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "ProductCard__linkButton__cX8QG",
+                {
+                  ProductCard__linkButton__learnMore__cX8QGOklBv: hasVariant(
+                    variants,
+                    "learnMore",
+                    "learnMore"
+                  ),
+
+                  ProductCard__linkButton__withoutScreenshot__cX8QGutYkz:
+                    hasVariant(
+                      variants,
+                      "withoutScreenshot",
+                      "withoutScreenshot"
+                    )
+                }
+              )}
+              text={
+                (hasVariant(variants, "learnMore", "learnMore") ? false : true)
+                  ? p.renderPlasmicSlot({
+                      defaultContents: true ? (
+                        <LearnMoreButton
+                          className={classNames(
+                            "__wab_instance",
+                            "ProductCard__learnMoreButton___0AuCk"
+                          )}
+                        />
+                      ) : null,
+                      value: args.learnMoreSlot
+                    })
+                  : null
+              }
+            />
+          ) : null}
+        </div>
+      ) : null}
       {false ? (
         <img
           alt={""}

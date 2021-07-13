@@ -20,6 +20,7 @@ import Header from "../../Header"; // plasmic-import: rgvwcoUrD14Pp/component
 import ProductCard from "../../ProductCard"; // plasmic-import: zc_-JZqmkLhAk/component
 import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
+import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import Footer from "../../Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -169,6 +170,16 @@ function PlasmicHome__RenderFunc(props) {
                     src={
                       "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
                     }
+                  />
+                }
+                learnMoreSlot={
+                  <LearnMoreButton
+                    data-plasmic-name={"learnMoreButton"}
+                    data-plasmic-override={overrides.learnMoreButton}
+                    className={classNames(
+                      "__wab_instance",
+                      "Home__learnMoreButton__j6ASy"
+                    )}
                   />
                 }
                 logo={
@@ -400,6 +411,7 @@ const PlasmicDescendants = {
     "caeDescriptionContainer",
     "productCardContainer",
     "zoomCard",
+    "learnMoreButton",
     "myLaCard",
     "piazzaCard",
     "panoptoCard",
@@ -412,6 +424,7 @@ const PlasmicDescendants = {
     "caeDescriptionContainer",
     "productCardContainer",
     "zoomCard",
+    "learnMoreButton",
     "myLaCard",
     "piazzaCard",
     "panoptoCard",
@@ -423,12 +436,14 @@ const PlasmicDescendants = {
   productCardContainer: [
     "productCardContainer",
     "zoomCard",
+    "learnMoreButton",
     "myLaCard",
     "piazzaCard",
     "panoptoCard"
   ],
 
-  zoomCard: ["zoomCard"],
+  zoomCard: ["zoomCard", "learnMoreButton"],
+  learnMoreButton: ["learnMoreButton"],
   myLaCard: ["myLaCard"],
   piazzaCard: ["piazzaCard"],
   panoptoCard: ["panoptoCard"],
@@ -471,6 +486,7 @@ export const PlasmicHome = Object.assign(
     caeDescriptionContainer: makeNodeComponent("caeDescriptionContainer"),
     productCardContainer: makeNodeComponent("productCardContainer"),
     zoomCard: makeNodeComponent("zoomCard"),
+    learnMoreButton: makeNodeComponent("learnMoreButton"),
     myLaCard: makeNodeComponent("myLaCard"),
     piazzaCard: makeNodeComponent("piazzaCard"),
     panoptoCard: makeNodeComponent("panoptoCard"),
