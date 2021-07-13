@@ -79,7 +79,7 @@ function PlasmicHome__RenderFunc(props) {
               data-plasmic-name={"header"}
               data-plasmic-override={overrides.header}
               className={classNames("__wab_instance", "Home__header__iXzGr")}
-              withSearchBar={"withSearchBar"}
+              noSearchBarOrSettings={"noSearchBarOrSettings"}
             />
 
             {false ? (
@@ -133,6 +133,14 @@ function PlasmicHome__RenderFunc(props) {
               <ProductCard
                 data-plasmic-name={"zoomCard"}
                 data-plasmic-override={overrides.zoomCard}
+                addRemoveButton={
+                  <AddRemoveButton
+                    className={classNames(
+                      "__wab_instance",
+                      "Home__addRemoveButton___3D93M"
+                    )}
+                  />
+                }
                 className={classNames(
                   "__wab_instance",
                   "Home__zoomCard__foQyr"
@@ -163,7 +171,6 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                learnMore={"learnMore"}
                 logo={
                   <img
                     alt={""}
@@ -189,18 +196,19 @@ function PlasmicHome__RenderFunc(props) {
                   />
                 }
                 title={"Zoom"}
-              >
-                <AddRemoveButton
-                  className={classNames(
-                    "__wab_instance",
-                    "Home__addRemoveButton___3D93M"
-                  )}
-                />
-              </ProductCard>
+              />
 
               <ProductCard
                 data-plasmic-name={"myLaCard"}
                 data-plasmic-override={overrides.myLaCard}
+                addRemoveButton={
+                  <AddRemoveButton
+                    className={classNames(
+                      "__wab_instance",
+                      "Home__addRemoveButton__bH9Sb"
+                    )}
+                  />
+                }
                 className={classNames(
                   "__wab_instance",
                   "Home__myLaCard__gpGZx"
@@ -260,18 +268,20 @@ function PlasmicHome__RenderFunc(props) {
                   ) : null
                 }
                 title={"My Learning Analytics"}
-              >
-                <AddRemoveButton
-                  className={classNames(
-                    "__wab_instance",
-                    "Home__addRemoveButton__bH9Sb"
-                  )}
-                />
-              </ProductCard>
+              />
 
               <ProductCard
                 data-plasmic-name={"piazzaCard"}
                 data-plasmic-override={overrides.piazzaCard}
+                addRemoveButton={
+                  <AddRemoveButton
+                    className={classNames(
+                      "__wab_instance",
+                      "Home__addRemoveButton___6ByWv"
+                    )}
+                    removeToolFromSite={"removeToolFromSite"}
+                  />
+                }
                 className={classNames(
                   "__wab_instance",
                   "Home__piazzaCard___71L95"
@@ -329,15 +339,7 @@ function PlasmicHome__RenderFunc(props) {
                   />
                 }
                 title={"Piazza"}
-              >
-                <AddRemoveButton
-                  className={classNames(
-                    "__wab_instance",
-                    "Home__addRemoveButton___6ByWv"
-                  )}
-                  removeToolFromSite={"removeToolFromSite"}
-                />
-              </ProductCard>
+              />
 
               <ProductCard
                 data-plasmic-name={"panoptoCard"}
