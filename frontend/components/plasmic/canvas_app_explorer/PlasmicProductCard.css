@@ -198,10 +198,16 @@
 .ProductCard__linkButton__withoutScreenshot__cX8QGutYkz.__wab_instance {
   flex-shrink: 0;
 }
-.ProductCard__learnMoreButton___0AuCk.__wab_instance {
+.ProductCard__learnMoreButton__uLwn9.__wab_instance {
   position: absolute;
   top: 14px;
   left: 21px;
+}
+.ProductCard__svg__kxRR {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
 }
 .ProductCard__img__bTZld {
   position: relative;

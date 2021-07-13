@@ -10,3 +10,12 @@
   background: linear-gradient(#ff0000, #ff0000),
     linear-gradient(#2bc744, #2bc744), #015906;
 }
+.AddRemoveButton__root___2GPd2:active {
+  background: linear-gradient(#ff0000, #ff0000),
+    linear-gradient(#2bc744, #2bc744), #015906;
+}
+.AddRemoveButton__root__removeToolFromSite___2GPd2Vv3Fi:active {
+  background: linear-gradient(#2bc744, #2bc744),
+    linear-gradient(#ffffff, #ffffff), linear-gradient(#ff0000, #ff0000),
+    linear-gradient(#2bc744, #2bc744), #015906;
+}
