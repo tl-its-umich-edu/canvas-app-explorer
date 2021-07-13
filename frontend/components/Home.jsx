@@ -14,6 +14,7 @@ import Header from "./Header"; // plasmic-import: rgvwcoUrD14Pp/component
 import ProductCard from "./ProductCard"; // plasmic-import: zc_-JZqmkLhAk/component
 import Ratings from "./Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "./AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
+import LearnMoreButton from "./LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import Screenshot from "./Screenshot"; // plasmic-import: fUpKi24Qhx/component
 import Footer from "./Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants } from "./plasmic/canvas_app_explorer/PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
@@ -141,6 +142,14 @@ function Home__RenderFunc(props,ref) {
                                 <ProductCard
                                     data-plasmic-name={tool.name+"Card"}
                                     data-plasmic-override={overrides.zoomCard}
+                                    addRemoveSlot={
+                                        <AddRemoveButton
+                                            className={classNames(
+                                                "__wab_instance",
+                                                // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                            )}
+                                        />
+                                    }
                                     className={classNames(
                                         "__wab_instance",	
                                         // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
@@ -169,6 +178,16 @@ function Home__RenderFunc(props,ref) {
                                             src={tool.main_image} // Image not currently in API
                                         />
                                     }
+                                    learnMoreSlot={
+                                        <LearnMoreButton
+                                          data-plasmic-name={"learnMoreButton"}
+                                          data-plasmic-override={overrides.learnMoreButton}
+                                          className={classNames(
+                                            "__wab_instance",
+                                            // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
+                                          )}
+                                        />
+                                      }
                                     // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
                                     logo={
                                         <img
@@ -196,11 +215,6 @@ function Home__RenderFunc(props,ref) {
                                     }
                                     title={tool.name}
                                 >
-                                    <AddRemoveButton
-                                        className={classNames(
-                                            "__wab_instance",
-                                        )}
-                                    />
                                 </ProductCard>   
                             ))
                                         
