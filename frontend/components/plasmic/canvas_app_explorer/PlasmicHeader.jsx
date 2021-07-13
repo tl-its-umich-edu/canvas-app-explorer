@@ -30,7 +30,8 @@ import CogIcon from "./icons/PlasmicIcon__Cog"; // plasmic-import: jxNUPxdPJcbB1
 
 export const PlasmicHeader__VariantProps = new Array(
   "expanded",
-  "withSearchBar"
+  "withSearchBar",
+  "noSearchBarOrSettings"
 );
 
 export const PlasmicHeader__ArgProps = new Array();
@@ -69,6 +70,12 @@ function PlasmicHeader__RenderFunc(props) {
           "plasmic_default__div",
           "Header__box__ikq92",
           {
+            Header__box__noSearchBarOrSettings__ikq92I2VQm: hasVariant(
+              variants,
+              "noSearchBarOrSettings",
+              "noSearchBarOrSettings"
+            ),
+
             Header__box__withSearchBar__ikq928Xp20: hasVariant(
               variants,
               "withSearchBar",
@@ -122,16 +129,40 @@ function PlasmicHeader__RenderFunc(props) {
           )}
         >
           <IconLink
-            className={classNames("__wab_instance", "Header__iconLink__rda3A")}
+            className={classNames("__wab_instance", "Header__iconLink__rda3A", {
+              Header__iconLink__noSearchBarOrSettings__rda3Ai2VQm: hasVariant(
+                variants,
+                "noSearchBarOrSettings",
+                "noSearchBarOrSettings"
+              )
+            })}
             icon={
-              <SearchIcon
-                className={classNames(
-                  "plasmic_default__all",
-                  "plasmic_default__svg",
-                  "Header__svg___7Ic5E"
-                )}
-                role={"img"}
-              />
+              (
+                hasVariant(
+                  variants,
+                  "noSearchBarOrSettings",
+                  "noSearchBarOrSettings"
+                )
+                  ? false
+                  : true
+              ) ? (
+                <SearchIcon
+                  className={classNames(
+                    "plasmic_default__all",
+                    "plasmic_default__svg",
+                    "Header__svg___7Ic5E",
+                    {
+                      Header__svg__noSearchBarOrSettings___7Ic5Ei2VQm:
+                        hasVariant(
+                          variants,
+                          "noSearchBarOrSettings",
+                          "noSearchBarOrSettings"
+                        )
+                    }
+                  )}
+                  role={"img"}
+                />
+              ) : null
             }
           />
 
@@ -167,20 +198,40 @@ function PlasmicHeader__RenderFunc(props) {
               }
             />
           ) : null}
-
-          <IconLink
-            className={classNames("__wab_instance", "Header__iconLink__pu1Ei")}
-            icon={
-              <CogIcon
-                className={classNames(
-                  "plasmic_default__all",
-                  "plasmic_default__svg",
-                  "Header__svg__agh0S"
-                )}
-                role={"img"}
-              />
-            }
-          />
+          {(
+            hasVariant(
+              variants,
+              "noSearchBarOrSettings",
+              "noSearchBarOrSettings"
+            )
+              ? false
+              : true
+          ) ? (
+            <IconLink
+              className={classNames(
+                "__wab_instance",
+                "Header__iconLink__pu1Ei",
+                {
+                  Header__iconLink__noSearchBarOrSettings__pu1Eii2VQm:
+                    hasVariant(
+                      variants,
+                      "noSearchBarOrSettings",
+                      "noSearchBarOrSettings"
+                    )
+                }
+              )}
+              icon={
+                <CogIcon
+                  className={classNames(
+                    "plasmic_default__all",
+                    "plasmic_default__svg",
+                    "Header__svg__agh0S"
+                  )}
+                  role={"img"}
+                />
+              }
+            />
+          ) : null}
         </p.Stack>
 
         {false ? (

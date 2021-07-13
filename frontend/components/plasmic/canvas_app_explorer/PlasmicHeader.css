@@ -77,6 +77,9 @@
   position: relative;
   flex-shrink: 0;
 }
+.Header__iconLink__noSearchBarOrSettings__rda3Ai2VQm.__wab_instance {
+  flex-shrink: 0;
+}
 .Header__svg___7Ic5E {
   position: relative;
   object-fit: cover;
@@ -97,6 +100,9 @@
 }
 .Header__iconLink__pu1Ei.__wab_instance {
   position: relative;
+  flex-shrink: 0;
+}
+.Header__iconLink__noSearchBarOrSettings__pu1Eii2VQm.__wab_instance {
   flex-shrink: 0;
 }
 .Header__svg__agh0S {

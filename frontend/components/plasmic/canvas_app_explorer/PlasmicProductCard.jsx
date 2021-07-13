@@ -39,12 +39,13 @@ export const PlasmicProductCard__ArgProps = new Array(
   "ratings",
   "logo",
   "description",
-  "children",
+  "addRemoveButton",
   "toolLearnMore",
   "descriptionLearnMore",
   "privacyAgreementLearnMore",
   "placementsInCanvasLearnMore",
-  "supportResourcesLearnMore"
+  "supportResourcesLearnMore",
+  "learnMoreButton"
 );
 
 function PlasmicProductCard__RenderFunc(props) {
@@ -422,7 +423,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 />
               ),
 
-              value: args.children
+              value: args.addRemoveButton
             })}
           />
         ) : null}
@@ -436,51 +437,18 @@ function PlasmicProductCard__RenderFunc(props) {
                 hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
             }
           )}
-          text={
-            <React.Fragment>
-              {(
-                hasVariant(variants, "learnMore", "learnMore") ? false : true
-              ) ? (
-                <LearnMoreButton
-                  data-plasmic-name={"learnMoreButton"}
-                  data-plasmic-override={overrides.learnMoreButton}
-                  className={classNames(
-                    "__wab_instance",
-                    "ProductCard__learnMoreButton__uLwn9",
-                    {
-                      ProductCard__learnMoreButton__learnMore__uLwn9OklBv:
-                        hasVariant(variants, "learnMore", "learnMore"),
-                      ProductCard__learnMoreButton__withReviews__uLwn9VvVo9:
-                        hasVariant(variants, "withReviews", "withReviews"),
-                      ProductCard__learnMoreButton__withoutScreenshot__uLwn9UtYkz:
-                        hasVariant(
-                          variants,
-                          "withoutScreenshot",
-                          "withoutScreenshot"
-                        )
-                    }
-                  )}
-                  learnMore={
-                    hasVariant(variants, "learnMore", "learnMore")
-                      ? "learnMore"
-                      : undefined
-                  }
-                />
-              ) : null}
-              {false ? (
-                <svg
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(
-                    "plasmic_default__all",
-                    "plasmic_default__svg",
-                    "ProductCard__svg__kxRR"
-                  )}
-                  role={"img"}
-                />
-              ) : null}
-            </React.Fragment>
-          }
+          text={p.renderPlasmicSlot({
+            defaultContents: (
+              <LearnMoreButton
+                className={classNames(
+                  "__wab_instance",
+                  "ProductCard__learnMoreButton___0AuCk"
+                )}
+              />
+            ),
+
+            value: args.learnMoreButton
+          })}
         />
       </div>
 
@@ -670,18 +638,9 @@ function PlasmicProductCard__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "learnMoreTool",
-    "screenshotBackground",
-    "learnMoreButton",
-    "svg"
-  ],
-
+  root: ["root", "learnMoreTool", "screenshotBackground"],
   learnMoreTool: ["learnMoreTool"],
-  screenshotBackground: ["screenshotBackground"],
-  learnMoreButton: ["learnMoreButton"],
-  svg: ["svg"]
+  screenshotBackground: ["screenshotBackground"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -717,8 +676,6 @@ export const PlasmicProductCard = Object.assign(
     // Helper components rendering sub-elements
     learnMoreTool: makeNodeComponent("learnMoreTool"),
     screenshotBackground: makeNodeComponent("screenshotBackground"),
-    learnMoreButton: makeNodeComponent("learnMoreButton"),
-    svg: makeNodeComponent("svg"),
     // Metadata about props expected for PlasmicProductCard
     internalVariantProps: PlasmicProductCard__VariantProps,
     internalArgProps: PlasmicProductCard__ArgProps
