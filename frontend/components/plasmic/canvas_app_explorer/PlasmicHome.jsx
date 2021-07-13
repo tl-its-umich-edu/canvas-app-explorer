@@ -133,7 +133,7 @@ function PlasmicHome__RenderFunc(props) {
               <ProductCard
                 data-plasmic-name={"zoomCard"}
                 data-plasmic-override={overrides.zoomCard}
-                addRemoveButton={
+                addRemoveSlot={
                   <AddRemoveButton
                     className={classNames(
                       "__wab_instance",
@@ -201,7 +201,7 @@ function PlasmicHome__RenderFunc(props) {
               <ProductCard
                 data-plasmic-name={"myLaCard"}
                 data-plasmic-override={overrides.myLaCard}
-                addRemoveButton={
+                addRemoveSlot={
                   <AddRemoveButton
                     className={classNames(
                       "__wab_instance",
@@ -273,7 +273,7 @@ function PlasmicHome__RenderFunc(props) {
               <ProductCard
                 data-plasmic-name={"piazzaCard"}
                 data-plasmic-override={overrides.piazzaCard}
-                addRemoveButton={
+                addRemoveSlot={
                   <AddRemoveButton
                     className={classNames(
                       "__wab_instance",

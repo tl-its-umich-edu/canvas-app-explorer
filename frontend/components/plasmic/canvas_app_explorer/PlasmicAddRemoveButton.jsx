@@ -13,7 +13,6 @@ import {
   hasVariant,
   classNames,
   createPlasmicElementProxy,
-  useTrigger,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -29,11 +28,6 @@ export const PlasmicAddRemoveButton__ArgProps = new Array();
 
 function PlasmicAddRemoveButton__RenderFunc(props) {
   const { variants, args, overrides, forNode, dataFetches } = props;
-  const [isRootActive, triggerRootActiveProps] = useTrigger("usePressed", {});
-  const triggers = {
-    active_root: isRootActive
-  };
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -54,14 +48,8 @@ function PlasmicAddRemoveButton__RenderFunc(props) {
           )
         }
       )}
-      data-plasmic-trigger-props={[triggerRootActiveProps]}
     >
-      {hasVariant(variants, "removeToolFromSite", "removeToolFromSite") &&
-      triggers.active_root
-        ? "Add Tool to Site"
-        : triggers.active_root
-        ? "Remove Tool "
-        : hasVariant(variants, "removeToolFromSite", "removeToolFromSite")
+      {hasVariant(variants, "removeToolFromSite", "removeToolFromSite")
         ? "Remove Tool "
         : "Add Tool to Site"}
     </div>
