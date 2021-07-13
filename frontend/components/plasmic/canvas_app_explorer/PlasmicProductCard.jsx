@@ -39,13 +39,13 @@ export const PlasmicProductCard__ArgProps = new Array(
   "ratings",
   "logo",
   "description",
-  "addRemoveButton",
+  "addRemoveSlot",
   "toolLearnMore",
   "descriptionLearnMore",
   "privacyAgreementLearnMore",
   "placementsInCanvasLearnMore",
   "supportResourcesLearnMore",
-  "learnMoreButton"
+  "learnMoreSlot"
 );
 
 function PlasmicProductCard__RenderFunc(props) {
@@ -423,7 +423,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 />
               ),
 
-              value: args.addRemoveButton
+              value: args.addRemoveSlot
             })}
           />
         ) : null}
@@ -447,7 +447,7 @@ function PlasmicProductCard__RenderFunc(props) {
               />
             ),
 
-            value: args.learnMoreButton
+            value: args.learnMoreSlot
           })}
         />
       </div>
