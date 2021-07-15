@@ -22,10 +22,12 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from django.views import static
 from rest_framework import routers
-from canvas_app_explorer import views
+from canvas_app_explorer import urls as canvas_app_explorer_urls #type: ignore
+from canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
 
+# This is for Django Rest Framework
 router = routers.DefaultRouter()
-router.register(r'lti_tools', views.LTIToolViewSet)
+router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
@@ -35,7 +37,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     # For file storage
     re_path(r'^files/', include('db_file_storage.urls')),
-
+    path('',include(canvas_app_explorer_urls))
 ]
 
 # TODO: This is to aid local development. Switch this to collectstatic and put it in static
@@ -50,3 +52,5 @@ if settings.DEBUG:
             }
         )
     ]
+
+
