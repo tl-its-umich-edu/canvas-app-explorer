@@ -28,6 +28,8 @@ export const Home__VariantProps = new Array();
 export const Home__ArgProps = new Array();
 
 function Home__RenderFunc(props,ref) {  
+    const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array
+    const [learnMoreActive, setLearnMoreActive] = useState(false) // each tool has one entry in array
     const [tools, setTools] = useState(null);
 
     useEffect(async () => {
@@ -35,14 +37,14 @@ function Home__RenderFunc(props,ref) {
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)
+        setAddedTools(Array(Object.keys(data).length).fill(false))
     }, []);
 
-    console.log("Tools");
-    console.log(tools);
 	const { variants, args, overrides, forNode, dataFetches } = props;
 	const globalVariants = ensureGlobalVariants({
 		screen: useScreenVariants()
 	});
+
 
 	return (
 		<React.Fragment>
@@ -142,14 +144,65 @@ function Home__RenderFunc(props,ref) {
                                 <ProductCard
                                     data-plasmic-name={tool.name+"Card"}
                                     data-plasmic-override={overrides.zoomCard}
-                                    addRemoveSlot={
-                                        <AddRemoveButton
-                                            className={classNames(
-                                                "__wab_instance",
-                                                // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
-                                            )}
-                                        />
+                                    addRemoveSlot={(
+                                        <div>
+                                            {addedTools[tool.id - 1] === false ?  
+                                                <AddRemoveButton
+                                                    onClick={() => {
+                                                        addedTools[tool.id - 1] = !addedTools[tool.id - 1]
+                                                        setAddedTools(addedTools)
+                                                    }}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                                    )}
+                                                />
+                                            :
+                                                <AddRemoveButton
+                                                    onClick={() => {
+                                                        addedTools[tool.id - 1] = !addedTools[tool.id - 1]
+                                                        setAddedTools(addedTools)
+                                                    }}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                                    )}
+                                                    removeToolFromSite={"removeToolFromSite"}
+                                                />     
+                                            } 
+                                        </div>
+                                    )}
+                                    learnMoreSlot={
+                                        <div>
+                                            {learnMoreActive === false ?
+                                                <LearnMoreButton
+                                                    onClick={() => {
+                                                        setLearnMoreActive(!learnMoreActive)
+                                                    }}
+                                                    data-plasmic-name={"learnMoreButton"}
+                                                    data-plasmic-override={overrides.learnMoreButton}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
+                                                    )}
+                                                />
+                                            :
+                                                <LearnMoreButton
+                                                    onClick={() => {
+                                                        setLearnMoreActive(!learnMoreActive)
+                                                    }}
+                                                    data-plasmic-name={"learnMoreButton"}
+                                                    data-plasmic-override={overrides.learnMoreButton}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
+                                                    )}
+                                                />
+                                            }
+                                        </div>
                                     }
+                                    learnMore={"learnMore"}
+                                    // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
                                     className={classNames(
                                         "__wab_instance",	
                                         // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
@@ -178,17 +231,6 @@ function Home__RenderFunc(props,ref) {
                                             src={tool.main_image} // Image not currently in API
                                         />
                                     }
-                                    learnMoreSlot={
-                                        <LearnMoreButton
-                                          data-plasmic-name={"learnMoreButton"}
-                                          data-plasmic-override={overrides.learnMoreButton}
-                                          className={classNames(
-                                            "__wab_instance",
-                                            // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
-                                          )}
-                                        />
-                                      }
-                                    // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
                                     logo={
                                         <img
                                             alt={""}
