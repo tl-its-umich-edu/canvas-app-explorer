@@ -2,13 +2,15 @@ var path = require("path");
 var BundleTracker = require('webpack-bundle-tracker');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// Try the environment variable, otherwise use default on localhost
+const PUBLIC_PATH = process.env.PUBLIC_PATH || 'http://localhost:3000/dist/';
 
 module.exports = {
   context: __dirname,
   entry: './components/index',
   output: {
     path: path.resolve('./bundles/'),
-    publicPath: 'http://localhost:3000/dist/',
+    publicPath: PUBLIC_PATH,
     filename: "[name]-[hash].js",
     chunkFilename: "[name]-[hash].js"
   },

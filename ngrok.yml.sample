@@ -1,0 +1,8 @@
+authtoken: <Add your Token>
+tunnels:
+    frontend:
+        proto: http
+        addr: 3000
+    backend:
+        proto: http
+        addr: 5000

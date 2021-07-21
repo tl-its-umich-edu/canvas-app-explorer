@@ -29,8 +29,7 @@ SECRET_KEY = 'django-insecure-&24ubb46zaej*fd9jz1^mw1t0)-@zd9g74f!hcs1a48-7loo0r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 # Application definition
 
@@ -137,3 +136,9 @@ WEBPACK_LOADER = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_FILE_STORAGE = 'canvas_app_explorer.storage_get_file.DatabaseFileStorage'
+
+# TODO: Switch this to CSP for additional security
+X_FRAME_OPTIONS = 'ALLOWALL'
+
+# So request works over the proxy
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
