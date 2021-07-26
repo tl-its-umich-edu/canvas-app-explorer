@@ -4,6 +4,7 @@
   grid-row: auto;
   grid-column: auto;
   position: relative;
+  background: none;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   box-shadow: none;
@@ -27,8 +28,8 @@
   font-weight: inherit;
   color: inherit;
   text-transform: inherit;
+  background-image: linear-gradient(#ffffff, #ffffff);
   padding: 2px;
-  background: #ffffff;
   border: 1px solid lightgray;
 }
 .plasmic_default__textarea {
@@ -50,8 +51,8 @@
   font-weight: inherit;
   color: inherit;
   text-transform: inherit;
+  background-image: none;
   padding: 2px 6px;
-  background: none;
   border: 1px solid lightgray;
 }
 .plasmic_default__code {

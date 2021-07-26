@@ -206,6 +206,19 @@
           "cssFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreButton.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "6fH9bcqROh",
+          "name": "ExitLearnMoreButton",
+          "type": "managed",
+          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
+          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicExitLearnMoreButton.jsx",
+          "importSpec": {
+            "modulePath": "ExitLearnMoreButton.jsx"
+          },
+          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicExitLearnMoreButton.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

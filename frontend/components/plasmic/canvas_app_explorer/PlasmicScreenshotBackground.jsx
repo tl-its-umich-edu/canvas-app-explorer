@@ -71,7 +71,7 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ScreenshotBackground__box__vqI05"
+            "ScreenshotBackground__freeBox__vqI05"
           )}
         >
           <div
@@ -79,7 +79,7 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
               "plasmic_default__all",
               "plasmic_default__div",
               "__wab_text",
-              "ScreenshotBackground__box__gSnZs"
+              "ScreenshotBackground__freeBox__gSnZs"
             )}
           >
             {"Sale"}
@@ -93,7 +93,7 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ScreenshotBackground__box__on4Ip"
+            "ScreenshotBackground__freeBox__on4Ip"
           )}
         >
           <ShoppingCartIcon
@@ -110,7 +110,7 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
               "plasmic_default__all",
               "plasmic_default__div",
               "__wab_text",
-              "ScreenshotBackground__box__cgK9F"
+              "ScreenshotBackground__freeBox__cgK9F"
             )}
           >
             {"Add to cart"}

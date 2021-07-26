@@ -48,14 +48,14 @@ function PlasmicFooter__RenderFunc(props) {
         className={classNames(
           "plasmic_default__all",
           "plasmic_default__div",
-          "Footer__box__zZokF"
+          "Footer__freeBox__zZokF"
         )}
       >
         <div
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "Footer__box__rfGbA"
+            "Footer__freeBox__rfGbA"
           )}
         >
           <div
@@ -63,7 +63,7 @@ function PlasmicFooter__RenderFunc(props) {
               "plasmic_default__all",
               "plasmic_default__div",
               "__wab_text",
-              "Footer__box__l8OFu"
+              "Footer__freeBox__l8OFu"
             )}
           >
             {"© Copyright. "}

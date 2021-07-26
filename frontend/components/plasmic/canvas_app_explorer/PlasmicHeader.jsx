@@ -68,15 +68,15 @@ function PlasmicHeader__RenderFunc(props) {
         className={classNames(
           "plasmic_default__all",
           "plasmic_default__div",
-          "Header__box__ikq92",
+          "Header__freeBox__ikq92",
           {
-            Header__box__noSearchBarOrSettings__ikq92I2VQm: hasVariant(
+            Header__freeBox__noSearchBarOrSettings__ikq92I2VQm: hasVariant(
               variants,
               "noSearchBarOrSettings",
               "noSearchBarOrSettings"
             ),
 
-            Header__box__withSearchBar__ikq928Xp20: hasVariant(
+            Header__freeBox__withSearchBar__ikq928Xp20: hasVariant(
               variants,
               "withSearchBar",
               "withSearchBar"
@@ -113,7 +113,7 @@ function PlasmicHeader__RenderFunc(props) {
             "plasmic_default__all",
             "plasmic_default__div",
             "__wab_text",
-            "Header__box__keObZ"
+            "Header__freeBox__keObZ"
           )}
         >
           {"Canvas App Explorer"}
@@ -125,7 +125,7 @@ function PlasmicHeader__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "Header__box__zcEqf"
+            "Header__freeBox__zcEqf"
           )}
         >
           <IconLink
@@ -272,9 +272,9 @@ function PlasmicHeader__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "Header__box__qIiNj",
+            "Header__freeBox__qIiNj",
             {
-              Header__box__expanded__qIiNjVp9H7: hasVariant(
+              Header__freeBox__expanded__qIiNjVp9H7: hasVariant(
                 variants,
                 "expanded",
                 "expanded"

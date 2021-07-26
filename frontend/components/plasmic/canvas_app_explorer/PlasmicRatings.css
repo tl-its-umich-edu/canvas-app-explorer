@@ -15,20 +15,20 @@
 .Ratings__root__pt884 > .__wab_flex-container > .__wab_slot > * {
   margin-left: 8px;
 }
-.Ratings__box__izHFx {
+.Ratings__freeBox__izHFx {
   display: flex;
   position: relative;
   flex-direction: row;
 }
-.Ratings__box__izHFx > .__wab_flex-container {
+.Ratings__freeBox__izHFx > .__wab_flex-container {
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
   margin-left: calc(0px - 5px);
   width: calc(100% + 5px);
 }
-.Ratings__box__izHFx > .__wab_flex-container > *,
-.Ratings__box__izHFx > .__wab_flex-container > .__wab_slot > * {
+.Ratings__freeBox__izHFx > .__wab_flex-container > *,
+.Ratings__freeBox__izHFx > .__wab_flex-container > .__wab_slot > * {
   margin-left: 5px;
 }
 .Ratings__svg__cBbLv {

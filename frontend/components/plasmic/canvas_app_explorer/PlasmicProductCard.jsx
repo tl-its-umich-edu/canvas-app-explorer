@@ -22,6 +22,7 @@ import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import LinkButton from "../../LinkButton"; // plasmic-import: tr5phcLQqCoEx/component
 import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
+import ExitLearnMoreButton from "../../ExitLearnMoreButton"; // plasmic-import: 6fH9bcqROh/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
@@ -30,7 +31,8 @@ import "./PlasmicProductCard.css"; // plasmic-import: zc_-JZqmkLhAk/css
 export const PlasmicProductCard__VariantProps = new Array(
   "withReviews",
   "withoutScreenshot",
-  "learnMore"
+  "learnMore",
+  "onlyLearnMore"
 );
 
 export const PlasmicProductCard__ArgProps = new Array(
@@ -70,6 +72,12 @@ function PlasmicProductCard__RenderFunc(props) {
             "learnMore"
           ),
 
+          ProductCard__root__onlyLearnMore___1U08PtEu15: hasVariant(
+            variants,
+            "onlyLearnMore",
+            "onlyLearnMore"
+          ),
+
           ProductCard__root__withReviews___1U08PvvVo9: hasVariant(
             variants,
             "withReviews",
@@ -99,7 +107,7 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__fjr2W"
+            "ProductCard__freeBox__fjr2W"
           )}
         >
           {false ? (
@@ -108,7 +116,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__box__kpIdU"
+                "ProductCard__freeBox__kpIdU"
               )}
             >
               {"Enter some text"}
@@ -121,7 +129,7 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__fGeZt"
+            "ProductCard__freeBox__fGeZt"
           )}
         >
           {false ? (
@@ -130,7 +138,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__box__t9Ot"
+                "ProductCard__freeBox__t9Ot"
               )}
             >
               {"Enter some text"}
@@ -143,7 +151,7 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__pdlFp"
+            "ProductCard__freeBox__pdlFp"
           )}
         >
           {false ? (
@@ -152,7 +160,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__box__pcpps"
+                "ProductCard__freeBox__pcpps"
               )}
             >
               {"Enter some text"}
@@ -165,7 +173,7 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box___5MRxG"
+            "ProductCard__freeBox___5MRxG"
           )}
         >
           {false ? (
@@ -174,7 +182,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__box__tCd2V"
+                "ProductCard__freeBox__tCd2V"
               )}
             >
               {"Enter some text"}
@@ -187,7 +195,7 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__oShwi"
+            "ProductCard__freeBox__oShwi"
           )}
         >
           {false ? (
@@ -196,7 +204,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__box__wABx5"
+                "ProductCard__freeBox__wABx5"
               )}
             >
               {"Enter some text"}
@@ -209,15 +217,15 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__l71Vb",
+            "ProductCard__freeBox__l71Vb",
             {
-              ProductCard__box__learnMore__l71VbOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__l71VbOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
               ),
 
-              ProductCard__box__withReviews__l71VBvvVo9: hasVariant(
+              ProductCard__freeBox__withReviews__l71VBvvVo9: hasVariant(
                 variants,
                 "withReviews",
                 "withReviews"
@@ -230,9 +238,9 @@ function PlasmicProductCard__RenderFunc(props) {
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__div",
-                "ProductCard__box__hJJoE",
+                "ProductCard__freeBox__hJJoE",
                 {
-                  ProductCard__box__learnMore__hJJoEOklBv: hasVariant(
+                  ProductCard__freeBox__learnMore__hJJoEOklBv: hasVariant(
                     variants,
                     "learnMore",
                     "learnMore"
@@ -303,6 +311,12 @@ function PlasmicProductCard__RenderFunc(props) {
 
             value: args.image,
             className: classNames("ProductCard__slotImage__bjvkn", {
+              ProductCard__slotImage__withReviews__bjvkNvvVo9: hasVariant(
+                variants,
+                "withReviews",
+                "withReviews"
+              ),
+
               ProductCard__slotImage__withoutScreenshot__bjvknutYkz: hasVariant(
                 variants,
                 "withoutScreenshot",
@@ -333,9 +347,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__sbbu9",
+            "ProductCard__freeBox__sbbu9",
             {
-              ProductCard__box__learnMore__sbbu9OklBv: hasVariant(
+              ProductCard__freeBox__learnMore__sbbu9OklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -358,45 +372,34 @@ function PlasmicProductCard__RenderFunc(props) {
             : null}
         </p.Stack>
       ) : null}
-      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
-        <img
-          alt={""}
-          className={classNames(
-            "plasmic_default__all",
-            "plasmic_default__img",
-            "ProductCard__img__vbid0",
-            {
-              ProductCard__img__learnMore__vbid0OklBv: hasVariant(
-                variants,
-                "learnMore",
-                "learnMore"
-              )
-            }
-          )}
-          role={"img"}
-          src={
-            hasVariant(variants, "learnMore", "learnMore")
-              ? "/static/plasmic/canvas_app_explorer/images/zoom.png"
-              : undefined
-          }
-        />
-      ) : null}
       {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
         <div
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__wMuGj",
+            "ProductCard__freeBox__wMuGj",
             {
-              ProductCard__box__learnMore__wMuGjOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__wMuGjOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
+              ),
+
+              ProductCard__freeBox__onlyLearnMore__wMuGJtEu15: hasVariant(
+                variants,
+                "onlyLearnMore",
+                "onlyLearnMore"
               )
             }
           )}
         >
-          {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
+          {(
+            hasVariant(variants, "onlyLearnMore", "onlyLearnMore")
+              ? true
+              : hasVariant(variants, "learnMore", "learnMore")
+              ? false
+              : true
+          ) ? (
             <LinkButton
               className={classNames(
                 "__wab_instance",
@@ -408,6 +411,12 @@ function PlasmicProductCard__RenderFunc(props) {
                     "learnMore"
                   ),
 
+                  ProductCard__linkButton__onlyLearnMore__cT7HtEu15: hasVariant(
+                    variants,
+                    "onlyLearnMore",
+                    "onlyLearnMore"
+                  ),
+
                   ProductCard__linkButton__withoutScreenshot__cT7HUtYkz:
                     hasVariant(
                       variants,
@@ -416,19 +425,26 @@ function PlasmicProductCard__RenderFunc(props) {
                     )
                 }
               )}
-              text={p.renderPlasmicSlot({
-                defaultContents: (
-                  <AddRemoveButton
-                    className={classNames(
-                      "__wab_instance",
-                      "ProductCard__addRemoveButton___794LZ"
-                    )}
-                    removeToolFromSite={"removeToolFromSite"}
-                  />
-                ),
-
-                value: args.addRemoveSlot
-              })}
+              text={
+                (
+                  hasVariant(variants, "onlyLearnMore", "onlyLearnMore")
+                    ? false
+                    : true
+                )
+                  ? p.renderPlasmicSlot({
+                      defaultContents: true ? (
+                        <AddRemoveButton
+                          className={classNames(
+                            "__wab_instance",
+                            "ProductCard__addRemoveButton___794LZ"
+                          )}
+                          removeToolFromSite={"removeToolFromSite"}
+                        />
+                      ) : null,
+                      value: args.addRemoveSlot
+                    })
+                  : null
+              }
             />
           ) : null}
           {(hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
@@ -443,6 +459,8 @@ function PlasmicProductCard__RenderFunc(props) {
                     "learnMore"
                   ),
 
+                  ProductCard__linkButton__onlyLearnMore__cX8QGtEu15:
+                    hasVariant(variants, "onlyLearnMore", "onlyLearnMore"),
                   ProductCard__linkButton__withoutScreenshot__cX8QGutYkz:
                     hasVariant(
                       variants,
@@ -486,9 +504,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__aSszv",
+            "ProductCard__freeBox__aSszv",
             {
-              ProductCard__box__learnMore__aSszvOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__aSszvOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -502,7 +520,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__box__bjM9S"
+                "ProductCard__freeBox__bjM9S"
               )}
             >
               {"Enter some text"}
@@ -515,9 +533,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__pggEe",
+            "ProductCard__freeBox__pggEe",
             {
-              ProductCard__box__learnMore__pggEeOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__pggEeOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -529,7 +547,7 @@ function PlasmicProductCard__RenderFunc(props) {
             defaultContents: (
               <span>
                 <span style={{ fontWeight: 700 }}>{"Tool"}</span>
-                <React.Fragment>{"\nZoom"}</React.Fragment>
+                <React.Fragment>{"\nGoogle Drive"}</React.Fragment>
               </span>
             ),
 
@@ -542,9 +560,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box___0HGbF",
+            "ProductCard__freeBox___0HGbF",
             {
-              ProductCard__box__learnMore___0HGbFOklBv: hasVariant(
+              ProductCard__freeBox__learnMore___0HGbFOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -557,7 +575,9 @@ function PlasmicProductCard__RenderFunc(props) {
               <span>
                 <span style={{ fontWeight: 700 }}>{"Description"}</span>
                 <React.Fragment>
-                  {"\nProvides access to the Zoom video conference platform"}
+                  {
+                    "\nThe Google App integration, created by Instructure, offer the following features to promote teaching and learning:\nGoogle Drive embedding and linking: easily embed documents from your Google Drive anywhere you use the Rich Content Editor.\n- Google Docs as Assignments: • Students can submit Google Docs as Assignments • Teachers can use a Google Doc to give an Assignment, and send a copy of that document to each assigned student • Teachers can grade submitted student assignments in Speedgrader by editing or annotating the Google Doc.\n- Google Drive Collaborations: students can use Google Docs, Sheets, or Slides for a Canvas Collaboration.\n- Modules: Teachers can link to a live Google Files in their Canvas Modules."
+                  }
                 </React.Fragment>
               </span>
             ),
@@ -571,9 +591,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__vBf2M",
+            "ProductCard__freeBox__vBf2M",
             {
-              ProductCard__box__learnMore__vBf2MOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__vBf2MOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -585,7 +605,11 @@ function PlasmicProductCard__RenderFunc(props) {
             defaultContents: (
               <span>
                 <span style={{ fontWeight: 700 }}>{"Privacy Agreement"}</span>
-                <React.Fragment>{"\nData Protection Addendum"}</React.Fragment>
+                <React.Fragment>
+                  {
+                    "\nNot required. \nNo identifiable FERPA data exchanged with tool provider."
+                  }
+                </React.Fragment>
               </span>
             ),
 
@@ -598,9 +622,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__emvgm",
+            "ProductCard__freeBox__emvgm",
             {
-              ProductCard__box__learnMore__emvgmOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__emvgmOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -614,7 +638,11 @@ function PlasmicProductCard__RenderFunc(props) {
                 <span style={{ fontWeight: 700 }}>
                   {"Placements in Canvas"}
                 </span>
-                <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
+                <React.Fragment>
+                  {
+                    "\nAssignment Selection, Collaboration, Course Navigation, Editor Button, Homework Submission, Link Selection"
+                  }
+                </React.Fragment>
               </span>
             ),
 
@@ -627,9 +655,9 @@ function PlasmicProductCard__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__box__wfCuQ",
+            "ProductCard__freeBox__wfCuQ",
             {
-              ProductCard__box__learnMore__wfCuQOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__wfCuQOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
@@ -642,7 +670,9 @@ function PlasmicProductCard__RenderFunc(props) {
               <span>
                 <span style={{ fontWeight: 700 }}>{"Support Resources"}</span>
                 <React.Fragment>
-                  {"\nITS Teaching with Zoom Guide (link)"}
+                  {
+                    "\nHow to view Google Drive Files in Canvas\nHow to create a cloud assignment with Google Drive\nHow to create a Google Drive Collaboration"
+                  }
                 </React.Fragment>
               </span>
             ),
@@ -651,14 +681,58 @@ function PlasmicProductCard__RenderFunc(props) {
           })}
         </div>
       ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <img
+          alt={""}
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__img",
+            "ProductCard__img__vKkmi",
+            {
+              ProductCard__img__learnMore__vKkmiOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
+            }
+          )}
+          role={"img"}
+          src={
+            hasVariant(variants, "learnMore", "learnMore")
+              ? "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
+              : undefined
+          }
+        />
+      ) : null}
+      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
+        <ExitLearnMoreButton
+          data-plasmic-name={"exitLearnMoreButton"}
+          data-plasmic-override={overrides.exitLearnMoreButton}
+          className={classNames(
+            "__wab_instance",
+            "ProductCard__exitLearnMoreButton__nbpuF",
+            {
+              ProductCard__exitLearnMoreButton__learnMore__nbpuFOklBv:
+                hasVariant(variants, "learnMore", "learnMore")
+            }
+          )}
+        />
+      ) : null}
     </p.Stack>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "learnMoreTool", "screenshotBackground"],
+  root: [
+    "root",
+    "learnMoreTool",
+    "screenshotBackground",
+    "exitLearnMoreButton"
+  ],
+
   learnMoreTool: ["learnMoreTool"],
-  screenshotBackground: ["screenshotBackground"]
+  screenshotBackground: ["screenshotBackground"],
+  exitLearnMoreButton: ["exitLearnMoreButton"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -694,6 +768,7 @@ export const PlasmicProductCard = Object.assign(
     // Helper components rendering sub-elements
     learnMoreTool: makeNodeComponent("learnMoreTool"),
     screenshotBackground: makeNodeComponent("screenshotBackground"),
+    exitLearnMoreButton: makeNodeComponent("exitLearnMoreButton"),
     // Metadata about props expected for PlasmicProductCard
     internalVariantProps: PlasmicProductCard__VariantProps,
     internalArgProps: PlasmicProductCard__ArgProps
