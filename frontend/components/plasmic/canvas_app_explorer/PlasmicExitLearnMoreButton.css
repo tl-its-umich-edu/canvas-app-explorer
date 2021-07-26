@@ -1,0 +1,20 @@
+.ExitLearnMoreButton__root__nnKr {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  background: #ff0000;
+}
+.ExitLearnMoreButton__freeBox__juM6I {
+  background: linear-gradient(#ff0000, #ff0000),
+    linear-gradient(#2bc744, #2bc744), #015906;
+  width: 28px;
+  color: #fffafa;
+  text-align: center;
+  position: relative;
+  height: 28px;
+  font-size: 14px;
+  flex-shrink: 0;
+  padding: 3px;
+}

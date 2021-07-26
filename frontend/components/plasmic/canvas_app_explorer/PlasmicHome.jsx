@@ -111,7 +111,7 @@ function PlasmicHome__RenderFunc(props) {
                   "plasmic_default__all",
                   "plasmic_default__div",
                   "__wab_text",
-                  "Home__box__k3LxN"
+                  "Home__freeBox__k3LxN"
                 )}
               >
                 {
@@ -152,11 +152,21 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__all",
                       "plasmic_default__div",
                       "__wab_text",
-                      "Home__box__c1Y5M"
+                      "Home__freeBox__c1Y5M"
                     )}
                   >
                     {"Provides access to the Zoom video conference platform."}
                   </div>
+                }
+                descriptionLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                    <React.Fragment>
+                      {
+                        "\nProvides access to the Zoom video conference platform."
+                      }
+                    </React.Fragment>
+                  </span>
                 }
                 image={
                   <img
@@ -196,6 +206,34 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
+                onlyLearnMore={"onlyLearnMore"}
+                placementsInCanvasLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Placements in Canvas"}
+                    </span>
+                    <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
+                  </span>
+                }
+                privacyAgreementLearnMore={
+                  <div
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__div",
+                      "__wab_text",
+                      "Home__freeBox__pkIjF"
+                    )}
+                  >
+                    <span>
+                      <span style={{ fontWeight: 700 }}>
+                        {"Privacy Agreement"}
+                      </span>
+                      <React.Fragment>
+                        {"\nData Protection Addendum\n"}
+                      </React.Fragment>
+                    </span>
+                  </div>
+                }
                 ratings={
                   <Ratings
                     className={classNames(
@@ -206,7 +244,32 @@ function PlasmicHome__RenderFunc(props) {
                     stars={"four"}
                   />
                 }
+                supportResourcesLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Support Resources"}
+                    </span>
+                    <React.Fragment>
+                      {"\nITS Teaching with Zoom Guide"}
+                    </React.Fragment>
+                  </span>
+                }
                 title={"Zoom"}
+                toolLearnMore={
+                  <div
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__div",
+                      "__wab_text",
+                      "Home__freeBox__dHRrw"
+                    )}
+                  >
+                    <span>
+                      <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+                      <React.Fragment>{"\nZoom"}</React.Fragment>
+                    </span>
+                  </div>
+                }
               />
 
               <ProductCard
@@ -230,13 +293,23 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__all",
                       "plasmic_default__div",
                       "__wab_text",
-                      "Home__box__jl7El"
+                      "Home__freeBox__jl7El"
                     )}
                   >
                     {
                       "Dashboard that provides students with information about engagement with course."
                     }
                   </div>
+                }
+                descriptionLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                    <React.Fragment>
+                      {
+                        "\nMy Learning Analytics (MyLA) is a dashboard that provides students with information about their engagement with course materials and resources, assignments, and grades in a Canvas course."
+                      }
+                    </React.Fragment>
+                  </span>
                 }
                 image={
                   <img
@@ -266,6 +339,34 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
+                onlyLearnMore={"onlyLearnMore"}
+                placementsInCanvasLearnMore={
+                  <div
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__div",
+                      "__wab_text",
+                      "Home__freeBox__vTgLe"
+                    )}
+                  >
+                    <span>
+                      <span style={{ fontWeight: 700 }}>
+                        {"Placements in Canvas"}
+                      </span>
+                      <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
+                    </span>
+                  </div>
+                }
+                privacyAgreementLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Privacy Agreement"}
+                    </span>
+                    <React.Fragment>
+                      {"\nNot required (U-M hosted)"}
+                    </React.Fragment>
+                  </span>
+                }
                 ratings={
                   true ? (
                     <Ratings
@@ -278,7 +379,23 @@ function PlasmicHome__RenderFunc(props) {
                     />
                   ) : null
                 }
+                supportResourcesLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Support Resources"}
+                    </span>
+                    <React.Fragment>
+                      {"\nITS My Learning Analytics Guide"}
+                    </React.Fragment>
+                  </span>
+                }
                 title={"My Learning Analytics"}
+                toolLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+                    <React.Fragment>{"\nMy Learning Analytics"}</React.Fragment>
+                  </span>
+                }
               />
 
               <ProductCard
@@ -303,13 +420,23 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__all",
                       "plasmic_default__div",
                       "__wab_text",
-                      "Home__box__qBpZp"
+                      "Home__freeBox__qBpZp"
                     )}
                   >
                     {
                       "Class discussion/Q&A site with link to course navigation for Piazza discussions."
                     }
                   </div>
+                }
+                descriptionLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                    <React.Fragment>
+                      {
+                        "\nPiazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation for Piazza discussions, and auto-logs the user into the course discussions area."
+                      }
+                    </React.Fragment>
+                  </span>
                 }
                 image={
                   <img
@@ -339,6 +466,25 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
+                onlyLearnMore={"onlyLearnMore"}
+                placementsInCanvasLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Placements in Canvas"}
+                    </span>
+                    <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
+                  </span>
+                }
+                privacyAgreementLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Privacy Agreement"}
+                    </span>
+                    <React.Fragment>
+                      {"\nData Protection Addendum"}
+                    </React.Fragment>
+                  </span>
+                }
                 ratings={
                   <Ratings
                     className={classNames(
@@ -349,7 +495,21 @@ function PlasmicHome__RenderFunc(props) {
                     stars={"five"}
                   />
                 }
+                supportResourcesLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>
+                      {"Support Resources"}
+                    </span>
+                    <React.Fragment>{"\nPiazza Support"}</React.Fragment>
+                  </span>
+                }
                 title={"Piazza"}
+                toolLearnMore={
+                  <span>
+                    <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+                    <React.Fragment>{"\nPiazza"}</React.Fragment>
+                  </span>
+                }
               />
 
               <ProductCard
@@ -365,12 +525,13 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__all",
                       "plasmic_default__div",
                       "__wab_text",
-                      "Home__box__p0Nci"
+                      "Home__freeBox__p0Nci"
                     )}
                   >
                     {"Panopto is used to record, share and manage videos."}
                   </div>
                 }
+                learnMore={"learnMore"}
                 title={"Panopto"}
               />
             </p.Stack>

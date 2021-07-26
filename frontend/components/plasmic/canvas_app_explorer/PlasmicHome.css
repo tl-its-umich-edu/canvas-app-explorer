@@ -39,7 +39,7 @@
   margin-top: 16px;
   margin-bottom: 64px;
 }
-.Home__box__k3LxN {
+.Home__freeBox__k3LxN {
   position: relative;
   color: #535353 /* plasmic-token: saq7am270 */;
   font-size: 25px;
@@ -47,11 +47,11 @@
   left: auto;
   top: auto;
   margin-top: 0px;
-  padding: 20px 70px;
   background: rgb(234, 234, 234);
+  padding: 20px 70px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .Home__box__k3LxN {
+  .Home__freeBox__k3LxN {
     margin-top: 100px;
   }
 }
@@ -112,6 +112,11 @@
   top: auto;
   flex-shrink: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .Home__zoomCard__foQyr.__wab_instance {
+    flex-shrink: 0;
+  }
+}
 .Home__img__zw5Ho {
   position: relative;
   object-fit: cover;
@@ -131,9 +136,15 @@
   width: 180px;
   align-self: auto;
 }
-.Home__box__c1Y5M {
-  padding: 0px 15px;
+.Home__freeBox__c1Y5M {
   background: #ffffff;
+  padding: 0px 15px;
+}
+.Home__freeBox__dHRrw {
+  height: auto;
+}
+.Home__freeBox__pkIjF {
+  height: auto;
 }
 .Home__learnMoreButton__j6ASy.__wab_instance {
   position: absolute;
@@ -165,10 +176,13 @@
   width: 180px;
   align-self: auto;
 }
-.Home__box__jl7El {
+.Home__freeBox__jl7El {
   padding: 0px 15px;
 }
-.Home__learnMoreButton__upcUr.__wab_instance {
+.Home__freeBox__vTgLe {
+  height: auto;
+}
+.Home__learnMoreButton__zzOgr.__wab_instance {
   position: absolute;
   top: 14px;
   left: 21px;
@@ -197,10 +211,10 @@
   width: 180px;
   align-self: auto;
 }
-.Home__box__qBpZp {
+.Home__freeBox__qBpZp {
   padding: 0px 15px;
 }
-.Home__learnMoreButton__bTfeN.__wab_instance {
+.Home__learnMoreButton__gJp8G.__wab_instance {
   position: absolute;
   top: 14px;
   left: 21px;
@@ -209,7 +223,7 @@
   position: relative;
   flex-shrink: 0;
 }
-.Home__img__rPQ {
+.Home__img__ineQk {
   position: relative;
   object-fit: cover;
   height: 79px;
@@ -218,7 +232,7 @@
   width: 257px;
   align-self: center;
 }
-.Home__box__p0Nci {
+.Home__freeBox__p0Nci {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -231,12 +245,12 @@
 .Home__ratings__iLj6H.__wab_instance {
   position: relative;
 }
-.Home__addRemoveButton__kxwUy.__wab_instance {
+.Home__addRemoveButton__roRuW.__wab_instance {
   width: 120px;
   height: 30px;
   margin-right: 10px;
 }
-.Home__learnMoreButton__dxQtz.__wab_instance {
+.Home__learnMoreButton___5Do7.__wab_instance {
   position: absolute;
   top: 14px;
   left: 21px;

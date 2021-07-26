@@ -82,13 +82,13 @@ function PlasmicRatings__RenderFunc(props) {
     >
       <p.Stack
         as={"div"}
-        data-plasmic-name={"box"}
-        data-plasmic-override={overrides.box}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
         hasGap={true}
         className={classNames(
           "plasmic_default__all",
           "plasmic_default__div",
-          "Ratings__box__izHFx"
+          "Ratings__freeBox__izHFx"
         )}
       >
         {(hasVariant(variants, "stars", "zero") ? false : true) ? (
@@ -559,8 +559,8 @@ function PlasmicRatings__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "box"],
-  box: ["box"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -594,7 +594,7 @@ export const PlasmicRatings = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    box: makeNodeComponent("box"),
+    freeBox: makeNodeComponent("freeBox"),
     // Metadata about props expected for PlasmicRatings
     internalVariantProps: PlasmicRatings__VariantProps,
     internalArgProps: PlasmicRatings__ArgProps

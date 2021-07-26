@@ -42,14 +42,14 @@ function PlasmicMenuButton__RenderFunc(props) {
       )}
     >
       <div
-        data-plasmic-name={"box"}
-        data-plasmic-override={overrides.box}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
         className={classNames(
           "plasmic_default__all",
           "plasmic_default__div",
-          "MenuButton__box__qg29I",
+          "MenuButton__freeBox__qg29I",
           {
-            MenuButton__box__expanded__qg29IWmXfd: hasVariant(
+            MenuButton__freeBox__expanded__qg29IWmXfd: hasVariant(
               variants,
               "expanded",
               "expanded"
@@ -97,8 +97,8 @@ function PlasmicMenuButton__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "box"],
-  box: ["box"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -132,7 +132,7 @@ export const PlasmicMenuButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    box: makeNodeComponent("box"),
+    freeBox: makeNodeComponent("freeBox"),
     // Metadata about props expected for PlasmicMenuButton
     internalVariantProps: PlasmicMenuButton__VariantProps,
     internalArgProps: PlasmicMenuButton__ArgProps
