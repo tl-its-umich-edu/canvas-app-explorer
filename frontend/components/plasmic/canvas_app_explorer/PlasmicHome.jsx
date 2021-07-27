@@ -182,6 +182,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
+                learnMore={"learnMore"}
                 learnMoreSlot={
                   <LearnMoreButton
                     data-plasmic-name={"learnMoreButton"}
@@ -206,7 +207,6 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={"onlyLearnMore"}
                 placementsInCanvasLearnMore={
                   <span>
                     <span style={{ fontWeight: 700 }}>
@@ -325,6 +325,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
+                learnMore={"learnMore"}
                 logo={
                   <img
                     alt={""}
@@ -396,6 +397,14 @@ function PlasmicHome__RenderFunc(props) {
                     <React.Fragment>{"\nMy Learning Analytics"}</React.Fragment>
                   </span>
                 }
+              />
+
+              <ProductCard
+                className={classNames(
+                  "__wab_instance",
+                  "Home__productCard__wVxN"
+                )}
+                learnMore={"learnMore"}
               />
 
               <ProductCard
@@ -513,6 +522,13 @@ function PlasmicHome__RenderFunc(props) {
               />
 
               <ProductCard
+                className={classNames(
+                  "__wab_instance",
+                  "Home__productCard__k0Vv"
+                )}
+              />
+
+              <ProductCard
                 data-plasmic-name={"panoptoCard"}
                 data-plasmic-override={overrides.panoptoCard}
                 className={classNames(
@@ -531,7 +547,6 @@ function PlasmicHome__RenderFunc(props) {
                     {"Panopto is used to record, share and manage videos."}
                   </div>
                 }
-                learnMore={"learnMore"}
                 title={"Panopto"}
               />
             </p.Stack>
