@@ -27,7 +27,8 @@
             "default": "disabled",
             "placement": "course_navigation",
             "message_type": "LtiResourceLinkRequest",
-            "target_link_uri": "%(base_url)s%(launch_url_suffix)s"
+            "target_link_uri": "%(base_url)s%(launch_url_suffix)s",
+            "display_type": "full_width"
           }
         ]
       },

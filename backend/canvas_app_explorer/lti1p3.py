@@ -1,30 +1,19 @@
 import logging
-import random
-import string
 from collections import namedtuple
-from typing import Any, Dict
-
-import django.contrib.auth
-from django.conf import settings
-from django.contrib.auth.models import User
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
-import logging, string, random
-import urllib.parse
 from datetime import datetime
-from typing import Mapping, MutableSequence, Union, Any
+from typing import Any, Dict, Union
+import urllib.parse
 
-import django.contrib.auth
-from django.contrib.staticfiles import finders
-
+from django.conf import settings
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+
 from pylti1p3.contrib.django import DjangoOIDCLogin, DjangoMessageLaunch, \
-    DjangoCacheDataStorage
-from pylti1p3.contrib.django import DjangoDbToolConf
+    DjangoCacheDataStorage, DjangoDbToolConf
+
 logger = logging.getLogger(__name__)
 
 COURSE_MEMBERSHIP = 'http://purl.imsglobal.org/vocab/lis/v2/membership'

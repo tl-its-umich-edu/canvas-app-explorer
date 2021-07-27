@@ -142,3 +142,20 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 
 # So request works over the proxy
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+DB_CACHE_CONFIGS = os.getenv('DB_CACHE_CONFIGS',
+                           {'CACHE_TTL': 600, 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+                            'LOCATION': 'django_myla_cache',
+                            'CACHE_KEY_PREFIX': 'myla',
+                            'CACHE_OPTIONS': {'COMPRESS_MIN_LENGTH': 5000, 'COMPRESS_LEVEL': 6}
+                            })
+
+CACHES = {
+    'default': {
+        'BACKEND': DB_CACHE_CONFIGS['BACKEND'],
+        'LOCATION': DB_CACHE_CONFIGS['LOCATION'],
+        'OPTIONS': DB_CACHE_CONFIGS['CACHE_OPTIONS'],
+        "KEY_PREFIX": DB_CACHE_CONFIGS['CACHE_KEY_PREFIX'],
+        "TIMEOUT": DB_CACHE_CONFIGS['CACHE_TTL']
+    }
+}
