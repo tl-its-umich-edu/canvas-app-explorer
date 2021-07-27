@@ -18,6 +18,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicExitLearnMoreButton.css"; // plasmic-import: 6fH9bcqROh/css
+import TimesIcon from "./icons/PlasmicIcon__Times"; // plasmic-import: ns27_eln7Rup0/icon
 
 export const PlasmicExitLearnMoreButton__VariantProps = new Array();
 
@@ -38,25 +39,23 @@ function PlasmicExitLearnMoreButton__RenderFunc(props) {
         "ExitLearnMoreButton__root__nnKr"
       )}
     >
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
+      <TimesIcon
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
         className={classNames(
           "plasmic_default__all",
-          "plasmic_default__div",
-          "__wab_text",
-          "ExitLearnMoreButton__freeBox__juM6I"
+          "plasmic_default__svg",
+          "ExitLearnMoreButton__svg__xxYgT"
         )}
-      >
-        {" X "}
-      </div>
+        role={"img"}
+      />
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root", "svg"],
+  svg: ["svg"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -90,7 +89,7 @@ export const PlasmicExitLearnMoreButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
+    svg: makeNodeComponent("svg"),
     // Metadata about props expected for PlasmicExitLearnMoreButton
     internalVariantProps: PlasmicExitLearnMoreButton__VariantProps,
     internalArgProps: PlasmicExitLearnMoreButton__ArgProps

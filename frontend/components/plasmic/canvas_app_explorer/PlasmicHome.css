@@ -70,9 +70,10 @@
 }
 .Home__productCardContainer___92DMt > .__wab_flex-container {
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: unset;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  align-content: center;
   margin-left: calc(0px - 25px);
   width: calc(100% + 25px);
   margin-top: calc(0px - 25px);
@@ -187,6 +188,38 @@
   top: 14px;
   left: 21px;
 }
+.Home__productCard__wVxN.__wab_instance {
+  position: relative;
+  flex-shrink: 0;
+}
+.Home__img__sa5TM {
+  position: relative;
+  object-fit: cover;
+  height: 79px;
+  left: auto;
+  top: auto;
+  width: 257px;
+  align-self: center;
+}
+.Home__img___2BF9 {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  min-width: 0;
+}
+.Home__ratings__nReN8.__wab_instance {
+  position: relative;
+}
+.Home__addRemoveButton__k6Yee.__wab_instance {
+  width: 120px;
+  height: 30px;
+  margin-right: 10px;
+}
+.Home__learnMoreButton__t8RgJ.__wab_instance {
+  position: absolute;
+  top: 14px;
+  left: 21px;
+}
 .Home__piazzaCard___71L95.__wab_instance {
   position: relative;
   left: auto;
@@ -215,6 +248,38 @@
   padding: 0px 15px;
 }
 .Home__learnMoreButton__gJp8G.__wab_instance {
+  position: absolute;
+  top: 14px;
+  left: 21px;
+}
+.Home__productCard__k0Vv.__wab_instance {
+  position: relative;
+  flex-shrink: 0;
+}
+.Home__img___1Sf8H {
+  position: relative;
+  object-fit: cover;
+  height: 79px;
+  left: auto;
+  top: auto;
+  width: 257px;
+  align-self: center;
+}
+.Home__img__uQbld {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  min-width: 0;
+}
+.Home__ratings__evMo1.__wab_instance {
+  position: relative;
+}
+.Home__addRemoveButton__g9PNk.__wab_instance {
+  width: 120px;
+  height: 30px;
+  margin-right: 10px;
+}
+.Home__learnMoreButton__fktXo.__wab_instance {
   position: absolute;
   top: 14px;
   left: 21px;

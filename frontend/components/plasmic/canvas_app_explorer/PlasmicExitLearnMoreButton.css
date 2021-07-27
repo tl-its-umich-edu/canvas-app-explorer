@@ -6,15 +6,16 @@
   height: auto;
   background: #ff0000;
 }
-.ExitLearnMoreButton__freeBox__juM6I {
-  background: linear-gradient(#ff0000, #ff0000),
-    linear-gradient(#2bc744, #2bc744), #015906;
-  width: 28px;
-  color: #fffafa;
-  text-align: center;
+.ExitLearnMoreButton__svg__xxYgT {
   position: relative;
-  height: 28px;
-  font-size: 14px;
+  object-fit: cover;
+  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
-  padding: 3px;
+}
+.ExitLearnMoreButton__root__nnKr .ExitLearnMoreButton__svg__xxYgT {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
