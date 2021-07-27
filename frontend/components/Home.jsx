@@ -26,7 +26,7 @@ export const Home__VariantProps = new Array();
 export const Home__ArgProps = new Array();
 function Home__RenderFunc(props,ref) {  
     const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array
-    const [learnMoreActive, setLearnMoreActive] = useState([]) // each tool has one entry in array
+    const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
     const [tools, setTools] = useState(null);
 
     useEffect(async () => {
@@ -80,46 +80,48 @@ function Home__RenderFunc(props,ref) {
 						)}
 					>
 						<Header
-							data-plasmic-name={"header"}
-							data-plasmic-override={overrides.header}
-							className={classNames("__wab_instance", "Home__header__iXzGr")}
-							withSearchBar={"withSearchBar"}
+                            data-plasmic-name={"header"}
+                            data-plasmic-override={overrides.header}
+                            className={classNames("__wab_instance", "Home__header__iXzGr")}
+                            noSearchBarOrSettings={"noSearchBarOrSettings"}
 						/>
 						{false ? (
-							<input
-								className={classNames(
-									"plasmic_default__all",
-									"plasmic_default__input",
-									"Home__textbox__y0QeV"
-								)}
-								placeholder={"Some placeholder"}
-								size={1}
-								type={"text"}
-								value={"Some value"}
-							/>
-						) : null}
-						<div
-							data-plasmic-name={"caeDescriptionContainer"}
-							data-plasmic-override={overrides.caeDescriptionContainer}
-							className={classNames(
-								"plasmic_default__all",
-								"plasmic_default__div",
-								"Home__caeDescriptionContainer__d20ZQ"
-							)}
-						>
-							<div
-								className={classNames(
-									"plasmic_default__all",
-									"plasmic_default__div",
-									"__wab_text",
-									"Home__box__k3LxN"
-								)}
-							>
-								{
-									"Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
-								}
-							</div>
-						</div>
+                            <input
+                                className={classNames(
+                                "plasmic_default__all",
+                                "plasmic_default__input",
+                                "Home__textbox__y0QeV"
+                                )}
+                                placeholder={"Some placeholder"}
+                                size={1}
+                                type={"text"}
+                                value={"Some value"}
+                            />
+                        ) : null}
+
+                        <div
+                            data-plasmic-name={"caeDescriptionContainer"}
+                            data-plasmic-override={overrides.caeDescriptionContainer}
+                            className={classNames(
+                                "plasmic_default__all",
+                                "plasmic_default__div",
+                                "Home__caeDescriptionContainer__d20ZQ"
+                            )}
+                        >
+                            <div
+                                className={classNames(
+                                    "plasmic_default__all",
+                                    "plasmic_default__div",
+                                    "__wab_text",
+                                    "Home__freeBox__k3LxN"
+                                )}
+                            >
+                                {
+                                    "Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
+                                }
+                            </div>
+                        </div>
+                        
 						<p.Stack
 							as={"div"}
 							data-plasmic-name={"productCardContainer"}
@@ -138,47 +140,46 @@ function Home__RenderFunc(props,ref) {
                                         <ProductCard
                                             data-plasmic-name={tool.name+"Card"}
                                             data-plasmic-override={overrides.zoomCard}
-                                            addRemoveSlot={(
-                                                <div>
-                                                    {addedTools[tool.id] === false ?  
-                                                        <AddRemoveButton
-                                                            onClick={(e) => {
-                                                                console.log(HELLOOO)
-                                                                e.preventDefault(); 
-                                                                let addedToolsCopy = [...addedTools]
-                                                                addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
-                                                                setAddedTools(addedToolsCopy)
-                                                            }}
-                                                            className={classNames(
-                                                                "__wab_instance",
-                                                                // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
-                                                            )}
-                                                        />
-                                                    :
-                                                        <AddRemoveButton
-                                                            onClick={(e) => {
-                                                                console.log(YOOOOOOOOO)
-                                                                e.preventDefault(); 
-                                                                let addedToolsCopy = [...addedTools]
-                                                                addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
-                                                                setAddedTools(addedToolsCopy)
-                                                            }}
-                                                            className={classNames(
-                                                                "__wab_instance",
-                                                                // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
-                                                            )}
-                                                            removeToolFromSite={"removeToolFromSite"}
-                                                        />     
-                                                    } 
-                                                </div>
-                                            )}
+                                            // -----------------------ADD/REMOVE BUTTON FUNCTIONALITY CODE---------------------------
+                                            // addRemoveSlot={(
+                                            //     <div>
+                                            //         {addedTools[tool.id] === false ?  
+                                            //             <AddRemoveButton
+                                            //                 onClick={(e) => {
+                                            //                     console.log(HELLOOO)
+                                            //                     e.preventDefault(); 
+                                            //                     let addedToolsCopy = [...addedTools]
+                                            //                     addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
+                                            //                     setAddedTools(addedToolsCopy)
+                                            //                 }}
+                                            //                 className={classNames(
+                                            //                     "__wab_instance",
+                                            //                     // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                            //                 )}
+                                            //             />
+                                            //         :
+                                            //             <AddRemoveButton
+                                            //                 onClick={(e) => {
+                                            //                     console.log(YOOOOOOOOO)
+                                            //                     e.preventDefault(); 
+                                            //                     let addedToolsCopy = [...addedTools]
+                                            //                     addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
+                                            //                     setAddedTools(addedToolsCopy)
+                                            //                 }}
+                                            //                 className={classNames(
+                                            //                     "__wab_instance",
+                                            //                     // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                            //                 )}
+                                            //                 removeToolFromSite={"removeToolFromSite"}
+                                            //             />     
+                                            //         } 
+                                            //     </div>
+                                            // )}
+                                            onlyLearnMore={"onlyLearnMore"}
                                             learnMoreSlot={
                                                 <LearnMoreButton
                                                     onClick={(e) => {
                                                         e.preventDefault(); 
-                                                        console.log(tool.id)
-                                                        console.log(addedTools)
-                                                        console.log(learnMoreActive)
                                                         let learnMoreActiveCopy = [...learnMoreActive]
                                                         learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
                                                         setLearnMoreActive(learnMoreActiveCopy)
@@ -189,20 +190,21 @@ function Home__RenderFunc(props,ref) {
                                                     )}
                                                 />
                                             }
+
                                             className={classNames(
                                                 "__wab_instance",	
                                                 // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
                                             )}
                                             description={
                                                 <div
-                                                    className={classNames(
-                                                        "plasmic_default__all",
-                                                        "plasmic_default__div",
-                                                        "__wab_text",
-                                                        "Home__box__c1Y5M" // if this line isn't here, the description won't be formatted
-                                                    )}
-                                                >    
-                                                    {tool.short_description}
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__div",
+                                                    "__wab_text",
+                                                    "Home__freeBox__c1Y5M"
+                                                  )}
+                                                >
+                                                  {tool.short_description}
                                                 </div>
                                             }
                                             image={
@@ -245,10 +247,76 @@ function Home__RenderFunc(props,ref) {
                                         >
                                         </ProductCard>   
                                     :
-                                        <ProductCard
+                                        <ProductCard // Other side of the Learn More If
                                             data-plasmic-name={tool.name+"Card"}
                                             data-plasmic-override={overrides.zoomCard}
                                             learnMore={"learnMore"} // if this line is commented, the card will be flipped
+                                            toolLearnMore={
+                                                <div
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__div",
+                                                    "__wab_text",
+                                                    "Home__freeBox__dHRrw"
+                                                  )}
+                                                >
+                                                  <span>
+                                                    <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+                                                    <React.Fragment>{"\n"}{tool.name}</React.Fragment>
+                                                  </span>
+                                                </div>
+                                            }
+                                            descriptionLearnMore={
+                                                <span>
+                                                  <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                                                  <React.Fragment>
+                                                    {"\n"}    
+                                                    {tool.long_description}
+                                                  </React.Fragment>
+                                                </span>
+                                            }
+                                            privacyAgreementLearnMore={
+                                                <div
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__div",
+                                                    "__wab_text",
+                                                    "Home__freeBox__pkIjF"
+                                                  )}
+                                                >
+                                                  <span>
+                                                    <span style={{ fontWeight: 700 }}>
+                                                      {"Privacy Agreement"}
+                                                    </span>
+                                                    <React.Fragment>
+                                                      {"\n"}
+                                                      {tool.privacy_agreement}
+                                                      {"\n"}
+                                                    </React.Fragment>
+                                                  </span>
+                                                </div>
+                                            }
+                                            placementsInCanvasLearnMore={
+                                                <span>
+                                                  <span style={{ fontWeight: 700 }}>
+                                                    {"Placements in Canvas"}
+                                                  </span>
+                                                  <React.Fragment>
+                                                      {"\n"}
+                                                      {tool.canvas_placement_expanded.map(tool => tool.name)}</React.Fragment>
+                                                </span>
+                                            }
+                                            supportResourcesLearnMore={
+                                                <span>
+                                                  <span style={{ fontWeight: 700 }}>
+                                                    {"Support Resources"}
+                                                  </span>
+                                                  <React.Fragment>
+                                                    {"\n"}
+                                                    {tool.support_resources}
+                                                  </React.Fragment>
+                                                </span>
+                                            }
                                         >
                                         </ProductCard>   
                                     }
