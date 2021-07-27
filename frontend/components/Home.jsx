@@ -22,12 +22,11 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import "./plasmic/plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic/canvas_app_explorer/plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./plasmic/canvas_app_explorer/PlasmicHome.css"; // plasmic-import: 4XPgsAhljqdds/css
-
 export const Home__VariantProps = new Array();
-
 export const Home__ArgProps = new Array();
-
 function Home__RenderFunc(props,ref) {  
+    const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array
+    const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
     const [tools, setTools] = useState(null);
 
     useEffect(async () => {
@@ -35,15 +34,14 @@ function Home__RenderFunc(props,ref) {
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)
+        setAddedTools(Array(Object.keys(data).length + 2).fill(false))
+        setLearnMoreActive(Array(Object.keys(data).length + 2).fill(false))
     }, []);
 
-    console.log("Tools");
-    console.log(tools);
 	const { variants, args, overrides, forNode, dataFetches } = props;
 	const globalVariants = ensureGlobalVariants({
 		screen: useScreenVariants()
 	});
-
 	return (
 		<React.Fragment>
 			<div className={"plasmic_page_wrapper"}>
@@ -72,7 +70,6 @@ function Home__RenderFunc(props,ref) {
 							value={"Some value"}
 						/>
 					) : null}
-
 					<div
 						data-plasmic-name={"appContainer"}
 						data-plasmic-override={overrides.appContainer}
@@ -83,49 +80,48 @@ function Home__RenderFunc(props,ref) {
 						)}
 					>
 						<Header
-							data-plasmic-name={"header"}
-							data-plasmic-override={overrides.header}
-							className={classNames("__wab_instance", "Home__header__iXzGr")}
-							withSearchBar={"withSearchBar"}
+                            data-plasmic-name={"header"}
+                            data-plasmic-override={overrides.header}
+                            className={classNames("__wab_instance", "Home__header__iXzGr")}
+                            noSearchBarOrSettings={"noSearchBarOrSettings"}
 						/>
-
 						{false ? (
-							<input
-								className={classNames(
-									"plasmic_default__all",
-									"plasmic_default__input",
-									"Home__textbox__y0QeV"
-								)}
-								placeholder={"Some placeholder"}
-								size={1}
-								type={"text"}
-								value={"Some value"}
-							/>
-						) : null}
+                            <input
+                                className={classNames(
+                                "plasmic_default__all",
+                                "plasmic_default__input",
+                                "Home__textbox__y0QeV"
+                                )}
+                                placeholder={"Some placeholder"}
+                                size={1}
+                                type={"text"}
+                                value={"Some value"}
+                            />
+                        ) : null}
 
-						<div
-							data-plasmic-name={"caeDescriptionContainer"}
-							data-plasmic-override={overrides.caeDescriptionContainer}
-							className={classNames(
-								"plasmic_default__all",
-								"plasmic_default__div",
-								"Home__caeDescriptionContainer__d20ZQ"
-							)}
-						>
-							<div
-								className={classNames(
-									"plasmic_default__all",
-									"plasmic_default__div",
-									"__wab_text",
-									"Home__box__k3LxN"
-								)}
-							>
-								{
-									"Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
-								}
-							</div>
-						</div>
-
+                        <div
+                            data-plasmic-name={"caeDescriptionContainer"}
+                            data-plasmic-override={overrides.caeDescriptionContainer}
+                            className={classNames(
+                                "plasmic_default__all",
+                                "plasmic_default__div",
+                                "Home__caeDescriptionContainer__d20ZQ"
+                            )}
+                        >
+                            <div
+                                className={classNames(
+                                    "plasmic_default__all",
+                                    "plasmic_default__div",
+                                    "__wab_text",
+                                    "Home__freeBox__k3LxN"
+                                )}
+                            >
+                                {
+                                    "Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
+                                }
+                            </div>
+                        </div>
+                        
 						<p.Stack
 							as={"div"}
 							data-plasmic-name={"productCardContainer"}
@@ -139,89 +135,197 @@ function Home__RenderFunc(props,ref) {
 						>
                         {tools === null ? (<div>Loading . . . </div>) : (
 							tools.map(tool => ( 
-                                <ProductCard
-                                    data-plasmic-name={tool.name+"Card"}
-                                    data-plasmic-override={overrides.zoomCard}
-                                    addRemoveSlot={
-                                        <AddRemoveButton
+                                <div>
+                                    {learnMoreActive[tool.id] === false ?
+                                        <ProductCard
+                                            data-plasmic-name={tool.name+"Card"}
+                                            data-plasmic-override={overrides.zoomCard}
+                                            // -----------------------ADD/REMOVE BUTTON FUNCTIONALITY CODE---------------------------
+                                            // addRemoveSlot={(
+                                            //     <div>
+                                            //         {addedTools[tool.id] === false ?  
+                                            //             <AddRemoveButton
+                                            //                 onClick={(e) => {
+                                            //                     console.log(HELLOOO)
+                                            //                     e.preventDefault(); 
+                                            //                     let addedToolsCopy = [...addedTools]
+                                            //                     addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
+                                            //                     setAddedTools(addedToolsCopy)
+                                            //                 }}
+                                            //                 className={classNames(
+                                            //                     "__wab_instance",
+                                            //                     // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                            //                 )}
+                                            //             />
+                                            //         :
+                                            //             <AddRemoveButton
+                                            //                 onClick={(e) => {
+                                            //                     console.log(YOOOOOOOOO)
+                                            //                     e.preventDefault(); 
+                                            //                     let addedToolsCopy = [...addedTools]
+                                            //                     addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
+                                            //                     setAddedTools(addedToolsCopy)
+                                            //                 }}
+                                            //                 className={classNames(
+                                            //                     "__wab_instance",
+                                            //                     // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                            //                 )}
+                                            //                 removeToolFromSite={"removeToolFromSite"}
+                                            //             />     
+                                            //         } 
+                                            //     </div>
+                                            // )}
+                                            onlyLearnMore={"onlyLearnMore"}
+                                            learnMoreSlot={
+                                                <LearnMoreButton
+                                                    onClick={(e) => {
+                                                        e.preventDefault(); 
+                                                        let learnMoreActiveCopy = [...learnMoreActive]
+                                                        learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
+                                                        setLearnMoreActive(learnMoreActiveCopy)
+                                                    }}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
+                                                    )}
+                                                />
+                                            }
+
                                             className={classNames(
-                                                "__wab_instance",
-                                                // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
+                                                "__wab_instance",	
+                                                // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
                                             )}
-                                        />
+                                            description={
+                                                <div
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__div",
+                                                    "__wab_text",
+                                                    "Home__freeBox__c1Y5M"
+                                                  )}
+                                                >
+                                                  {tool.short_description}
+                                                </div>
+                                            }
+                                            image={
+                                                <img
+                                                    alt={""}
+                                                    className={classNames(
+                                                        "plasmic_default__all",
+                                                        "plasmic_default__img",
+                                                        "Home__img__psMY" // if this line isn't here, the image won't be formatted
+                                                    )}
+                                                    role={"img"}
+                                                    src={tool.main_image} // Image not currently in API
+                                                />
+                                            }
+                                            logo={
+                                                <img
+                                                    alt={""}
+                                                    className={classNames(
+                                                        "plasmic_default__all",
+                                                        "plasmic_default__img",
+                                                        "Home__img__u0Ib1" // if this line isn't here, the images won't be formatted
+                                                    )}
+                                                    role={"img"}
+                                                    src={tool.logo_image}
+                                                />
+                                            }
+                                            ratings={ // Optional ratings addition, currently is not active
+                                                true ? (
+                                                <Ratings
+                                                    className={classNames(
+                                                    "__wab_instance",
+                                                    "Home__ratings__iUUiJ"
+                                                    )}
+                                                    numReviews={"(45 Review)"}
+                                                    stars={"five"}
+                                                />
+                                                ) : null
+                                            }
+                                            title={tool.name}
+                                        >
+                                        </ProductCard>   
+                                    :
+                                        <ProductCard // Other side of the Learn More If
+                                            data-plasmic-name={tool.name+"Card"}
+                                            data-plasmic-override={overrides.zoomCard}
+                                            learnMore={"learnMore"} // if this line is commented, the card will be flipped
+                                            toolLearnMore={
+                                                <div
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__div",
+                                                    "__wab_text",
+                                                    "Home__freeBox__dHRrw"
+                                                  )}
+                                                >
+                                                  <span>
+                                                    <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+                                                    <React.Fragment>{"\n"}{tool.name}</React.Fragment>
+                                                  </span>
+                                                </div>
+                                            }
+                                            descriptionLearnMore={
+                                                <span>
+                                                  <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                                                  <React.Fragment>
+                                                    {"\n"}    
+                                                    {tool.long_description}
+                                                  </React.Fragment>
+                                                </span>
+                                            }
+                                            privacyAgreementLearnMore={
+                                                <div
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__div",
+                                                    "__wab_text",
+                                                    "Home__freeBox__pkIjF"
+                                                  )}
+                                                >
+                                                  <span>
+                                                    <span style={{ fontWeight: 700 }}>
+                                                      {"Privacy Agreement"}
+                                                    </span>
+                                                    <React.Fragment>
+                                                      {"\n"}
+                                                      {tool.privacy_agreement}
+                                                      {"\n"}
+                                                    </React.Fragment>
+                                                  </span>
+                                                </div>
+                                            }
+                                            placementsInCanvasLearnMore={
+                                                <span>
+                                                  <span style={{ fontWeight: 700 }}>
+                                                    {"Placements in Canvas"}
+                                                  </span>
+                                                  <React.Fragment>
+                                                      {"\n"}
+                                                      {tool.canvas_placement_expanded.map(tool => tool.name)}</React.Fragment>
+                                                </span>
+                                            }
+                                            supportResourcesLearnMore={
+                                                <span>
+                                                  <span style={{ fontWeight: 700 }}>
+                                                    {"Support Resources"}
+                                                  </span>
+                                                  <React.Fragment>
+                                                    {"\n"}
+                                                    {tool.support_resources}
+                                                  </React.Fragment>
+                                                </span>
+                                            }
+                                        >
+                                        </ProductCard>   
                                     }
-                                    className={classNames(
-                                        "__wab_instance",	
-                                        // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
-                                    )}
-                                    description={
-                                        <div
-                                            className={classNames(
-                                                "plasmic_default__all",
-                                                "plasmic_default__div",
-                                                "__wab_text",
-                                                "Home__box__c1Y5M" // if this line isn't here, the description won't be formatted
-                                            )}
-                                        >    
-                                            {tool.short_description}
-                                        </div>
-                                    }
-                                    image={
-                                        <img
-                                            alt={""}
-                                            className={classNames(
-                                                "plasmic_default__all",
-                                                "plasmic_default__img",
-                                                "Home__img__psMY" // if this line isn't here, the image won't be formatted
-                                            )}
-                                            role={"img"}
-                                            src={tool.main_image} // Image not currently in API
-                                        />
-                                    }
-                                    learnMoreSlot={
-                                        <LearnMoreButton
-                                          data-plasmic-name={"learnMoreButton"}
-                                          data-plasmic-override={overrides.learnMoreButton}
-                                          className={classNames(
-                                            "__wab_instance",
-                                            // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
-                                          )}
-                                        />
-                                      }
-                                    // learnMore={"learnMore"} // if this line is uncommented, the card will be flipped
-                                    logo={
-                                        <img
-                                            alt={""}
-                                            className={classNames(
-                                                "plasmic_default__all",
-                                                "plasmic_default__img",
-                                                "Home__img__u0Ib1" // if this line isn't here, the images won't be formatted
-                                            )}
-                                            role={"img"}
-                                            src={tool.logo_image}
-                                        />
-                                    }
-                                    ratings={ // Optional ratings addition, currently is not active
-                                        true ? (
-                                          <Ratings
-                                            className={classNames(
-                                              "__wab_instance",
-                                              "Home__ratings__iUUiJ"
-                                            )}
-                                            numReviews={"(45 Review)"}
-                                            stars={"five"}
-                                          />
-                                        ) : null
-                                    }
-                                    title={tool.name}
-                                >
-                                </ProductCard>   
+                                </div>
                             ))
                                         
                         )}
 	
 						</p.Stack>
-
 						{true ? (
 							<Footer
 								data-plasmic-name={"footer"}
@@ -230,7 +334,6 @@ function Home__RenderFunc(props,ref) {
 							/>
 						) : null}
 					</div>
-
 					{false ? (
 						<input
 							className={classNames(
@@ -249,7 +352,6 @@ function Home__RenderFunc(props,ref) {
 		</React.Fragment>
 	);
 };    
-
 const PlasmicDescendants = {
   root: [
     "root",
@@ -263,7 +365,6 @@ const PlasmicDescendants = {
     "panoptoCard",
     "footer"
   ],
-
   appContainer: [
     "appContainer",
     "header",
@@ -275,7 +376,6 @@ const PlasmicDescendants = {
     "panoptoCard",
     "footer"
   ],
-
   header: ["header"],
   caeDescriptionContainer: ["caeDescriptionContainer"],
   productCardContainer: [
@@ -285,14 +385,12 @@ const PlasmicDescendants = {
     "piazzaCard",
     "panoptoCard"
   ],
-
   zoomCard: ["zoomCard"],
   myLaCard: ["myLaCard"],
   piazzaCard: ["piazzaCard"],
   panoptoCard: ["panoptoCard"],
   footer: ["footer"]
 };
-
 function makeNodeComponent(nodeName) {
   const func = function (props) {
     const { variants, args, overrides } = deriveRenderOpts(props, {
@@ -301,7 +399,6 @@ function makeNodeComponent(nodeName) {
       internalArgPropNames: Home__ArgProps,
       internalVariantPropNames: Home__VariantProps
     });
-
     const { dataFetches } = props;
     return Home__RenderFunc({
       variants,
@@ -318,7 +415,6 @@ function makeNodeComponent(nodeName) {
   }
   return func;
 }
-
 export const Home = Object.assign(
   // Top-level PlasmicHome renders the root element
   makeNodeComponent("root"),
@@ -338,5 +434,4 @@ export const Home = Object.assign(
     internalArgProps: Home__ArgProps
   }
 );
-
 export default Home;
