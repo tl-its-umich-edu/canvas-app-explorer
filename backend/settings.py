@@ -145,8 +145,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 DB_CACHE_CONFIGS = os.getenv('DB_CACHE_CONFIGS',
                            {'CACHE_TTL': 600, 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-                            'LOCATION': 'django_myla_cache',
-                            'CACHE_KEY_PREFIX': 'myla',
+                            'LOCATION': 'django_app_explorer_cache',
+                            'CACHE_KEY_PREFIX': 'app_explorer',
                             'CACHE_OPTIONS': {'COMPRESS_MIN_LENGTH': 5000, 'COMPRESS_LEVEL': 6}
                             })
 
