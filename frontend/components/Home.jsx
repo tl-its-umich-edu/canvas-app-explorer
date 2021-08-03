@@ -30,7 +30,7 @@ function Home__RenderFunc(props,ref) {
     const [tools, setTools] = useState(null);
 
     useEffect(async () => {
-        const url = "http://localhost:5000/api/lti_tools/";
+        const url = "/api/lti_tools/";
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)

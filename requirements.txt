@@ -8,3 +8,6 @@ Pillow # Needed for images
 djangorestframework
 markdown       # Markdown support for the browsable API.
 django-filter  # Filtering support
+
+#LTI 
+PyLTI1p3==1.9.1
