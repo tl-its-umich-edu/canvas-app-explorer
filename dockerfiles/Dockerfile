@@ -3,22 +3,11 @@
 # https://hub.docker.com/r/nikolaik/python-nodejs
 FROM python:3.8-slim AS app
 
-# Install node prereqs, nodejs and yarn
-# Slim image needs wget and gnupg2 installed
-
-# Ref: https://deb.nodesource.com/setup_14.x
-# Ref: https://yarnpkg.com/en/docs/install
-RUN apt-get update && apt-get install wget gnupg2 -y && \
-    echo "deb https://deb.nodesource.com/node_14.x buster main" > /etc/apt/sources.list.d/nodesource.list && \
-    wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
-    wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
- 
 # NOTE: requirements.txt not likely to change between dev builds
 COPY requirements.txt .
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    build-essential default-libmysqlclient-dev netcat vim-tiny jq python3-dev xmlsec1 git supervisor nodejs yarn && \
+    build-essential default-libmysqlclient-dev netcat vim-tiny jq python3-dev git supervisor curl && \
     apt-get upgrade -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
@@ -26,6 +15,16 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /code/frontend
+
+ENV NODE_VERSION=14.17.4
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+ENV NVM_DIR=/root/.nvm
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION} && \
+    . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION} && \
+    . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+RUN node --version && npm --version
+
 COPY /frontend/package*.json /code/frontend/
 
 RUN npm install
