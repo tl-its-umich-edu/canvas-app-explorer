@@ -47,7 +47,9 @@ export const PlasmicProductCard__ArgProps = new Array(
   "privacyAgreementLearnMore",
   "placementsInCanvasLearnMore",
   "supportResourcesLearnMore",
-  "learnMoreSlot"
+  "learnMoreSlot",
+  "photoLearnMore",
+  "exitButtonSlot"
 );
 
 function PlasmicProductCard__RenderFunc(props) {
@@ -490,6 +492,8 @@ function PlasmicProductCard__RenderFunc(props) {
       ) : null}
       {false ? (
         <img
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
           alt={""}
           className={classNames(
             "plasmic_default__all",
@@ -681,58 +685,170 @@ function PlasmicProductCard__RenderFunc(props) {
           })}
         </div>
       ) : null}
-      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
-        <img
-          alt={""}
+      {(
+        hasVariant(variants, "onlyLearnMore", "onlyLearnMore")
+          ? true
+          : hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
+          ? true
+          : hasVariant(variants, "withReviews", "withReviews")
+          ? true
+          : true
+      ) ? (
+        <div
           className={classNames(
             "plasmic_default__all",
-            "plasmic_default__img",
-            "ProductCard__img__vKkmi",
+            "plasmic_default__div",
+            "ProductCard__freeBox__hhS",
             {
-              ProductCard__img__learnMore__vKkmiOklBv: hasVariant(
+              ProductCard__freeBox__learnMore__hhSOklBv: hasVariant(
                 variants,
                 "learnMore",
                 "learnMore"
+              ),
+
+              ProductCard__freeBox__onlyLearnMore__hhSTEu15: hasVariant(
+                variants,
+                "onlyLearnMore",
+                "onlyLearnMore"
+              ),
+
+              ProductCard__freeBox__withReviews__hhSVvVo9: hasVariant(
+                variants,
+                "withReviews",
+                "withReviews"
+              ),
+
+              ProductCard__freeBox__withoutScreenshot__hhSUtYkz: hasVariant(
+                variants,
+                "withoutScreenshot",
+                "withoutScreenshot"
               )
             }
           )}
-          role={"img"}
-          src={
-            hasVariant(variants, "learnMore", "learnMore")
-              ? "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
-              : undefined
-          }
-        />
+        >
+          {(
+            hasVariant(variants, "onlyLearnMore", "onlyLearnMore")
+              ? false
+              : hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
+              ? false
+              : hasVariant(variants, "withReviews", "withReviews")
+              ? false
+              : true
+          )
+            ? p.renderPlasmicSlot({
+                defaultContents: (
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "ProductCard__img__mOmBg"
+                    )}
+                    role={"img"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
+                    }
+                  />
+                ),
+
+                value: args.photoLearnMore
+              })
+            : null}
+        </div>
       ) : null}
-      {(hasVariant(variants, "learnMore", "learnMore") ? true : false) ? (
-        <ExitLearnMoreButton
-          data-plasmic-name={"exitLearnMoreButton"}
-          data-plasmic-override={overrides.exitLearnMoreButton}
+      {(
+        hasVariant(variants, "onlyLearnMore", "onlyLearnMore")
+          ? true
+          : hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
+          ? true
+          : hasVariant(variants, "withReviews", "withReviews")
+          ? true
+          : true
+      ) ? (
+        <div
           className={classNames(
-            "__wab_instance",
-            "ProductCard__exitLearnMoreButton__nbpuF",
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "ProductCard__freeBox__wu44J",
             {
-              ProductCard__exitLearnMoreButton__learnMore__nbpuFOklBv:
-                hasVariant(variants, "learnMore", "learnMore")
+              ProductCard__freeBox__learnMore__wu44JOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              ),
+
+              ProductCard__freeBox__onlyLearnMore__wu44JtEu15: hasVariant(
+                variants,
+                "onlyLearnMore",
+                "onlyLearnMore"
+              ),
+
+              ProductCard__freeBox__withReviews__wu44JvvVo9: hasVariant(
+                variants,
+                "withReviews",
+                "withReviews"
+              ),
+
+              ProductCard__freeBox__withoutScreenshot__wu44JUtYkz: hasVariant(
+                variants,
+                "withoutScreenshot",
+                "withoutScreenshot"
+              )
             }
           )}
-        />
+        >
+          <LinkButton
+            className={classNames(
+              "__wab_instance",
+              "ProductCard__linkButton__ih6Bj",
+              {
+                ProductCard__linkButton__learnMore__ih6BjOklBv: hasVariant(
+                  variants,
+                  "learnMore",
+                  "learnMore"
+                )
+              }
+            )}
+            text={
+              (
+                hasVariant(variants, "onlyLearnMore", "onlyLearnMore")
+                  ? false
+                  : hasVariant(
+                      variants,
+                      "withoutScreenshot",
+                      "withoutScreenshot"
+                    )
+                  ? false
+                  : hasVariant(variants, "withReviews", "withReviews")
+                  ? false
+                  : true
+              )
+                ? p.renderPlasmicSlot({
+                    defaultContents: (
+                      <ExitLearnMoreButton
+                        className={classNames(
+                          "__wab_instance",
+                          "ProductCard__exitLearnMoreButton___6Q3Fz"
+                        )}
+                      />
+                    ),
+
+                    value: args.exitButtonSlot
+                  })
+                : null
+            }
+          />
+        </div>
       ) : null}
     </p.Stack>
   );
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "learnMoreTool",
-    "screenshotBackground",
-    "exitLearnMoreButton"
-  ],
-
+  root: ["root", "learnMoreTool", "screenshotBackground", "img"],
   learnMoreTool: ["learnMoreTool"],
   screenshotBackground: ["screenshotBackground"],
-  exitLearnMoreButton: ["exitLearnMoreButton"]
+  img: ["img"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -768,7 +884,7 @@ export const PlasmicProductCard = Object.assign(
     // Helper components rendering sub-elements
     learnMoreTool: makeNodeComponent("learnMoreTool"),
     screenshotBackground: makeNodeComponent("screenshotBackground"),
-    exitLearnMoreButton: makeNodeComponent("exitLearnMoreButton"),
+    img: makeNodeComponent("img"),
     // Metadata about props expected for PlasmicProductCard
     internalVariantProps: PlasmicProductCard__VariantProps,
     internalArgProps: PlasmicProductCard__ArgProps
