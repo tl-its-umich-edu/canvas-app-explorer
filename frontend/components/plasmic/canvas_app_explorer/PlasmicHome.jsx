@@ -340,7 +340,20 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={"onlyLearnMore"}
+                photoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__xvJc3"
+                    )}
+                    role={"img"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
+                    }
+                  />
+                }
                 placementsInCanvasLearnMore={
                   <div
                     className={classNames(
@@ -400,11 +413,27 @@ function PlasmicHome__RenderFunc(props) {
               />
 
               <ProductCard
+                data-plasmic-name={"productCard"}
+                data-plasmic-override={overrides.productCard}
                 className={classNames(
                   "__wab_instance",
                   "Home__productCard__wVxN"
                 )}
                 learnMore={"learnMore"}
+                photoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__tmVRd"
+                    )}
+                    role={"img"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/panopto.png"
+                    }
+                  />
+                }
               />
 
               <ProductCard
@@ -476,6 +505,20 @@ function PlasmicHome__RenderFunc(props) {
                   />
                 }
                 onlyLearnMore={"onlyLearnMore"}
+                photoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__oJq2O"
+                    )}
+                    role={"img"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
+                    }
+                  />
+                }
                 placementsInCanvasLearnMore={
                   <span>
                     <span style={{ fontWeight: 700 }}>
@@ -520,35 +563,6 @@ function PlasmicHome__RenderFunc(props) {
                   </span>
                 }
               />
-
-              <ProductCard
-                className={classNames(
-                  "__wab_instance",
-                  "Home__productCard__k0Vv"
-                )}
-              />
-
-              <ProductCard
-                data-plasmic-name={"panoptoCard"}
-                data-plasmic-override={overrides.panoptoCard}
-                className={classNames(
-                  "__wab_instance",
-                  "Home__panoptoCard__cv5Of"
-                )}
-                description={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__freeBox__p0Nci"
-                    )}
-                  >
-                    {"Panopto is used to record, share and manage videos."}
-                  </div>
-                }
-                title={"Panopto"}
-              />
             </p.Stack>
 
             {true ? (
@@ -589,8 +603,8 @@ const PlasmicDescendants = {
     "zoomCard",
     "learnMoreButton",
     "myLaCard",
+    "productCard",
     "piazzaCard",
-    "panoptoCard",
     "footer"
   ],
 
@@ -602,8 +616,8 @@ const PlasmicDescendants = {
     "zoomCard",
     "learnMoreButton",
     "myLaCard",
+    "productCard",
     "piazzaCard",
-    "panoptoCard",
     "footer"
   ],
 
@@ -614,15 +628,15 @@ const PlasmicDescendants = {
     "zoomCard",
     "learnMoreButton",
     "myLaCard",
-    "piazzaCard",
-    "panoptoCard"
+    "productCard",
+    "piazzaCard"
   ],
 
   zoomCard: ["zoomCard", "learnMoreButton"],
   learnMoreButton: ["learnMoreButton"],
   myLaCard: ["myLaCard"],
+  productCard: ["productCard"],
   piazzaCard: ["piazzaCard"],
-  panoptoCard: ["panoptoCard"],
   footer: ["footer"]
 };
 
@@ -664,8 +678,8 @@ export const PlasmicHome = Object.assign(
     zoomCard: makeNodeComponent("zoomCard"),
     learnMoreButton: makeNodeComponent("learnMoreButton"),
     myLaCard: makeNodeComponent("myLaCard"),
+    productCard: makeNodeComponent("productCard"),
     piazzaCard: makeNodeComponent("piazzaCard"),
-    panoptoCard: makeNodeComponent("panoptoCard"),
     footer: makeNodeComponent("footer"),
     // Metadata about props expected for PlasmicHome
     internalVariantProps: PlasmicHome__VariantProps,
