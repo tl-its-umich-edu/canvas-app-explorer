@@ -15,6 +15,7 @@ import ProductCard from "./ProductCard"; // plasmic-import: zc_-JZqmkLhAk/compon
 import Ratings from "./Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "./AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import LearnMoreButton from "./LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
+import ExitLearnMoreButton from "./ExitLearnMoreButton"; 
 import Screenshot from "./Screenshot"; // plasmic-import: fUpKi24Qhx/component
 import Footer from "./Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants } from "./plasmic/canvas_app_explorer/PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
@@ -25,7 +26,7 @@ import "./plasmic/canvas_app_explorer/PlasmicHome.css"; // plasmic-import: 4XPgs
 export const Home__VariantProps = new Array();
 export const Home__ArgProps = new Array();
 function Home__RenderFunc(props,ref) {  
-    const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array
+    //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
     const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
     const [tools, setTools] = useState(null);
 
@@ -34,7 +35,7 @@ function Home__RenderFunc(props,ref) {
         const response = await fetch(url);
         const data = await response.json();
         setTools(data)
-        setAddedTools(Array(Object.keys(data).length + 2).fill(false))
+        //setAddedTools(Array(Object.keys(data).length + 2).fill(false)) // don't need for add/remove
         setLearnMoreActive(Array(Object.keys(data).length + 2).fill(false))
     }, []);
 
@@ -216,7 +217,7 @@ function Home__RenderFunc(props,ref) {
                                                         "Home__img__psMY" // if this line isn't here, the image won't be formatted
                                                     )}
                                                     role={"img"}
-                                                    src={tool.main_image} // Image not currently in API
+                                                    src={tool.main_image} 
                                                 />
                                             }
                                             logo={
@@ -251,6 +252,21 @@ function Home__RenderFunc(props,ref) {
                                             data-plasmic-name={tool.name+"Card"}
                                             data-plasmic-override={overrides.zoomCard}
                                             learnMore={"learnMore"} // if this line is commented, the card will be flipped
+                                            exitButtonSlot={
+                                                <ExitLearnMoreButton
+                                                    onClick={(e) => {
+                                                        e.preventDefault(); 
+                                                        console.log(learnMoreActive)
+                                                        let learnMoreActiveCopy = [...learnMoreActive]
+                                                        learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
+                                                        setLearnMoreActive(learnMoreActiveCopy)
+                                                    }}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
+                                                    )}
+                                                />
+                                            }
                                             toolLearnMore={
                                                 <div
                                                   className={classNames(
@@ -316,6 +332,18 @@ function Home__RenderFunc(props,ref) {
                                                     {tool.support_resources}
                                                   </React.Fragment>
                                                 </span>
+                                            }
+                                            photoLearnMore={
+                                                <img
+                                                  alt={""}
+                                                  className={classNames(
+                                                    "plasmic_default__all",
+                                                    "plasmic_default__img",
+                                                    "Home__img__xvJc3"
+                                                  )}
+                                                  role={"img"}
+                                                  src={tool.main_image}
+                                                />
                                             }
                                         >
                                         </ProductCard>   
