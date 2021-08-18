@@ -22,8 +22,9 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from django.views import static
 from rest_framework import routers
-from canvas_app_explorer import urls as canvas_app_explorer_urls #type: ignore
-from canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
+
+from backend.canvas_app_explorer import urls as canvas_app_explorer_urls #type: ignore
+from backend.canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
 
 # This is for Django Rest Framework
 router = routers.DefaultRouter()

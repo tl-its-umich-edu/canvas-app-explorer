@@ -5,6 +5,9 @@ webpack-stats.json
 .data
 ngrok.yml
 
+# Temp files
+*.swp
+
 # https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/

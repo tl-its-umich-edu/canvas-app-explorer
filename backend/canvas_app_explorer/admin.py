@@ -1,7 +1,7 @@
 # Register your models here.
 
 from django.contrib import admin
-from canvas_app_explorer.models import LtiTool, CanvasPlacement
+from backend.canvas_app_explorer.models import LtiTool, CanvasPlacement
 
 class LtiToolAdmin(admin.ModelAdmin):
     pass

@@ -1,4 +1,4 @@
-from canvas_app_explorer import models
+from backend.canvas_app_explorer import models
 from rest_framework import serializers
 
 class CanvasPlacementSerializer(serializers.ModelSerializer):
