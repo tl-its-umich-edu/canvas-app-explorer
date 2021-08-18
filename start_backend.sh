@@ -25,6 +25,12 @@ if [ -z "${DB_PORT}" ]; then
     DB_PORT=3306
 fi
 
+# To have a more static default secret key, this should still be defined
+if [ -z "${DJANGO_SECRET_KEY}" ]; then
+    export DJANGO_SECRET_KEY=`python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
+    echo "DJANGO_SECRET_KEY not set, using random value"
+fi
+
 if [ "${GUNICORN_RELOAD}" ]; then
     GUNICORN_RELOAD="--reload"
 else

@@ -21,7 +21,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: dockerfiles/Dockerfile
+      dockerfile: dockerfiles/Dockerfile.openshift
       args:
         TZ: ${TZ}
     volumes:
@@ -36,6 +36,5 @@ services:
     container_name: canvas_app_explorer
     env_file:
       - .env
-          # Needed for the localhost views
     environment:
       - DEBUG=True
