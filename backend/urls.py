@@ -44,6 +44,8 @@ urlpatterns = [
 # TODO: This is to aid local development. Switch this to collectstatic and put it in static
 # This exposes the frontend/public/plasmic directory on a url in static
 if settings.DEBUG:
+    from django.contrib.staticfiles import views as static_views
+
     urlpatterns += [
         re_path(r'^static/plasmic/(?P<path>.*)$', 
             view = static.serve, 
@@ -51,7 +53,9 @@ if settings.DEBUG:
                 'document_root': os.path.join(settings.BASE_DIR, 'frontend/public/plasmic'), 
                 'show_indexes' : True
             }
-        )
+        ),
+        # Matches STATIC_URL in settings
+        re_path(r'^django_static/(?P<path>.*)$', static_views.serve),
     ]
 
 

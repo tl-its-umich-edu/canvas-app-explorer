@@ -31,6 +31,12 @@ else
     GUNICORN_RELOAD=
 fi
 
+# To have a more static default secret key, this should still be defined
+if [ -z "${DJANGO_SECRET_KEY}" ]; then
+    export DJANGO_SECRET_KEY=`python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
+    echo "DJANGO_SECRET_KEY not set, using random value"
+fi
+
 echo "Waiting for DB ${DB_HOST}:${DB_PORT}"
 while ! nc -z "${DB_HOST}" "${DB_PORT}"; do   
   sleep 1 # wait 1 second before check again
