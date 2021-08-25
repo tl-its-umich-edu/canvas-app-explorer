@@ -138,7 +138,7 @@ WEBPACK_LOADER = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-DEFAULT_FILE_STORAGE = 'canvas_app_explorer.storage_get_file.DatabaseFileStorage'
+DEFAULT_FILE_STORAGE = 'backend.canvas_app_explorer.storage_get_file.DatabaseFileStorage'
 
 # TODO: Switch this to CSP for additional security
 X_FRAME_OPTIONS = 'ALLOWALL'
