@@ -17,6 +17,7 @@ class MainImage(models.Model):
     bytes = models.TextField()
     filename = models.CharField(max_length=255)
     mimetype = models.CharField(max_length=50)
+
 class LtiTool(models.Model):
     name = models.CharField(max_length=50)
     logo_image = models.ImageField(upload_to='canvas_app_explorer.LogoImage/bytes/filename/mimetype', blank=True, null=True)

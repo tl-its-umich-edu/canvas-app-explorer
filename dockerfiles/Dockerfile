@@ -39,17 +39,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # EXPOSE port 5000 to allow communication to/from server
 EXPOSE 3000 5000
 
-# copy built react and node libraries for production mode
-# COPY --from=node-prod-deps /usr/src/app/package-lock.json package-lock.json
-# COPY --from=node-prod-deps /usr/src/app/webpack-stats.json webpack-stats.json
-# COPY --from=node-prod-deps /usr/src/app/assets assets
-# COPY --from=node-prod-deps /usr/src/app/node_modules node_modules
-
 # NOTE: project files likely to change between dev builds
 COPY . .
-
-# This DJANGO_SECRET_KEY is set here just so collectstatic runs with an empty key. It can be set to anything
-# RUN echo yes | DJANGO_SECRET_KEY="collectstatic" python manage.py collectstatic --verbosity 0
 
 CMD ["/usr/bin/supervisord", "-c", "/code/deploy/supervisor_docker.conf"]
 # done!

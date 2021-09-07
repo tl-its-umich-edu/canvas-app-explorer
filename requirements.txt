@@ -1,3 +1,5 @@
+gunicorn
+
 Django
 django-webpack-loader
 mysqlclient

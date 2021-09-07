@@ -36,3 +36,6 @@ services:
     container_name: canvas_app_explorer
     env_file:
       - .env
+          # Needed for the localhost views
+    environment:
+      - DEBUG=True

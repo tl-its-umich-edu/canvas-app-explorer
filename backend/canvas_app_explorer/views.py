@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from rest_framework import permissions, viewsets
 
-from . import models, serializers
+from backend.canvas_app_explorer import models, serializers
 
 
 class LTIToolViewSet(viewsets.ModelViewSet):

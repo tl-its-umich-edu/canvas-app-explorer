@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+from django.core.management.utils import get_random_secret_key
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,10 +27,10 @@ PROJECT_ROOT = os.path.abspath(
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&24ubb46zaej*fd9jz1^mw1t0)-@zd9g74f!hcs1a48-7loo0r'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.getenv("DEBUG") == "True" else False
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
@@ -135,7 +138,7 @@ WEBPACK_LOADER = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-DEFAULT_FILE_STORAGE = 'canvas_app_explorer.storage_get_file.DatabaseFileStorage'
+DEFAULT_FILE_STORAGE = 'backend.canvas_app_explorer.storage_get_file.DatabaseFileStorage'
 
 # TODO: Switch this to CSP for additional security
 X_FRAME_OPTIONS = 'ALLOWALL'
@@ -158,4 +161,44 @@ CACHES = {
         "KEY_PREFIX": DB_CACHE_CONFIGS['CACHE_KEY_PREFIX'],
         "TIMEOUT": DB_CACHE_CONFIGS['CACHE_TTL']
     }
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    # Gunicorns logging format https://github.com/benoitc/gunicorn/blob/19.x/gunicorn/glogging.py
+    'formatters': {
+        "generic": {
+            "format": "%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
+            "datefmt": "[%Y-%m-%d %H:%M:%S %z]",
+            "class": "logging.Formatter",
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'generic',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'rules': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': os.getenv('RULES_LOG_LEVEL', 'INFO'),
+        },
+        '': {
+            'level': 'WARNING',
+            'handlers': ['console'],
+        },
+
+    },
+    'root': {
+        'level': os.getenv('ROOT_LOG_LEVEL', 'INFO'),
+        'handlers': ['console']
+    },
 }

@@ -22,8 +22,9 @@ from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from django.views import static
 from rest_framework import routers
-from canvas_app_explorer import urls as canvas_app_explorer_urls #type: ignore
-from canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
+
+from backend.canvas_app_explorer import urls as canvas_app_explorer_urls #type: ignore
+from backend.canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
 
 # This is for Django Rest Framework
 router = routers.DefaultRouter()
@@ -43,6 +44,8 @@ urlpatterns = [
 # TODO: This is to aid local development. Switch this to collectstatic and put it in static
 # This exposes the frontend/public/plasmic directory on a url in static
 if settings.DEBUG:
+    from django.contrib.staticfiles import views as static_views
+
     urlpatterns += [
         re_path(r'^static/plasmic/(?P<path>.*)$', 
             view = static.serve, 
@@ -50,7 +53,9 @@ if settings.DEBUG:
                 'document_root': os.path.join(settings.BASE_DIR, 'frontend/public/plasmic'), 
                 'show_indexes' : True
             }
-        )
+        ),
+        # Matches STATIC_URL in settings
+        re_path(r'^django_static/(?P<path>.*)$', static_views.serve),
     ]
 
 
