@@ -21,20 +21,16 @@ services:
   web:
     build:
       context: .
-      dockerfile: dockerfiles/Dockerfile
+      dockerfile: dockerfiles/Dockerfile.openshift
       args:
         TZ: ${TZ}
     volumes:
-      - .:/code:delegated
-      # use the container's node_modules folder (don't override)
-      - /code/frontend/node_modules/
-      - /code/static/
+      # Only map the secrets for prod build
       - ${HOME}/mylasecrets:/secrets
     ports:
       - "5000:5000"
-      - "3000:3000"
-    container_name: canvas_app_explorer
+    container_name: canvas_app_explorer_prod
     env_file:
-      - .env
+      - .env.openshift
     environment:
-      - DEBUG=True
+      - DEBUG=False
