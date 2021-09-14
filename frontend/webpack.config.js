@@ -2,8 +2,8 @@ var path = require("path");
 var BundleTracker = require('webpack-bundle-tracker');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// Try the environment variable, otherwise use default on localhost
-const PUBLIC_PATH = process.env.PUBLIC_PATH || 'http://localhost:3000/dist/';
+// Try the environment variable
+const PUBLIC_PATH = process.env.PUBLIC_PATH || '/static/bundles/';
 
 module.exports = {
   context: __dirname,

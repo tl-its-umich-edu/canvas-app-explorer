@@ -38,3 +38,4 @@ services:
       - .env
     environment:
       - DEBUG=True
+      - PUBLIC_PATH=http://localhost:3000/dist/

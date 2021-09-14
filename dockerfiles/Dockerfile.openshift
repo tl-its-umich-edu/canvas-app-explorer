@@ -36,6 +36,10 @@ COPY . .
 
 # Build the frontend with webpack
 WORKDIR /code/frontend
+
+ARG PUBLIC_PATH
+ENV PUBLIC_PATH ${PUBLIC_PATH:-/static/bundles/}
+
 RUN ./node_modules/.bin/webpack --config webpack.config.js 
 
 # Collect the static files in the backend

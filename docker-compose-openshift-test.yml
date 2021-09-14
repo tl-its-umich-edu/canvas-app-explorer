@@ -22,8 +22,10 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/Dockerfile.openshift
+      # This path has to be passed during the build here
       args:
-        TZ: ${TZ}
+        - TZ=${TZ}
+        - PUBLIC_PATH=/static/bundles/
     volumes:
       # Only map the secrets for prod build
       - ${HOME}/mylasecrets:/secrets
@@ -31,6 +33,6 @@ services:
       - "5000:5000"
     container_name: canvas_app_explorer_prod
     env_file:
-      - .env.openshift
+      - .env
     environment:
       - DEBUG=False
