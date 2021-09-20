@@ -41,8 +41,9 @@ urlpatterns = [
     path('',include(canvas_app_explorer_urls))
 ]
 
-# TODO: This is to aid local development. Switch this to collectstatic and put it in static
-# This exposes the frontend/public/plasmic directory on a url in static
+# This is to aid local development. 
+# This exposes the frontend/public/plasmic directory on a url in static and allows browsing.
+# Whitenoise currently handles this otherwise
 if settings.DEBUG:
     from django.contrib.staticfiles import views as static_views
 

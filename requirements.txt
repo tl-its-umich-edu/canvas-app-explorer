@@ -13,3 +13,6 @@ django-filter  # Filtering support
 
 #LTI 
 PyLTI1p3==1.9.1
+
+# For serving static files
+whitenoise==5.3.0
