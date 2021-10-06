@@ -5,6 +5,7 @@ django-webpack-loader
 mysqlclient
 django-db-file-storage # Support for storage in the database
 Pillow # Needed for images
+django-quill-editor # rich text editor
 
 # DRF
 djangorestframework
