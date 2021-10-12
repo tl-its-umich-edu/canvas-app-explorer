@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pylti1p3.contrib.django.lti1p3_tool_config',
     'tinymce',
+    'canvas_oauth.apps.CanvasOAuthConfig',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'canvas_oauth.middleware.OAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -210,3 +212,12 @@ TINYMCE_DEFAULT_CONFIG = {
         "toolbar": "formatselect | bold italic backcolor | "
             "bullist numlist outdent indent | removeformat | help",
     }
+
+# OAuth Settings, get these from the environment
+# TODO: Add some of these to the Django LTI model
+CANVAS_OAUTH_CLIENT_ID = os.getenv('CANVAS_OAUTH_CLIENT_ID', 'canvas_app_explorer')
+CANVAS_OAUTH_CLIENT_SECRET = os.getenv('CANVAS_OAUTH_CLIENT_SECRET', 'canvas_app_explorer')
+CANVAS_OAUTH_CANVAS_DOMAIN = os.getenv('CANVAS_OAUTH_CANVAS_DOMAIN', 'canvas.instructure.com')
+CANVAS_OAUTH_SCOPES = os.getenv('CANVAS_OAUTH_SCOPES', '').split(',')
+CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER = os.getenv('CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER', '0')
+CANVAS_OAUTH_ERROR_TEMPLATE = os.getenv('CANVAS_OAUTH_ERROR_TEMPLATE', 'canvas_app_explorer/oauth_error.html')
