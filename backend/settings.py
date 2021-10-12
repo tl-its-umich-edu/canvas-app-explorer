@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'webpack_loader',
     'rest_framework',
-    'pylti1p3.contrib.django.lti1p3_tool_config'
+    'pylti1p3.contrib.django.lti1p3_tool_config',
     'django_quill',
 
 ]
