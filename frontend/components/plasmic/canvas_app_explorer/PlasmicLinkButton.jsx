@@ -81,32 +81,32 @@ function PlasmicLinkButton__RenderFunc(props) {
       {p.renderPlasmicSlot({
         defaultContents: "Do the thing",
         value: args.text,
-        className: classNames("LinkButton__slotText__ewQcH", {
-          LinkButton__slotText__type_blankGray__ewQcHff2A: hasVariant(
+        className: classNames("LinkButton__slotTargetText__ewQcH", {
+          LinkButton__slotTargetText__type_blankGray__ewQcHff2A: hasVariant(
             variants,
             "type",
             "blankGray"
           ),
 
-          LinkButton__slotText__type_blankOrange__ewQcH2KHft: hasVariant(
+          LinkButton__slotTargetText__type_blankOrange__ewQcH2KHft: hasVariant(
             variants,
             "type",
             "blankOrange"
           ),
 
-          LinkButton__slotText__type_outlineGray__ewQcHVqldC: hasVariant(
+          LinkButton__slotTargetText__type_outlineGray__ewQcHVqldC: hasVariant(
             variants,
             "type",
             "outlineGray"
           ),
 
-          LinkButton__slotText__type_solidGray__ewQcHGiboD: hasVariant(
+          LinkButton__slotTargetText__type_solidGray__ewQcHGiboD: hasVariant(
             variants,
             "type",
             "solidGray"
           ),
 
-          LinkButton__slotText__type_solidOrange__ewQcHi5Pxg: hasVariant(
+          LinkButton__slotTargetText__type_solidOrange__ewQcHi5Pxg: hasVariant(
             variants,
             "type",
             "solidOrange"

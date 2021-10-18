@@ -62,7 +62,7 @@ function PlasmicIconLink__RenderFunc(props) {
           ),
 
           value: args.icon,
-          className: classNames("IconLink__slotIcon___3P9Db")
+          className: classNames("IconLink__slotTargetIcon___3P9Db")
         })}
       </div>
     </a>

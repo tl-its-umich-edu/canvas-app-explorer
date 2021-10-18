@@ -58,7 +58,6 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
               "plasmic_default__img",
               "ScreenshotBackground__img___96UW3"
             )}
-            role={"img"}
             src={"/static/plasmic/canvas_app_explorer/images/panopto.png"}
           />
         ),
@@ -79,7 +78,7 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
               "plasmic_default__all",
               "plasmic_default__div",
               "__wab_text",
-              "ScreenshotBackground__freeBox__gSnZs"
+              "ScreenshotBackground__text__gSnZs"
             )}
           >
             {"Sale"}
@@ -110,7 +109,7 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
               "plasmic_default__all",
               "plasmic_default__div",
               "__wab_text",
-              "ScreenshotBackground__freeBox__cgK9F"
+              "ScreenshotBackground__text__cgK9F"
             )}
           >
             {"Add to cart"}

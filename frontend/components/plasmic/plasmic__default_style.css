@@ -10,15 +10,22 @@
   box-shadow: none;
   box-sizing: border-box;
   text-decoration-line: none;
-  transition-property: all;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-  transition-duration: 0s;
   margin: 0;
   border-width: 0px;
 }
 .plasmic_default__img {
   display: inline-block;
+}
+.plasmic_default__span {
+  display: inline;
+  position: static;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-transform: inherit;
 }
 .plasmic_default__input {
   font-family: inherit;
@@ -63,6 +70,15 @@
   font-family: inherit;
   line-height: inherit;
 }
+.plasmic_default__p {
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-transform: inherit;
+}
 .plasmic_default__h1 {
   font-size: inherit;
   font-weight: inherit;
@@ -90,6 +106,9 @@
 .plasmic_default__address {
   font-style: inherit;
 }
+.plasmic_default__a {
+  color: inherit;
+}
 .plasmic_default__ol {
   list-style-type: none;
   padding: 0;
@@ -107,8 +126,8 @@
 .plasmic_default__component_wrapper {
   display: grid;
 }
-.__wab_text {
-  display: inline-block;
+.plasmic_default__inline {
+  display: inline;
 }
 .plasmic_page_wrapper {
   display: flex;

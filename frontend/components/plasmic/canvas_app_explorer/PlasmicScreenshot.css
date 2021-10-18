@@ -3,3 +3,9 @@
   width: 340px;
   position: relative;
 }
+.Screenshot__root__mhd7D > picture > img {
+  object-fit: cover;
+}
+.Screenshot__root__mhd7D > .__wab_img-spacer > img {
+  object-fit: cover;
+}
