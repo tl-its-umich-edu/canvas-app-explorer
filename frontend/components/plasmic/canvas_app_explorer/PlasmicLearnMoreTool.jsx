@@ -39,8 +39,13 @@ function PlasmicLearnMoreTool__RenderFunc(props) {
         "LearnMoreTool__root__eoGd4"
       )}
     >
-      <span>
-        <span style={{ fontWeight: 700 }}>{"Tool"}</span>
+      <span className={"plasmic_default__all plasmic_default__span"}>
+        <span
+          className={"plasmic_default__all plasmic_default__span"}
+          style={{ fontWeight: 700 }}
+        >
+          {"Tool"}
+        </span>
         <React.Fragment>{"\nZoom"}</React.Fragment>
       </span>
     </div>

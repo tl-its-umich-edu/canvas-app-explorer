@@ -118,7 +118,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__freeBox__kpIdU"
+                "ProductCard__text__kpIdU"
               )}
             >
               {"Enter some text"}
@@ -140,7 +140,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__freeBox__t9Ot"
+                "ProductCard__text__t9Ot"
               )}
             >
               {"Enter some text"}
@@ -162,7 +162,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__freeBox__pcpps"
+                "ProductCard__text__pcpps"
               )}
             >
               {"Enter some text"}
@@ -184,7 +184,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__freeBox__tCd2V"
+                "ProductCard__text__tCd2V"
               )}
             >
               {"Enter some text"}
@@ -206,7 +206,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__freeBox__wABx5"
+                "ProductCard__text__wABx5"
               )}
             >
               {"Enter some text"}
@@ -260,7 +260,6 @@ function PlasmicProductCard__RenderFunc(props) {
                           "plasmic_default__img",
                           "ProductCard__img___0SrCv"
                         )}
-                        role={"img"}
                         src={
                           "/static/plasmic/canvas_app_explorer/images/panoptoLogo2.png"
                         }
@@ -291,6 +290,8 @@ function PlasmicProductCard__RenderFunc(props) {
             {
               ProductCard__screenshotBackground__learnMore__gjUdGOklBv:
                 hasVariant(variants, "learnMore", "learnMore"),
+              ProductCard__screenshotBackground__onlyLearnMore__gjUdGtEu15:
+                hasVariant(variants, "onlyLearnMore", "onlyLearnMore"),
               ProductCard__screenshotBackground__withReviews__gjUdGvvVo9:
                 hasVariant(variants, "withReviews", "withReviews"),
               ProductCard__screenshotBackground__withoutScreenshot__gjUdGutYkz:
@@ -306,24 +307,20 @@ function PlasmicProductCard__RenderFunc(props) {
                   "plasmic_default__img",
                   "ProductCard__img__z4Zz"
                 )}
-                role={"img"}
                 src={"/static/plasmic/canvas_app_explorer/images/panopto.png"}
               />
             ),
 
             value: args.image,
-            className: classNames("ProductCard__slotImage__bjvkn", {
-              ProductCard__slotImage__withReviews__bjvkNvvVo9: hasVariant(
+            className: classNames("ProductCard__slotTargetImage__bjvkn", {
+              ProductCard__slotTargetImage__withReviews__bjvkNvvVo9: hasVariant(
                 variants,
                 "withReviews",
                 "withReviews"
               ),
 
-              ProductCard__slotImage__withoutScreenshot__bjvknutYkz: hasVariant(
-                variants,
-                "withoutScreenshot",
-                "withoutScreenshot"
-              )
+              ProductCard__slotTargetImage__withoutScreenshot__bjvknutYkz:
+                hasVariant(variants, "withoutScreenshot", "withoutScreenshot")
             })
           })}
         />
@@ -363,12 +360,9 @@ function PlasmicProductCard__RenderFunc(props) {
             ? p.renderPlasmicSlot({
                 defaultContents: "Title",
                 value: args.title,
-                className: classNames("ProductCard__slotTitle__kXepm", {
-                  ProductCard__slotTitle__learnMore__kXepmOklBv: hasVariant(
-                    variants,
-                    "learnMore",
-                    "learnMore"
-                  )
+                className: classNames("ProductCard__slotTargetTitle__kXepm", {
+                  ProductCard__slotTargetTitle__learnMore__kXepmOklBv:
+                    hasVariant(variants, "learnMore", "learnMore")
                 })
               })
             : null}
@@ -500,7 +494,6 @@ function PlasmicProductCard__RenderFunc(props) {
             "plasmic_default__img",
             "ProductCard__img__bTZld"
           )}
-          role={"img"}
         />
       ) : null}
       {(hasVariant(variants, "learnMore", "learnMore") ? false : false) ? (
@@ -524,7 +517,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 "plasmic_default__all",
                 "plasmic_default__div",
                 "__wab_text",
-                "ProductCard__freeBox__bjM9S"
+                "ProductCard__text__bjM9S"
               )}
             >
               {"Enter some text"}
@@ -549,10 +542,24 @@ function PlasmicProductCard__RenderFunc(props) {
         >
           {p.renderPlasmicSlot({
             defaultContents: (
-              <span>
-                <span style={{ fontWeight: 700 }}>{"Tool"}</span>
-                <React.Fragment>{"\nGoogle Drive"}</React.Fragment>
-              </span>
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "__wab_text",
+                  "ProductCard__text__x5Yld"
+                )}
+              >
+                <span className={"plasmic_default__all plasmic_default__span"}>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Tool"}
+                  </span>
+                  <React.Fragment>{"\nGoogle Drive"}</React.Fragment>
+                </span>
+              </div>
             ),
 
             value: args.toolLearnMore
@@ -576,14 +583,28 @@ function PlasmicProductCard__RenderFunc(props) {
         >
           {p.renderPlasmicSlot({
             defaultContents: (
-              <span>
-                <span style={{ fontWeight: 700 }}>{"Description"}</span>
-                <React.Fragment>
-                  {
-                    "\nThe Google App integration, created by Instructure, offer the following features to promote teaching and learning:\nGoogle Drive embedding and linking: easily embed documents from your Google Drive anywhere you use the Rich Content Editor.\n- Google Docs as Assignments: • Students can submit Google Docs as Assignments • Teachers can use a Google Doc to give an Assignment, and send a copy of that document to each assigned student • Teachers can grade submitted student assignments in Speedgrader by editing or annotating the Google Doc.\n- Google Drive Collaborations: students can use Google Docs, Sheets, or Slides for a Canvas Collaboration.\n- Modules: Teachers can link to a live Google Files in their Canvas Modules."
-                  }
-                </React.Fragment>
-              </span>
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "__wab_text",
+                  "ProductCard__text__nm8S4"
+                )}
+              >
+                <span className={"plasmic_default__all plasmic_default__span"}>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Description"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      "\nThe Google App integration, created by Instructure, offer the following features to promote teaching and learning:\nGoogle Drive embedding and linking: easily embed documents from your Google Drive anywhere you use the Rich Content Editor.\n- Google Docs as Assignments: • Students can submit Google Docs as Assignments • Teachers can use a Google Doc to give an Assignment, and send a copy of that document to each assigned student • Teachers can grade submitted student assignments in Speedgrader by editing or annotating the Google Doc.\n- Google Drive Collaborations: students can use Google Docs, Sheets, or Slides for a Canvas Collaboration.\n- Modules: Teachers can link to a live Google Files in their Canvas Modules."
+                    }
+                  </React.Fragment>
+                </span>
+              </div>
             ),
 
             value: args.descriptionLearnMore
@@ -607,14 +628,28 @@ function PlasmicProductCard__RenderFunc(props) {
         >
           {p.renderPlasmicSlot({
             defaultContents: (
-              <span>
-                <span style={{ fontWeight: 700 }}>{"Privacy Agreement"}</span>
-                <React.Fragment>
-                  {
-                    "\nNot required. \nNo identifiable FERPA data exchanged with tool provider."
-                  }
-                </React.Fragment>
-              </span>
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "__wab_text",
+                  "ProductCard__text__y9Bar"
+                )}
+              >
+                <span className={"plasmic_default__all plasmic_default__span"}>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Privacy Agreement"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      "\nNot required. \nNo identifiable FERPA data exchanged with tool provider."
+                    }
+                  </React.Fragment>
+                </span>
+              </div>
             ),
 
             value: args.privacyAgreementLearnMore
@@ -638,16 +673,28 @@ function PlasmicProductCard__RenderFunc(props) {
         >
           {p.renderPlasmicSlot({
             defaultContents: (
-              <span>
-                <span style={{ fontWeight: 700 }}>
-                  {"Placements in Canvas"}
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "__wab_text",
+                  "ProductCard__text__pKhcV"
+                )}
+              >
+                <span className={"plasmic_default__all plasmic_default__span"}>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Placements in Canvas"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      "\nAssignment Selection, Collaboration, Course Navigation, Editor Button, Homework Submission, Link Selection"
+                    }
+                  </React.Fragment>
                 </span>
-                <React.Fragment>
-                  {
-                    "\nAssignment Selection, Collaboration, Course Navigation, Editor Button, Homework Submission, Link Selection"
-                  }
-                </React.Fragment>
-              </span>
+              </div>
             ),
 
             value: args.placementsInCanvasLearnMore
@@ -671,14 +718,28 @@ function PlasmicProductCard__RenderFunc(props) {
         >
           {p.renderPlasmicSlot({
             defaultContents: (
-              <span>
-                <span style={{ fontWeight: 700 }}>{"Support Resources"}</span>
-                <React.Fragment>
-                  {
-                    "\nHow to view Google Drive Files in Canvas\nHow to create a cloud assignment with Google Drive\nHow to create a Google Drive Collaboration"
-                  }
-                </React.Fragment>
-              </span>
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "__wab_text",
+                  "ProductCard__text__cfaea"
+                )}
+              >
+                <span className={"plasmic_default__all plasmic_default__span"}>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Support Resources"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      "\nHow to view Google Drive Files in Canvas\nHow to create a cloud assignment with Google Drive\nHow to create a Google Drive Collaboration"
+                    }
+                  </React.Fragment>
+                </span>
+              </div>
             ),
 
             value: args.supportResourcesLearnMore
@@ -744,7 +805,6 @@ function PlasmicProductCard__RenderFunc(props) {
                       "plasmic_default__img",
                       "ProductCard__img__mOmBg"
                     )}
-                    role={"img"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
                     }

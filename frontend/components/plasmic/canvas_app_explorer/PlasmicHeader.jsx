@@ -109,11 +109,13 @@ function PlasmicHeader__RenderFunc(props) {
         ) : null}
 
         <div
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
             "__wab_text",
-            "Header__freeBox__keObZ"
+            "Header__text__keObZ"
           )}
         >
           {"Canvas App Explorer"}
@@ -333,8 +335,9 @@ function PlasmicHeader__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuButton"],
-  menuButton: ["menuButton"]
+  root: ["root", "menuButton", "text"],
+  menuButton: ["menuButton"],
+  text: ["text"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -369,6 +372,7 @@ export const PlasmicHeader = Object.assign(
   {
     // Helper components rendering sub-elements
     menuButton: makeNodeComponent("menuButton"),
+    text: makeNodeComponent("text"),
     // Metadata about props expected for PlasmicHeader
     internalVariantProps: PlasmicHeader__VariantProps,
     internalArgProps: PlasmicHeader__ArgProps

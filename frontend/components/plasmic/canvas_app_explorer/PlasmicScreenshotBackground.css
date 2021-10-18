@@ -17,6 +17,12 @@
   width: 100%;
   min-width: 0;
 }
+.ScreenshotBackground__img___96UW3 > picture > img {
+  object-fit: cover;
+}
+.ScreenshotBackground__img___96UW3 > .__wab_img-spacer > img {
+  object-fit: cover;
+}
 .ScreenshotBackground__freeBox__vqI05 {
   display: flex;
   position: absolute;
@@ -31,7 +37,7 @@
   background: rgb(233, 156, 46);
   flex-shrink: 0;
 }
-.ScreenshotBackground__freeBox__gSnZs {
+.ScreenshotBackground__text__gSnZs {
   position: relative;
   color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
 }
@@ -56,10 +62,13 @@
   width: calc(100% + 10px);
 }
 .ScreenshotBackground__freeBox__on4Ip > .__wab_flex-container > *,
+.ScreenshotBackground__freeBox__on4Ip > .__wab_flex-container > .__wab_slot > *,
+.ScreenshotBackground__freeBox__on4Ip > .__wab_flex-container > picture > img,
 .ScreenshotBackground__freeBox__on4Ip
   > .__wab_flex-container
   > .__wab_slot
-  > * {
+  > picture
+  > img {
   margin-left: 10px;
 }
 .ScreenshotBackground__svg__jKeBo {
@@ -70,7 +79,7 @@
   flex-shrink: 0;
   height: 1em;
 }
-.ScreenshotBackground__freeBox__cgK9F {
+.ScreenshotBackground__text__cgK9F {
   position: relative;
   width: 100%;
   color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;

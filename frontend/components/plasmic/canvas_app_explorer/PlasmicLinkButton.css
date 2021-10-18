@@ -33,34 +33,34 @@
 .LinkButton__root__type_outlineGray__yNFiVqldC:hover {
   background: rgb(95, 91, 87);
 }
-.LinkButton__slotText__type_solidOrange__ewQcHi5Pxg {
+.LinkButton__slotTargetText__type_solidOrange__ewQcHi5Pxg {
   color: rgb(255, 255, 255) /* plasmic-token: maWCPk1v_oCK */;
 }
-.LinkButton__slotText__type_solidGray__ewQcHGiboD {
+.LinkButton__slotTargetText__type_solidGray__ewQcHGiboD {
   color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
 }
-.LinkButton__slotText__type_blankOrange__ewQcH2KHft {
+.LinkButton__slotTargetText__type_blankOrange__ewQcH2KHft {
   color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
 }
-.LinkButton__slotText__type_outlineGray__ewQcHVqldC {
+.LinkButton__slotTargetText__type_outlineGray__ewQcHVqldC {
   color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
 }
-.LinkButton__slotText__type_blankGray__ewQcHff2A {
+.LinkButton__slotTargetText__type_blankGray__ewQcHff2A {
   color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
 }
 .LinkButton__root__type_solidOrange__yNFiI5Pxg:hover
-  .LinkButton__slotText__type_solidOrange__ewQcHi5Pxg {
+  .LinkButton__slotTargetText__type_solidOrange__ewQcHi5Pxg {
   color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
 }
 .LinkButton__root__type_solidGray__yNFiGiboD:hover
-  .LinkButton__slotText__type_solidGray__ewQcHGiboD {
+  .LinkButton__slotTargetText__type_solidGray__ewQcHGiboD {
   color: rgb(97, 96, 96) /* plasmic-token: 9j2PdiEqfGpzF */;
 }
 .LinkButton__root__type_outlineGray__yNFiVqldC:hover
-  .LinkButton__slotText__type_outlineGray__ewQcHVqldC {
+  .LinkButton__slotTargetText__type_outlineGray__ewQcHVqldC {
   color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
 }
 .LinkButton__root__type_blankGray__yNFiff2A:hover
-  .LinkButton__slotText__type_blankGray__ewQcHff2A {
+  .LinkButton__slotTargetText__type_blankGray__ewQcHff2A {
   color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
 }

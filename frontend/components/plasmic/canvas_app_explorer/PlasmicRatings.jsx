@@ -552,7 +552,7 @@ function PlasmicRatings__RenderFunc(props) {
       {p.renderPlasmicSlot({
         defaultContents: "(45 Review)",
         value: args.numReviews,
-        className: classNames("Ratings__slotNumReviews__wb8KQ")
+        className: classNames("Ratings__slotTargetNumReviews__wb8KQ")
       })}
     </p.Stack>
   );

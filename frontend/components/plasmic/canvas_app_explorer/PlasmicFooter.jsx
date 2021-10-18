@@ -59,11 +59,13 @@ function PlasmicFooter__RenderFunc(props) {
           )}
         >
           <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
             className={classNames(
               "plasmic_default__all",
               "plasmic_default__div",
               "__wab_text",
-              "Footer__freeBox__l8OFu"
+              "Footer__text__l8OFu"
             )}
           >
             {"© Copyright. "}
@@ -89,7 +91,8 @@ function PlasmicFooter__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "link"],
+  root: ["root", "text", "link"],
+  text: ["text"],
   link: ["link"]
 };
 
@@ -124,6 +127,7 @@ export const PlasmicFooter = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
     link: makeNodeComponent("link"),
     // Metadata about props expected for PlasmicFooter
     internalVariantProps: PlasmicFooter__VariantProps,
