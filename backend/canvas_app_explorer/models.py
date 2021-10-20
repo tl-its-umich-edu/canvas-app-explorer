@@ -1,5 +1,6 @@
 from django.db import models
 from db_file_storage.model_utils import delete_file, delete_file_if_needed
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -22,10 +23,10 @@ class LtiTool(models.Model):
     name = models.CharField(max_length=50)
     logo_image = models.ImageField(upload_to='canvas_app_explorer.LogoImage/bytes/filename/mimetype', blank=True, null=True)
     main_image = models.ImageField(upload_to='canvas_app_explorer.MainImage/bytes/filename/mimetype', blank=True, null=True)
-    short_description = models.TextField()
-    long_description = models.TextField()
-    privacy_agreement = models.TextField()
-    support_resources = models.TextField()
+    short_description = HTMLField()
+    long_description = HTMLField()
+    privacy_agreement = HTMLField()
+    support_resources = HTMLField()
     canvas_placement = models.ManyToManyField(CanvasPlacement)
 
     def __str__(self):
