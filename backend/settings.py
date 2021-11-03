@@ -203,3 +203,10 @@ LOGGING = {
         'handlers': ['console']
     },
 }
+
+TINYMCE_DEFAULT_CONFIG = {
+        'menubar': True,
+        "plugins": "advlist,autolink,lists,link,anchor,insertdatetime,media,table,paste,",
+        "toolbar": "formatselect | bold italic backcolor | "
+            "bullist numlist outdent indent | removeformat | help",
+    }
