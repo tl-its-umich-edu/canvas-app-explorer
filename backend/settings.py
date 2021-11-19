@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'webpack_loader',
     'rest_framework',
-    'pylti1p3.contrib.django.lti1p3_tool_config'
-
+    'pylti1p3.contrib.django.lti1p3_tool_config',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -203,3 +203,10 @@ LOGGING = {
         'handlers': ['console']
     },
 }
+
+TINYMCE_DEFAULT_CONFIG = {
+        'menubar': True,
+        "plugins": "advlist,autolink,lists,link,anchor,insertdatetime,media,table,paste,",
+        "toolbar": "formatselect | bold italic backcolor | "
+            "bullist numlist outdent indent | removeformat | help",
+    }
