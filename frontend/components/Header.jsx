@@ -2,25 +2,379 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import { PlasmicHeader } from "./plasmic/canvas_app_explorer/PlasmicHeader";
+import * as p from "@plasmicapp/react-web";
+import {
+  hasVariant,
+  classNames,
+  createPlasmicElementProxy,
+  deriveRenderOpts,
+  ensureGlobalVariants
+} from "@plasmicapp/react-web";
+import MenuButton from "./MenuButton"; // plasmic-import: fd0a48CHFpLDW/component
+import IconLink from "./IconLink"; // plasmic-import: sBgr46KDuJYZz/component
+import LinkButton from "./LinkButton"; // plasmic-import: tr5phcLQqCoEx/component
+import { useScreenVariants } from "./plasmic/canvas_app_explorer/PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
+import "@plasmicapp/react-web/lib/plasmic.css";
+import "./plasmic/plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "./plasmic/canvas_app_explorer/plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
+import "./plasmic/canvas_app_explorer/PlasmicHeader.css"; // plasmic-import: rgvwcoUrD14Pp/css
+import SearchIcon from "./plasmic/canvas_app_explorer/icons/PlasmicIcon__Search"; // plasmic-import: XYsIQokGkGcBz/icon
+import CogIcon from "./plasmic/canvas_app_explorer/icons/PlasmicIcon__Cog"; // plasmic-import: jxNUPxdPJcbB1/icon
 
-function Header_(props, ref) {
-  // Use PlasmicHeader to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicHeader are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, we are just piping all HeaderProps here, but feel free
-  // to do whatever works for you.
-  return <PlasmicHeader root={{ ref }} {...props} />;
+export const Header__VariantProps = new Array(
+    "expanded",
+    "withSearchBar",
+    "noSearchBarOrSettings"
+);
+  
+export const Header__ArgProps = new Array();
+
+function Header__RenderFunc(props, ref) {
+  
+    const { variants, args, overrides, forNode, dataFetches } = props;
+    const globalVariants = ensureGlobalVariants({
+      screen: useScreenVariants()
+    });
+  
+    return (
+      <div
+        data-plasmic-name={"root"}
+        data-plasmic-override={overrides.root}
+        data-plasmic-root={true}
+        data-plasmic-for-node={forNode}
+        className={classNames(
+          "plasmic_default__all",
+          "plasmic_default__div",
+          "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+          "Header__root__r4I1P",
+          {
+            Header__root__expanded__r4I1Pvp9H7: hasVariant(
+              variants,
+              "expanded",
+              "expanded"
+            )
+          }
+        )}
+      >
+        <p.Stack
+          as={"div"}
+          hasGap={true}
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "Header__freeBox__ikq92",
+            {
+              Header__freeBox__noSearchBarOrSettings__ikq92I2VQm: hasVariant(
+                variants,
+                "noSearchBarOrSettings",
+                "noSearchBarOrSettings"
+              ),
+  
+              Header__freeBox__withSearchBar__ikq928Xp20: hasVariant(
+                variants,
+                "withSearchBar",
+                "withSearchBar"
+              )
+            }
+          )}
+        >
+          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
+            <MenuButton
+              data-plasmic-name={"menuButton"}
+              data-plasmic-override={overrides.menuButton}
+              className={classNames(
+                "__wab_instance",
+                "Header__menuButton__bmiow",
+                {
+                  Header__menuButton__expanded__bmiowVp9H7: hasVariant(
+                    variants,
+                    "expanded",
+                    "expanded"
+                  )
+                }
+              )}
+              expanded={
+                hasVariant(variants, "expanded", "expanded") &&
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "expanded"
+                  : undefined
+              }
+            />
+          ) : null}
+  
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              "plasmic_default__all",
+              "plasmic_default__div",
+              "__wab_text",
+              "Header__text__keObZ"
+            )}
+          >
+            {"Canvas App Explorer"}
+          </div>
+          <div className = "Searchbar"><input type="text" placeholder="Search..."/></div>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(
+              "plasmic_default__all",
+              "plasmic_default__div",
+              "Header__freeBox__zcEqf"
+            )}
+          >
+            <IconLink
+              className={classNames("__wab_instance", "Header__iconLink__rda3A", {
+                Header__iconLink__noSearchBarOrSettings__rda3Ai2VQm: hasVariant(
+                  variants,
+                  "noSearchBarOrSettings",
+                  "noSearchBarOrSettings"
+                )
+              })}
+              icon={
+                (
+                  hasVariant(
+                    variants,
+                    "noSearchBarOrSettings",
+                    "noSearchBarOrSettings"
+                  )
+                    ? false
+                    : true
+                ) ? (
+                  <SearchIcon
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__svg",
+                      "Header__svg___7Ic5E",
+                      {
+                        Header__svg__noSearchBarOrSettings___7Ic5Ei2VQm:
+                          hasVariant(
+                            variants,
+                            "noSearchBarOrSettings",
+                            "noSearchBarOrSettings"
+                          )
+                      }
+                    )}
+                    role={"img"}
+                  />
+                ) : null
+              }
+            />
+  
+            {(
+              hasVariant(variants, "withSearchBar", "withSearchBar")
+                ? true
+                : false
+            ) ? (
+              <input
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__input",
+                  "Header__textbox___8JssE",
+                  {
+                    Header__textbox__withSearchBar___8JssE8Xp20: hasVariant(
+                      variants,
+                      "withSearchBar",
+                      "withSearchBar"
+                    )
+                  }
+                )}
+                placeholder={
+                  hasVariant(variants, "withSearchBar", "withSearchBar")
+                    ? "filter by keyword"
+                    : "Some placeholder"
+                }
+                size={1}
+                type={"text"}
+                value={
+                  hasVariant(variants, "withSearchBar", "withSearchBar")
+                    ? ""
+                    : "Some value"
+                }
+              />
+            ) : null}
+            {(
+              hasVariant(
+                variants,
+                "noSearchBarOrSettings",
+                "noSearchBarOrSettings"
+              )
+                ? false
+                : true
+            ) ? (
+              <IconLink
+                className={classNames(
+                  "__wab_instance",
+                  "Header__iconLink__pu1Ei",
+                  {
+                    Header__iconLink__noSearchBarOrSettings__pu1Eii2VQm:
+                      hasVariant(
+                        variants,
+                        "noSearchBarOrSettings",
+                        "noSearchBarOrSettings"
+                      )
+                  }
+                )}
+                icon={
+                  <CogIcon
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__svg",
+                      "Header__svg__agh0S"
+                    )}
+                    role={"img"}
+                  />
+                }
+              />
+            ) : null}
+          </p.Stack>
+  
+          {false ? (
+            <input
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__input",
+                "Header__textbox__cDxmy"
+              )}
+              placeholder={"Some placeholder"}
+              size={1}
+              type={"text"}
+              value={"Some value"}
+            />
+          ) : null}
+          {false ? (
+            <input
+              className={classNames(
+                "plasmic_default__all",
+                "plasmic_default__input",
+                "Header__textbox__mlQAu"
+              )}
+              placeholder={"Some placeholder"}
+              size={1}
+              type={"text"}
+              value={"Some value"}
+            />
+          ) : null}
+        </p.Stack>
+  
+        {(
+          hasVariant(variants, "expanded", "expanded") &&
+          hasVariant(globalVariants, "screen", "mobile")
+            ? true
+            : false
+        ) ? (
+          <div
+            className={classNames(
+              "plasmic_default__all",
+              "plasmic_default__div",
+              "Header__freeBox__qIiNj",
+              {
+                Header__freeBox__expanded__qIiNjVp9H7: hasVariant(
+                  variants,
+                  "expanded",
+                  "expanded"
+                )
+              }
+            )}
+          >
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "Header__linkButton__bhzkI"
+              )}
+              text={"Home"}
+              type={"blankGray"}
+            />
+  
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "Header__linkButton__xdYja"
+              )}
+              text={"New Arrival"}
+              type={"blankGray"}
+            />
+  
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "Header__linkButton__nKvUv"
+              )}
+              text={"Features"}
+              type={"blankGray"}
+            />
+  
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "Header__linkButton__hk6Zt"
+              )}
+              text={"Blog"}
+              type={"blankGray"}
+            />
+  
+            <LinkButton
+              className={classNames(
+                "__wab_instance",
+                "Header__linkButton__wWLqi"
+              )}
+              text={"Contact"}
+              type={"blankGray"}
+            />
+          </div>
+        ) : null}
+      </div>
+    );
+};
+
+const PlasmicDescendants = {
+    root: ["root", "menuButton", "text"],
+    menuButton: ["menuButton"],
+    text: ["text"]
+  };
+  
+function makeNodeComponent(nodeName) {
+const func = function (props) {
+    const { variants, args, overrides } = deriveRenderOpts(props, {
+    name: nodeName,
+    descendantNames: [...PlasmicDescendants[nodeName]],
+    internalArgPropNames: Header__ArgProps,
+    internalVariantPropNames: Header__VariantProps
+    });
+
+    const { dataFetches } = props;
+    return Header__RenderFunc({
+    variants,
+    args,
+    overrides,
+    dataFetches,
+    forNode: nodeName
+    });
+};
+if (nodeName === "root") {
+    func.displayName = "Header";
+} else {
+    func.displayName = `Header.${nodeName}`;
+}
+return func;
 }
 
-const Header = React.forwardRef(Header_);
-
+export const Header = Object.assign(
+// Top-level Header renders the root element
+makeNodeComponent("root"),
+{
+    // Helper components rendering sub-elements
+    menuButton: makeNodeComponent("menuButton"),
+    text: makeNodeComponent("text"),
+    // Metadata about props expected for Header
+    internalVariantProps: Header__VariantProps,
+    internalArgProps: Header__ArgProps
+}
+);
+  
 export default Header;
+
+// const Header = React.forwardRef(Header_);
+
+// export default Header;
