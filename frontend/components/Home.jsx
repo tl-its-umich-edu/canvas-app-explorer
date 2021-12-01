@@ -205,7 +205,7 @@ function Home__RenderFunc(props,ref) {
                                                     "Home__freeBox__c1Y5M"
                                                   )}
                                                 >
-                                                  {tool.short_description}
+                                                  <span dangerouslySetInnerHTML={{ __html: tool.short_description}} />
                                                 </div>
                                             }
                                             image={
@@ -285,10 +285,7 @@ function Home__RenderFunc(props,ref) {
                                             descriptionLearnMore={
                                                 <span>
                                                   <span style={{ fontWeight: 700 }}>{"Description"}</span>
-                                                  <React.Fragment>
-                                                    {"\n"}    
-                                                    {tool.long_description}
-                                                  </React.Fragment>
+                                                  <span dangerouslySetInnerHTML={{ __html: tool.long_description}} />
                                                 </span>
                                             }
                                             privacyAgreementLearnMore={
@@ -304,11 +301,7 @@ function Home__RenderFunc(props,ref) {
                                                     <span style={{ fontWeight: 700 }}>
                                                       {"Privacy Agreement"}
                                                     </span>
-                                                    <React.Fragment>
-                                                      {"\n"}
-                                                      {tool.privacy_agreement}
-                                                      {"\n"}
-                                                    </React.Fragment>
+                                                    <span dangerouslySetInnerHTML={{ __html: tool.privacy}} />
                                                   </span>
                                                 </div>
                                             }
@@ -327,10 +320,7 @@ function Home__RenderFunc(props,ref) {
                                                   <span style={{ fontWeight: 700 }}>
                                                     {"Support Resources"}
                                                   </span>
-                                                  <React.Fragment>
-                                                    {"\n"}
-                                                    {tool.support_resources}
-                                                  </React.Fragment>
+                                                  <span dangerouslySetInnerHTML={{ __html: tool.support_resources}} />
                                                 </span>
                                             }
                                             photoLearnMore={
