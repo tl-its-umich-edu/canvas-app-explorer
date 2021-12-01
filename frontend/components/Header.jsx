@@ -30,7 +30,8 @@ export const Header__VariantProps = new Array(
 export const Header__ArgProps = new Array();
 
 function Header__RenderFunc(props, ref) {
-  
+
+
     const { variants, args, overrides, forNode, dataFetches } = props;
     const globalVariants = ensureGlobalVariants({
       screen: useScreenVariants()
