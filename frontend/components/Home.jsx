@@ -114,7 +114,7 @@ function Home__RenderFunc(props,ref) {
                                     "plasmic_default__all",
                                     "plasmic_default__div",
                                     "__wab_text",
-                                    "Home__freeBox__k3LxN"
+                                    "Home__text__k3LxN"
                                 )}
                             >
                                 {
@@ -202,7 +202,7 @@ function Home__RenderFunc(props,ref) {
                                                     "plasmic_default__all",
                                                     "plasmic_default__div",
                                                     "__wab_text",
-                                                    "Home__freeBox__c1Y5M"
+                                                    "Home__text__c1Y5M"
                                                   )}
                                                 >
                                                   <span dangerouslySetInnerHTML={{ __html: tool.short_description}} />
@@ -214,7 +214,7 @@ function Home__RenderFunc(props,ref) {
                                                     className={classNames(
                                                         "plasmic_default__all",
                                                         "plasmic_default__img",
-                                                        "Home__img__psMY" // if this line isn't here, the image won't be formatted
+                                                        "Home__img__zw5Ho" // if this line isn't here, the image won't be formatted
                                                     )}
                                                     role={"img"}
                                                     src={tool.main_image} 
@@ -226,7 +226,7 @@ function Home__RenderFunc(props,ref) {
                                                     className={classNames(
                                                         "plasmic_default__all",
                                                         "plasmic_default__img",
-                                                        "Home__img__u0Ib1" // if this line isn't here, the images won't be formatted
+                                                        "Home__img__zZtPf" // if this line isn't here, the images won't be formatted
                                                     )}
                                                     role={"img"}
                                                     src={tool.logo_image}
@@ -236,8 +236,8 @@ function Home__RenderFunc(props,ref) {
                                                 true ? (
                                                 <Ratings
                                                     className={classNames(
-                                                    "__wab_instance",
-                                                    "Home__ratings__iUUiJ"
+                                                        "__wab_instance",
+                                                        "Home__ratings__yXulX"
                                                     )}
                                                     numReviews={"(45 Review)"}
                                                     stars={"five"}
@@ -273,7 +273,7 @@ function Home__RenderFunc(props,ref) {
                                                     "plasmic_default__all",
                                                     "plasmic_default__div",
                                                     "__wab_text",
-                                                    "Home__freeBox__dHRrw"
+                                                    "Home__text__dHRrw"
                                                   )}
                                                 >
                                                   <span>
@@ -283,10 +283,20 @@ function Home__RenderFunc(props,ref) {
                                                 </div>
                                             }
                                             descriptionLearnMore={
-                                                <span>
-                                                  <span style={{ fontWeight: 700 }}>{"Description"}</span>
-                                                  <span dangerouslySetInnerHTML={{ __html: tool.long_description}} />
-                                                </span>
+                                                <div
+                                                    className={classNames(
+                                                        "plasmic_default__all",
+                                                        "plasmic_default__div",
+                                                        "__wab_text",
+                                                        "Home__text__byvgJ"
+                                                    )}
+                                                >
+                                                    <span>
+                                                        <span style={{ fontWeight: 700 }}>{"Description"}</span>
+                                                        <span dangerouslySetInnerHTML={{ __html: tool.long_description}} />
+
+                                                    </span>
+                                                </div>
                                             }
                                             privacyAgreementLearnMore={
                                                 <div
@@ -306,22 +316,40 @@ function Home__RenderFunc(props,ref) {
                                                 </div>
                                             }
                                             placementsInCanvasLearnMore={
-                                                <span>
-                                                  <span style={{ fontWeight: 700 }}>
-                                                    {"Placements in Canvas"}
-                                                  </span>
-                                                  <React.Fragment>
-                                                      {"\n"}
-                                                      {tool.canvas_placement_expanded.map(tool => tool.name)}</React.Fragment>
-                                                </span>
+                                                <div
+                                                    className={classNames(
+                                                        "plasmic_default__all",
+                                                        "plasmic_default__div",
+                                                        "__wab_text",
+                                                        "Home__text___2AlAo"
+                                                    )}
+                                                >
+                                                    <span>
+                                                        <span style={{ fontWeight: 700 }}>
+                                                            {"Placements in Canvas"}
+                                                        </span>
+                                                        <React.Fragment>
+                                                            {"\n"}
+                                                            {tool.canvas_placement_expanded.map(tool => tool.name)}</React.Fragment>
+                                                    </span>
+                                                </div>
                                             }
                                             supportResourcesLearnMore={
-                                                <span>
-                                                  <span style={{ fontWeight: 700 }}>
-                                                    {"Support Resources"}
-                                                  </span>
-                                                  <span dangerouslySetInnerHTML={{ __html: tool.support_resources}} />
-                                                </span>
+                                                <div
+                                                    className={classNames(
+                                                        "plasmic_default__all",
+                                                        "plasmic_default__div",
+                                                        "__wab_text",
+                                                        "Home__text___1JHrn"
+                                                    )}
+                                                >
+                                                    <span>
+                                                        <span style={{ fontWeight: 700 }}>
+                                                            {"Support Resources"}
+                                                        </span>
+                                                        <span dangerouslySetInnerHTML={{ __html: tool.support_resources}} />
+                                                    </span>
+                                                </div>
                                             }
                                             photoLearnMore={
                                                 <img
