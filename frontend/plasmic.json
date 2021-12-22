@@ -30,7 +30,8 @@
       "icons": [],
       "images": [],
       "projectApiToken": "nPw276qGsy9kISQCHrcRrsj3Y9Yva9TMyYKNUpoOMOHgRj1A51qOC6LMB2185QlA52K87n32oQJHSi5be9w",
-      "jsBundleThemes": []
+      "jsBundleThemes": [],
+      "indirect": false
     },
     {
       "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
@@ -366,7 +367,8 @@
         }
       ],
       "projectApiToken": "EQH0PU2EOqaN7jOntDWszrnR6TNivmUyHmhXFSJgHjQVznQcnbtgOiQdQiyEqwRU062gJqQB9ELOPVBCQ",
-      "codeComponents": []
+      "codeComponents": [],
+      "indirect": false
     }
   ],
   "globalVariants": {
@@ -379,6 +381,6 @@
       }
     ]
   },
-  "cliVersion": "0.1.163",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.163/dist/plasmic.schema.json"
+  "cliVersion": "0.1.166",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.166/dist/plasmic.schema.json"
 }
