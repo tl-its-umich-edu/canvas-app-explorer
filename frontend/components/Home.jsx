@@ -85,6 +85,7 @@ function Home__RenderFunc(props,ref) {
                             data-plasmic-override={overrides.header}
                             className={classNames("__wab_instance", "Home__header__iXzGr")}
                             noSearchBarOrSettings={"noSearchBarOrSettings"}
+                            withSearchBar={"withSearchBar"}
 						/>
 						{false ? (
                             <input

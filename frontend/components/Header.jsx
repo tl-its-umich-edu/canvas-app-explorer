@@ -115,7 +115,7 @@ function Header__RenderFunc(props, ref) {
           >
             {"Canvas App Explorer"}
           </div>
-          <div className = "Searchbar"><input type="text" placeholder="Search..."/></div>
+          
           <p.Stack
             as={"div"}
             hasGap={true}
