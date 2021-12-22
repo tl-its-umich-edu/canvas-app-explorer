@@ -1,6 +1,6 @@
 gunicorn
 
-Django
+Django>=3.2,<3.3
 django-webpack-loader
 mysqlclient
 django-db-file-storage # Support for storage in the database
