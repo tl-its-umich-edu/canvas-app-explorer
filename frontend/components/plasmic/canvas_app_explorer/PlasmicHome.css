@@ -9,7 +9,7 @@
   min-width: 0;
   min-height: 0;
 }
-.Home__textbox__kcHjj {
+.Home__textInput__kcHjj {
   position: relative;
   width: 180px;
 }
@@ -26,7 +26,7 @@
 .Home__header__iXzGr.__wab_instance {
   position: relative;
 }
-.Home__textbox__y0QeV {
+.Home__textInput__y0QeV {
   position: relative;
   width: 180px;
 }
@@ -80,6 +80,7 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
+  min-width: 0;
   margin-left: calc(0px - 25px);
   width: calc(100% + 25px);
   margin-top: calc(0px - 25px);
@@ -221,6 +222,7 @@
 }
 .Home__ratings__iUUiJ.__wab_instance {
   position: relative;
+  display: flex;
 }
 .Home__img__u0Ib1 {
   position: relative;
@@ -247,6 +249,7 @@
   position: absolute;
   top: 14px;
   left: 21px;
+  display: block;
 }
 .Home__img__xvJc3 {
   position: relative;
@@ -309,11 +312,13 @@
   width: 120px;
   height: 30px;
   margin-right: 10px;
+  display: block;
 }
 .Home__learnMoreButton__wWg7P.__wab_instance {
   position: absolute;
   top: 14px;
   left: 21px;
+  display: block;
 }
 .Home__img___9KXln {
   position: relative;
@@ -377,6 +382,7 @@
   position: absolute;
   top: 14px;
   left: 21px;
+  display: block;
 }
 .Home__img__oJq2O {
   position: relative;
@@ -399,8 +405,9 @@
 }
 .Home__footer__sUgvZ.__wab_instance {
   position: relative;
+  display: flex;
 }
-.Home__textbox__triAl {
+.Home__textInput__triAl {
   position: relative;
   width: 180px;
 }

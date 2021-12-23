@@ -20,6 +20,7 @@
 .Header__freeBox__ikq92 > .__wab_flex-container {
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
   margin-left: calc(0px - 5px);
   width: calc(100% + 5px);
 }
@@ -59,7 +60,7 @@
   color: #00274c /* plasmic-token: HxoWIRXur */;
 }
 .Header__freeBox__zcEqf {
-  display: inline-flex;
+  display: flex;
   position: relative;
   flex-direction: row;
   width: auto;
@@ -94,12 +95,12 @@
 .Header__root__r4I1P .Header__svg___7Ic5E:hover {
   color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
 }
-.Header__textbox___8JssE {
+.Header__searchInput___8JssE {
   position: relative;
   width: 180px;
   flex-shrink: 0;
 }
-.Header__textbox__withSearchBar___8JssE8Xp20 {
+.Header__searchInput__withSearchBar___8JssE8Xp20 {
   font-style: italic;
 }
 .Header__iconLink__pu1Ei.__wab_instance {
@@ -119,12 +120,12 @@
 .Header__root__r4I1P .Header__svg__agh0S:hover {
   color: rgb(233, 156, 46);
 }
-.Header__textbox__cDxmy {
+.Header__textInput__cDxmy {
   position: relative;
   width: 180px;
   flex-shrink: 0;
 }
-.Header__textbox__mlQAu {
+.Header__textInput__mlQAu {
   position: relative;
   width: 180px;
   flex-shrink: 0;

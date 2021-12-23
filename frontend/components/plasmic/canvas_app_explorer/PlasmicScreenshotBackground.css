@@ -58,6 +58,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  min-width: 0;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
 }

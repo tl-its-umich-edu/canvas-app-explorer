@@ -20,7 +20,7 @@ import {
 import MenuButton from "../../MenuButton"; // plasmic-import: fd0a48CHFpLDW/component
 import IconLink from "../../IconLink"; // plasmic-import: sBgr46KDuJYZz/component
 import LinkButton from "../../LinkButton"; // plasmic-import: tr5phcLQqCoEx/component
-import { useScreenVariants } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
+import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
@@ -39,7 +39,7 @@ export const PlasmicHeader__ArgProps = new Array();
 function PlasmicHeader__RenderFunc(props) {
   const { variants, args, overrides, forNode, dataFetches } = props;
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants()
+    screen: useScreenVariantsthj0P9Nxeh81I()
   });
 
   return (
@@ -174,12 +174,14 @@ function PlasmicHeader__RenderFunc(props) {
               : false
           ) ? (
             <input
+              data-plasmic-name={"searchInput"}
+              data-plasmic-override={overrides.searchInput}
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__input",
-                "Header__textbox___8JssE",
+                "Header__searchInput___8JssE",
                 {
-                  Header__textbox__withSearchBar___8JssE8Xp20: hasVariant(
+                  Header__searchInput__withSearchBar___8JssE8Xp20: hasVariant(
                     variants,
                     "withSearchBar",
                     "withSearchBar"
@@ -241,7 +243,7 @@ function PlasmicHeader__RenderFunc(props) {
             className={classNames(
               "plasmic_default__all",
               "plasmic_default__input",
-              "Header__textbox__cDxmy"
+              "Header__textInput__cDxmy"
             )}
             placeholder={"Some placeholder"}
             size={1}
@@ -254,7 +256,7 @@ function PlasmicHeader__RenderFunc(props) {
             className={classNames(
               "plasmic_default__all",
               "plasmic_default__input",
-              "Header__textbox__mlQAu"
+              "Header__textInput__mlQAu"
             )}
             placeholder={"Some placeholder"}
             size={1}
@@ -335,9 +337,10 @@ function PlasmicHeader__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuButton", "text"],
+  root: ["root", "menuButton", "text", "searchInput"],
   menuButton: ["menuButton"],
-  text: ["text"]
+  text: ["text"],
+  searchInput: ["searchInput"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -373,6 +376,7 @@ export const PlasmicHeader = Object.assign(
     // Helper components rendering sub-elements
     menuButton: makeNodeComponent("menuButton"),
     text: makeNodeComponent("text"),
+    searchInput: makeNodeComponent("searchInput"),
     // Metadata about props expected for PlasmicHeader
     internalVariantProps: PlasmicHeader__VariantProps,
     internalArgProps: PlasmicHeader__ArgProps
