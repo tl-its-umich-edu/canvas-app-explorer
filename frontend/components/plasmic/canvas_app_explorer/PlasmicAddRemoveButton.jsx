@@ -27,7 +27,7 @@ export const PlasmicAddRemoveButton__VariantProps = new Array(
 export const PlasmicAddRemoveButton__ArgProps = new Array();
 
 function PlasmicAddRemoveButton__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -69,12 +69,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicAddRemoveButton__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicAddRemoveButton__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

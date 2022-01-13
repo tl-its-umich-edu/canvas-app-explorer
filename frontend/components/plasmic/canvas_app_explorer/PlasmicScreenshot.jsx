@@ -24,7 +24,7 @@ export const PlasmicScreenshot__VariantProps = new Array();
 export const PlasmicScreenshot__ArgProps = new Array();
 
 function PlasmicScreenshot__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <img
       data-plasmic-name={"root"}
@@ -58,12 +58,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicScreenshot__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicScreenshot__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

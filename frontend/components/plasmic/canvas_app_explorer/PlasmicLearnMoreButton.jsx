@@ -25,7 +25,7 @@ export const PlasmicLearnMoreButton__VariantProps = new Array("learnMore");
 export const PlasmicLearnMoreButton__ArgProps = new Array();
 
 function PlasmicLearnMoreButton__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
     <div
       data-plasmic-name={"root"}
@@ -65,12 +65,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicLearnMoreButton__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicLearnMoreButton__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

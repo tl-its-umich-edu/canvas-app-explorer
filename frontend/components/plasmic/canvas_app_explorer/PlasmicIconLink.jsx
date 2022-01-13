@@ -25,7 +25,7 @@ export const PlasmicIconLink__VariantProps = new Array();
 export const PlasmicIconLink__ArgProps = new Array("icon", "href");
 
 function PlasmicIconLink__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <a
       data-plasmic-name={"root"}
@@ -83,12 +83,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicIconLink__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicIconLink__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

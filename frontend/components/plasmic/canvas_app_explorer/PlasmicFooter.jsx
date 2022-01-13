@@ -26,7 +26,7 @@ export const PlasmicFooter__VariantProps = new Array();
 export const PlasmicFooter__ArgProps = new Array();
 
 function PlasmicFooter__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsthj0P9Nxeh81I()
   });
@@ -105,12 +105,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicFooter__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicFooter__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

@@ -53,7 +53,7 @@ export const PlasmicProductCard__ArgProps = new Array(
 );
 
 function PlasmicProductCard__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <p.Stack
       as={"div"}
@@ -227,6 +227,12 @@ function PlasmicProductCard__RenderFunc(props) {
                 "learnMore"
               ),
 
+              ProductCard__freeBox__onlyLearnMore__l71VBtEu15: hasVariant(
+                variants,
+                "onlyLearnMore",
+                "onlyLearnMore"
+              ),
+
               ProductCard__freeBox__withReviews__l71VBvvVo9: hasVariant(
                 variants,
                 "withReviews",
@@ -246,6 +252,12 @@ function PlasmicProductCard__RenderFunc(props) {
                     variants,
                     "learnMore",
                     "learnMore"
+                  ),
+
+                  ProductCard__freeBox__onlyLearnMore__hJJoEtEu15: hasVariant(
+                    variants,
+                    "onlyLearnMore",
+                    "onlyLearnMore"
                   )
                 }
               )}
@@ -352,6 +364,18 @@ function PlasmicProductCard__RenderFunc(props) {
                 variants,
                 "learnMore",
                 "learnMore"
+              ),
+
+              ProductCard__freeBox__onlyLearnMore__sbbu9TEu15: hasVariant(
+                variants,
+                "onlyLearnMore",
+                "onlyLearnMore"
+              ),
+
+              ProductCard__freeBox__withoutScreenshot__sbbu9UtYkz: hasVariant(
+                variants,
+                "withoutScreenshot",
+                "withoutScreenshot"
               )
             }
           )}
@@ -385,6 +409,12 @@ function PlasmicProductCard__RenderFunc(props) {
                 variants,
                 "onlyLearnMore",
                 "onlyLearnMore"
+              ),
+
+              ProductCard__freeBox__withoutScreenshot__wMuGjutYkz: hasVariant(
+                variants,
+                "withoutScreenshot",
+                "withoutScreenshot"
               )
             }
           )}
@@ -434,7 +464,7 @@ function PlasmicProductCard__RenderFunc(props) {
                             "__wab_instance",
                             "ProductCard__addRemoveButton___794LZ"
                           )}
-                          removeToolFromSite={"removeToolFromSite"}
+                          removeToolFromSite={true}
                         />
                       ) : null,
                       value: args.addRemoveSlot
@@ -925,12 +955,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicProductCard__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicProductCard__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

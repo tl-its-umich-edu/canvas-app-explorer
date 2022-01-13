@@ -27,7 +27,7 @@ export const PlasmicMenuButton__VariantProps = new Array("expanded");
 export const PlasmicMenuButton__ArgProps = new Array("href");
 
 function PlasmicMenuButton__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -110,12 +110,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicMenuButton__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicMenuButton__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };
