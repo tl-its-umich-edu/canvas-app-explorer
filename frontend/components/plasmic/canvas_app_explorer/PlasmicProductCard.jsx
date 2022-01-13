@@ -550,7 +550,8 @@ function PlasmicProductCard__RenderFunc(props) {
                   "ProductCard__text__x5Yld"
                 )}
               >
-                <span className={"plasmic_default__all plasmic_default__span"}>
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
                   <span
                     className={"plasmic_default__all plasmic_default__span"}
                     style={{ fontWeight: 700 }}
@@ -558,7 +559,7 @@ function PlasmicProductCard__RenderFunc(props) {
                     {"Tool"}
                   </span>
                   <React.Fragment>{"\nGoogle Drive"}</React.Fragment>
-                </span>
+                </React.Fragment>
               </div>
             ),
 
@@ -591,7 +592,8 @@ function PlasmicProductCard__RenderFunc(props) {
                   "ProductCard__text__nm8S4"
                 )}
               >
-                <span className={"plasmic_default__all plasmic_default__span"}>
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
                   <span
                     className={"plasmic_default__all plasmic_default__span"}
                     style={{ fontWeight: 700 }}
@@ -603,7 +605,7 @@ function PlasmicProductCard__RenderFunc(props) {
                       "\nThe Google App integration, created by Instructure, offer the following features to promote teaching and learning:\nGoogle Drive embedding and linking: easily embed documents from your Google Drive anywhere you use the Rich Content Editor.\n- Google Docs as Assignments: • Students can submit Google Docs as Assignments • Teachers can use a Google Doc to give an Assignment, and send a copy of that document to each assigned student • Teachers can grade submitted student assignments in Speedgrader by editing or annotating the Google Doc.\n- Google Drive Collaborations: students can use Google Docs, Sheets, or Slides for a Canvas Collaboration.\n- Modules: Teachers can link to a live Google Files in their Canvas Modules."
                     }
                   </React.Fragment>
-                </span>
+                </React.Fragment>
               </div>
             ),
 
@@ -636,7 +638,8 @@ function PlasmicProductCard__RenderFunc(props) {
                   "ProductCard__text__y9Bar"
                 )}
               >
-                <span className={"plasmic_default__all plasmic_default__span"}>
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
                   <span
                     className={"plasmic_default__all plasmic_default__span"}
                     style={{ fontWeight: 700 }}
@@ -648,7 +651,7 @@ function PlasmicProductCard__RenderFunc(props) {
                       "\nNot required. \nNo identifiable FERPA data exchanged with tool provider."
                     }
                   </React.Fragment>
-                </span>
+                </React.Fragment>
               </div>
             ),
 
@@ -681,7 +684,8 @@ function PlasmicProductCard__RenderFunc(props) {
                   "ProductCard__text__pKhcV"
                 )}
               >
-                <span className={"plasmic_default__all plasmic_default__span"}>
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
                   <span
                     className={"plasmic_default__all plasmic_default__span"}
                     style={{ fontWeight: 700 }}
@@ -693,7 +697,7 @@ function PlasmicProductCard__RenderFunc(props) {
                       "\nAssignment Selection, Collaboration, Course Navigation, Editor Button, Homework Submission, Link Selection"
                     }
                   </React.Fragment>
-                </span>
+                </React.Fragment>
               </div>
             ),
 
@@ -726,7 +730,8 @@ function PlasmicProductCard__RenderFunc(props) {
                   "ProductCard__text__cfaea"
                 )}
               >
-                <span className={"plasmic_default__all plasmic_default__span"}>
+                <React.Fragment>
+                  <React.Fragment>{""}</React.Fragment>
                   <span
                     className={"plasmic_default__all plasmic_default__span"}
                     style={{ fontWeight: 700 }}
@@ -738,7 +743,7 @@ function PlasmicProductCard__RenderFunc(props) {
                       "\nHow to view Google Drive Files in Canvas\nHow to create a cloud assignment with Google Drive\nHow to create a Google Drive Collaboration"
                     }
                   </React.Fragment>
-                </span>
+                </React.Fragment>
               </div>
             ),
 

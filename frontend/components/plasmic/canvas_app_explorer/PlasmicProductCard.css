@@ -229,11 +229,13 @@
 }
 .ProductCard__linkButton__onlyLearnMore__cT7HtEu15.__wab_instance {
   flex-shrink: 0;
+  display: flex;
 }
 .ProductCard__addRemoveButton___794LZ.__wab_instance {
   width: 120px;
   height: 30px;
   margin-right: 10px;
+  display: block;
 }
 .ProductCard__linkButton__cX8QG.__wab_instance {
   position: absolute;
@@ -257,6 +259,7 @@
   position: absolute;
   top: 14px;
   left: 21px;
+  display: block;
 }
 .ProductCard__img__bTZld {
   position: relative;

@@ -22,7 +22,7 @@ import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import Footer from "../../Footer"; // plasmic-import: SxuS7aSzfTV9l/component
-import { useScreenVariants } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
+import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
@@ -35,7 +35,7 @@ export const PlasmicHome__ArgProps = new Array();
 function PlasmicHome__RenderFunc(props) {
   const { variants, args, overrides, forNode, dataFetches } = props;
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants()
+    screen: useScreenVariantsthj0P9Nxeh81I()
   });
 
   return (
@@ -58,7 +58,7 @@ function PlasmicHome__RenderFunc(props) {
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__input",
-                "Home__textbox__kcHjj"
+                "Home__textInput__kcHjj"
               )}
               placeholder={"Some placeholder"}
               size={1}
@@ -81,6 +81,7 @@ function PlasmicHome__RenderFunc(props) {
               data-plasmic-override={overrides.header}
               className={classNames("__wab_instance", "Home__header__iXzGr")}
               noSearchBarOrSettings={"noSearchBarOrSettings"}
+              withSearchBar={"withSearchBar"}
             />
 
             {false ? (
@@ -88,7 +89,7 @@ function PlasmicHome__RenderFunc(props) {
                 className={classNames(
                   "plasmic_default__all",
                   "plasmic_default__input",
-                  "Home__textbox__y0QeV"
+                  "Home__textInput__y0QeV"
                 )}
                 placeholder={"Some placeholder"}
                 size={1}
@@ -167,9 +168,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__byvgJ"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -181,7 +181,7 @@ function PlasmicHome__RenderFunc(props) {
                           "\nProvides access to the Zoom video conference platform."
                         }
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 image={
@@ -230,9 +230,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text___2AlAo"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -240,7 +239,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Placements in Canvas"}
                       </span>
                       <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 privacyAgreementLearnMore={
@@ -252,9 +251,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__pkIjF"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -264,7 +262,7 @@ function PlasmicHome__RenderFunc(props) {
                       <React.Fragment>
                         {"\nData Protection Addendum\n"}
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 ratings={
@@ -286,9 +284,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text___1JHrn"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -298,7 +295,7 @@ function PlasmicHome__RenderFunc(props) {
                       <React.Fragment>
                         {"\nITS Teaching with Zoom Guide"}
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 title={"Zoom"}
@@ -311,9 +308,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__dHRrw"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -321,7 +317,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Tool"}
                       </span>
                       <React.Fragment>{"\nZoom"}</React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
               />
@@ -364,9 +360,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__qtw8U"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -378,7 +373,7 @@ function PlasmicHome__RenderFunc(props) {
                           "\nMy Learning Analytics (MyLA) is a dashboard that provides students with information about their engagement with course materials and resources, assignments, and grades in a Canvas course."
                         }
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 image={
@@ -430,9 +425,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__vTgLe"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -440,7 +434,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Placements in Canvas"}
                       </span>
                       <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 privacyAgreementLearnMore={
@@ -452,9 +446,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text___0K8U1"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -464,7 +457,7 @@ function PlasmicHome__RenderFunc(props) {
                       <React.Fragment>
                         {"\nNot required (U-M hosted)"}
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 ratings={
@@ -488,9 +481,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text___6AcC7"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -500,7 +492,7 @@ function PlasmicHome__RenderFunc(props) {
                       <React.Fragment>
                         {"\nITS My Learning Analytics Guide"}
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 title={"My Learning Analytics"}
@@ -513,9 +505,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text___4Gd6"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -525,7 +516,7 @@ function PlasmicHome__RenderFunc(props) {
                       <React.Fragment>
                         {"\nMy Learning Analytics"}
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
               />
@@ -604,9 +595,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__tNQf2"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -618,7 +608,7 @@ function PlasmicHome__RenderFunc(props) {
                           "\nPiazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation for Piazza discussions, and auto-logs the user into the course discussions area."
                         }
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 image={
@@ -670,9 +660,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__zt4W4"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -680,7 +669,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Placements in Canvas"}
                       </span>
                       <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 privacyAgreementLearnMore={
@@ -692,9 +681,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__zQwT"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -704,7 +692,7 @@ function PlasmicHome__RenderFunc(props) {
                       <React.Fragment>
                         {"\nData Protection Addendum"}
                       </React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 ratings={
@@ -726,9 +714,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__t3KQg"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -736,7 +723,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Support Resources"}
                       </span>
                       <React.Fragment>{"\nPiazza Support"}</React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
                 title={"Piazza"}
@@ -749,9 +736,8 @@ function PlasmicHome__RenderFunc(props) {
                       "Home__text__fkRVt"
                     )}
                   >
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                    >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
                         style={{ fontWeight: 700 }}
@@ -759,7 +745,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Tool"}
                       </span>
                       <React.Fragment>{"\nPiazza"}</React.Fragment>
-                    </span>
+                    </React.Fragment>
                   </div>
                 }
               />
@@ -779,7 +765,7 @@ function PlasmicHome__RenderFunc(props) {
               className={classNames(
                 "plasmic_default__all",
                 "plasmic_default__input",
-                "Home__textbox__triAl"
+                "Home__textInput__triAl"
               )}
               placeholder={"Some placeholder"}
               size={1}

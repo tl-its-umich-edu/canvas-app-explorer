@@ -59,6 +59,8 @@
   color: inherit;
   text-transform: inherit;
   background-image: none;
+  align-items: flex-start;
+  text-align: center;
   padding: 2px 6px;
   border: 1px solid lightgray;
 }
