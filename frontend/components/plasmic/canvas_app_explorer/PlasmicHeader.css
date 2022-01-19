@@ -95,13 +95,9 @@
 .Header__root__r4I1P .Header__svg___7Ic5E:hover {
   color: rgb(233, 156, 46) /* plasmic-token: v9gSiCR22bb3A */;
 }
-.Header__searchInput___8JssE {
+.Header__searchInputComponent___4TRpX.__wab_instance {
   position: relative;
-  width: 180px;
   flex-shrink: 0;
-}
-.Header__searchInput__withSearchBar___8JssE8Xp20 {
-  font-style: italic;
 }
 .Header__iconLink__pu1Ei.__wab_instance {
   position: relative;

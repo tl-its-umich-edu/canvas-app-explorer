@@ -33,7 +33,7 @@ export const PlasmicHome__VariantProps = new Array();
 export const PlasmicHome__ArgProps = new Array();
 
 function PlasmicHome__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsthj0P9Nxeh81I()
   });
@@ -80,8 +80,8 @@ function PlasmicHome__RenderFunc(props) {
               data-plasmic-name={"header"}
               data-plasmic-override={overrides.header}
               className={classNames("__wab_instance", "Home__header__iXzGr")}
-              noSearchBarOrSettings={"noSearchBarOrSettings"}
-              withSearchBar={"withSearchBar"}
+              noSearchBarOrSettings={true}
+              withSearchBar={true}
             />
 
             {false ? (
@@ -220,7 +220,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={"onlyLearnMore"}
+                onlyLearnMore={true}
                 placementsInCanvasLearnMore={
                   <div
                     className={classNames(
@@ -402,7 +402,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={"onlyLearnMore"}
+                onlyLearnMore={true}
                 photoLearnMore={
                   <img
                     alt={""}
@@ -553,7 +553,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={"onlyLearnMore"}
+                onlyLearnMore={true}
               />
 
               <ProductCard
@@ -565,7 +565,7 @@ function PlasmicHome__RenderFunc(props) {
                       "__wab_instance",
                       "Home__addRemoveButton___6ByWv"
                     )}
-                    removeToolFromSite={"removeToolFromSite"}
+                    removeToolFromSite={true}
                   />
                 }
                 className={classNames(
@@ -637,7 +637,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={"onlyLearnMore"}
+                onlyLearnMore={true}
                 photoLearnMore={
                   <img
                     alt={""}
@@ -835,12 +835,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicHome__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicHome__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

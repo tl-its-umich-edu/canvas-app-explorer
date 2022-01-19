@@ -24,7 +24,7 @@ export const PlasmicLearnMoreTool__VariantProps = new Array();
 export const PlasmicLearnMoreTool__ArgProps = new Array();
 
 function PlasmicLearnMoreTool__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return false ? (
     <div
       data-plasmic-name={"root"}
@@ -66,12 +66,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicLearnMoreTool__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicLearnMoreTool__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };
