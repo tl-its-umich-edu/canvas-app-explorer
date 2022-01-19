@@ -26,7 +26,7 @@ export const PlasmicLinkButton__VariantProps = new Array("type", "size");
 export const PlasmicLinkButton__ArgProps = new Array("href", "text");
 
 function PlasmicLinkButton__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <a
       data-plasmic-name={"root"}
@@ -130,12 +130,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicLinkButton__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicLinkButton__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

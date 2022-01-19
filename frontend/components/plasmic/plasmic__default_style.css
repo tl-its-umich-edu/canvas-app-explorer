@@ -16,6 +16,9 @@
 .plasmic_default__img {
   display: inline-block;
 }
+.plasmic_default__li {
+  display: list-item;
+}
 .plasmic_default__span {
   display: inline;
   position: static;
@@ -121,9 +124,6 @@
 }
 .plasmic_default__select {
   padding: 2px 6px;
-}
-.plasmic_default__li {
-  list-style-type: none;
 }
 .plasmic_default__component_wrapper {
   display: grid;

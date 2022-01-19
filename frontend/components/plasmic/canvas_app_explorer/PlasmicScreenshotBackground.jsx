@@ -29,7 +29,7 @@ export const PlasmicScreenshotBackground__VariantProps = new Array();
 export const PlasmicScreenshotBackground__ArgProps = new Array("image");
 
 function PlasmicScreenshotBackground__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const triggers = {
     hover_root: isRootHover
@@ -151,12 +151,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicScreenshotBackground__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicScreenshotBackground__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

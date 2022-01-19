@@ -19,6 +19,7 @@ import {
 } from "@plasmicapp/react-web";
 import MenuButton from "../../MenuButton"; // plasmic-import: fd0a48CHFpLDW/component
 import IconLink from "../../IconLink"; // plasmic-import: sBgr46KDuJYZz/component
+import SearchInputComponent from "../../SearchInputComponent"; // plasmic-import: 1ReshBZ5EGa/component
 import LinkButton from "../../LinkButton"; // plasmic-import: tr5phcLQqCoEx/component
 import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -34,10 +35,10 @@ export const PlasmicHeader__VariantProps = new Array(
   "noSearchBarOrSettings"
 );
 
-export const PlasmicHeader__ArgProps = new Array();
+export const PlasmicHeader__ArgProps = new Array("searchInputSlot");
 
 function PlasmicHeader__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsthj0P9Nxeh81I()
   });
@@ -102,7 +103,7 @@ function PlasmicHeader__RenderFunc(props) {
             expanded={
               hasVariant(variants, "expanded", "expanded") &&
               hasVariant(globalVariants, "screen", "mobile")
-                ? "expanded"
+                ? true
                 : undefined
             }
           />
@@ -127,7 +128,14 @@ function PlasmicHeader__RenderFunc(props) {
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "Header__freeBox__zcEqf"
+            "Header__freeBox__zcEqf",
+            {
+              Header__freeBox__withSearchBar__zcEqf8Xp20: hasVariant(
+                variants,
+                "withSearchBar",
+                "withSearchBar"
+              )
+            }
           )}
         >
           <IconLink
@@ -168,40 +176,20 @@ function PlasmicHeader__RenderFunc(props) {
             }
           />
 
-          {(
-            hasVariant(variants, "withSearchBar", "withSearchBar")
-              ? true
-              : false
-          ) ? (
-            <input
-              data-plasmic-name={"searchInput"}
-              data-plasmic-override={overrides.searchInput}
-              className={classNames(
-                "plasmic_default__all",
-                "plasmic_default__input",
-                "Header__searchInput___8JssE",
-                {
-                  Header__searchInput__withSearchBar___8JssE8Xp20: hasVariant(
-                    variants,
-                    "withSearchBar",
-                    "withSearchBar"
-                  )
-                }
-              )}
-              placeholder={
-                hasVariant(variants, "withSearchBar", "withSearchBar")
-                  ? "filter by keyword"
-                  : "Some placeholder"
-              }
-              size={1}
-              type={"text"}
-              value={
-                hasVariant(variants, "withSearchBar", "withSearchBar")
-                  ? ""
-                  : "Some value"
-              }
-            />
-          ) : null}
+          {p.renderPlasmicSlot({
+            defaultContents: (
+              <SearchInputComponent
+                className={classNames(
+                  "__wab_instance",
+                  "Header__searchInputComponent___4TRpX"
+                )}
+                withSearchBar={true}
+              />
+            ),
+
+            value: args.searchInputSlot
+          })}
+
           {(
             hasVariant(
               variants,
@@ -337,10 +325,9 @@ function PlasmicHeader__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuButton", "text", "searchInput"],
+  root: ["root", "menuButton", "text"],
   menuButton: ["menuButton"],
-  text: ["text"],
-  searchInput: ["searchInput"]
+  text: ["text"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -352,12 +339,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicHeader__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicHeader__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };
@@ -376,7 +361,6 @@ export const PlasmicHeader = Object.assign(
     // Helper components rendering sub-elements
     menuButton: makeNodeComponent("menuButton"),
     text: makeNodeComponent("text"),
-    searchInput: makeNodeComponent("searchInput"),
     // Metadata about props expected for PlasmicHeader
     internalVariantProps: PlasmicHeader__VariantProps,
     internalArgProps: PlasmicHeader__ArgProps
