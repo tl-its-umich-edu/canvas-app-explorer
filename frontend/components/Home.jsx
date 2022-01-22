@@ -16,6 +16,7 @@ import Ratings from "./Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "./AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import LearnMoreButton from "./LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import ExitLearnMoreButton from "./ExitLearnMoreButton"; 
+import SearchInputComponent from "./SearchInputComponent";
 import Screenshot from "./Screenshot"; // plasmic-import: fUpKi24Qhx/component
 import Footer from "./Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants } from "./plasmic/canvas_app_explorer/PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
@@ -30,6 +31,9 @@ function Home__RenderFunc(props,ref) {
     const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
     const [tools, setTools] = useState(null);
 
+    // For search filter
+    const[searchFilter, setSearchFilter] = useState("");
+
     useEffect(async () => {
         const url = "/api/lti_tools/";
         const response = await fetch(url);
@@ -43,6 +47,13 @@ function Home__RenderFunc(props,ref) {
 	const globalVariants = ensureGlobalVariants({
 		screen: useScreenVariants()
 	});
+
+    // Function to handle search functionality
+    const searchItems = (searchValue) => {
+        setSearchFilter(searchValue)
+        console.log(searchValue);
+    }
+
 	return (
 		<React.Fragment>
 			<div className={"plasmic_page_wrapper"}>
@@ -84,8 +95,21 @@ function Home__RenderFunc(props,ref) {
                             data-plasmic-name={"header"}
                             data-plasmic-override={overrides.header}
                             className={classNames("__wab_instance", "Home__header__iXzGr")}
-                            noSearchBarOrSettings={"noSearchBarOrSettings"}
+                            noSearchBarOrSettings={true}
+                            searchInputSlot={
+                                <SearchInputComponent
+                                    className={classNames(
+                                        "__wab_instance",
+                                        ".Home__searchInputComponent__x3IeR"
+                                    )}
+                                    withSearchBar={true} 
+                                    placeholder='Search...'  
+                                    value={searchFilter}
+                                    onChange={(e) => searchItems(e.target.value)}  // bind function to search, and pass input value to search items
+                                />
+                            }
 						/>
+
 						{false ? (
                             <input
                                 className={classNames(
@@ -96,7 +120,7 @@ function Home__RenderFunc(props,ref) {
                                 placeholder={"Some placeholder"}
                                 size={1}
                                 type={"text"}
-                                value={"Some value"}
+                                //value={"Some value"}
                             />
                         ) : null}
 
@@ -171,12 +195,12 @@ function Home__RenderFunc(props,ref) {
                                             //                     "__wab_instance",
                                             //                     // "Home__addRemoveButton___3D93M" // I don't see any changes in formatting with this line
                                             //                 )}
-                                            //                 removeToolFromSite={"removeToolFromSite"}
+                                            //                 removeToolFromSite={true}
                                             //             />     
                                             //         } 
                                             //     </div>
                                             // )}
-                                            onlyLearnMore={"onlyLearnMore"}
+                                            onlyLearnMore={true}
                                             learnMoreSlot={
                                                 <LearnMoreButton
                                                     onClick={(e) => {
