@@ -29,30 +29,49 @@ export const Home__ArgProps = new Array();
 function Home__RenderFunc(props,ref) {  
     //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
     const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
-    const [tools, setTools] = useState(null);
+    const [APIData, setAPIData] = useState(null); // holds the data read from API
+    const [tools, setTools] = useState(null); // to display the tools
 
     // For search filter
     const[searchFilter, setSearchFilter] = useState("");
 
+    // Only called once, since [] means no dependencies 
     useEffect(async () => {
         const url = "/api/lti_tools/";
         const response = await fetch(url);
         const data = await response.json();
-        setTools(data)
+         // sort data alphabetically by name
+        data.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))
+
+        setAPIData(data) // for use with search filter
+        setTools(data) // what will be displayed
         //setAddedTools(Array(Object.keys(data).length + 2).fill(false)) // don't need for add/remove
         setLearnMoreActive(Array(Object.keys(data).length + 2).fill(false))
     }, []);
+
 
 	const { variants, args, overrides, forNode, dataFetches } = props;
 	const globalVariants = ensureGlobalVariants({
 		screen: useScreenVariants()
 	});
 
-    // Function to handle search functionality
-    const searchItems = (searchValue) => {
-        setSearchFilter(searchValue)
-        console.log(searchValue);
-    }
+
+    // Called every time searchFilter changes, makes sure action is performed after state changes
+    useEffect(() => {
+        console.log(searchFilter)
+        // Show filtered data if search is entered, else show all data
+        if (searchFilter == "") { 
+            console.log("WE SHOULD GO IN HERE, show all data")
+            setTools(APIData)
+        }
+        else {
+            console.log("FILTERING DATA");
+            const filteredData = tools.filter((item) => item.name.toLowerCase().includes(searchFilter))
+            setTools(filteredData)
+            console.log(filteredData)
+        }
+    }, [searchFilter])
+    
 
 	return (
 		<React.Fragment>
@@ -103,9 +122,9 @@ function Home__RenderFunc(props,ref) {
                                         ".Home__searchInputComponent__x3IeR"
                                     )}
                                     withSearchBar={true} 
-                                    placeholder='Search...'  
+                                    placeholder="Search..."
                                     value={searchFilter}
-                                    onChange={(e) => searchItems(e.target.value)}  // bind function to search, and pass input value to search items
+                                    onChange={(e) => setSearchFilter(e.target.value)} // set search filter to input value
                                 />
                             }
 						/>
