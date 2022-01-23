@@ -66,12 +66,12 @@ function Home__RenderFunc(props,ref) {
         }
         else {
             console.log("FILTERING DATA");
-            const filteredData = tools.filter((item) => item.name.toLowerCase().includes(searchFilter))
+            const filteredData = APIData.filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
             setTools(filteredData)
             console.log(filteredData)
         }
     }, [searchFilter])
-    
+
 
 	return (
 		<React.Fragment>
@@ -122,7 +122,7 @@ function Home__RenderFunc(props,ref) {
                                         ".Home__searchInputComponent__x3IeR"
                                     )}
                                     withSearchBar={true} 
-                                    placeholder="Search..."
+                                    placeholder="Filter by name..."
                                     value={searchFilter}
                                     onChange={(e) => setSearchFilter(e.target.value)} // set search filter to input value
                                 />
@@ -139,7 +139,7 @@ function Home__RenderFunc(props,ref) {
                                 placeholder={"Some placeholder"}
                                 size={1}
                                 type={"text"}
-                                //value={"Some value"}
+                                value={"Some value"}
                             />
                         ) : null}
 
@@ -222,22 +222,24 @@ function Home__RenderFunc(props,ref) {
                                             onlyLearnMore={true}
                                             learnMoreSlot={
                                                 <LearnMoreButton
+                                                    data-plasmic-name={"learnMoreButton"}
+                                                    data-plasmic-override={overrides.learnMoreButton}
+                                                    className={classNames(
+                                                        "__wab_instance",
+                                                        "Home__learnMoreButton__j6ASy"
+                                                    )}
                                                     onClick={(e) => {
                                                         e.preventDefault(); 
                                                         let learnMoreActiveCopy = [...learnMoreActive]
                                                         learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
                                                         setLearnMoreActive(learnMoreActiveCopy)
                                                     }}
-                                                    className={classNames(
-                                                        "__wab_instance",
-                                                        // "Home__learnMoreButton__j6ASy"// I don't see any changes in formatting with this line
-                                                    )}
                                                 />
                                             }
 
                                             className={classNames(
                                                 "__wab_instance",	
-                                                // "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
+                                                "Home__zoomCard__foQyr" // I don't see any changes in formatting with this line
                                             )}
                                             description={
                                                 <div
@@ -259,7 +261,6 @@ function Home__RenderFunc(props,ref) {
                                                         "plasmic_default__img",
                                                         "Home__img__zw5Ho" // if this line isn't here, the image won't be formatted
                                                     )}
-                                                    role={"img"}
                                                     src={tool.main_image} 
                                                 />
                                             }
@@ -271,7 +272,6 @@ function Home__RenderFunc(props,ref) {
                                                         "plasmic_default__img",
                                                         "Home__img__zZtPf" // if this line isn't here, the images won't be formatted
                                                     )}
-                                                    role={"img"}
                                                     src={tool.logo_image}
                                                 />
                                             }
@@ -319,10 +319,16 @@ function Home__RenderFunc(props,ref) {
                                                     "Home__text__dHRrw"
                                                   )}
                                                 >
-                                                  <span>
-                                                    <span style={{ fontWeight: 700 }}>{"Tool"}</span>
-                                                    <React.Fragment>{"\n"}{tool.name}</React.Fragment>
-                                                  </span>
+                                                    <React.Fragment>
+                                                        <React.Fragment>{""}</React.Fragment>
+                                                        <span 
+                                                            className={"plasmic_default__all plasmic_default__span"}
+                                                            style={{ fontWeight: 700 }}
+                                                        >
+                                                            {"Tool"}
+                                                        </span>
+                                                        <React.Fragment>{"\n"}{tool.name}</React.Fragment>
+                                                    </React.Fragment>
                                                 </div>
                                             }
                                             descriptionLearnMore={
@@ -334,11 +340,19 @@ function Home__RenderFunc(props,ref) {
                                                         "Home__text__byvgJ"
                                                     )}
                                                 >
-                                                    <span>
-                                                        <span style={{ fontWeight: 700 }}>{"Description"}</span>
-                                                        <span dangerouslySetInnerHTML={{ __html: tool.long_description}} />
-
-                                                    </span>
+                                                    <React.Fragment>
+                                                        <React.Fragment>{""}</React.Fragment>
+                                                        <span 
+                                                            className={"plasmic_default__all plasmic_default__span"}
+                                                            style={{ fontWeight: 700 }}
+                                                        >
+                                                            {"Description"}
+                                                        </span>
+                                                        <React.Fragment>
+                                                            <span dangerouslySetInnerHTML={{ __html: "\n"}} />
+                                                            <span dangerouslySetInnerHTML={{ __html: tool.long_description}} />
+                                                        </React.Fragment>
+                                                    </React.Fragment>
                                                 </div>
                                             }
                                             privacyAgreementLearnMore={
@@ -350,12 +364,18 @@ function Home__RenderFunc(props,ref) {
                                                     "Home__freeBox__pkIjF"
                                                   )}
                                                 >
-                                                  <span>
-                                                    <span style={{ fontWeight: 700 }}>
-                                                      {"Privacy Agreement"}
-                                                    </span>
-                                                    <span dangerouslySetInnerHTML={{ __html: tool.privacy}} />
-                                                  </span>
+                                                    <React.Fragment>
+                                                        <React.Fragment>{""}</React.Fragment>
+                                                        <span 
+                                                            className={"plasmic_default__all plasmic_default__span"}
+                                                            style={{ fontWeight: 700 }}
+                                                        >
+                                                            {"Privacy Agreement"}
+                                                        </span>
+                                                        <React.Fragment>
+                                                            <span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement}} />
+                                                        </React.Fragment>
+                                                    </React.Fragment>
                                                 </div>
                                             }
                                             placementsInCanvasLearnMore={
