@@ -128,9 +128,9 @@ function Home__RenderFunc(props,ref) {
                                         "__wab_instance",
                                         ".Home__searchInputComponent__x3IeR"
                                     )}
-                                    withSearchBar={true} 
+                                    withSearchBar={true} // without this, search bar won't show up in SearchInputComponent
                                     placeholder="Filter by name..."
-                                    value={searchFilter}
+                                    value={searchFilter} // updates what is displayed with what user inputs
                                     onChange={(e) => setSearchFilter(e.target.value)} // set search filter to input value
                                 />
                             }
