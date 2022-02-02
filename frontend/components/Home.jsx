@@ -31,6 +31,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import "./plasmic/plasmic__default_style.css"; // plasmic-import: global/defaultcss
 import "./plasmic/canvas_app_explorer/plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./plasmic/canvas_app_explorer/PlasmicHome.css"; // plasmic-import: 4XPgsAhljqdds/css
+import "../css/Home.css"
 export const Home__VariantProps = new Array();
 export const Home__ArgProps = new Array();
 function Home__RenderFunc(props,ref) {  
