@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_mysql',
     'webpack_loader',
     'rest_framework',
     'pylti1p3.contrib.django.lti1p3_tool_config',
@@ -150,8 +151,8 @@ X_FRAME_OPTIONS = 'ALLOWALL'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 DB_CACHE_CONFIGS = os.getenv('DB_CACHE_CONFIGS',
-                           {'CACHE_TTL': 600, 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-                            'LOCATION': 'django_app_explorer_cache',
+                           {'CACHE_TTL': 600, 'BACKEND': 'django_mysql.cache.MySQLCache',
+                            'LOCATION': 'canvas_app_explorer_cache',
                             'CACHE_KEY_PREFIX': 'app_explorer',
                             'CACHE_OPTIONS': {'COMPRESS_MIN_LENGTH': 5000, 'COMPRESS_LEVEL': 6}
                             })
@@ -221,3 +222,18 @@ CANVAS_OAUTH_CANVAS_DOMAIN = os.getenv('CANVAS_OAUTH_CANVAS_DOMAIN', 'canvas.ins
 CANVAS_OAUTH_SCOPES = os.getenv('CANVAS_OAUTH_SCOPES', '').split(',')
 CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER = os.getenv('CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER', '0')
 CANVAS_OAUTH_ERROR_TEMPLATE = os.getenv('CANVAS_OAUTH_ERROR_TEMPLATE', 'canvas_app_explorer/oauth_error.html')
+
+# These are mostly needed by Canvas but it should also be in on general
+CSRF_COOKIE_SECURE = os.getenv("CSRF_COOKIE_SECURE", False)
+if CSRF_COOKIE_SECURE:
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", [])
+    SESSION_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# When using the application with iframes (e.g. with LTI), these need to be set to None. However, we'll need to update
+# this when new browser versions expect (and the Django version allows) the string "None".
+SESSION_COOKIE_SAMESITE = os.getenv("SESSION_COOKIE_SAMESITE", 'None')
+CSRF_COOKIE_SAMESITE = os.getenv("CSRF_COOKIE_SAMESITE", 'None')
+
+LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION = os.getenv('LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION', False)
+RANDOM_PASSWORD_DEFAULT_LENGTH = os.getenv('RANDOM_PASSWORD_DEFAULT_LENGTH', 32)

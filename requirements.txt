@@ -3,6 +3,8 @@ gunicorn
 Django>=3.2,<3.3
 django-webpack-loader
 mysqlclient
+django-mysql
+
 django-db-file-storage # Support for storage in the database
 Pillow # Needed for images
 django-tinymce # Rich text editor
