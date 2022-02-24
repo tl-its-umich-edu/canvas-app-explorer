@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 
 from django.core.management.utils import get_random_secret_key
+from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -220,7 +221,7 @@ CANVAS_OAUTH_CLIENT_ID = os.getenv('CANVAS_OAUTH_CLIENT_ID', 'canvas_app_explore
 CANVAS_OAUTH_CLIENT_SECRET = os.getenv('CANVAS_OAUTH_CLIENT_SECRET', 'canvas_app_explorer')
 CANVAS_OAUTH_CANVAS_DOMAIN = os.getenv('CANVAS_OAUTH_CANVAS_DOMAIN', 'canvas.instructure.com')
 CANVAS_OAUTH_SCOPES = os.getenv('CANVAS_OAUTH_SCOPES', '').split(',')
-CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER = os.getenv('CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER', '0')
+CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER = os.getenv('CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER', timedelta())
 CANVAS_OAUTH_ERROR_TEMPLATE = os.getenv('CANVAS_OAUTH_ERROR_TEMPLATE', 'canvas_app_explorer/oauth_error.html')
 
 # These are mostly needed by Canvas but it should also be in on general

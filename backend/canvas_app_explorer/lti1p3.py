@@ -149,6 +149,7 @@ def login(request):
     CacheConfig = get_cache_config()
     oidc_login = DjangoOIDCLogin(request, TOOL_CONF, launch_data_storage=CacheConfig.launch_data_storage)
     return oidc_login.enable_check_cookies().redirect(target_link_uri)
+
 @require_POST
 @csrf_exempt
 def launch(request):
@@ -162,7 +163,6 @@ def launch(request):
         logger.info('DummyCache is set up, recommended atleast to us Mysql DB cache for LTI advantage services')
 
     # TODO: Implement custom AUTHENTICATION_BACKEND rather than using this one
-    logger.info(message_launch)
     create_user_in_django(request, message_launch)
 
     url = reverse('home')
