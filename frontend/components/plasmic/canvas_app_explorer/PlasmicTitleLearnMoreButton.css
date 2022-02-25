@@ -1,0 +1,31 @@
+.TitleLearnMoreButton__root__lnecm {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+.TitleLearnMoreButton__button__eRlj7 {
+  position: relative;
+  width: 250px;
+  background: var(--token-HxoWIRXur);
+  height: 50px;
+  box-shadow: 0px 4px 16px 0px #00000033;
+  transition-property: all;
+  transition-duration: 1s;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border-width: 0px;
+}
+.TitleLearnMoreButton__slotTargetChildren__riL5Q {
+  font-weight: 500;
+  color: var(--token-v6LfSbn-y);
+  text-align: center;
+  font-size: 20px;
+}

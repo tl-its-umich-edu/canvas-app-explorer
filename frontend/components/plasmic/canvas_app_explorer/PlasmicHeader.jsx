@@ -18,12 +18,14 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import MenuButton from "../../MenuButton"; // plasmic-import: fd0a48CHFpLDW/component
+import Button from "../../Button"; // plasmic-import: 3egWRKWeo74/component
 import IconLink from "../../IconLink"; // plasmic-import: sBgr46KDuJYZz/component
 import SearchInputComponent from "../../SearchInputComponent"; // plasmic-import: 1ReshBZ5EGa/component
 import LinkButton from "../../LinkButton"; // plasmic-import: tr5phcLQqCoEx/component
 import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicHeader.css"; // plasmic-import: rgvwcoUrD14Pp/css
 import SearchIcon from "./icons/PlasmicIcon__Search"; // plasmic-import: XYsIQokGkGcBz/icon
@@ -32,7 +34,8 @@ import CogIcon from "./icons/PlasmicIcon__Cog"; // plasmic-import: jxNUPxdPJcbB1
 export const PlasmicHeader__VariantProps = new Array(
   "expanded",
   "withSearchBar",
-  "noSearchBarOrSettings"
+  "noSearchBarOrSettings",
+  "searchBarAndCategories"
 );
 
 export const PlasmicHeader__ArgProps = new Array("searchInputSlot");
@@ -53,9 +56,12 @@ function PlasmicHeader__RenderFunc(props) {
         "plasmic_default__all",
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "Header__root__r4I1P",
         {
-          Header__root__expanded__r4I1Pvp9H7: hasVariant(
+          Header__rootexpanded__r4I1Pvp9H7: hasVariant(
             variants,
             "expanded",
             "expanded"
@@ -71,13 +77,19 @@ function PlasmicHeader__RenderFunc(props) {
           "plasmic_default__div",
           "Header__freeBox__ikq92",
           {
-            Header__freeBox__noSearchBarOrSettings__ikq92I2VQm: hasVariant(
+            Header__freeBoxnoSearchBarOrSettings__ikq92I2VQm: hasVariant(
               variants,
               "noSearchBarOrSettings",
               "noSearchBarOrSettings"
             ),
 
-            Header__freeBox__withSearchBar__ikq928Xp20: hasVariant(
+            Header__freeBoxsearchBarAndCategories__ikq92B146L: hasVariant(
+              variants,
+              "searchBarAndCategories",
+              "searchBarAndCategories"
+            ),
+
+            Header__freeBoxwithSearchBar__ikq928Xp20: hasVariant(
               variants,
               "withSearchBar",
               "withSearchBar"
@@ -93,7 +105,7 @@ function PlasmicHeader__RenderFunc(props) {
               "__wab_instance",
               "Header__menuButton__bmiow",
               {
-                Header__menuButton__expanded__bmiowVp9H7: hasVariant(
+                Header__menuButtonexpanded__bmiowVp9H7: hasVariant(
                   variants,
                   "expanded",
                   "expanded"
@@ -122,110 +134,6 @@ function PlasmicHeader__RenderFunc(props) {
           {"Canvas App Explorer"}
         </div>
 
-        <p.Stack
-          as={"div"}
-          hasGap={true}
-          className={classNames(
-            "plasmic_default__all",
-            "plasmic_default__div",
-            "Header__freeBox__zcEqf",
-            {
-              Header__freeBox__withSearchBar__zcEqf8Xp20: hasVariant(
-                variants,
-                "withSearchBar",
-                "withSearchBar"
-              )
-            }
-          )}
-        >
-          <IconLink
-            className={classNames("__wab_instance", "Header__iconLink__rda3A", {
-              Header__iconLink__noSearchBarOrSettings__rda3Ai2VQm: hasVariant(
-                variants,
-                "noSearchBarOrSettings",
-                "noSearchBarOrSettings"
-              )
-            })}
-            icon={
-              (
-                hasVariant(
-                  variants,
-                  "noSearchBarOrSettings",
-                  "noSearchBarOrSettings"
-                )
-                  ? false
-                  : true
-              ) ? (
-                <SearchIcon
-                  className={classNames(
-                    "plasmic_default__all",
-                    "plasmic_default__svg",
-                    "Header__svg___7Ic5E",
-                    {
-                      Header__svg__noSearchBarOrSettings___7Ic5Ei2VQm:
-                        hasVariant(
-                          variants,
-                          "noSearchBarOrSettings",
-                          "noSearchBarOrSettings"
-                        )
-                    }
-                  )}
-                  role={"img"}
-                />
-              ) : null
-            }
-          />
-
-          {p.renderPlasmicSlot({
-            defaultContents: (
-              <SearchInputComponent
-                className={classNames(
-                  "__wab_instance",
-                  "Header__searchInputComponent___4TRpX"
-                )}
-                withSearchBar={true}
-              />
-            ),
-
-            value: args.searchInputSlot
-          })}
-
-          {(
-            hasVariant(
-              variants,
-              "noSearchBarOrSettings",
-              "noSearchBarOrSettings"
-            )
-              ? false
-              : true
-          ) ? (
-            <IconLink
-              className={classNames(
-                "__wab_instance",
-                "Header__iconLink__pu1Ei",
-                {
-                  Header__iconLink__noSearchBarOrSettings__pu1Eii2VQm:
-                    hasVariant(
-                      variants,
-                      "noSearchBarOrSettings",
-                      "noSearchBarOrSettings"
-                    )
-                }
-              )}
-              icon={
-                <CogIcon
-                  className={classNames(
-                    "plasmic_default__all",
-                    "plasmic_default__svg",
-                    "Header__svg__agh0S"
-                  )}
-                  role={"img"}
-                />
-              }
-            />
-          ) : null}
-        </p.Stack>
-
         {false ? (
           <input
             className={classNames(
@@ -252,6 +160,304 @@ function PlasmicHeader__RenderFunc(props) {
             value={"Some value"}
           />
         ) : null}
+        {(
+          hasVariant(
+            variants,
+            "searchBarAndCategories",
+            "searchBarAndCategories"
+          )
+            ? true
+            : true
+        ) ? (
+          <div
+            data-plasmic-name={"columns"}
+            data-plasmic-override={overrides.columns}
+            className={classNames(
+              "plasmic_default__all",
+              "plasmic_default__div",
+              "Header__columns__fymsz",
+              {
+                Header__columnssearchBarAndCategories__fymszb146L: hasVariant(
+                  variants,
+                  "searchBarAndCategories",
+                  "searchBarAndCategories"
+                )
+              }
+            )}
+          >
+            {(
+              hasVariant(
+                variants,
+                "searchBarAndCategories",
+                "searchBarAndCategories"
+              )
+                ? true
+                : true
+            ) ? (
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "Header__column__lbnzr",
+                  {
+                    Header__columnsearchBarAndCategories__lbnzrb146L:
+                      hasVariant(
+                        variants,
+                        "searchBarAndCategories",
+                        "searchBarAndCategories"
+                      )
+                  }
+                )}
+              >
+                <Button
+                  className={classNames(
+                    "__wab_instance",
+                    "Header__button___5RsFq",
+                    {
+                      Header__buttonsearchBarAndCategories___5RsFQb146L:
+                        hasVariant(
+                          variants,
+                          "searchBarAndCategories",
+                          "searchBarAndCategories"
+                        )
+                    }
+                  )}
+                />
+              </div>
+            ) : null}
+            {(
+              hasVariant(
+                variants,
+                "searchBarAndCategories",
+                "searchBarAndCategories"
+              )
+                ? true
+                : true
+            ) ? (
+              <div
+                className={classNames(
+                  "plasmic_default__all",
+                  "plasmic_default__div",
+                  "Header__column__ah9Na",
+                  {
+                    Header__columnsearchBarAndCategories__ah9NAb146L:
+                      hasVariant(
+                        variants,
+                        "searchBarAndCategories",
+                        "searchBarAndCategories"
+                      )
+                  }
+                )}
+              >
+                <Button
+                  className={classNames(
+                    "__wab_instance",
+                    "Header__button__z29JG",
+                    {
+                      Header__buttonsearchBarAndCategories__z29JGb146L:
+                        hasVariant(
+                          variants,
+                          "searchBarAndCategories",
+                          "searchBarAndCategories"
+                        )
+                    }
+                  )}
+                />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
+        <p.Stack
+          as={"div"}
+          hasGap={true}
+          className={classNames(
+            "plasmic_default__all",
+            "plasmic_default__div",
+            "Header__freeBox__zcEqf",
+            {
+              Header__freeBoxsearchBarAndCategories__zcEqfb146L: hasVariant(
+                variants,
+                "searchBarAndCategories",
+                "searchBarAndCategories"
+              ),
+
+              Header__freeBoxwithSearchBar__zcEqf8Xp20: hasVariant(
+                variants,
+                "withSearchBar",
+                "withSearchBar"
+              )
+            }
+          )}
+        >
+          {(
+            hasVariant(
+              variants,
+              "searchBarAndCategories",
+              "searchBarAndCategories"
+            )
+              ? false
+              : hasVariant(variants, "withSearchBar", "withSearchBar")
+              ? true
+              : true
+          ) ? (
+            <IconLink
+              className={classNames(
+                "__wab_instance",
+                "Header__iconLink__rda3A",
+                {
+                  Header__iconLinknoSearchBarOrSettings__rda3Ai2VQm: hasVariant(
+                    variants,
+                    "noSearchBarOrSettings",
+                    "noSearchBarOrSettings"
+                  ),
+
+                  Header__iconLinksearchBarAndCategories__rda3Ab146L:
+                    hasVariant(
+                      variants,
+                      "searchBarAndCategories",
+                      "searchBarAndCategories"
+                    ),
+
+                  Header__iconLinkwithSearchBar__rda3A8Xp20: hasVariant(
+                    variants,
+                    "withSearchBar",
+                    "withSearchBar"
+                  )
+                }
+              )}
+              icon={
+                (
+                  hasVariant(
+                    variants,
+                    "noSearchBarOrSettings",
+                    "noSearchBarOrSettings"
+                  )
+                    ? false
+                    : true
+                ) ? (
+                  <SearchIcon
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__svg",
+                      "Header__svg___7Ic5E",
+                      {
+                        Header__svgnoSearchBarOrSettings___7Ic5Ei2VQm:
+                          hasVariant(
+                            variants,
+                            "noSearchBarOrSettings",
+                            "noSearchBarOrSettings"
+                          ),
+
+                        Header__svgwithSearchBar___7Ic5E8Xp20: hasVariant(
+                          variants,
+                          "withSearchBar",
+                          "withSearchBar"
+                        )
+                      }
+                    )}
+                    role={"img"}
+                  />
+                ) : null
+              }
+            />
+          ) : null}
+          {(
+            hasVariant(
+              variants,
+              "noSearchBarOrSettings",
+              "noSearchBarOrSettings"
+            )
+              ? false
+              : true
+          )
+            ? p.renderPlasmicSlot({
+                defaultContents: (
+                  <SearchInputComponent
+                    className={classNames(
+                      "__wab_instance",
+                      "Header__searchInputComponent___4TRpX"
+                    )}
+                    withSearchBar={true}
+                  />
+                ),
+
+                value: args.searchInputSlot
+              })
+            : null}
+          {(
+            hasVariant(
+              variants,
+              "searchBarAndCategories",
+              "searchBarAndCategories"
+            )
+              ? false
+              : hasVariant(
+                  variants,
+                  "noSearchBarOrSettings",
+                  "noSearchBarOrSettings"
+                )
+              ? false
+              : hasVariant(variants, "withSearchBar", "withSearchBar")
+              ? false
+              : true
+          ) ? (
+            <IconLink
+              className={classNames(
+                "__wab_instance",
+                "Header__iconLink__pu1Ei",
+                {
+                  Header__iconLinknoSearchBarOrSettings__pu1Eii2VQm: hasVariant(
+                    variants,
+                    "noSearchBarOrSettings",
+                    "noSearchBarOrSettings"
+                  ),
+
+                  Header__iconLinksearchBarAndCategories__pu1Eib146L:
+                    hasVariant(
+                      variants,
+                      "searchBarAndCategories",
+                      "searchBarAndCategories"
+                    ),
+
+                  Header__iconLinkwithSearchBar__pu1Ei8Xp20: hasVariant(
+                    variants,
+                    "withSearchBar",
+                    "withSearchBar"
+                  )
+                }
+              )}
+              icon={
+                (
+                  hasVariant(
+                    variants,
+                    "searchBarAndCategories",
+                    "searchBarAndCategories"
+                  )
+                    ? false
+                    : true
+                ) ? (
+                  <CogIcon
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__svg",
+                      "Header__svg__agh0S",
+                      {
+                        Header__svgsearchBarAndCategories__agh0Sb146L:
+                          hasVariant(
+                            variants,
+                            "searchBarAndCategories",
+                            "searchBarAndCategories"
+                          )
+                      }
+                    )}
+                    role={"img"}
+                  />
+                ) : null
+              }
+            />
+          ) : null}
+        </p.Stack>
       </p.Stack>
 
       {(
@@ -266,7 +472,7 @@ function PlasmicHeader__RenderFunc(props) {
             "plasmic_default__div",
             "Header__freeBox__qIiNj",
             {
-              Header__freeBox__expanded__qIiNjVp9H7: hasVariant(
+              Header__freeBoxexpanded__qIiNjVp9H7: hasVariant(
                 variants,
                 "expanded",
                 "expanded"
@@ -325,9 +531,10 @@ function PlasmicHeader__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menuButton", "text"],
+  root: ["root", "menuButton", "text", "columns"],
   menuButton: ["menuButton"],
-  text: ["text"]
+  text: ["text"],
+  columns: ["columns"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -361,6 +568,7 @@ export const PlasmicHeader = Object.assign(
     // Helper components rendering sub-elements
     menuButton: makeNodeComponent("menuButton"),
     text: makeNodeComponent("text"),
+    columns: makeNodeComponent("columns"),
     // Metadata about props expected for PlasmicHeader
     internalVariantProps: PlasmicHeader__VariantProps,
     internalArgProps: PlasmicHeader__ArgProps

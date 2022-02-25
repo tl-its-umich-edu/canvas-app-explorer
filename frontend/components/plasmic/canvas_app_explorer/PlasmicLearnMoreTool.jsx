@@ -16,6 +16,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicLearnMoreTool.css"; // plasmic-import: 50HKxnb8xJ/css
 
@@ -36,6 +37,9 @@ function PlasmicLearnMoreTool__RenderFunc(props) {
         "plasmic_default__div",
         "__wab_text",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "LearnMoreTool__root__eoGd4"
       )}
     >

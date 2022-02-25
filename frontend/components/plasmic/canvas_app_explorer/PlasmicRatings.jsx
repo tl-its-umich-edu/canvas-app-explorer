@@ -18,6 +18,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicRatings.css"; // plasmic-import: kZJnDl5cN7jJ7/css
 import StarIcon from "./icons/PlasmicIcon__Star"; // plasmic-import: nqfHwTpPv2XFpy/icon
@@ -40,39 +41,42 @@ function PlasmicRatings__RenderFunc(props) {
         "plasmic_default__all",
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "Ratings__root__pt884",
         {
-          Ratings__root__stars_five__pt884KMq9G: hasVariant(
+          Ratings__rootstars_five__pt884KMq9G: hasVariant(
             variants,
             "stars",
             "five"
           ),
 
-          Ratings__root__stars_four__pt884MrnEt: hasVariant(
+          Ratings__rootstars_four__pt884MrnEt: hasVariant(
             variants,
             "stars",
             "four"
           ),
 
-          Ratings__root__stars_one__pt884WJukp: hasVariant(
+          Ratings__rootstars_one__pt884WJukp: hasVariant(
             variants,
             "stars",
             "one"
           ),
 
-          Ratings__root__stars_three__pt884IroP7: hasVariant(
+          Ratings__rootstars_three__pt884IroP7: hasVariant(
             variants,
             "stars",
             "three"
           ),
 
-          Ratings__root__stars_two__pt884Hd5FG: hasVariant(
+          Ratings__rootstars_two__pt884Hd5FG: hasVariant(
             variants,
             "stars",
             "two"
           ),
 
-          Ratings__root__stars_zero__pt884MxU6I: hasVariant(
+          Ratings__rootstars_zero__pt884MxU6I: hasVariant(
             variants,
             "stars",
             "zero"
@@ -98,13 +102,13 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__cBbLv",
               {
-                Ratings__svg__stars_five__cBbLvkMq9G: hasVariant(
+                Ratings__svgstars_five__cBbLvkMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_zero__cBbLvMxU6I: hasVariant(
+                Ratings__svgstars_zero__cBbLvMxU6I: hasVariant(
                   variants,
                   "stars",
                   "zero"
@@ -135,37 +139,37 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__hEl5P",
               {
-                Ratings__svg__stars_five__hEl5PkMq9G: hasVariant(
+                Ratings__svgstars_five__hEl5PkMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four__hEl5PMrnEt: hasVariant(
+                Ratings__svgstars_four__hEl5PMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_one__hEl5PwJukp: hasVariant(
+                Ratings__svgstars_one__hEl5PwJukp: hasVariant(
                   variants,
                   "stars",
                   "one"
                 ),
 
-                Ratings__svg__stars_three__hEl5PiroP7: hasVariant(
+                Ratings__svgstars_three__hEl5PiroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
                 ),
 
-                Ratings__svg__stars_two__hEl5PHd5FG: hasVariant(
+                Ratings__svgstars_two__hEl5PHd5FG: hasVariant(
                   variants,
                   "stars",
                   "two"
                 ),
 
-                Ratings__svg__stars_zero__hEl5PMxU6I: hasVariant(
+                Ratings__svgstars_zero__hEl5PMxU6I: hasVariant(
                   variants,
                   "stars",
                   "zero"
@@ -196,37 +200,37 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg___42Gi3",
               {
-                Ratings__svg__stars_five___42Gi3KMq9G: hasVariant(
+                Ratings__svgstars_five___42Gi3KMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four___42Gi3MrnEt: hasVariant(
+                Ratings__svgstars_four___42Gi3MrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_one___42Gi3WJukp: hasVariant(
+                Ratings__svgstars_one___42Gi3WJukp: hasVariant(
                   variants,
                   "stars",
                   "one"
                 ),
 
-                Ratings__svg__stars_three___42Gi3IroP7: hasVariant(
+                Ratings__svgstars_three___42Gi3IroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
                 ),
 
-                Ratings__svg__stars_two___42Gi3Hd5FG: hasVariant(
+                Ratings__svgstars_two___42Gi3Hd5FG: hasVariant(
                   variants,
                   "stars",
                   "two"
                 ),
 
-                Ratings__svg__stars_zero___42Gi3MxU6I: hasVariant(
+                Ratings__svgstars_zero___42Gi3MxU6I: hasVariant(
                   variants,
                   "stars",
                   "zero"
@@ -257,37 +261,37 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__sMn3L",
               {
-                Ratings__svg__stars_five__sMn3LKMq9G: hasVariant(
+                Ratings__svgstars_five__sMn3LKMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four__sMn3LMrnEt: hasVariant(
+                Ratings__svgstars_four__sMn3LMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_one__sMn3LwJukp: hasVariant(
+                Ratings__svgstars_one__sMn3LwJukp: hasVariant(
                   variants,
                   "stars",
                   "one"
                 ),
 
-                Ratings__svg__stars_three__sMn3LiroP7: hasVariant(
+                Ratings__svgstars_three__sMn3LiroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
                 ),
 
-                Ratings__svg__stars_two__sMn3LHd5FG: hasVariant(
+                Ratings__svgstars_two__sMn3LHd5FG: hasVariant(
                   variants,
                   "stars",
                   "two"
                 ),
 
-                Ratings__svg__stars_zero__sMn3LMxU6I: hasVariant(
+                Ratings__svgstars_zero__sMn3LMxU6I: hasVariant(
                   variants,
                   "stars",
                   "zero"
@@ -318,37 +322,37 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__byyuC",
               {
-                Ratings__svg__stars_five__byyuCkMq9G: hasVariant(
+                Ratings__svgstars_five__byyuCkMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four__byyuCMrnEt: hasVariant(
+                Ratings__svgstars_four__byyuCMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_one__byyuCwJukp: hasVariant(
+                Ratings__svgstars_one__byyuCwJukp: hasVariant(
                   variants,
                   "stars",
                   "one"
                 ),
 
-                Ratings__svg__stars_three__byyuCiroP7: hasVariant(
+                Ratings__svgstars_three__byyuCiroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
                 ),
 
-                Ratings__svg__stars_two__byyuCHd5FG: hasVariant(
+                Ratings__svgstars_two__byyuCHd5FG: hasVariant(
                   variants,
                   "stars",
                   "two"
                 ),
 
-                Ratings__svg__stars_zero__byyuCMxU6I: hasVariant(
+                Ratings__svgstars_zero__byyuCMxU6I: hasVariant(
                   variants,
                   "stars",
                   "zero"
@@ -379,37 +383,37 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__deMyc",
               {
-                Ratings__svg__stars_five__deMycKMq9G: hasVariant(
+                Ratings__svgstars_five__deMycKMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four__deMycMrnEt: hasVariant(
+                Ratings__svgstars_four__deMycMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_one__deMycwJukp: hasVariant(
+                Ratings__svgstars_one__deMycwJukp: hasVariant(
                   variants,
                   "stars",
                   "one"
                 ),
 
-                Ratings__svg__stars_three__deMyciroP7: hasVariant(
+                Ratings__svgstars_three__deMyciroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
                 ),
 
-                Ratings__svg__stars_two__deMycHd5FG: hasVariant(
+                Ratings__svgstars_two__deMycHd5FG: hasVariant(
                   variants,
                   "stars",
                   "two"
                 ),
 
-                Ratings__svg__stars_zero__deMycMxU6I: hasVariant(
+                Ratings__svgstars_zero__deMycMxU6I: hasVariant(
                   variants,
                   "stars",
                   "zero"
@@ -436,25 +440,25 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg___7RqGi",
               {
-                Ratings__svg__stars_five___7RqGikMq9G: hasVariant(
+                Ratings__svgstars_five___7RqGikMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four___7RqGiMrnEt: hasVariant(
+                Ratings__svgstars_four___7RqGiMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_three___7RqGIiroP7: hasVariant(
+                Ratings__svgstars_three___7RqGIiroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
                 ),
 
-                Ratings__svg__stars_two___7RqGiHd5FG: hasVariant(
+                Ratings__svgstars_two___7RqGiHd5FG: hasVariant(
                   variants,
                   "stars",
                   "two"
@@ -479,19 +483,19 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__dzAub",
               {
-                Ratings__svg__stars_five__dzAubKMq9G: hasVariant(
+                Ratings__svgstars_five__dzAubKMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four__dzAubMrnEt: hasVariant(
+                Ratings__svgstars_four__dzAubMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
                 ),
 
-                Ratings__svg__stars_three__dzAubiroP7: hasVariant(
+                Ratings__svgstars_three__dzAubiroP7: hasVariant(
                   variants,
                   "stars",
                   "three"
@@ -514,13 +518,13 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__ip6Iz",
               {
-                Ratings__svg__stars_five__ip6IzKMq9G: hasVariant(
+                Ratings__svgstars_five__ip6IzKMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"
                 ),
 
-                Ratings__svg__stars_four__ip6IzMrnEt: hasVariant(
+                Ratings__svgstars_four__ip6IzMrnEt: hasVariant(
                   variants,
                   "stars",
                   "four"
@@ -537,7 +541,7 @@ function PlasmicRatings__RenderFunc(props) {
               "plasmic_default__svg",
               "Ratings__svg__dwVrb",
               {
-                Ratings__svg__stars_five__dwVrbKMq9G: hasVariant(
+                Ratings__svgstars_five__dwVrbKMq9G: hasVariant(
                   variants,
                   "stars",
                   "five"

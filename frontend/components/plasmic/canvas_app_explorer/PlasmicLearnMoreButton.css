@@ -4,7 +4,7 @@
   height: 30px;
   text-align: center;
   position: relative;
-  background: #00274c;
+  background: var(--token-HxoWIRXur);
   display: block;
   padding: 3px;
 }

@@ -30,8 +30,9 @@
       "icons": [],
       "images": [],
       "projectApiToken": "nPw276qGsy9kISQCHrcRrsj3Y9Yva9TMyYKNUpoOMOHgRj1A51qOC6LMB2185QlA52K87n32oQJHSi5be9w",
-      "jsBundleThemes": [],
-      "indirect": false
+      "indirect": false,
+      "globalContextsFilePath": "",
+      "codeComponents": []
     },
     {
       "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
@@ -233,6 +234,33 @@
           "cssFilePath": "plasmic/canvas_app_explorer/PlasmicSearchInputComponent.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "3egWRKWeo74",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
+          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicButton.jsx",
+          "importSpec": {
+            "modulePath": "Button.jsx"
+          },
+          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicButton.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "oCDAnWtrIp",
+          "name": "TitleLearnMoreButton",
+          "type": "managed",
+          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
+          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicTitleLearnMoreButton.jsx",
+          "importSpec": {
+            "modulePath": "TitleLearnMoreButton.jsx"
+          },
+          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicTitleLearnMoreButton.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -320,6 +348,16 @@
           "id": "92z8pTtJbY6wiO",
           "name": "CircleOIcon",
           "moduleFilePath": "plasmic/canvas_app_explorer/icons/PlasmicIcon__CircleO.jsx"
+        },
+        {
+          "id": "njqCx3VuHS8",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/canvas_app_explorer/icons/PlasmicIcon__Checksvg.jsx"
+        },
+        {
+          "id": "6y5MVH3d4jX",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/canvas_app_explorer/icons/PlasmicIcon__Icon.jsx"
         }
       ],
       "images": [
@@ -381,7 +419,8 @@
       ],
       "projectApiToken": "EQH0PU2EOqaN7jOntDWszrnR6TNivmUyHmhXFSJgHjQVznQcnbtgOiQdQiyEqwRU062gJqQB9ELOPVBCQ",
       "codeComponents": [],
-      "indirect": false
+      "indirect": false,
+      "globalContextsFilePath": ""
     }
   ],
   "globalVariants": {
@@ -394,6 +433,6 @@
       }
     ]
   },
-  "cliVersion": "0.1.166",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.166/dist/plasmic.schema.json"
+  "cliVersion": "0.1.171",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.171/dist/plasmic.schema.json"
 }
