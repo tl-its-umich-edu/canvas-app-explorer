@@ -22,6 +22,7 @@ import ProductCard from "./ProductCard"; // plasmic-import: zc_-JZqmkLhAk/compon
 import Ratings from "./Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "./AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import LearnMoreButton from "./LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
+import TitleLearnMoreButton from "./TitleLearnMoreButton"; // plasmic-import: oCDAnWtrIp/component
 import ExitLearnMoreButton from "./ExitLearnMoreButton"; 
 import SearchInputComponent from "./SearchInputComponent";
 import Screenshot from "./Screenshot"; // plasmic-import: fUpKi24Qhx/component
@@ -32,8 +33,10 @@ import "./plasmic/plasmic__default_style.css"; // plasmic-import: global/default
 import "./plasmic/canvas_app_explorer/plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./plasmic/canvas_app_explorer/PlasmicHome.css"; // plasmic-import: 4XPgsAhljqdds/css
 import "../css/Home.css"
+
 export const Home__VariantProps = new Array();
 export const Home__ArgProps = new Array();
+
 function Home__RenderFunc(props,ref) {  
     //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
     const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
@@ -74,7 +77,7 @@ function Home__RenderFunc(props,ref) {
         }
         else {
             console.log("FILTERING DATA");
-            const filteredData = APIData.filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
+            const filteredData = APIData.filter((item) => (item.name.toLowerCase().includes(searchFilter.toLowerCase()) || item.short_description.toLowerCase().includes(searchFilter.toLowerCase())))
             setTools(filteredData)
             console.log(filteredData)
         }
@@ -91,9 +94,12 @@ function Home__RenderFunc(props,ref) {
 					data-plasmic-for-node={forNode}
 					className={classNames(
 						"plasmic_default__all",
-						"plasmic_default__div",
-						"root_reset_mXv5TZ5SUPGRneH9RoMn6q",
-						"Home__root__rfWi8"
+                        "plasmic_default__div",
+                        "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+                        "plasmic_default_styles",
+                        "plasmic_tokens",
+                        "plasmic_tokens",
+                        "Home__root__rfWi8"
 					)}
 				>
 					{false ? (
@@ -122,7 +128,7 @@ function Home__RenderFunc(props,ref) {
                             data-plasmic-name={"header"}
                             data-plasmic-override={overrides.header}
                             className={classNames("__wab_instance", "Home__header__iXzGr")}
-                            noSearchBarOrSettings={true}
+                            withSearchBar={true}
                             searchInputSlot={
                                 <SearchInputComponent
                                     className={classNames(
@@ -168,9 +174,7 @@ function Home__RenderFunc(props,ref) {
                                     "Home__text__k3LxN"
                                 )}
                             >
-                                {
-                                    "Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
-                                }
+                                {"Find the Best Tools for Your Class and Students"}
                             </div>
                         </div>
                         
@@ -227,14 +231,12 @@ function Home__RenderFunc(props,ref) {
                                             //         } 
                                             //     </div>
                                             // )}
-                                            onlyLearnMore={true}
+                                            withoutScreenshotButtons={true}
                                             learnMoreSlot={
-                                                <LearnMoreButton
-                                                    data-plasmic-name={"learnMoreButton"}
-                                                    data-plasmic-override={overrides.learnMoreButton}
+                                                <TitleLearnMoreButton
                                                     className={classNames(
                                                         "__wab_instance",
-                                                        "Home__learnMoreButton__j6ASy"
+                                                        "Home__titleLearnMoreButton__yWKc5"
                                                     )}
                                                     onClick={(e) => {
                                                         e.preventDefault(); 
@@ -242,7 +244,9 @@ function Home__RenderFunc(props,ref) {
                                                         learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
                                                         setLearnMoreActive(learnMoreActiveCopy)
                                                     }}
-                                                />
+                                                >
+                                                    {tool.name}
+                                                </TitleLearnMoreButton>
                                             }
 
                                             className={classNames(
@@ -302,7 +306,7 @@ function Home__RenderFunc(props,ref) {
                                         <ProductCard // Other side of the Learn More If
                                             data-plasmic-name={tool.name+"Card"}
                                             data-plasmic-override={overrides.zoomCard}
-                                            learnMore={"learnMore"} // if this line is commented, the card will be flipped
+                                            learnMoreWithAddRemove={true} // if this line is commented, the card will be flipped
                                             exitButtonSlot={
                                                 <ExitLearnMoreButton
                                                     onClick={(e) => {
