@@ -332,6 +332,7 @@
   left: auto;
   top: auto;
   flex-shrink: 0;
+  display: flex;
 }
 .ProductCard__linkButtonlearnMoreWithAddRemove__cX8QGliXrj.__wab_instance {
   flex-shrink: 0;
@@ -340,14 +341,10 @@
   position: absolute;
   top: 14px;
   left: 21px;
-  display: block;
 }
-.ProductCard__titleLearnMoreButton__dKgAr.__wab_instance {
+.ProductCard__titleLearnMoreButton__nvyWm.__wab_instance {
   max-width: 100%;
   position: relative;
-  display: none;
-}
-.ProductCard__titleLearnMoreButtonwithoutScreenshotButtons__dKgAr5HQgZ.__wab_instance {
   display: flex;
 }
 .ProductCard__img__bTZld {
