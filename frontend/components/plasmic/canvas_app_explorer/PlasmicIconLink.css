@@ -19,12 +19,12 @@
   border-radius: 16px;
 }
 .IconLink__slotTargetIcon___3P9Db {
-  color: rgb(24, 25, 26) /* plasmic-token: dph1wZ7NjV9 */;
+  color: var(--token-dph1wZ7NjV9);
 }
 .IconLink__svg__tYDo {
   position: relative;
   object-fit: cover;
-  color: rgb(95, 91, 87) /* plasmic-token: 2HX8dakuYo2K9 */;
+  color: var(--token-2HX8dakuYo2K9);
   width: 18px;
   height: 18px;
   flex-shrink: 0;

@@ -18,6 +18,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicScreenshotBackground.css"; // plasmic-import: pi3PBoRiWhk/css
 import ShoppingCartIcon from "./icons/PlasmicIcon__ShoppingCart"; // plasmic-import: mHiiVlCicgnAZ/icon
@@ -45,6 +46,9 @@ function PlasmicScreenshotBackground__RenderFunc(props) {
         "plasmic_default__all",
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "ScreenshotBackground__root__urUwk"
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}

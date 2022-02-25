@@ -17,6 +17,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicSearchInputComponent.css"; // plasmic-import: 1ReshBZ5EGa/css
 
@@ -40,9 +41,12 @@ function PlasmicSearchInputComponent__RenderFunc(props) {
         "plasmic_default__all",
         "plasmic_default__input",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "SearchInputComponent__root__f4YV",
         {
-          SearchInputComponent__root__withSearchBar__f4YV6FlrH: hasVariant(
+          SearchInputComponent__rootwithSearchBar__f4YV6FlrH: hasVariant(
             variants,
             "withSearchBar",
             "withSearchBar"

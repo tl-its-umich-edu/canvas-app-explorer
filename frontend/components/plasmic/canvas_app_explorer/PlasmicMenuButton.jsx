@@ -17,6 +17,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicMenuButton.css"; // plasmic-import: fd0a48CHFpLDW/css
 import BarsIcon from "./icons/PlasmicIcon__Bars"; // plasmic-import: sbhDNyRJzKB1n/icon
@@ -38,6 +39,9 @@ function PlasmicMenuButton__RenderFunc(props) {
         "plasmic_default__all",
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "MenuButton__root__aKm5"
       )}
     >
@@ -49,7 +53,7 @@ function PlasmicMenuButton__RenderFunc(props) {
           "plasmic_default__div",
           "MenuButton__freeBox__qg29I",
           {
-            MenuButton__freeBox__expanded__qg29IWmXfd: hasVariant(
+            MenuButton__freeBoxexpanded__qg29IWmXfd: hasVariant(
               variants,
               "expanded",
               "expanded"
@@ -64,7 +68,7 @@ function PlasmicMenuButton__RenderFunc(props) {
               "plasmic_default__svg",
               "MenuButton__svg___07On",
               {
-                MenuButton__svg__expanded___07OnWmXfd: hasVariant(
+                MenuButton__svgexpanded___07OnWmXfd: hasVariant(
                   variants,
                   "expanded",
                   "expanded"
@@ -81,7 +85,7 @@ function PlasmicMenuButton__RenderFunc(props) {
               "plasmic_default__svg",
               "MenuButton__svg__vNni9",
               {
-                MenuButton__svg__expanded__vNni9WmXfd: hasVariant(
+                MenuButton__svgexpanded__vNni9WmXfd: hasVariant(
                   variants,
                   "expanded",
                   "expanded"

@@ -25,6 +25,7 @@ import Footer from "../../Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicHome.css"; // plasmic-import: 4XPgsAhljqdds/css
 
@@ -50,6 +51,9 @@ function PlasmicHome__RenderFunc(props) {
             "plasmic_default__all",
             "plasmic_default__div",
             "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+            "plasmic_default_styles",
+            "plasmic_tokens",
+            "plasmic_tokens",
             "Home__root__rfWi8"
           )}
         >
@@ -80,7 +84,6 @@ function PlasmicHome__RenderFunc(props) {
               data-plasmic-name={"header"}
               data-plasmic-override={overrides.header}
               className={classNames("__wab_instance", "Home__header__iXzGr")}
-              noSearchBarOrSettings={true}
               withSearchBar={true}
             />
 
@@ -115,9 +118,7 @@ function PlasmicHome__RenderFunc(props) {
                   "Home__text__k3LxN"
                 )}
               >
-                {
-                  "Canvas App Explorer is a collection of resources to assist the instructor in using the best tools available for you and your students. "
-                }
+                {"Find the Best Tools for Your Class and Students"}
               </div>
             </div>
 
@@ -141,6 +142,7 @@ function PlasmicHome__RenderFunc(props) {
                       "__wab_instance",
                       "Home__addRemoveButton___3D93M"
                     )}
+                    removeToolFromSite={true}
                   />
                 }
                 className={classNames(
@@ -220,7 +222,6 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={true}
                 placementsInCanvasLearnMore={
                   <div
                     className={classNames(
@@ -320,7 +321,10 @@ function PlasmicHome__RenderFunc(props) {
                     </React.Fragment>
                   </div>
                 }
-              />
+                withoutScreenshotButtons={true}
+              >
+                {"Zoom"}
+              </ProductCard>
 
               <ProductCard
                 data-plasmic-name={"myLaCard"}
@@ -331,6 +335,7 @@ function PlasmicHome__RenderFunc(props) {
                       "__wab_instance",
                       "Home__addRemoveButton__bH9Sb"
                     )}
+                    removeToolFromSite={true}
                   />
                 }
                 className={classNames(
@@ -402,7 +407,6 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={true}
                 photoLearnMore={
                   <img
                     alt={""}
@@ -519,11 +523,21 @@ function PlasmicHome__RenderFunc(props) {
                     </React.Fragment>
                   </div>
                 }
-              />
+                withoutScreenshotButtons={true}
+              >
+                <div
+                  className={classNames(
+                    "plasmic_default__all",
+                    "plasmic_default__div",
+                    "__wab_text",
+                    "Home__text__fqhDi"
+                  )}
+                >
+                  {"My Learning Analytics"}
+                </div>
+              </ProductCard>
 
               <ProductCard
-                data-plasmic-name={"productCard"}
-                data-plasmic-override={overrides.productCard}
                 className={classNames(
                   "__wab_instance",
                   "Home__productCard__wcXOk"
@@ -553,8 +567,10 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={true}
-              />
+                withoutScreenshotButtons={true}
+              >
+                {"Panopto"}
+              </ProductCard>
 
               <ProductCard
                 data-plasmic-name={"piazzaCard"}
@@ -637,7 +653,6 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                onlyLearnMore={true}
                 photoLearnMore={
                   <img
                     alt={""}
@@ -748,6 +763,28 @@ function PlasmicHome__RenderFunc(props) {
                     </React.Fragment>
                   </div>
                 }
+                withoutScreenshotButtons={true}
+              >
+                {"Piazza"}
+              </ProductCard>
+
+              <ProductCard
+                addRemoveSlot={
+                  true ? (
+                    <AddRemoveButton
+                      className={classNames(
+                        "__wab_instance",
+                        "Home__addRemoveButton__fmbAt"
+                      )}
+                      removeToolFromSite={true}
+                    />
+                  ) : null
+                }
+                className={classNames(
+                  "__wab_instance",
+                  "Home__productCard__xsNac"
+                )}
+                learnMoreWithAddRemove={true}
               />
             </p.Stack>
 
@@ -789,7 +826,6 @@ const PlasmicDescendants = {
     "zoomCard",
     "learnMoreButton",
     "myLaCard",
-    "productCard",
     "piazzaCard",
     "footer"
   ],
@@ -802,7 +838,6 @@ const PlasmicDescendants = {
     "zoomCard",
     "learnMoreButton",
     "myLaCard",
-    "productCard",
     "piazzaCard",
     "footer"
   ],
@@ -814,14 +849,12 @@ const PlasmicDescendants = {
     "zoomCard",
     "learnMoreButton",
     "myLaCard",
-    "productCard",
     "piazzaCard"
   ],
 
   zoomCard: ["zoomCard", "learnMoreButton"],
   learnMoreButton: ["learnMoreButton"],
   myLaCard: ["myLaCard"],
-  productCard: ["productCard"],
   piazzaCard: ["piazzaCard"],
   footer: ["footer"]
 };
@@ -862,7 +895,6 @@ export const PlasmicHome = Object.assign(
     zoomCard: makeNodeComponent("zoomCard"),
     learnMoreButton: makeNodeComponent("learnMoreButton"),
     myLaCard: makeNodeComponent("myLaCard"),
-    productCard: makeNodeComponent("productCard"),
     piazzaCard: makeNodeComponent("piazzaCard"),
     footer: makeNodeComponent("footer"),
     // Metadata about props expected for PlasmicHome
