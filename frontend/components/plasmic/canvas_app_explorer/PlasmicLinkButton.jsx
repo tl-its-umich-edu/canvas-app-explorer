@@ -18,6 +18,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicLinkButton.css"; // plasmic-import: tr5phcLQqCoEx/css
 
@@ -37,39 +38,42 @@ function PlasmicLinkButton__RenderFunc(props) {
         "plasmic_default__all",
         "plasmic_default__a",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "LinkButton__root__yNFi",
         {
-          LinkButton__root__size_small__yNFiSQAk: hasVariant(
+          LinkButton__rootsize_small__yNFiSQAk: hasVariant(
             variants,
             "size",
             "small"
           ),
 
-          LinkButton__root__type_blankGray__yNFiff2A: hasVariant(
+          LinkButton__roottype_blankGray__yNFiff2A: hasVariant(
             variants,
             "type",
             "blankGray"
           ),
 
-          LinkButton__root__type_blankOrange__yNFi2KHft: hasVariant(
+          LinkButton__roottype_blankOrange__yNFi2KHft: hasVariant(
             variants,
             "type",
             "blankOrange"
           ),
 
-          LinkButton__root__type_outlineGray__yNFiVqldC: hasVariant(
+          LinkButton__roottype_outlineGray__yNFiVqldC: hasVariant(
             variants,
             "type",
             "outlineGray"
           ),
 
-          LinkButton__root__type_solidGray__yNFiGiboD: hasVariant(
+          LinkButton__roottype_solidGray__yNFiGiboD: hasVariant(
             variants,
             "type",
             "solidGray"
           ),
 
-          LinkButton__root__type_solidOrange__yNFiI5Pxg: hasVariant(
+          LinkButton__roottype_solidOrange__yNFiI5Pxg: hasVariant(
             variants,
             "type",
             "solidOrange"
@@ -82,31 +86,31 @@ function PlasmicLinkButton__RenderFunc(props) {
         defaultContents: "Do the thing",
         value: args.text,
         className: classNames("LinkButton__slotTargetText__ewQcH", {
-          LinkButton__slotTargetText__type_blankGray__ewQcHff2A: hasVariant(
+          LinkButton__slotTargetTexttype_blankGray__ewQcHff2A: hasVariant(
             variants,
             "type",
             "blankGray"
           ),
 
-          LinkButton__slotTargetText__type_blankOrange__ewQcH2KHft: hasVariant(
+          LinkButton__slotTargetTexttype_blankOrange__ewQcH2KHft: hasVariant(
             variants,
             "type",
             "blankOrange"
           ),
 
-          LinkButton__slotTargetText__type_outlineGray__ewQcHVqldC: hasVariant(
+          LinkButton__slotTargetTexttype_outlineGray__ewQcHVqldC: hasVariant(
             variants,
             "type",
             "outlineGray"
           ),
 
-          LinkButton__slotTargetText__type_solidGray__ewQcHGiboD: hasVariant(
+          LinkButton__slotTargetTexttype_solidGray__ewQcHGiboD: hasVariant(
             variants,
             "type",
             "solidGray"
           ),
 
-          LinkButton__slotTargetText__type_solidOrange__ewQcHi5Pxg: hasVariant(
+          LinkButton__slotTargetTexttype_solidOrange__ewQcHi5Pxg: hasVariant(
             variants,
             "type",
             "solidOrange"

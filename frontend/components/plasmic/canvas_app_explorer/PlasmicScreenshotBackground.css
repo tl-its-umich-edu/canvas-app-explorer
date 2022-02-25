@@ -9,7 +9,7 @@
   position: relative;
   background: #e3e7f1;
   min-width: 0;
-  border: 0px solid #ffcb05 /* plasmic-token: LQ-uqgqHX */;
+  border: 0px solid var(--token-LQ-uqgqHX);
 }
 .ScreenshotBackground__img___96UW3 {
   position: relative;
@@ -34,30 +34,30 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: rgb(233, 156, 46);
+  background: var(--token-v9gSiCR22bb3A);
   flex-shrink: 0;
 }
 .ScreenshotBackground__text__gSnZs {
   position: relative;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
 }
 .ScreenshotBackground__freeBox__on4Ip {
+  flex-direction: row;
   display: flex;
   position: absolute;
-  flex-direction: row;
   left: 0px;
   top: auto;
   width: 100%;
   bottom: 0px;
   height: 35px;
-  background: rgb(50, 52, 54);
+  background: var(--token-6-9k9VEZ-);
   min-width: 0;
   padding: 10px;
 }
 .ScreenshotBackground__freeBox__on4Ip > .__wab_flex-container {
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   min-width: 0;
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
@@ -75,7 +75,7 @@
 .ScreenshotBackground__svg__jKeBo {
   position: relative;
   object-fit: cover;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
   width: 1em;
   flex-shrink: 0;
   height: 1em;
@@ -83,13 +83,13 @@
 .ScreenshotBackground__text__cgK9F {
   position: relative;
   width: 100%;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
   min-width: 0;
 }
 .ScreenshotBackground__svg___84Ou9 {
   position: relative;
   object-fit: cover;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
   width: 1em;
   flex-shrink: 0;
   height: 1em;
@@ -97,7 +97,7 @@
 .ScreenshotBackground__svg__fyH0K {
   position: relative;
   object-fit: cover;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
   width: 1em;
   flex-shrink: 0;
   height: 1em;

@@ -1,12 +1,17 @@
 .AddRemoveButton__root___2GPd2 {
-  width: 130px;
+  width: 200px;
   color: #fffafa;
   text-align: center;
   position: relative;
   background: linear-gradient(#2bc744, #2bc744), #015906;
+  font-weight: 700;
+  height: 40px;
+  font-size: 23px;
+  border-radius: 5px;
   padding: 3px;
 }
-.AddRemoveButton__root__removeToolFromSite___2GPd2Vv3Fi {
-  background: linear-gradient(#ff0000, #ff0000),
+.AddRemoveButton__rootremoveToolFromSite___2GPd2Vv3Fi {
+  background: linear-gradient(var(--token-KUP1ALzL2), var(--token-KUP1ALzL2)),
     linear-gradient(#2bc744, #2bc744), #015906;
+  width: 200px;
 }

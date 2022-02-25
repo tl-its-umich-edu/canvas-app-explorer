@@ -1,4 +1,4 @@
-.plasmic_default__all {
+:where(.plasmic_default__all) {
   display: block;
   white-space: inherit;
   grid-row: auto;
@@ -13,13 +13,13 @@
   margin: 0;
   border-width: 0px;
 }
-.plasmic_default__img {
+:where(.plasmic_default__img) {
   display: inline-block;
 }
-.plasmic_default__li {
+:where(.plasmic_default__li) {
   display: list-item;
 }
-.plasmic_default__span {
+:where(.plasmic_default__span) {
   display: inline;
   position: static;
   font-family: inherit;
@@ -30,7 +30,7 @@
   color: inherit;
   text-transform: inherit;
 }
-.plasmic_default__input {
+:where(.plasmic_default__input) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -42,7 +42,7 @@
   padding: 2px;
   border: 1px solid lightgray;
 }
-.plasmic_default__textarea {
+:where(.plasmic_default__textarea) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -53,7 +53,7 @@
   padding: 2px;
   border: 1px solid lightgray;
 }
-.plasmic_default__button {
+:where(.plasmic_default__button) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -67,15 +67,15 @@
   padding: 2px 6px;
   border: 1px solid lightgray;
 }
-.plasmic_default__code {
+:where(.plasmic_default__code) {
   font-family: inherit;
   line-height: inherit;
 }
-.plasmic_default__pre {
+:where(.plasmic_default__pre) {
   font-family: inherit;
   line-height: inherit;
 }
-.plasmic_default__p {
+:where(.plasmic_default__p) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -84,45 +84,45 @@
   color: inherit;
   text-transform: inherit;
 }
-.plasmic_default__h1 {
+:where(.plasmic_default__h1) {
   font-size: inherit;
   font-weight: inherit;
 }
-.plasmic_default__h2 {
+:where(.plasmic_default__h2) {
   font-size: inherit;
   font-weight: inherit;
 }
-.plasmic_default__h3 {
+:where(.plasmic_default__h3) {
   font-size: inherit;
   font-weight: inherit;
 }
-.plasmic_default__h4 {
+:where(.plasmic_default__h4) {
   font-size: inherit;
   font-weight: inherit;
 }
-.plasmic_default__h5 {
+:where(.plasmic_default__h5) {
   font-size: inherit;
   font-weight: inherit;
 }
-.plasmic_default__h6 {
+:where(.plasmic_default__h6) {
   font-size: inherit;
   font-weight: inherit;
 }
-.plasmic_default__address {
+:where(.plasmic_default__address) {
   font-style: inherit;
 }
-.plasmic_default__a {
+:where(.plasmic_default__a) {
   color: inherit;
 }
-.plasmic_default__ol {
+:where(.plasmic_default__ol) {
   list-style-type: none;
   padding: 0;
 }
-.plasmic_default__ul {
+:where(.plasmic_default__ul) {
   list-style-type: none;
   padding: 0;
 }
-.plasmic_default__select {
+:where(.plasmic_default__select) {
   padding: 2px 6px;
 }
 .plasmic_default__component_wrapper {

@@ -4,12 +4,12 @@
   position: relative;
   width: auto;
   height: auto;
-  background: #ff0000;
+  background: var(--token-KUP1ALzL2);
 }
 .ExitLearnMoreButton__svg__xxYgT {
   position: relative;
   object-fit: cover;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
   width: 20px;
   height: 20px;
   flex-shrink: 0;

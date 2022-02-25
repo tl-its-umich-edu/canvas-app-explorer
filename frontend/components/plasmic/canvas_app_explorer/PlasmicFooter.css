@@ -18,7 +18,7 @@
   top: auto;
   width: 100%;
   height: auto;
-  background: linear-gradient(#00274c, #00274c), rgb(234, 234, 234);
+  background: linear-gradient(#00274c, #00274c), var(--token-8DlnzlhHsTstY);
   min-width: 0;
   padding: 16px;
 }
@@ -38,11 +38,11 @@
 }
 .Footer__text__l8OFu {
   position: relative;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
 }
 .Footer__link__cFZm1 {
   position: relative;
-  color: rgb(255, 255, 255) /* plasmic-token: q3GGh67XP5qyE */;
+  color: var(--token-q3GGh67XP5qyE);
 }
 .Footer__root__sI9X3 .Footer__link__cFZm1:hover {
   text-decoration-line: underline;

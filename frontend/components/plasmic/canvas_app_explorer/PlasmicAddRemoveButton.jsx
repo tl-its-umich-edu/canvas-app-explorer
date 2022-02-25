@@ -17,6 +17,7 @@ import {
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import "../plasmic__default_style.css"; // plasmic-import: global/defaultcss
+import "../library_plasmic_color_type/plasmic_library_plasmic_color_type.css"; // plasmic-import: seaQhLVS4bbjiGvJJrRwyL/projectcss
 import "./plasmic_canvas_app_explorer.css"; // plasmic-import: mXv5TZ5SUPGRneH9RoMn6q/projectcss
 import "./PlasmicAddRemoveButton.css"; // plasmic-import: JyIyDBiGW-/css
 
@@ -39,9 +40,12 @@ function PlasmicAddRemoveButton__RenderFunc(props) {
         "plasmic_default__div",
         "__wab_text",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
+        "plasmic_default_styles",
+        "plasmic_tokens",
+        "plasmic_tokens",
         "AddRemoveButton__root___2GPd2",
         {
-          AddRemoveButton__root__removeToolFromSite___2GPd2Vv3Fi: hasVariant(
+          AddRemoveButton__rootremoveToolFromSite___2GPd2Vv3Fi: hasVariant(
             variants,
             "removeToolFromSite",
             "removeToolFromSite"

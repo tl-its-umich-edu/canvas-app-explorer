@@ -2,6 +2,16 @@
   width: 180px;
   position: relative;
 }
-.SearchInputComponent__root__withSearchBar__f4YV6FlrH {
+.SearchInputComponent__rootwithSearchBar__f4YV6FlrH {
   font-style: italic;
+  background: var(--token-3dsm_UqzX);
+  color: var(--token-NEon4Y--Z);
+  text-decoration-line: none;
+  font-family: "Roboto", sans-serif;
+  height: 50px;
+  width: 300px;
+  font-size: 25px;
+  max-width: none;
+  border-radius: 5px;
+  padding: 10px;
 }
