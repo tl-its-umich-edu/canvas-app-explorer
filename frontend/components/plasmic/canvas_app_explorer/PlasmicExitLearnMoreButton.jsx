@@ -38,6 +38,7 @@ function PlasmicExitLearnMoreButton__RenderFunc(props) {
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "ExitLearnMoreButton__root__nnKr"

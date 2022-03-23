@@ -83,7 +83,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: unset;
-  align-content: center;
+  align-content: flex-start;
   min-width: 0;
   margin-left: calc(0px - 25px);
   width: calc(100% + 25px);
@@ -131,11 +131,12 @@
   position: relative;
   left: auto;
   top: auto;
-  align-self: center;
+  align-self: flex-start;
   flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .Home__zoomCard__foQyr.__wab_instance {
+    align-self: center;
     flex-shrink: 0;
   }
 }
@@ -177,13 +178,10 @@
 .Home__text__dHRrw {
   height: auto;
 }
-.Home__text__pkIjF {
-  height: auto;
-}
-.Home__learnMoreButton__j6ASy.__wab_instance {
-  position: absolute;
-  top: 14px;
-  left: 21px;
+.Home__titleLearnMoreButton__e2QWm.__wab_instance {
+  max-width: 100%;
+  position: relative;
+  display: flex;
 }
 .Home__img__otas9 {
   position: relative;
@@ -204,12 +202,40 @@
   left: auto;
   top: auto;
 }
+.Home__img__rUah2 {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 180px;
+  height: 79px;
+  left: auto;
+  top: auto;
+}
+.Home__img__rUah2 > picture > img {
+  object-fit: cover;
+}
+.Home__img__rUah2 > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.Home__addRemoveButton___7C5Os.__wab_instance {
+  left: auto;
+  top: auto;
+  max-width: 100%;
+  position: relative;
+  display: block;
+}
 .Home__myLaCard__gpGZx.__wab_instance {
   position: relative;
   left: auto;
   top: auto;
   align-self: flex-start;
   flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .Home__myLaCard__gpGZx.__wab_instance {
+    align-self: center;
+    flex-shrink: 0;
+  }
 }
 .Home__img__psMY {
   position: relative;
@@ -244,7 +270,9 @@
   object-fit: cover;
 }
 .Home__text__jl7El {
-  padding: 0px 15px;
+  padding-left: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .Home__text__vTgLe {
   height: auto;
@@ -278,25 +306,47 @@
   left: auto;
   top: auto;
 }
+.Home__img___9IuCq {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 180px;
+  height: 79px;
+  left: auto;
+  top: auto;
+}
+.Home__img___9IuCq > picture > img {
+  object-fit: cover;
+}
+.Home__img___9IuCq > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.Home__addRemoveButton__g7G0M.__wab_instance {
+  left: auto;
+  top: auto;
+  max-width: 100%;
+  position: relative;
+  display: block;
+}
 .Home__productCard__wcXOk.__wab_instance {
   position: relative;
   left: auto;
   top: auto;
   flex-shrink: 0;
 }
-.Home__img__eqdUj {
-  position: relative;
+.Home__img__jNo5B {
+  position: absolute;
   object-fit: cover;
   height: 79px;
-  left: auto;
-  top: auto;
+  left: 0px;
+  top: 0px;
   width: 257px;
   align-self: center;
 }
-.Home__img__eqdUj > picture > img {
+.Home__img__jNo5B > picture > img {
   object-fit: cover;
 }
-.Home__img__eqdUj > .__wab_img-spacer > img {
+.Home__img__jNo5B > .__wab_img-spacer > img {
   object-fit: cover;
 }
 .Home__text___7Xnkd {
@@ -350,6 +400,28 @@
   position: relative;
   left: auto;
   top: auto;
+}
+.Home__img__rswrN {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 180px;
+  height: 79px;
+  left: auto;
+  top: auto;
+}
+.Home__img__rswrN > picture > img {
+  object-fit: cover;
+}
+.Home__img__rswrN > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.Home__addRemoveButton__rlcKj.__wab_instance {
+  left: auto;
+  top: auto;
+  max-width: 100%;
+  position: relative;
+  display: block;
 }
 .Home__piazzaCard___71L95.__wab_instance {
   position: relative;
@@ -419,24 +491,46 @@
   left: auto;
   top: auto;
 }
+.Home__img__lTiRy {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 180px;
+  height: 79px;
+  left: auto;
+  top: auto;
+}
+.Home__img__lTiRy > picture > img {
+  object-fit: cover;
+}
+.Home__img__lTiRy > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.Home__addRemoveButton__ePet.__wab_instance {
+  left: auto;
+  top: auto;
+  max-width: 100%;
+  position: relative;
+  display: block;
+}
 .Home__productCard__xsNac.__wab_instance {
   max-width: 100%;
   position: relative;
   flex-shrink: 0;
 }
-.Home__img__rHovW {
-  position: relative;
+.Home__img__opf8K {
+  position: absolute;
   object-fit: cover;
   height: 79px;
-  left: auto;
-  top: auto;
+  left: 0px;
+  top: 0px;
   width: 257px;
   align-self: center;
 }
-.Home__img__rHovW > picture > img {
+.Home__img__opf8K > picture > img {
   object-fit: cover;
 }
-.Home__img__rHovW > .__wab_img-spacer > img {
+.Home__img__opf8K > .__wab_img-spacer > img {
   object-fit: cover;
 }
 .Home__img__tGpnx {
@@ -460,12 +554,7 @@
   margin-right: 10px;
   display: block;
 }
-.Home__learnMoreButton__y2Wy4.__wab_instance {
-  position: absolute;
-  top: 14px;
-  left: 21px;
-}
-.Home__titleLearnMoreButton__asw.__wab_instance {
+.Home__titleLearnMoreButton__pbl7A.__wab_instance {
   max-width: 100%;
   position: relative;
   display: flex;
@@ -488,6 +577,28 @@
   position: relative;
   left: auto;
   top: auto;
+}
+.Home__img__y9VRw {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 257px;
+  height: 79px;
+  left: auto;
+  top: auto;
+}
+.Home__img__y9VRw > picture > img {
+  object-fit: cover;
+}
+.Home__img__y9VRw > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.Home__addRemoveButton__yI2Gb.__wab_instance {
+  left: auto;
+  top: auto;
+  max-width: 100%;
+  position: relative;
+  display: block;
 }
 .Home__footer__sUgvZ.__wab_instance {
   position: relative;

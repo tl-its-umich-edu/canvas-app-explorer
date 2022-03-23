@@ -42,6 +42,7 @@ function PlasmicSearchInputComponent__RenderFunc(props) {
         "plasmic_default__input",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "SearchInputComponent__root__f4YV",

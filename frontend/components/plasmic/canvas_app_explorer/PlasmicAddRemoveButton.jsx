@@ -41,6 +41,7 @@ function PlasmicAddRemoveButton__RenderFunc(props) {
         "__wab_text",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "AddRemoveButton__root___2GPd2",
@@ -55,7 +56,7 @@ function PlasmicAddRemoveButton__RenderFunc(props) {
     >
       {hasVariant(variants, "removeToolFromSite", "removeToolFromSite")
         ? "Remove Tool "
-        : "Add Tool to Site"}
+        : "+ Add Tool"}
     </div>
   );
 }
