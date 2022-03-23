@@ -20,8 +20,8 @@ import Header from "../../Header"; // plasmic-import: rgvwcoUrD14Pp/component
 import ProductCard from "../../ProductCard"; // plasmic-import: zc_-JZqmkLhAk/component
 import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
 import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
-import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import TitleLearnMoreButton from "../../TitleLearnMoreButton"; // plasmic-import: oCDAnWtrIp/component
+import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import Footer from "../../Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -53,6 +53,7 @@ function PlasmicHome__RenderFunc(props) {
             "plasmic_default__div",
             "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
             "plasmic_default_styles",
+            "plasmic_mixins",
             "plasmic_tokens",
             "plasmic_tokens",
             "Home__root__rfWi8"
@@ -200,14 +201,7 @@ function PlasmicHome__RenderFunc(props) {
                     }
                   />
                 }
-                learnMoreSlot={
-                  <LearnMoreButton
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__learnMoreButton__j6ASy"
-                    )}
-                  />
-                }
+                learnMoreWithAddRemove={true}
                 logo={
                   <img
                     alt={""}
@@ -218,6 +212,33 @@ function PlasmicHome__RenderFunc(props) {
                     )}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
+                    }
+                  />
+                }
+                logoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__rUah2"
+                    )}
+                    loading={"lazy"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
+                    }
+                  />
+                }
+                photoLearnMore={
+                  <img
+                    alt={"Screenshot of Zoom"}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__otas9"
+                    )}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
                     }
                   />
                 }
@@ -248,7 +269,7 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__all",
                       "plasmic_default__div",
                       "__wab_text",
-                      "Home__text__pkIjF"
+                      "Home__text__y6Jt"
                     )}
                   >
                     <React.Fragment>
@@ -260,7 +281,7 @@ function PlasmicHome__RenderFunc(props) {
                         {"Privacy Agreement"}
                       </span>
                       <React.Fragment>
-                        {"\nData Protection Addendum\n"}
+                        {"\nData Protection Addendum"}
                       </React.Fragment>
                     </React.Fragment>
                   </div>
@@ -320,7 +341,6 @@ function PlasmicHome__RenderFunc(props) {
                     </React.Fragment>
                   </div>
                 }
-                withoutScreenshotButtons={true}
               />
 
               <ProductCard
@@ -349,7 +369,7 @@ function PlasmicHome__RenderFunc(props) {
                     )}
                   >
                     {
-                      "Dashboard that provides students with information about engagement with course."
+                      "Dashboard that provides students with information about engagement with course. Adding extra line"
                     }
                   </div>
                 }
@@ -408,10 +428,11 @@ function PlasmicHome__RenderFunc(props) {
                         "Home__titleLearnMoreButton__yWKc5"
                       )}
                     >
-                      {"My Learning Analytics"}
+                      {"Find Out More"}
                     </TitleLearnMoreButton>
                   </React.Fragment>
                 }
+                learnMoreWithAddRemove={true}
                 logo={
                   <img
                     alt={""}
@@ -420,6 +441,20 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__u0Ib1"
                     )}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/myLaLogo.png"
+                    }
+                  />
+                }
+                logoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img___9IuCq"
+                    )}
+                    loading={"lazy"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/myLaLogo.png"
                     }
@@ -541,10 +576,17 @@ function PlasmicHome__RenderFunc(props) {
                     </React.Fragment>
                   </div>
                 }
-                withoutScreenshotButtons={true}
               />
 
               <ProductCard
+                addRemoveButtonSlot={
+                  <AddRemoveButton
+                    className={classNames(
+                      "__wab_instance",
+                      "Home__addRemoveButton__rlcKj"
+                    )}
+                  />
+                }
                 className={classNames(
                   "__wab_instance",
                   "Home__productCard__wcXOk"
@@ -591,9 +633,23 @@ function PlasmicHome__RenderFunc(props) {
                         "Home__titleLearnMoreButton__qTdBv"
                       )}
                     >
-                      {"Panopto"}
+                      {"Find Out More"}
                     </TitleLearnMoreButton>
                   </React.Fragment>
+                }
+                logoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__rswrN"
+                    )}
+                    loading={"lazy"}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/panoptoLogo2.png"
+                    }
+                  />
                 }
                 withoutScreenshotButtons={true}
               />
@@ -624,7 +680,7 @@ function PlasmicHome__RenderFunc(props) {
                     )}
                   >
                     {
-                      "Class discussion/Q&A site with link to course navigation for Piazza discussions."
+                      "Class discussion/Q&A site with link to course navigation for Piazza discussions. Adding two extra lines. Adding two extra lines."
                     }
                   </div>
                 }
@@ -683,7 +739,7 @@ function PlasmicHome__RenderFunc(props) {
                         "Home__titleLearnMoreButton__hj2Jd"
                       )}
                     >
-                      {"Piazza"}
+                      {"Find Out More"}
                     </TitleLearnMoreButton>
                   </React.Fragment>
                 }
@@ -695,6 +751,20 @@ function PlasmicHome__RenderFunc(props) {
                       "plasmic_default__img",
                       "Home__img__eqcPf"
                     )}
+                    src={
+                      "/static/plasmic/canvas_app_explorer/images/piazzaLogo.png"
+                    }
+                  />
+                }
+                logoLearnMore={
+                  <img
+                    alt={""}
+                    className={classNames(
+                      "plasmic_default__all",
+                      "plasmic_default__img",
+                      "Home__img__lTiRy"
+                    )}
+                    loading={"lazy"}
                     src={
                       "/static/plasmic/canvas_app_explorer/images/piazzaLogo.png"
                     }

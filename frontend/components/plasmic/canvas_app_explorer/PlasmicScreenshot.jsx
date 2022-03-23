@@ -38,6 +38,7 @@ function PlasmicScreenshot__RenderFunc(props) {
         "plasmic_default__img",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "Screenshot__root__mhd7D"

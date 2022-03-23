@@ -57,6 +57,7 @@ function PlasmicHeader__RenderFunc(props) {
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "Header__root__r4I1P",
@@ -128,7 +129,14 @@ function PlasmicHeader__RenderFunc(props) {
             "plasmic_default__all",
             "plasmic_default__div",
             "__wab_text",
-            "Header__text__keObZ"
+            "Header__text__keObZ",
+            {
+              Header__textwithSearchBar__keObZ8Xp20: hasVariant(
+                variants,
+                "withSearchBar",
+                "withSearchBar"
+              )
+            }
           )}
         >
           {"Canvas App Explorer"}

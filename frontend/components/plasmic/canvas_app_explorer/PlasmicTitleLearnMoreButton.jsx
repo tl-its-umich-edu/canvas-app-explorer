@@ -38,35 +38,23 @@ function PlasmicTitleLearnMoreButton__RenderFunc(props) {
         "plasmic_default__div",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "TitleLearnMoreButton__root__lnecm"
       )}
     >
-      <button
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
-        className={classNames(
-          "plasmic_default__all",
-          "plasmic_default__button",
-          "TitleLearnMoreButton__button__eRlj7"
-        )}
-      >
-        {p.renderPlasmicSlot({
-          defaultContents: "Title",
-          value: args.children,
-          className: classNames(
-            "TitleLearnMoreButton__slotTargetChildren__riL5Q"
-          )
-        })}
-      </button>
+      {p.renderPlasmicSlot({
+        defaultContents: "Find Out More",
+        value: args.children,
+        className: classNames("TitleLearnMoreButton__slotTargetChildren__riL5Q")
+      })}
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button"],
-  button: ["button"]
+  root: ["root"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -98,7 +86,6 @@ export const PlasmicTitleLearnMoreButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicTitleLearnMoreButton
     internalVariantProps: PlasmicTitleLearnMoreButton__VariantProps,
     internalArgProps: PlasmicTitleLearnMoreButton__ArgProps

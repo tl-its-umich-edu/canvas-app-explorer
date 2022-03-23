@@ -66,6 +66,7 @@ function PlasmicButton__RenderFunc(props) {
         "plasmic_default__button",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "Button__root___6PeBs",
@@ -165,18 +166,12 @@ function PlasmicButton__RenderFunc(props) {
             "round"
           ),
 
-          Button__rootshape_round_size_compact___6PeBspO2TYWjm9A:
-            hasVariant(variants, "shape", "round") &&
-            hasVariant(variants, "size", "compact"),
           Button__rootshape_rounded___6PeBsto0Z: hasVariant(
             variants,
             "shape",
             "rounded"
           ),
 
-          Button__rootshape_rounded_showStartIcon___6PeBsto0ZXxzIz:
-            hasVariant(variants, "shape", "rounded") &&
-            hasVariant(variants, "showStartIcon", "showStartIcon"),
           Button__rootshape_sharp___6PeBswSdEp: hasVariant(
             variants,
             "shape",
@@ -192,31 +187,37 @@ function PlasmicButton__RenderFunc(props) {
           Button__rootshowEndIcon_shape_rounded___6PeBsD7Zi6To0Z:
             hasVariant(variants, "showEndIcon", "showEndIcon") &&
             hasVariant(variants, "shape", "rounded"),
+          Button__rootshowEndIcon_size_compact___6PeBsD7Zi6Wjm9A:
+            hasVariant(variants, "size", "compact") &&
+            hasVariant(variants, "showEndIcon", "showEndIcon"),
+          Button__rootshowEndIcon_size_compact_showStartIcon___6PeBsD7Zi6Wjm9AXxzIz:
+            hasVariant(variants, "size", "compact") &&
+            hasVariant(variants, "showStartIcon", "showStartIcon") &&
+            hasVariant(variants, "showEndIcon", "showEndIcon"),
           Button__rootshowStartIcon___6PeBsXxzIz: hasVariant(
             variants,
             "showStartIcon",
             "showStartIcon"
           ),
 
+          Button__rootshowStartIcon_shape_rounded___6PeBsXxzIzTo0Z:
+            hasVariant(variants, "shape", "rounded") &&
+            hasVariant(variants, "showStartIcon", "showStartIcon"),
           Button__rootsize_compact___6PeBsWjm9A: hasVariant(
             variants,
             "size",
             "compact"
           ),
 
+          Button__rootsize_compact_shape_round___6PeBsWjm9APO2TY:
+            hasVariant(variants, "shape", "round") &&
+            hasVariant(variants, "size", "compact"),
           Button__rootsize_compact_shape_rounded___6PeBsWjm9ATo0Z:
             hasVariant(variants, "size", "compact") &&
             hasVariant(variants, "shape", "rounded"),
-          Button__rootsize_compact_showEndIcon___6PeBsWjm9AD7Zi6:
-            hasVariant(variants, "size", "compact") &&
-            hasVariant(variants, "showEndIcon", "showEndIcon"),
           Button__rootsize_compact_showStartIcon___6PeBsWjm9AXxzIz:
             hasVariant(variants, "size", "compact") &&
             hasVariant(variants, "showStartIcon", "showStartIcon"),
-          Button__rootsize_compact_showStartIcon_showEndIcon___6PeBsWjm9AXxzIzD7Zi6:
-            hasVariant(variants, "size", "compact") &&
-            hasVariant(variants, "showStartIcon", "showStartIcon") &&
-            hasVariant(variants, "showEndIcon", "showEndIcon"),
           Button__rootsize_minimal___6PeBsKub7C: hasVariant(
             variants,
             "size",
@@ -243,14 +244,15 @@ function PlasmicButton__RenderFunc(props) {
                 "blue"
               ),
 
-              Button__startIconContainershape_rounded_showStartIcon__ceqatto0ZXxzIz:
-                hasVariant(variants, "shape", "rounded") &&
-                hasVariant(variants, "showStartIcon", "showStartIcon"),
               Button__startIconContainershowStartIcon__ceqatXxzIz: hasVariant(
                 variants,
                 "showStartIcon",
                 "showStartIcon"
-              )
+              ),
+
+              Button__startIconContainershowStartIcon_shape_rounded__ceqatXxzIzTo0Z:
+                hasVariant(variants, "shape", "rounded") &&
+                hasVariant(variants, "showStartIcon", "showStartIcon")
             }
           )}
         >

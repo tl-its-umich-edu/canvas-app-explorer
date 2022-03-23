@@ -38,6 +38,8 @@
 .Header__freeBoxwithSearchBar__ikq928Xp20 {
   padding-right: 50px;
   padding-left: 50px;
+  height: 114px;
+  flex-shrink: 0;
 }
 .Header__freeBoxnoSearchBarOrSettings__ikq92I2VQm {
   padding-left: 50px;
@@ -198,6 +200,11 @@
 .Header__freeBox__zcEqf > .__wab_flex-container > picture > img,
 .Header__freeBox__zcEqf > .__wab_flex-container > .__wab_slot > picture > img {
   margin-left: 10px;
+}
+.Header__freeBoxwithSearchBar__zcEqf8Xp20 {
+  position: absolute;
+  left: 400px;
+  top: 32px;
 }
 .Header__iconLink__rda3A.__wab_instance {
   position: relative;

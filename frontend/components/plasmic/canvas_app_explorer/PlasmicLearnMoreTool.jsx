@@ -38,6 +38,7 @@ function PlasmicLearnMoreTool__RenderFunc(props) {
         "__wab_text",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "LearnMoreTool__root__eoGd4"

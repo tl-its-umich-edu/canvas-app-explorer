@@ -39,6 +39,7 @@ function PlasmicLinkButton__RenderFunc(props) {
         "plasmic_default__a",
         "root_reset_mXv5TZ5SUPGRneH9RoMn6q",
         "plasmic_default_styles",
+        "plasmic_mixins",
         "plasmic_tokens",
         "plasmic_tokens",
         "LinkButton__root__yNFi",
