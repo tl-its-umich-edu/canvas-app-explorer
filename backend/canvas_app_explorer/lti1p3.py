@@ -116,7 +116,7 @@ def create_user_in_django(request, message_launch):
     course_id = custom_params['canvas_course_id']
     if 'email' not in launch_data.keys():
         logger.info('Possibility that LTI launch by Instructor/admin becoming Canvas Test Student')
-        error_message = 'Student view is not available for My Learning Analytics.'
+        error_message = 'Student view is not available for Canvas App Explorer.'
         raise Exception(error_message)
 
     email = launch_data['email']
