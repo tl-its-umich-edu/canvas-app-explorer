@@ -30,7 +30,6 @@ class ExtendedDjangoMessageLaunch(DjangoMessageLaunch):
             return self
 
         return super().validate_deployment()
-    
 def lti_error(error_message: Any) -> JsonResponse:
     """
     Log an error message and return a JSON response with HTTP status 500.
