@@ -224,7 +224,7 @@ CANVAS_OAUTH_SCOPES = os.getenv('CANVAS_OAUTH_SCOPES', '').split(',')
 CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER = os.getenv('CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER', timedelta())
 CANVAS_OAUTH_ERROR_TEMPLATE = os.getenv('CANVAS_OAUTH_ERROR_TEMPLATE', 'canvas_app_explorer/oauth_error.html')
 
-# These are mostly needed by Canvas but it should also be in on general
+# These are mostly needed by Canvas but it should also be on in general
 CSRF_COOKIE_SECURE = os.getenv("CSRF_COOKIE_SECURE", False)
 if CSRF_COOKIE_SECURE:
     CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", [])

@@ -8,4 +8,4 @@ urlpatterns = [
     path('lti/config/', lti1p3.generate_config_json, name=lti1p3.generate_config_json.__name__),
     path('tinymce/', include('tinymce.urls')),
     path('oauth/', include('canvas_oauth.urls')),
-    ]
+]
