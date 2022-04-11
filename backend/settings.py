@@ -231,8 +231,6 @@ if CSRF_COOKIE_SECURE:
     SESSION_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# When using the application with iframes (e.g. with LTI), these need to be set to None. However, we'll need to update
-# this when new browser versions expect (and the Django version allows) the string "None".
 SESSION_COOKIE_SAMESITE = os.getenv("SESSION_COOKIE_SAMESITE", 'None')
 CSRF_COOKIE_SAMESITE = os.getenv("CSRF_COOKIE_SAMESITE", 'None')
 
