@@ -7,4 +7,5 @@ urlpatterns = [
     path('lti/jwks/', lti1p3.get_jwks, name='lti_get_jwks'),
     path('lti/config/', lti1p3.generate_config_json, name=lti1p3.generate_config_json.__name__),
     path('tinymce/', include('tinymce.urls')),
+    path('oauth/', include('canvas_oauth.urls')),
 ]

@@ -26,6 +26,7 @@ from rest_framework import routers
 from backend.canvas_app_explorer import urls as canvas_app_explorer_urls #type: ignore
 from backend.canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
 
+from . import views
 # This is for Django Rest Framework
 router = routers.DefaultRouter()
 router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet)
@@ -35,7 +36,8 @@ urlpatterns = [
     path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', views.get_home_template, name = 'home'),
+
     # For file storage
     re_path(r'^files/', include('db_file_storage.urls')),
     path('',include(canvas_app_explorer_urls))

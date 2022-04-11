@@ -1,10 +1,12 @@
-import logging
+import logging, random, string
 from collections import namedtuple
 from datetime import datetime
 from typing import Any, Dict, Union
 import urllib.parse
 
 from django.conf import settings
+from django.contrib.auth import login as django_login
+from django.contrib.auth.models import User
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -28,7 +30,6 @@ class ExtendedDjangoMessageLaunch(DjangoMessageLaunch):
             return self
 
         return super().validate_deployment()
-
 def lti_error(error_message: Any) -> JsonResponse:
     """
     Log an error message and return a JSON response with HTTP status 500.
@@ -99,6 +100,45 @@ def get_cache_config():
     cache_lifetime = cache_ttl if cache_ttl else 7200
     return CacheConfig(is_dummy_cache, launch_data_storage, cache_lifetime)
 
+def create_user_in_django(request, message_launch):
+    launch_data = message_launch.get_launch_data()
+    logger.debug(f'lti launch data {launch_data}')
+    custom_params = launch_data['https://purl.imsglobal.org/spec/lti/claim/custom']
+    logger.debug(f'lti_custom_param {custom_params}')
+    if not custom_params:
+        raise Exception(
+            f'You need to have custom parameters configured on your LTI Launch. Please see the LTI installation guide on the Github Wiki for more information.'
+        )
+    course_name = launch_data['https://purl.imsglobal.org/spec/lti/claim/context']['title']
+    roles = launch_data['https://purl.imsglobal.org/spec/lti/claim/roles']
+    username = custom_params['user_username']
+    course_id = custom_params['canvas_course_id']
+    if 'email' not in launch_data.keys():
+        logger.info('Possibility that LTI launch by Instructor/admin becoming Canvas Test Student')
+        error_message = 'Student view is not available for Canvas App Explorer.'
+        raise Exception(error_message)
+
+    email = launch_data['email']
+    first_name = launch_data['given_name']
+    last_name = launch_data['family_name']
+    full_name = launch_data['name']
+    user_sis_id = launch_data['https://purl.imsglobal.org/spec/lti/claim/lis']['person_sourcedid']
+
+    # Add user to DB if not there; avoids Django redirection to login page
+    try:
+        user_obj = User.objects.get(username=username)
+        # update
+        user_obj.first_name = first_name
+        user_obj.last_name = last_name
+        user_obj.email = email
+        user_obj.save()
+    except User.DoesNotExist:
+        password = ''.join(random.sample(string.ascii_letters, settings.RANDOM_PASSWORD_DEFAULT_LENGTH))
+        user_obj = User.objects.create_user(username=username, email=email, password=password, first_name=first_name,
+                                            last_name=last_name)
+    user_obj.backend = 'django.contrib.auth.backends.ModelBackend'
+    django_login(request, user_obj)
+
 @csrf_exempt
 def login(request):
     target_link_uri = request.POST.get('target_link_uri', request.GET.get('target_link_uri'))
@@ -108,7 +148,6 @@ def login(request):
     CacheConfig = get_cache_config()
     oidc_login = DjangoOIDCLogin(request, TOOL_CONF, launch_data_storage=CacheConfig.launch_data_storage)
     return oidc_login.enable_check_cookies().redirect(target_link_uri)
-
 
 @require_POST
 @csrf_exempt
@@ -121,6 +160,9 @@ def launch(request):
                                               cache_lifetime=CacheConfig.cache_lifetime)
     else:
         logger.info('DummyCache is set up, recommended atleast to us Mysql DB cache for LTI advantage services')
+
+    # TODO: Implement custom AUTHENTICATION_BACKEND rather than using this one
+    create_user_in_django(request, message_launch)
 
     url = reverse('home')
     return redirect(url)
