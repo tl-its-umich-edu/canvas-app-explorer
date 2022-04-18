@@ -27,6 +27,7 @@ export const PlasmicLearnMoreButton__ArgProps = new Array();
 
 function PlasmicLearnMoreButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (hasVariant(variants, "learnMore", "learnMore") ? false : true) ? (
     <div
       data-plasmic-name={"root"}

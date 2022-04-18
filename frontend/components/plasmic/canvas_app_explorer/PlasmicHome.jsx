@@ -36,6 +36,7 @@ export const PlasmicHome__ArgProps = new Array();
 
 function PlasmicHome__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsthj0P9Nxeh81I()
   });

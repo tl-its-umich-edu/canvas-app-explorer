@@ -26,6 +26,7 @@ export const PlasmicScreenshot__ArgProps = new Array();
 
 function PlasmicScreenshot__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <img
       data-plasmic-name={"root"}

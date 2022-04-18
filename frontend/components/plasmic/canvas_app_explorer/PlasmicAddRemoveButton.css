@@ -3,8 +3,8 @@
   color: #fffafa;
   text-align: center;
   position: relative;
-  background: linear-gradient(#04a81f, #04a81f),
-    linear-gradient(#2bc744, #2bc744), #015906;
+  background: linear-gradient(#008815, #008815),
+    linear-gradient(#04a81f, #04a81f), #015906;
   font-weight: 700;
   height: 40px;
   font-size: 23px;
@@ -15,4 +15,5 @@
   background: linear-gradient(var(--token-KUP1ALzL2), var(--token-KUP1ALzL2)),
     linear-gradient(#2bc744, #2bc744), #015906;
   width: 180px;
+  color: #fffafa;
 }

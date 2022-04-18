@@ -29,12 +29,18 @@ export const PlasmicAddRemoveButton__ArgProps = new Array();
 
 function PlasmicAddRemoveButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      alt={
+        hasVariant(variants, "removeToolFromSite", "removeToolFromSite")
+          ? "Remove this tool from your Canvas site"
+          : "Add this tool from your Canvas site"
+      }
       className={classNames(
         "plasmic_default__all",
         "plasmic_default__div",

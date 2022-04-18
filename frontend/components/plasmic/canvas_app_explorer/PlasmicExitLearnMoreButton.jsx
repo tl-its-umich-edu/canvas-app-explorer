@@ -27,6 +27,7 @@ export const PlasmicExitLearnMoreButton__ArgProps = new Array();
 
 function PlasmicExitLearnMoreButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <div
       data-plasmic-name={"root"}
@@ -47,6 +48,7 @@ function PlasmicExitLearnMoreButton__RenderFunc(props) {
       <TimesIcon
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
+        alt={"Button to exit find out more for this tool"}
         className={classNames(
           "plasmic_default__all",
           "plasmic_default__svg",

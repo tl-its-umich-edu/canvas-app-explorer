@@ -28,6 +28,7 @@ export const PlasmicLinkButton__ArgProps = new Array("href", "text");
 
 function PlasmicLinkButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <a
       data-plasmic-name={"root"}

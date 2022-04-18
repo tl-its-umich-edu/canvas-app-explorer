@@ -60,6 +60,7 @@ export const PlasmicProductCard__ArgProps = new Array(
 
 function PlasmicProductCard__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <p.Stack
       as={"div"}
@@ -68,6 +69,15 @@ function PlasmicProductCard__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       hasGap={true}
+      alt={
+        hasVariant(
+          variants,
+          "withoutScreenshotButtons",
+          "withoutScreenshotButtons"
+        )
+          ? ""
+          : undefined
+      }
       className={classNames(
         "plasmic_default__all",
         "plasmic_default__div",
@@ -354,7 +364,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 ? p.renderPlasmicSlot({
                     defaultContents: (
                       <img
-                        alt={""}
+                        alt={"Logo for Panopto"}
                         className={classNames(
                           "plasmic_default__all",
                           "plasmic_default__img",
@@ -979,7 +989,7 @@ function PlasmicProductCard__RenderFunc(props) {
               {p.renderPlasmicSlot({
                 defaultContents: (
                   <img
-                    alt={""}
+                    alt={"Logo of Panopto"}
                     className={classNames(
                       "plasmic_default__all",
                       "plasmic_default__img",
@@ -1189,7 +1199,7 @@ function PlasmicProductCard__RenderFunc(props) {
                 ? p.renderPlasmicSlot({
                     defaultContents: (
                       <img
-                        alt={""}
+                        alt={"Image showing what this tool looks like in use "}
                         className={classNames(
                           "plasmic_default__all",
                           "plasmic_default__img",
