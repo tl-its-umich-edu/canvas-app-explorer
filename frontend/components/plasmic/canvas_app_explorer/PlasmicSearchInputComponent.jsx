@@ -29,6 +29,7 @@ export const PlasmicSearchInputComponent__ArgProps = new Array();
 
 function PlasmicSearchInputComponent__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     hasVariant(variants, "withSearchBar", "withSearchBar") ? true : false
   ) ? (
@@ -37,6 +38,11 @@ function PlasmicSearchInputComponent__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      alt={
+        hasVariant(variants, "withSearchBar", "withSearchBar")
+          ? "Search bar to filter apps by keyword "
+          : undefined
+      }
       className={classNames(
         "plasmic_default__all",
         "plasmic_default__input",

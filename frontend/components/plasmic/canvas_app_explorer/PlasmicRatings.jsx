@@ -29,6 +29,7 @@ export const PlasmicRatings__ArgProps = new Array("numReviews");
 
 function PlasmicRatings__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <p.Stack
       as={"div"}

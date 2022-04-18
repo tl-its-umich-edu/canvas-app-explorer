@@ -29,6 +29,7 @@ export const PlasmicMenuButton__ArgProps = new Array("href");
 
 function PlasmicMenuButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <div
       data-plasmic-name={"root"}

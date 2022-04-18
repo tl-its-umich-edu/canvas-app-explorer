@@ -42,6 +42,7 @@ export const PlasmicHeader__ArgProps = new Array("searchInputSlot");
 
 function PlasmicHeader__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsthj0P9Nxeh81I()
   });

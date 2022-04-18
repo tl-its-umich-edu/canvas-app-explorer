@@ -31,6 +31,7 @@ export const PlasmicScreenshotBackground__ArgProps = new Array("image");
 
 function PlasmicScreenshotBackground__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const triggers = {
     hover_root: isRootHover

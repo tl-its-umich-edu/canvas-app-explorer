@@ -26,6 +26,7 @@ export const PlasmicLearnMoreTool__ArgProps = new Array();
 
 function PlasmicLearnMoreTool__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return false ? (
     <div
       data-plasmic-name={"root"}

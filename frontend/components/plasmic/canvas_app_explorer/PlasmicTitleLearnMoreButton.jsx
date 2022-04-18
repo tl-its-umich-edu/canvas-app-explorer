@@ -27,12 +27,14 @@ export const PlasmicTitleLearnMoreButton__ArgProps = new Array("children");
 
 function PlasmicTitleLearnMoreButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const $props = props.args;
   return (
     <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      alt={"Find out more about this tool"}
       className={classNames(
         "plasmic_default__all",
         "plasmic_default__div",
