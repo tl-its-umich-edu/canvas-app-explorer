@@ -18,7 +18,23 @@ function ProductCard_(props, ref) {
   //
   // By default, we are just piping all ProductCardProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicProductCard root={{ ref }} {...props} />;
+
+  return (
+    <PlasmicProductCard
+      root={{ ref }}
+      {...props}
+      description={props.description && <span dangerouslySetInnerHTML={{ __html: props.description }} />}
+      descriptionLearnMore={
+        props.descriptionLearnMore && <span dangerouslySetInnerHTML={{ __html: props.descriptionLearnMore }} />
+      }
+      privacyAgreementLearnMore={
+        props.privacyAgreementLearnMore && <span dangerouslySetInnerHTML={{ __html: props.privacyAgreementLearnMore }} />
+      }
+      supportResourcesLearnMore={
+        props.supportResourcesLearnMore && <span dangerouslySetInnerHTML={{ __html: props.supportResourcesLearnMore }} />
+      }
+    />
+  );
 }
 
 const ProductCard = React.forwardRef(ProductCard_);
