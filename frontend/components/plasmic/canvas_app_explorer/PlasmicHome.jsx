@@ -32,7 +32,7 @@ import "./PlasmicHome.css"; // plasmic-import: 4XPgsAhljqdds/css
 
 export const PlasmicHome__VariantProps = new Array();
 
-export const PlasmicHome__ArgProps = new Array();
+export const PlasmicHome__ArgProps = new Array("productCardContainer");
 
 function PlasmicHome__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -114,6 +114,8 @@ function PlasmicHome__RenderFunc(props) {
               )}
             >
               <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
                 className={classNames(
                   "plasmic_default__all",
                   "plasmic_default__div",
@@ -136,772 +138,545 @@ function PlasmicHome__RenderFunc(props) {
                 "Home__productCardContainer___92DMt"
               )}
             >
-              <ProductCard
-                data-plasmic-name={"zoomCard"}
-                data-plasmic-override={overrides.zoomCard}
-                addRemoveSlot={
-                  <AddRemoveButton
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__addRemoveButton___3D93M"
-                    )}
-                    removeToolFromSite={true}
-                  />
-                }
-                className={classNames(
-                  "__wab_instance",
-                  "Home__zoomCard__foQyr"
-                )}
-                description={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__c1Y5M"
-                    )}
-                  >
-                    {"Provides access to the Zoom video conference platform."}
-                  </div>
-                }
-                descriptionLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__byvgJ"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Description"}
-                      </span>
-                      <React.Fragment>
-                        {
-                          "\nProvides access to the Zoom video conference platform."
-                        }
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                image={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__zw5Ho"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
-                    }
-                  />
-                }
-                learnMoreWithAddRemove={true}
-                logo={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__zZtPf"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
-                    }
-                  />
-                }
-                logoLearnMore={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__rUah2"
-                    )}
-                    loading={"lazy"}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/zoomLogo.png"
-                    }
-                  />
-                }
-                photoLearnMore={
-                  <img
-                    alt={"Screenshot of Zoom"}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__otas9"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
-                    }
-                  />
-                }
-                placementsInCanvasLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text___2AlAo"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Placements in Canvas"}
-                      </span>
-                      <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                privacyAgreementLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__y6Jt"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Privacy Agreement"}
-                      </span>
-                      <React.Fragment>
-                        {"\nData Protection Addendum"}
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                ratings={
-                  <Ratings
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__ratings__yXulX"
-                    )}
-                    numReviews={"(45 Review)"}
-                    stars={"four"}
-                  />
-                }
-                supportResourcesLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text___1JHrn"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Support Resources"}
-                      </span>
-                      <React.Fragment>
-                        {"\nITS Teaching with Zoom Guide"}
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                title={"Zoom"}
-                toolLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__dHRrw"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Tool"}
-                      </span>
-                      <React.Fragment>{"\nZoom"}</React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-              />
-
-              <ProductCard
-                data-plasmic-name={"myLaCard"}
-                data-plasmic-override={overrides.myLaCard}
-                addRemoveSlot={
-                  <AddRemoveButton
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__addRemoveButton__bH9Sb"
-                    )}
-                    removeToolFromSite={true}
-                  />
-                }
-                className={classNames(
-                  "__wab_instance",
-                  "Home__myLaCard__gpGZx"
-                )}
-                description={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__jl7El"
-                    )}
-                  >
-                    {
-                      "Dashboard that provides students with information about engagement with course. Adding extra line"
-                    }
-                  </div>
-                }
-                descriptionLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__qtw8U"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Description"}
-                      </span>
-                      <React.Fragment>
-                        {
-                          "\nMy Learning Analytics (MyLA) is a dashboard that provides students with information about their engagement with course materials and resources, assignments, and grades in a Canvas course."
-                        }
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                image={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__psMY"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
-                    }
-                  />
-                }
-                learnMoreSlot={
+              {p.renderPlasmicSlot({
+                defaultContents: (
                   <React.Fragment>
-                    {false ? (
-                      <LearnMoreButton
-                        className={classNames(
-                          "__wab_instance",
-                          "Home__learnMoreButton__jpHt"
-                        )}
-                      />
-                    ) : null}
-
-                    <TitleLearnMoreButton
+                    <ProductCard
+                      addRemoveSlot={
+                        <AddRemoveButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__addRemoveButton__xexjq"
+                          )}
+                          removeToolFromSite={true}
+                        />
+                      }
                       className={classNames(
                         "__wab_instance",
-                        "Home__titleLearnMoreButton__yWKc5"
+                        "Home__productCard__rs0"
                       )}
-                    >
-                      {"Find Out More"}
-                    </TitleLearnMoreButton>
-                  </React.Fragment>
-                }
-                learnMoreWithAddRemove={true}
-                logo={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__u0Ib1"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/myLaLogo.png"
-                    }
-                  />
-                }
-                logoLearnMore={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img___9IuCq"
-                    )}
-                    loading={"lazy"}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/myLaLogo.png"
-                    }
-                  />
-                }
-                photoLearnMore={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__xvJc3"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
-                    }
-                  />
-                }
-                placementsInCanvasLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__vTgLe"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Placements in Canvas"}
-                      </span>
-                      <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                privacyAgreementLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text___0K8U1"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Privacy Agreement"}
-                      </span>
-                      <React.Fragment>
-                        {"\nNot required (U-M hosted)"}
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                ratings={
-                  true ? (
-                    <Ratings
-                      className={classNames(
-                        "__wab_instance",
-                        "Home__ratings__iUUiJ"
-                      )}
-                      numReviews={"(45 Review)"}
-                      stars={"five"}
+                      descriptionLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__g2BD"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Description"}
+                            </span>
+                            <React.Fragment>
+                              {
+                                "\nProvides access to the Zoom video conference platform."
+                              }
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      image={
+                        <img
+                          alt={""}
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__img",
+                            "Home__img__bxIsS"
+                          )}
+                          src={
+                            "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
+                          }
+                        />
+                      }
+                      learnMoreWithAddRemove={true}
+                      placementsInCanvasLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__gjhZ"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Placements in Canvas"}
+                            </span>
+                            <React.Fragment>
+                              {"\nCourse Navigation"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      privacyAgreementLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text___1Sk8W"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Privacy Agreement"}
+                            </span>
+                            <React.Fragment>
+                              {"\nData Protection Addendum"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      ratings={
+                        <Ratings
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__ratings__hMtG4"
+                          )}
+                          numReviews={"(45 Review)"}
+                          stars={"four"}
+                        />
+                      }
+                      supportResourcesLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__cBgr8"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Support Resources"}
+                            </span>
+                            <React.Fragment>
+                              {"\nITS Teaching with Zoom Guide"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      title={"Zoom"}
                     />
-                  ) : null
-                }
-                supportResourcesLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text___6AcC7"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Support Resources"}
-                      </span>
-                      <React.Fragment>
-                        {"\nITS My Learning Analytics Guide"}
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                title={"My Learning Analytics"}
-                toolLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text___4Gd6"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Tool"}
-                      </span>
-                      <React.Fragment>
-                        {"\nMy Learning Analytics"}
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-              />
 
-              <ProductCard
-                addRemoveButtonSlot={
-                  <AddRemoveButton
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__addRemoveButton__rlcKj"
-                    )}
-                  />
-                }
-                className={classNames(
-                  "__wab_instance",
-                  "Home__productCard__wcXOk"
-                )}
-                description={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text___7Xnkd"
-                    )}
-                  >
-                    {"Panopto is used to record, share and manage videos."}
-                  </div>
-                }
-                image={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__zTJvN"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/panopto.png"
-                    }
-                  />
-                }
-                learnMoreSlot={
-                  <React.Fragment>
-                    {false ? (
-                      <LearnMoreButton
-                        className={classNames(
-                          "__wab_instance",
-                          "Home__learnMoreButton__fL64"
-                        )}
-                      />
-                    ) : null}
-
-                    <TitleLearnMoreButton
+                    <ProductCard
+                      addRemoveSlot={
+                        <AddRemoveButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__addRemoveButton__g8OK"
+                          )}
+                          removeToolFromSite={true}
+                        />
+                      }
                       className={classNames(
                         "__wab_instance",
-                        "Home__titleLearnMoreButton__qTdBv"
+                        "Home__productCard__x4KCz"
                       )}
-                    >
-                      {"Find Out More"}
-                    </TitleLearnMoreButton>
-                  </React.Fragment>
-                }
-                logoLearnMore={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__rswrN"
-                    )}
-                    loading={"lazy"}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/panoptoLogo2.png"
-                    }
-                  />
-                }
-                withoutScreenshotButtons={true}
-              />
+                      descriptionLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__dRsdf"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Description"}
+                            </span>
+                            <React.Fragment>
+                              {
+                                "\nMy Learning Analytics (MyLA) is a dashboard that provides students with information about their engagement with course materials and resources, assignments, and grades in a Canvas course."
+                              }
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      image={
+                        <img
+                          alt={""}
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__img",
+                            "Home__img__jWwVn"
+                          )}
+                          src={
+                            "/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
+                          }
+                        />
+                      }
+                      learnMoreSlot={
+                        <React.Fragment>
+                          <LearnMoreButton
+                            className={classNames(
+                              "__wab_instance",
+                              "Home__learnMoreButton__iruQe"
+                            )}
+                          />
 
-              <ProductCard
-                data-plasmic-name={"piazzaCard"}
-                data-plasmic-override={overrides.piazzaCard}
-                addRemoveSlot={
-                  <AddRemoveButton
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__addRemoveButton___6ByWv"
-                    )}
-                    removeToolFromSite={true}
-                  />
-                }
-                className={classNames(
-                  "__wab_instance",
-                  "Home__piazzaCard___71L95"
-                )}
-                description={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__qBpZp"
-                    )}
-                  >
-                    {
-                      "Class discussion/Q&A site with link to course navigation for Piazza discussions. Adding two extra lines. Adding two extra lines."
-                    }
-                  </div>
-                }
-                descriptionLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__tNQf2"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Description"}
-                      </span>
-                      <React.Fragment>
-                        {
-                          "\nPiazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation for Piazza discussions, and auto-logs the user into the course discussions area."
-                        }
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                image={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__fApwR"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
-                    }
-                  />
-                }
-                learnMoreSlot={
-                  <React.Fragment>
-                    {false ? (
-                      <LearnMoreButton
-                        className={classNames(
-                          "__wab_instance",
-                          "Home__learnMoreButton__gxQhM"
-                        )}
-                      />
-                    ) : null}
-
-                    <TitleLearnMoreButton
-                      className={classNames(
-                        "__wab_instance",
-                        "Home__titleLearnMoreButton__hj2Jd"
-                      )}
-                    >
-                      {"Find Out More"}
-                    </TitleLearnMoreButton>
-                  </React.Fragment>
-                }
-                logo={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__eqcPf"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/piazzaLogo.png"
-                    }
-                  />
-                }
-                logoLearnMore={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__lTiRy"
-                    )}
-                    loading={"lazy"}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/piazzaLogo.png"
-                    }
-                  />
-                }
-                photoLearnMore={
-                  <img
-                    alt={""}
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__img",
-                      "Home__img__oJq2O"
-                    )}
-                    src={
-                      "/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
-                    }
-                  />
-                }
-                placementsInCanvasLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__zt4W4"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Placements in Canvas"}
-                      </span>
-                      <React.Fragment>{"\nCourse Navigation"}</React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                privacyAgreementLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__zQwT"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Privacy Agreement"}
-                      </span>
-                      <React.Fragment>
-                        {"\nData Protection Addendum"}
-                      </React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                ratings={
-                  <Ratings
-                    className={classNames(
-                      "__wab_instance",
-                      "Home__ratings___14DWe"
-                    )}
-                    numReviews={"(45 Review)"}
-                    stars={"five"}
-                  />
-                }
-                supportResourcesLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__t3KQg"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Support Resources"}
-                      </span>
-                      <React.Fragment>{"\nPiazza Support"}</React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                title={"Piazza"}
-                toolLearnMore={
-                  <div
-                    className={classNames(
-                      "plasmic_default__all",
-                      "plasmic_default__div",
-                      "__wab_text",
-                      "Home__text__fkRVt"
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {"Tool"}
-                      </span>
-                      <React.Fragment>{"\nPiazza"}</React.Fragment>
-                    </React.Fragment>
-                  </div>
-                }
-                withoutScreenshotButtons={true}
-              />
-
-              <ProductCard
-                addRemoveSlot={
-                  true ? (
-                    <AddRemoveButton
-                      className={classNames(
-                        "__wab_instance",
-                        "Home__addRemoveButton__fmbAt"
-                      )}
-                      removeToolFromSite={true}
+                          <TitleLearnMoreButton
+                            className={classNames(
+                              "__wab_instance",
+                              "Home__titleLearnMoreButton__yWKc5"
+                            )}
+                          >
+                            {"Find Out More"}
+                          </TitleLearnMoreButton>
+                        </React.Fragment>
+                      }
+                      learnMoreWithAddRemove={true}
+                      placementsInCanvasLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__xoujE"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Placements in Canvas"}
+                            </span>
+                            <React.Fragment>
+                              {"\nCourse Navigation"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      privacyAgreementLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__qdiQs"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Privacy Agreement"}
+                            </span>
+                            <React.Fragment>
+                              {"\nNot required (U-M hosted)"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      ratings={
+                        <Ratings
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__ratings__lqtfC"
+                          )}
+                          numReviews={"(45 Review)"}
+                          stars={"five"}
+                        />
+                      }
+                      supportResourcesLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__b1Z60"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Support Resources"}
+                            </span>
+                            <React.Fragment>
+                              {"\nITS My Learning Analytics Guide"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      title={"My Learning Analytics"}
                     />
-                  ) : null
-                }
-                className={classNames(
-                  "__wab_instance",
-                  "Home__productCard__xsNac"
-                )}
-                learnMoreWithAddRemove={true}
-              />
+
+                    <ProductCard
+                      addRemoveButtonSlot={
+                        <AddRemoveButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__addRemoveButton__tlGli"
+                          )}
+                        />
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        "Home__productCard___0SViq"
+                      )}
+                      image={
+                        <img
+                          alt={""}
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__img",
+                            "Home__img__mlvsL"
+                          )}
+                          src={
+                            "/static/plasmic/canvas_app_explorer/images/panopto.png"
+                          }
+                        />
+                      }
+                      learnMoreSlot={
+                        <React.Fragment>
+                          <LearnMoreButton
+                            className={classNames(
+                              "__wab_instance",
+                              "Home__learnMoreButton__e5Gv"
+                            )}
+                          />
+
+                          <TitleLearnMoreButton
+                            className={classNames(
+                              "__wab_instance",
+                              "Home__titleLearnMoreButton__qTdBv"
+                            )}
+                          >
+                            {"Find Out More"}
+                          </TitleLearnMoreButton>
+                        </React.Fragment>
+                      }
+                      withoutScreenshotButtons={true}
+                    />
+
+                    <ProductCard
+                      addRemoveSlot={
+                        <AddRemoveButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__addRemoveButton__ardSt"
+                          )}
+                          removeToolFromSite={true}
+                        />
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        "Home__productCard__w406"
+                      )}
+                      descriptionLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__lHip"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Description"}
+                            </span>
+                            <React.Fragment>
+                              {
+                                "\nPiazza is a new style of discussion/Q&A site with a focus on educational institutions. This integration adds a link to the course navigation for Piazza discussions, and auto-logs the user into the course discussions area."
+                              }
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      image={
+                        <img
+                          alt={""}
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__img",
+                            "Home__img__z9TaY"
+                          )}
+                          src={
+                            "/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
+                          }
+                        />
+                      }
+                      learnMoreSlot={
+                        <React.Fragment>
+                          <LearnMoreButton
+                            className={classNames(
+                              "__wab_instance",
+                              "Home__learnMoreButton___8YAdl"
+                            )}
+                          />
+
+                          <TitleLearnMoreButton
+                            className={classNames(
+                              "__wab_instance",
+                              "Home__titleLearnMoreButton__hj2Jd"
+                            )}
+                          >
+                            {"Find Out More"}
+                          </TitleLearnMoreButton>
+                        </React.Fragment>
+                      }
+                      placementsInCanvasLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text___1Au76"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Placements in Canvas"}
+                            </span>
+                            <React.Fragment>
+                              {"\nCourse Navigation"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      privacyAgreementLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text__wPoRp"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Privacy Agreement"}
+                            </span>
+                            <React.Fragment>
+                              {"\nData Protection Addendum"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      ratings={
+                        <Ratings
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__ratings__xVvjP"
+                          )}
+                          numReviews={"(45 Review)"}
+                          stars={"five"}
+                        />
+                      }
+                      supportResourcesLearnMore={
+                        <div
+                          className={classNames(
+                            "plasmic_default__all",
+                            "plasmic_default__div",
+                            "__wab_text",
+                            "Home__text___2HJXy"
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Support Resources"}
+                            </span>
+                            <React.Fragment>
+                              {"\nPiazza Support"}
+                            </React.Fragment>
+                          </React.Fragment>
+                        </div>
+                      }
+                      title={"Piazza"}
+                      withoutScreenshotButtons={true}
+                    />
+
+                    <ProductCard
+                      addRemoveSlot={
+                        <AddRemoveButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__addRemoveButton__uibYo"
+                          )}
+                          removeToolFromSite={true}
+                        />
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        "Home__productCard___2HUs2"
+                      )}
+                      learnMoreWithAddRemove={true}
+                    />
+                  </React.Fragment>
+                ),
+
+                value: args.productCardContainer
+              })}
             </p.Stack>
 
             {true ? (
@@ -938,10 +713,8 @@ const PlasmicDescendants = {
     "appContainer",
     "header",
     "caeDescriptionContainer",
+    "text",
     "productCardContainer",
-    "zoomCard",
-    "myLaCard",
-    "piazzaCard",
     "footer"
   ],
 
@@ -949,25 +722,15 @@ const PlasmicDescendants = {
     "appContainer",
     "header",
     "caeDescriptionContainer",
+    "text",
     "productCardContainer",
-    "zoomCard",
-    "myLaCard",
-    "piazzaCard",
     "footer"
   ],
 
   header: ["header"],
-  caeDescriptionContainer: ["caeDescriptionContainer"],
-  productCardContainer: [
-    "productCardContainer",
-    "zoomCard",
-    "myLaCard",
-    "piazzaCard"
-  ],
-
-  zoomCard: ["zoomCard"],
-  myLaCard: ["myLaCard"],
-  piazzaCard: ["piazzaCard"],
+  caeDescriptionContainer: ["caeDescriptionContainer", "text"],
+  text: ["text"],
+  productCardContainer: ["productCardContainer"],
   footer: ["footer"]
 };
 
@@ -1003,10 +766,8 @@ export const PlasmicHome = Object.assign(
     appContainer: makeNodeComponent("appContainer"),
     header: makeNodeComponent("header"),
     caeDescriptionContainer: makeNodeComponent("caeDescriptionContainer"),
+    text: makeNodeComponent("text"),
     productCardContainer: makeNodeComponent("productCardContainer"),
-    zoomCard: makeNodeComponent("zoomCard"),
-    myLaCard: makeNodeComponent("myLaCard"),
-    piazzaCard: makeNodeComponent("piazzaCard"),
     footer: makeNodeComponent("footer"),
     // Metadata about props expected for PlasmicHome
     internalVariantProps: PlasmicHome__VariantProps,
