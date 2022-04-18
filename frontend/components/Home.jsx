@@ -2,11 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import React, { useEffect, useState } from "react";
 
-import ExitLearnMoreButton from "./ExitLearnMoreButton";
 import Header from "./Header";
 import ProductCard from "./ProductCard";
 import SearchInputComponent from "./SearchInputComponent";
-import TitleLearnMoreButton from "./TitleLearnMoreButton";
 import PlasmicHome from "./plasmic/canvas_app_explorer/PlasmicHome";
 
 function Home_(props, ref) {
@@ -25,42 +23,40 @@ function Home_(props, ref) {
   // By default, we are just piping all HomeProps here, but feel free
   // to do whatever works for you.
 
-    //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
-    const [learnMoreActive, setLearnMoreActive] = useState([]); // each tool has one entry in array
-    const [APIData, setAPIData] = useState(null); // holds the data read from API
-    const [tools, setTools] = useState(null); // to display the tools
+  //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
+  const [APIData, setAPIData] = useState(null); // holds the data read from API
+  const [tools, setTools] = useState(null); // to display the tools
 
-    // For search filter
-    const [searchFilter, setSearchFilter] = useState("");
+  // For search filter
+  const [searchFilter, setSearchFilter] = useState("");
 
-    // Only called once, since [] means no dependencies 
-    useEffect(async () => {
-      const url = "/api/lti_tools/";
-      const response = await fetch(url);
-      const data = await response.json();
-        // sort data alphabetically by name
-      data.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))
+  // Only called once, since [] means no dependencies 
+  useEffect(async () => {
+    const url = "/api/lti_tools/";
+    const response = await fetch(url);
+    const data = await response.json();
+      // sort data alphabetically by name
+    data.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))
 
-      setAPIData(data) // for use with search filter
-      setTools(data) // what will be displayed
-      //setAddedTools(Array(Object.keys(data).length + 2).fill(false)) // don't need for add/remove
-      setLearnMoreActive(Array(Object.keys(data).length + 2).fill(false))
-    }, []);
+    setAPIData(data) // for use with search filter
+    setTools(data) // what will be displayed
+    //setAddedTools(Array(Object.keys(data).length + 2).fill(false)) // don't need for add/remove
+  }, []);
 
   // Called every time searchFilter changes, makes sure action is performed after state changes
   useEffect(() => {
-      console.log(searchFilter)
-      // Show filtered data if search is entered, else show all data
-      if (searchFilter == "") {
-          console.log("WE SHOULD GO IN HERE, show all data")
-          setTools(APIData)
-      }
-      else {
-          console.log("FILTERING DATA");
-          const filteredData = APIData.filter((item) => (item.name.toLowerCase().includes(searchFilter.toLowerCase()) || item.short_description.toLowerCase().includes(searchFilter.toLowerCase())))
-          setTools(filteredData)
-          console.log(filteredData)
-      }
+    console.log(searchFilter)
+    // Show filtered data if search is entered, else show all data
+    if (searchFilter == "") {
+      console.log("WE SHOULD GO IN HERE, show all data")
+      setTools(APIData)
+    }
+    else {
+      console.log("FILTERING DATA");
+      const filteredData = APIData.filter((item) => (item.name.toLowerCase().includes(searchFilter.toLowerCase()) || item.short_description.toLowerCase().includes(searchFilter.toLowerCase())))
+      setTools(filteredData)
+      console.log(filteredData)
+    }
   }, [searchFilter])
 
   // -----------------------ADD/REMOVE BUTTON FUNCTIONALITY CODE---------------------------
@@ -111,70 +107,16 @@ function Home_(props, ref) {
     ? (<div>Loading . . . </div>)
     : (
       <div>
-        {tools.map(tool => (
-          <div key={tool.id}>
-            {
-              learnMoreActive[tool.id] === false
-                ? (
-                  <ProductCard
-                    {...props}
-                    withoutScreenshotButtons={true}
-                    learnMoreSlot={
-                      <TitleLearnMoreButton
-                        onClick={(e) => {
-                            e.preventDefault();
-                            let learnMoreActiveCopy = [...learnMoreActive]
-                            learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
-                            setLearnMoreActive(learnMoreActiveCopy)
-                        }}
-                      >
-                        {tool.name}
-                      </TitleLearnMoreButton>
-                    }
-                    description={tool.short_description}
-                    logo={tool.logo_image}
-                    ratings={
-                      null // <Ratings numReviews={"(45 Review)"} stars={"five"} />
-                    }
-                    title={tool.name}
-                  />
-                )
-                : (
-                  <ProductCard // Other side of the Learn More If
-                    {...props}
-                    learnMoreWithAddRemove={true} // if this line is commented, the card will be flipped
-                    exitButtonSlot={
-                      <ExitLearnMoreButton
-                        onClick={(e) => {
-                          e.preventDefault();
-                          console.log(learnMoreActive)
-                          let learnMoreActiveCopy = [...learnMoreActive]
-                          learnMoreActiveCopy[tool.id] = !learnMoreActiveCopy[tool.id]
-                          setLearnMoreActive(learnMoreActiveCopy)
-                        }}
-                      />
-                    }
-                    toolLearnMore={tool.name}
-                    descriptionLearnMore={tool.long_description}
-                    privacyAgreementLearnMore={tool.privacy_agreement}
-                    placementsInCanvasLearnMore={tool.canvas_placement_expanded.map(p => p.name)}
-                    supportResourcesLearnMore={tool.support_resources}
-                    logo={tool.logo_image}
-                    photoLearnMore={tool.main_image}
-                  />
-                )
-            }
-          </div>
-        ))}
+        {tools.map(tool => <div key={tool.id}><ProductCard tool={tool} /></div>)}
       </div>
   )
 
   return (
     <PlasmicHome
+      {...props}
       root={{ ref }}
       productCardContainer={productCardContainer}
       header={header}
-      {...props}
     />
   );
 }
