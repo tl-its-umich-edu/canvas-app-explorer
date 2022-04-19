@@ -106,7 +106,7 @@ function Home_(props, ref) {
 
   const productCardContainer = tools === null
     ? <div>Loading . . . </div>
-    : <div>{tools.map(tool => <div key={tool.id}><ProductCard tool={tool} /></div>)}</div>
+    : <>{tools.map(tool => <div key={tool.id}><ProductCard tool={tool} /></div>)}</>
 
   return <PlasmicHome root={{ ref }} {...{ header, productCardContainer }} />;
 }
