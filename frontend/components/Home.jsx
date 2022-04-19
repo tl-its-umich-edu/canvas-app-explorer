@@ -6,6 +6,7 @@ import Header from "./Header";
 import ProductCard from "./ProductCard";
 import SearchInputComponent from "./SearchInputComponent";
 import PlasmicHome from "./plasmic/canvas_app_explorer/PlasmicHome";
+import "../css/Home.css";
 
 function Home_(props, ref) {
   // Use PlasmicHome to render this component as it was
