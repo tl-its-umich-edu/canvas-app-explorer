@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 import ExitLearnMoreButton from "./ExitLearnMoreButton";
 import TitleLearnMoreButton from "./TitleLearnMoreButton";
-
 import { PlasmicProductCard } from "./plasmic/canvas_app_explorer/PlasmicProductCard";
 
 function ProductCard_(props, ref) {
