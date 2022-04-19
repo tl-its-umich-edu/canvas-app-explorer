@@ -105,21 +105,10 @@ function Home_(props, ref) {
   )
 
   const productCardContainer = tools === null
-    ? (<div>Loading . . . </div>)
-    : (
-      <div>
-        {tools.map(tool => <div key={tool.id}><ProductCard tool={tool} /></div>)}
-      </div>
-  )
+    ? <div>Loading . . . </div>
+    : <div>{tools.map(tool => <div key={tool.id}><ProductCard tool={tool} /></div>)}</div>
 
-  return (
-    <PlasmicHome
-      {...props}
-      root={{ ref }}
-      productCardContainer={productCardContainer}
-      header={header}
-    />
-  );
+  return <PlasmicHome root={{ ref }} {...{ header, productCardContainer }} />;
 }
 
 const Home = React.forwardRef(Home_);

@@ -23,7 +23,7 @@ function ProductCard_(props, ref) {
   // By default, we are just piping all ProductCardProps here, but feel free
   // to do whatever works for you.
 
-  const { tool, ...rest } = props;
+  const { tool } = props;
 
   const [learnMoreActive, setLearnMoreActive] = useState(false);
 
@@ -34,7 +34,6 @@ function ProductCard_(props, ref) {
   if (!learnMoreActive) {
     return (
       <PlasmicProductCard
-        {...rest}
         {...commonProps}
         withoutScreenshotButtons={true}
         title={tool.name}
@@ -57,7 +56,6 @@ function ProductCard_(props, ref) {
   } else {
     return (
       <PlasmicProductCard // Other side of the Learn More If
-        {...rest}
         {...commonProps}
         learnMoreWithAddRemove={true} // if this line is commented, the card will be flipped
         exitButtonSlot={
