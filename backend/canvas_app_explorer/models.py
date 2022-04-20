@@ -23,7 +23,7 @@ class LtiTool(models.Model):
     name = models.CharField(max_length=50)
     logo_image = models.ImageField(upload_to='canvas_app_explorer.LogoImage/bytes/filename/mimetype', blank=True, null=True)
     main_image = models.ImageField(upload_to='canvas_app_explorer.MainImage/bytes/filename/mimetype', blank=True, null=True)
-    short_description = HTMLField()
+    short_description = HTMLField(max_length=120)
     long_description = HTMLField()
     privacy_agreement = HTMLField()
     support_resources = HTMLField()
