@@ -42,7 +42,7 @@ function ProductCard_(props, ref) {
           <TitleLearnMoreButton
             onClick={(e) => {
               e.preventDefault();
-              setLearnMoreActive(true)
+              setLearnMoreActive(true);
             }}
           >
             {tool.name}
@@ -62,7 +62,7 @@ function ProductCard_(props, ref) {
           <ExitLearnMoreButton
             onClick={(e) => {
               e.preventDefault();
-              setLearnMoreActive(false)
+              setLearnMoreActive(false);
             }}
           />
         }
