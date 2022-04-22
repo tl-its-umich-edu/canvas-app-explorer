@@ -1469,7 +1469,11 @@ function PlasmicProductCard__RenderFunc(props) {
           )}
         >
           <img
-            alt={"Logo for tool"}
+            alt={
+              args.logoAltText !== undefined
+                ? args.logoAltText
+                : "Logo for tool"
+            }
             className={classNames(
               "plasmic_default__all",
               "plasmic_default__img",
