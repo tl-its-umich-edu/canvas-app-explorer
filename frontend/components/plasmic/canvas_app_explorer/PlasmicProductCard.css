@@ -440,24 +440,12 @@
 .ProductCard__slotTargetToolLearnMorelearnMoreWithAddRemove__hQbaLiXrj {
   text-align: left;
 }
-.ProductCard__linkButton__rqaGu.__wab_instance {
-  max-width: 100%;
-  position: relative;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-right: 10px;
-  flex-shrink: 0;
-  display: none;
-}
-.ProductCard__linkButtonlearnMoreWithAddRemove__rqaGuliXrj.__wab_instance {
-  flex-shrink: 0;
-  display: flex;
-}
 .ProductCard__addRemoveButton__rkY9R.__wab_instance {
   left: auto;
   top: auto;
   max-width: 100%;
   position: relative;
+  flex-shrink: 0;
   display: block;
 }
 .ProductCard__h2__f6Zi {
@@ -681,32 +669,6 @@
   top: 1px;
   display: flex;
 }
-.ProductCard__linkButton__ih6Bj.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonlearnMore__ih6BjOklBv.__wab_instance {
-  width: 35px;
-  position: absolute;
-  left: -8px;
-  top: -4px;
-  height: 35px;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonaddAndLearnMore__ih6BjfhLQo.__wab_instance {
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonwithoutScreenshotButtons__ih6Bj5HQgZ.__wab_instance {
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonlearnMoreWithAddRemove__ih6BjliXrj.__wab_instance {
-  width: 35px;
-  position: absolute;
-  left: -8px;
-  top: -4px;
-  height: 35px;
-  flex-shrink: 0;
-}
 .ProductCard__exitLearnMoreButton___6Q3Fz.__wab_instance {
   position: relative;
   left: auto;
@@ -772,48 +734,9 @@
   display: flex;
   flex-direction: row;
 }
-.ProductCard__linkButton__cX8QG.__wab_instance {
-  position: relative;
-  width: 144px;
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonwithoutScreenshot__cX8QGutYkz.__wab_instance {
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonlearnMore__cX8QGOklBv.__wab_instance {
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtononlyLearnMore__cX8QGtEu15.__wab_instance {
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonaddAndLearnMore__cX8QGfhLQo.__wab_instance {
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-}
-.ProductCard__linkButtonwithoutScreenshotButtons__cX8QG5HQgZ.__wab_instance {
-  position: relative;
-  left: auto;
-  top: auto;
-  width: 175px;
-  flex-shrink: 0;
-  display: flex;
-}
-.ProductCard__linkButtonlearnMoreWithAddRemove__cX8QGliXrj.__wab_instance {
-  left: auto;
-  top: auto;
-  flex-shrink: 0;
-}
 .ProductCard__titleLearnMoreButton__mFsBh.__wab_instance {
   max-width: 100%;
   position: relative;
+  flex-shrink: 0;
   display: flex;
 }

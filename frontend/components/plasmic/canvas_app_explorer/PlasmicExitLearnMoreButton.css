@@ -5,9 +5,9 @@
   width: auto;
   height: auto;
   background: var(--token-KUP1ALzL2);
+  padding: 0px;
 }
 .ExitLearnMoreButton__svg__xxYgT {
-  position: relative;
   object-fit: cover;
   color: var(--token-q3GGh67XP5qyE);
   width: 20px;
