@@ -54,7 +54,9 @@ export const PlasmicProductCard__ArgProps = new Array(
   "photoLearnMore",
   "logo",
   "toolLearnMore",
-  "description"
+  "description",
+  "logoAltText",
+  "photoLearnMoreAltText"
 );
 
 function PlasmicProductCard__RenderFunc(props) {
@@ -671,13 +673,9 @@ function PlasmicProductCard__RenderFunc(props) {
         >
           <img
             alt={
-              hasVariant(
-                variants,
-                "learnMoreWithAddRemove",
-                "learnMoreWithAddRemove"
-              )
-                ? "Logo for tool"
-                : "Logo of Panopto"
+              args.logoAltText !== undefined
+                ? args.logoAltText
+                : "Logo for tool"
             }
             className={classNames(
               "plasmic_default__all",
@@ -1056,7 +1054,11 @@ function PlasmicProductCard__RenderFunc(props) {
               )}
             >
               <img
-                alt={"Image showing what this tool looks like in use "}
+                alt={
+                  args.photoLearnMoreAltText !== undefined
+                    ? args.photoLearnMoreAltText
+                    : "Image showing what this tool looks like in use"
+                }
                 className={classNames(
                   "plasmic_default__all",
                   "plasmic_default__img",
@@ -1444,22 +1446,25 @@ function PlasmicProductCard__RenderFunc(props) {
           : true
       ) ? (
         <div
-          data-plasmic-name={"findOutMoreContainer"}
-          data-plasmic-override={overrides.findOutMoreContainer}
+          data-plasmic-name={"basicInfoContainer"}
+          data-plasmic-override={overrides.basicInfoContainer}
           className={classNames(
             "plasmic_default__all",
             "plasmic_default__div",
-            "ProductCard__findOutMoreContainer__yg7Mp",
+            "ProductCard__basicInfoContainer__yg7Mp",
             {
-              ProductCard__findOutMoreContainerlearnMoreWithAddRemove__yg7MpliXrj:
+              ProductCard__basicInfoContainerlearnMoreWithAddRemove__yg7MpliXrj:
                 hasVariant(
                   variants,
                   "learnMoreWithAddRemove",
                   "learnMoreWithAddRemove"
                 ),
 
-              ProductCard__findOutMoreContainerlearnMore__yg7MpOklBv:
-                hasVariant(variants, "learnMore", "learnMore")
+              ProductCard__basicInfoContainerlearnMore__yg7MpOklBv: hasVariant(
+                variants,
+                "learnMore",
+                "learnMore"
+              )
             }
           )}
         >
@@ -1495,7 +1500,15 @@ function PlasmicProductCard__RenderFunc(props) {
             className={classNames(
               "plasmic_default__all",
               "plasmic_default__div",
-              "ProductCard__freeBox__fCpId"
+              "ProductCard__freeBox__fCpId",
+              {
+                ProductCard__freeBoxwithoutScreenshotButtons__fCpId5HQgZ:
+                  hasVariant(
+                    variants,
+                    "withoutScreenshotButtons",
+                    "withoutScreenshotButtons"
+                  )
+              }
             )}
           >
             {p.renderPlasmicSlot({
@@ -1603,13 +1616,13 @@ const PlasmicDescendants = {
     "learnMoreTool",
     "screenshotBackground",
     "learnMoreInfoContainer",
-    "findOutMoreContainer"
+    "basicInfoContainer"
   ],
 
   learnMoreTool: ["learnMoreTool"],
   screenshotBackground: ["screenshotBackground"],
   learnMoreInfoContainer: ["learnMoreInfoContainer"],
-  findOutMoreContainer: ["findOutMoreContainer"]
+  basicInfoContainer: ["basicInfoContainer"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -1644,7 +1657,7 @@ export const PlasmicProductCard = Object.assign(
     learnMoreTool: makeNodeComponent("learnMoreTool"),
     screenshotBackground: makeNodeComponent("screenshotBackground"),
     learnMoreInfoContainer: makeNodeComponent("learnMoreInfoContainer"),
-    findOutMoreContainer: makeNodeComponent("findOutMoreContainer"),
+    basicInfoContainer: makeNodeComponent("basicInfoContainer"),
     // Metadata about props expected for PlasmicProductCard
     internalVariantProps: PlasmicProductCard__VariantProps,
     internalArgProps: PlasmicProductCard__ArgProps
