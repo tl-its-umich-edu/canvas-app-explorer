@@ -23,7 +23,10 @@ import "./PlasmicTitleLearnMoreButton.css"; // plasmic-import: oCDAnWtrIp/css
 
 export const PlasmicTitleLearnMoreButton__VariantProps = new Array();
 
-export const PlasmicTitleLearnMoreButton__ArgProps = new Array("children");
+export const PlasmicTitleLearnMoreButton__ArgProps = new Array(
+  "children",
+  "ariaLabel"
+);
 
 function PlasmicTitleLearnMoreButton__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -34,7 +37,7 @@ function PlasmicTitleLearnMoreButton__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      aria-label={""}
+      aria-label={args.ariaLabel}
       className={classNames(
         "plasmic_default__all",
         "plasmic_default__button",
