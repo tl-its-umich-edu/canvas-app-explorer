@@ -28,7 +28,8 @@ function ProductCard_(props, ref) {
 
   const commonProps = {
     root: { ref },
-    logo: tool.logo_image
+    logo: tool.logo_image !== null ? tool.logo_image : undefined,
+    logoAltText: tool.logo_image_alt_text !== null ? tool.logo_image_alt_text : undefined
   };
   if (!learnMoreActive) {
     return (
@@ -41,7 +42,7 @@ function ProductCard_(props, ref) {
           <TitleLearnMoreButton
             onClick={(e) => {
               e.preventDefault();
-              setLearnMoreActive(true)
+              setLearnMoreActive(true);
             }}
           >
             {tool.name}
@@ -61,12 +62,13 @@ function ProductCard_(props, ref) {
           <ExitLearnMoreButton
             onClick={(e) => {
               e.preventDefault();
-              setLearnMoreActive(false)
+              setLearnMoreActive(false);
             }}
           />
         }
         toolLearnMore={tool.name}
-        photoLearnMore={tool.main_image}
+        photoLearnMore={tool.main_image !== null ? tool.main_image : undefined}
+        photoLearnMoreAltText={tool.main_image_alt_text ? tool.main_image_alt_text : undefined}
         descriptionLearnMore={<span dangerouslySetInnerHTML={{ __html: tool.long_description }} />}
         privacyAgreementLearnMore={<span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement }} />}
         placementsInCanvasLearnMore={tool.canvas_placement_expanded.map(p => p.name).join(', ')}
