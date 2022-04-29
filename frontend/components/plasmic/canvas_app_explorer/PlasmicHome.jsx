@@ -18,9 +18,8 @@ import {
 } from "@plasmicapp/react-web";
 import Header from "../../Header"; // plasmic-import: rgvwcoUrD14Pp/component
 import ProductCard from "../../ProductCard"; // plasmic-import: zc_-JZqmkLhAk/component
-import Ratings from "../../Ratings"; // plasmic-import: kZJnDl5cN7jJ7/component
-import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import TitleLearnMoreButton from "../../TitleLearnMoreButton"; // plasmic-import: oCDAnWtrIp/component
+import AddRemoveButton from "../../AddRemoveButton"; // plasmic-import: JyIyDBiGW-/component
 import LearnMoreButton from "../../LearnMoreButton"; // plasmic-import: dm73fzeGC7/component
 import Footer from "../../Footer"; // plasmic-import: SxuS7aSzfTV9l/component
 import { useScreenVariants as useScreenVariantsthj0P9Nxeh81I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: thj0p9NXEH81i/globalVariant
@@ -60,20 +59,6 @@ function PlasmicHome__RenderFunc(props) {
             "Home__root__rfWi8"
           )}
         >
-          {false ? (
-            <input
-              className={classNames(
-                "plasmic_default__all",
-                "plasmic_default__input",
-                "Home__textInput__kcHjj"
-              )}
-              placeholder={"Some placeholder"}
-              size={1}
-              type={"text"}
-              value={"Some value"}
-            />
-          ) : null}
-
           <div
             data-plasmic-name={"appContainer"}
             data-plasmic-override={overrides.appContainer}
@@ -89,20 +74,6 @@ function PlasmicHome__RenderFunc(props) {
               className={classNames("__wab_instance", "Home__header__iXzGr")}
               withSearchBar={true}
             />
-
-            {false ? (
-              <input
-                className={classNames(
-                  "plasmic_default__all",
-                  "plasmic_default__input",
-                  "Home__textInput__y0QeV"
-                )}
-                placeholder={"Some placeholder"}
-                size={1}
-                type={"text"}
-                value={"Some value"}
-              />
-            ) : null}
 
             <div
               data-plasmic-name={"caeDescriptionContainer"}
@@ -142,15 +113,6 @@ function PlasmicHome__RenderFunc(props) {
                 defaultContents: (
                   <React.Fragment>
                     <ProductCard
-                      addRemoveSlot={
-                        <AddRemoveButton
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__addRemoveButton__xexjq"
-                          )}
-                          removeToolFromSite={true}
-                        />
-                      }
                       className={classNames(
                         "__wab_instance",
                         "Home__productCard__rs0"
@@ -182,20 +144,6 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      image={
-                        <img
-                          alt={""}
-                          className={classNames(
-                            "plasmic_default__all",
-                            "plasmic_default__img",
-                            "Home__img__bxIsS"
-                          )}
-                          src={
-                            "/static/plasmic/canvas_app_explorer/images/zoomMeetingpng.png"
-                          }
-                        />
-                      }
-                      learnMoreWithAddRemove={true}
                       placementsInCanvasLearnMore={
                         <div
                           className={classNames(
@@ -246,16 +194,6 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      ratings={
-                        <Ratings
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__ratings__hMtG4"
-                          )}
-                          numReviews={"(45 Review)"}
-                          stars={"four"}
-                        />
-                      }
                       supportResourcesLearnMore={
                         <div
                           className={classNames(
@@ -281,19 +219,10 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      title={"Zoom"}
+                      withoutScreenshotButtons={true}
                     />
 
                     <ProductCard
-                      addRemoveSlot={
-                        <AddRemoveButton
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__addRemoveButton__g8OK"
-                          )}
-                          removeToolFromSite={true}
-                        />
-                      }
                       className={classNames(
                         "__wab_instance",
                         "Home__productCard__x4KCz"
@@ -325,19 +254,6 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      image={
-                        <img
-                          alt={""}
-                          className={classNames(
-                            "plasmic_default__all",
-                            "plasmic_default__img",
-                            "Home__img__jWwVn"
-                          )}
-                          src={
-                            "/static/plasmic/canvas_app_explorer/images/myLearningAnalytics.png"
-                          }
-                        />
-                      }
                       learnMoreSlot={
                         <React.Fragment>
                           <LearnMoreButton
@@ -357,7 +273,6 @@ function PlasmicHome__RenderFunc(props) {
                           </TitleLearnMoreButton>
                         </React.Fragment>
                       }
-                      learnMoreWithAddRemove={true}
                       placementsInCanvasLearnMore={
                         <div
                           className={classNames(
@@ -408,16 +323,6 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      ratings={
-                        <Ratings
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__ratings__lqtfC"
-                          )}
-                          numReviews={"(45 Review)"}
-                          stars={"five"}
-                        />
-                      }
                       supportResourcesLearnMore={
                         <div
                           className={classNames(
@@ -443,7 +348,7 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      title={"My Learning Analytics"}
+                      withoutScreenshotButtons={true}
                     />
 
                     <ProductCard
@@ -459,51 +364,20 @@ function PlasmicHome__RenderFunc(props) {
                         "__wab_instance",
                         "Home__productCard___0SViq"
                       )}
-                      image={
-                        <img
-                          alt={""}
-                          className={classNames(
-                            "plasmic_default__all",
-                            "plasmic_default__img",
-                            "Home__img__mlvsL"
-                          )}
-                          src={
-                            "/static/plasmic/canvas_app_explorer/images/panopto.png"
-                          }
-                        />
-                      }
                       learnMoreSlot={
-                        <React.Fragment>
-                          <LearnMoreButton
-                            className={classNames(
-                              "__wab_instance",
-                              "Home__learnMoreButton__e5Gv"
-                            )}
-                          />
-
-                          <TitleLearnMoreButton
-                            className={classNames(
-                              "__wab_instance",
-                              "Home__titleLearnMoreButton__qTdBv"
-                            )}
-                          >
-                            {"Find Out More"}
-                          </TitleLearnMoreButton>
-                        </React.Fragment>
+                        <TitleLearnMoreButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__titleLearnMoreButton__qTdBv"
+                          )}
+                        >
+                          {"Find Out More"}
+                        </TitleLearnMoreButton>
                       }
                       withoutScreenshotButtons={true}
                     />
 
                     <ProductCard
-                      addRemoveSlot={
-                        <AddRemoveButton
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__addRemoveButton__ardSt"
-                          )}
-                          removeToolFromSite={true}
-                        />
-                      }
                       className={classNames(
                         "__wab_instance",
                         "Home__productCard__w406"
@@ -535,37 +409,15 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      image={
-                        <img
-                          alt={""}
-                          className={classNames(
-                            "plasmic_default__all",
-                            "plasmic_default__img",
-                            "Home__img__z9TaY"
-                          )}
-                          src={
-                            "/static/plasmic/canvas_app_explorer/images/piazzainstructorpostpng.png"
-                          }
-                        />
-                      }
                       learnMoreSlot={
-                        <React.Fragment>
-                          <LearnMoreButton
-                            className={classNames(
-                              "__wab_instance",
-                              "Home__learnMoreButton___8YAdl"
-                            )}
-                          />
-
-                          <TitleLearnMoreButton
-                            className={classNames(
-                              "__wab_instance",
-                              "Home__titleLearnMoreButton__hj2Jd"
-                            )}
-                          >
-                            {"Find Out More"}
-                          </TitleLearnMoreButton>
-                        </React.Fragment>
+                        <TitleLearnMoreButton
+                          className={classNames(
+                            "__wab_instance",
+                            "Home__titleLearnMoreButton__hj2Jd"
+                          )}
+                        >
+                          {"Find Out More"}
+                        </TitleLearnMoreButton>
                       }
                       placementsInCanvasLearnMore={
                         <div
@@ -617,16 +469,6 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      ratings={
-                        <Ratings
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__ratings__xVvjP"
-                          )}
-                          numReviews={"(45 Review)"}
-                          stars={"five"}
-                        />
-                      }
                       supportResourcesLearnMore={
                         <div
                           className={classNames(
@@ -652,20 +494,10 @@ function PlasmicHome__RenderFunc(props) {
                           </React.Fragment>
                         </div>
                       }
-                      title={"Piazza"}
                       withoutScreenshotButtons={true}
                     />
 
                     <ProductCard
-                      addRemoveSlot={
-                        <AddRemoveButton
-                          className={classNames(
-                            "__wab_instance",
-                            "Home__addRemoveButton__uibYo"
-                          )}
-                          removeToolFromSite={true}
-                        />
-                      }
                       className={classNames(
                         "__wab_instance",
                         "Home__productCard___2HUs2"
@@ -687,20 +519,6 @@ function PlasmicHome__RenderFunc(props) {
               />
             ) : null}
           </div>
-
-          {false ? (
-            <input
-              className={classNames(
-                "plasmic_default__all",
-                "plasmic_default__input",
-                "Home__textInput__triAl"
-              )}
-              placeholder={"Some placeholder"}
-              size={1}
-              type={"text"}
-              value={"Some value"}
-            />
-          ) : null}
         </div>
       </div>
     </React.Fragment>
