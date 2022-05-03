@@ -185,19 +185,6 @@
           "componentType": "component"
         },
         {
-          "id": "50HKxnb8xJ",
-          "name": "LearnMoreTool",
-          "type": "managed",
-          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
-          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreTool.jsx",
-          "importSpec": {
-            "modulePath": "LearnMoreTool.jsx"
-          },
-          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicLearnMoreTool.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "dm73fzeGC7",
           "name": "LearnMoreButton",
           "type": "managed",
@@ -235,20 +222,6 @@
           "cssFilePath": "plasmic/canvas_app_explorer/PlasmicSearchInputComponent.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "3egWRKWeo74",
-          "name": "Button",
-          "type": "managed",
-          "projectId": "mXv5TZ5SUPGRneH9RoMn6q",
-          "renderModuleFilePath": "plasmic/canvas_app_explorer/PlasmicButton.jsx",
-          "importSpec": {
-            "modulePath": "Button.jsx"
-          },
-          "cssFilePath": "plasmic/canvas_app_explorer/PlasmicButton.css",
-          "scheme": "blackbox",
-          "componentType": "component",
-          "plumeType": "button"
         },
         {
           "id": "oCDAnWtrIp",

@@ -45,142 +45,12 @@
   padding-left: 50px;
   padding-right: 50px;
 }
-.Header__menuButton__bmiow.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .Header__menuButton__bmiow.__wab_instance {
-    flex-shrink: 0;
-  }
-}
-.Header__menuButtonexpanded__bmiowVp9H7.__wab_instance {
-  flex-shrink: 0;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .Header__menuButtonexpanded__bmiowVp9H7.__wab_instance {
-    flex-shrink: 0;
-  }
-}
 .Header__text__keObZ {
   position: relative;
   height: 41px;
   font-size: 30px;
   font-weight: 800;
   color: var(--token-HxoWIRXur);
-}
-.Header__textInput__cDxmy {
-  position: relative;
-  width: 180px;
-  flex-shrink: 0;
-}
-.Header__textInput__mlQAu {
-  position: relative;
-  width: 180px;
-  flex-shrink: 0;
-}
-.Header__columns__fymsz {
-  position: relative;
-  width: 100%;
-  height: auto;
-  align-items: stretch;
-  flex-shrink: 1;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  min-width: 0;
-  display: none;
-  padding: 8px;
-}
-.Header__columns__fymsz > :nth-child(2n + 1) {
-  width: calc((100% - 2 * 0px) * 6 / 12);
-}
-.Header__columns__fymsz > :nth-child(2n + 2) {
-  width: calc((100% - 2 * 0px) * 6 / 12);
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .Header__columns__fymsz {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-width: 0;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .Header__columns__fymsz > :nth-child(1n + 1) {
-    width: calc((100% - 1 * 0px) * 12 / 12);
-  }
-}
-.Header__columnssearchBarAndCategories__fymszb146L {
-  display: flex;
-}
-.Header__columnssearchBarAndCategories__fymszb146L > :nth-child(2n + 1) {
-  width: calc((100% - 2 * 0px) * 6 / 12);
-}
-.Header__columnssearchBarAndCategories__fymszb146L > :nth-child(2n + 2) {
-  width: calc((100% - 2 * 0px) * 6 / 12);
-}
-.Header__column__lbnzr {
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  display: none;
-  padding: 8px;
-}
-.Header__columnsearchBarAndCategories__lbnzrb146L {
-  display: flex;
-}
-.Header__button___5RsFq.__wab_instance {
-  max-width: 100%;
-  position: relative;
-}
-.Header__svg__i3B8Q {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
-}
-.Header__svg__cuo7X {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
-}
-.Header__column__ah9Na {
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  display: none;
-  padding: 8px;
-}
-.Header__columnsearchBarAndCategories__ah9NAb146L {
-  display: flex;
-}
-.Header__button__z29JG.__wab_instance {
-  max-width: 100%;
-  position: relative;
-}
-.Header__svg__miknw {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
-}
-.Header__svg__geI53 {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
 }
 .Header__freeBox__zcEqf {
   flex-direction: row;
@@ -217,9 +87,6 @@
 .Header__iconLinknoSearchBarOrSettings__rda3Ai2VQm.__wab_instance {
   flex-shrink: 0;
 }
-.Header__iconLinksearchBarAndCategories__rda3Ab146L.__wab_instance {
-  flex-shrink: 0;
-}
 .Header__svg___7Ic5E {
   position: relative;
   object-fit: cover;
@@ -235,56 +102,6 @@
   color: var(--token-v9gSiCR22bb3A);
 }
 .Header__searchInputComponent___4TRpX.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.Header__iconLink__pu1Ei.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.Header__iconLinkwithSearchBar__pu1Ei8Xp20.__wab_instance {
-  flex-shrink: 0;
-}
-.Header__iconLinknoSearchBarOrSettings__pu1Eii2VQm.__wab_instance {
-  flex-shrink: 0;
-}
-.Header__iconLinksearchBarAndCategories__pu1Eib146L.__wab_instance {
-  flex-shrink: 0;
-}
-.Header__svg__agh0S {
-  position: relative;
-  object-fit: cover;
-  color: var(--token-2HX8dakuYo2K9);
-  width: 18px;
-  height: 18px;
-}
-.Header__root__r4I1P .Header__svg__agh0S:hover {
-  color: rgb(233, 156, 46);
-}
-.Header__freeBox__qIiNj {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-.Header__linkButton__bhzkI.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.Header__linkButton__xdYja.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.Header__linkButton__nKvUv.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.Header__linkButton__hk6Zt.__wab_instance {
-  position: relative;
-  flex-shrink: 0;
-}
-.Header__linkButton__wWLqi.__wab_instance {
   position: relative;
   flex-shrink: 0;
 }
