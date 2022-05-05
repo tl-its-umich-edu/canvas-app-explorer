@@ -9,7 +9,15 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
   card: {
     padding: theme.spacing(1),
-    width: 350
+    width: 350,
+    borderColor: theme.palette.primary.main,
+    borderWidth: '3px'
+  },
+  baseCardContent: {
+    height: 300
+  },
+  cardTitle: {
+    textAlign: 'center'
   },
   dataElement: {
     marginBottom: theme.spacing(2)
@@ -30,9 +38,12 @@ export default function ToolCard(props) {
   const [learnMoreActive, setLearnMoreActive] = useState(false);
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <CardHeader title={tool.name} />
+    <Card className={classes.card} variant='outlined'>
+      <CardContent className={classes.baseCardContent}>
+        <CardHeader
+          disableTypography
+          title={<Typography variant='h5' component='h3' className={classes.cardTitle}>{tool.name}</Typography>}
+        />
         <CardMedia
           className={classes.image}
           component='img'
@@ -65,9 +76,9 @@ export default function ToolCard(props) {
           <CardMedia
             className={classes.image}
             component='img'
-            alt={tool.main_image_alt_text}
+            alt={tool.main_image_alt_text ?? undefined}
             height='200'
-            image={tool.main_image}
+            image={tool.main_image ?? undefined}
           />
           <div className={classes.dataElement}>
             <Typography variant='h6' component='h3' gutterBottom>Privacy Agreement</Typography>

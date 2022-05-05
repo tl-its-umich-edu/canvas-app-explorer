@@ -1,10 +1,23 @@
-import { Grid, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from "react";
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
+import Header from "./Header";
 import ToolCard from "./ToolCard";
 import "../css/Home.css";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(3)
+  },
+  subtitle: {
+    textAlign: 'center',
+    marginBottom: theme.spacing(3)
+  }
+}))
+
 function Home(props) {
+  const classes = useStyles()
+
   //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
   const [APIData, setAPIData] = useState(null); // holds the data read from API
   const [tools, setTools] = useState(null); // to display the tools
@@ -85,18 +98,23 @@ function Home(props) {
   //   />
   // )
 
-  const productCardContainer = tools === null
+  const toolCardContainer = tools === null
     ? <div>Loading . . . </div>
     : (
-      <Grid container spacing={2}>
-        {tools.map(tool => <Grid item key={tool.id}><ProductCardTwo tool={tool} /></Grid>)}
+      <Grid container spacing={2} justifyContent='center'>
+        {tools.map(tool => <Grid item key={tool.id}><ToolCard tool={tool} /></Grid>)}
       </Grid>
     )
 
   return (
     <div>
-      <Typography variant='h4' component='h1'>Canvas App Explorer</Typography>
-      {productCardContainer}
+      <Header onFilterChange={(v) => setSearchFilter(v)}/>
+      <div className={classes.root}>
+        <Typography variant='h5' component='h2' className={classes.subtitle}>
+          Find the best tools for your class and students
+        </Typography>
+        {toolCardContainer}
+      </div>
     </div>
   );
 }
