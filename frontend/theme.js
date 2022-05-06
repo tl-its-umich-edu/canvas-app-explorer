@@ -18,6 +18,6 @@ const theme = createTheme({
       main: '#3F648E'
     }
   }
-})
+});
 
-export default theme
+export default theme;
