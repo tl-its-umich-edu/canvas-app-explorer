@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
-  Button, Card, CardHeader, CardActions, CardContent, CardMedia, Collapse, IconButton,
-  makeStyles, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, IconButton, makeStyles, Typography
 } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -9,12 +8,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
   card: {
     padding: theme.spacing(1),
-    width: 350,
+    width: 375,
     borderColor: theme.palette.primary.main,
     borderWidth: '3px'
   },
   baseCardContent: {
-    height: 300
+    height: 225
   },
   cardTitle: {
     textAlign: 'center'
@@ -40,10 +39,6 @@ export default function ToolCard(props) {
   return (
     <Card className={classes.card} variant='outlined'>
       <CardContent className={classes.baseCardContent}>
-        <CardHeader
-          disableTypography
-          title={<Typography variant='h5' component='h3' className={classes.cardTitle}>{tool.name}</Typography>}
-        />
         <CardMedia
           className={classes.image}
           component='img'
