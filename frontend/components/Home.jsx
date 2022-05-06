@@ -7,11 +7,17 @@ import "../css/Home.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: theme.spacing(2)
+  },
+  container: {
     margin: theme.spacing(3)
   },
   subtitle: {
     textAlign: 'center',
     marginBottom: theme.spacing(3)
+  },
+  footer: {
+    textAlign: 'center'
   }
 }))
 
@@ -107,14 +113,19 @@ function Home(props) {
     )
 
   return (
-    <div>
+    <div className={classes.root}>
       <Header onFilterChange={(v) => setSearchFilter(v)}/>
-      <div className={classes.root}>
+      <div className={classes.container}>
         <Typography variant='h5' component='h2' className={classes.subtitle}>
           Find the best tools for your class and students
         </Typography>
         {toolCardContainer}
       </div>
+      <footer className={classes.footer}>
+        <Typography>
+          Copyright © 2022 The Regents of the University of Michigan
+        </Typography>
+      </footer>
     </div>
   );
 }
