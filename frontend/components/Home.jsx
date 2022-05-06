@@ -90,20 +90,6 @@ function Home(props) {
   // )}
   // )
 
-  // const header = (
-  //   <Header
-  //     withSearchBar={true}
-  //     searchInputSlot={
-  //       <SearchInputComponent
-  //         withSearchBar={true} // without this, search bar won't show up in SearchInputComponent
-  //         placeholder="Filter by name..."
-  //         value={searchFilter} // updates what is displayed with what user inputs
-  //         onChange={(e) => setSearchFilter(e.target.value)} // set search filter to input value
-  //       />
-  //     }
-  //   />
-  // )
-
   const toolCardContainer = tools === null
     ? <div>Loading . . . </div>
     : (
