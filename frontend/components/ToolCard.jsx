@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, IconButton, makeStyles, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, IconButton,
+  makeStyles, Typography
 } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -21,8 +23,15 @@ const useStyles = makeStyles((theme) => ({
   dataElement: {
     marginBottom: theme.spacing(2)
   },
-  expandButton: {
-    marginLeft: 'auto'
+  addButton: {
+    background: theme.palette.success.main,
+    color: theme.palette.success.contrastText,
+    '&:hover': {
+      background: theme.palette.success.light,
+    }
+  },
+  addIcon: {
+    marginRight: theme.spacing(1)
   },
   image: {
     objectFit: 'contain',
@@ -51,14 +60,24 @@ export default function ToolCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton
-          className={classes.expandButton}
-          onClick={() => setLearnMoreActive(!learnMoreActive)}
-          aria-expanded={learnMoreActive}
-          aria-label={`${learnMoreActive ? 'Close ' : ''}Learn More`}
-        >
-          {!learnMoreActive ? <ExpandMoreIcon /> : <ExpandLessIcon />}
-        </IconButton>
+        <Grid container justifyContent='space-between'>
+          <Button
+            id='add-remove-button'
+            aria-label='Add tool to course'
+            variant='contained'
+            className={classes.addButton}
+          >
+            <AddIcon className={classes.addIcon} fontSize='medium' />
+            <Typography component='span'>Add tool</Typography>
+          </Button>
+          <IconButton
+            onClick={() => setLearnMoreActive(!learnMoreActive)}
+            aria-expanded={learnMoreActive}
+            aria-label={`${learnMoreActive ? 'Close ' : ''}Learn More`}
+          >
+            {!learnMoreActive ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+          </IconButton>
+        </Grid>
       </CardActions>
       <Collapse in={learnMoreActive} unmountOnExit>
         <CardContent>
