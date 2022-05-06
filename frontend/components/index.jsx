@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material';
 
 import theme from '../theme';
 
@@ -8,9 +8,11 @@ import Home from './Home';
 
 ReactDOM.render(
   (
-    <ThemeProvider theme={theme}>
-      <Home />
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Home />
+      </ThemeProvider>
+    </StyledEngineProvider>
   ),
   document.getElementById('react-app')
 );

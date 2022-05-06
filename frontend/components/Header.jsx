@@ -1,6 +1,7 @@
 import React from 'react';
-import { FilledInput, Grid, InputAdornment, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+import { Grid, Paper, TextField, Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   titleBar: {

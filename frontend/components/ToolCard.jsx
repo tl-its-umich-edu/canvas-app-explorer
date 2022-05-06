@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, IconButton,
-  makeStyles, Typography
-} from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, IconButton, Typography
+} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -74,6 +74,7 @@ export default function ToolCard(props) {
             onClick={() => setLearnMoreActive(!learnMoreActive)}
             aria-expanded={learnMoreActive}
             aria-label={`${learnMoreActive ? 'Close ' : ''}Learn More`}
+            size='large'
           >
             {!learnMoreActive ? <ExpandMoreIcon /> : <ExpandLessIcon />}
           </IconButton>

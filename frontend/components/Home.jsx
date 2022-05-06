@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Grid, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 
-import Header from "./Header";
-import ToolCard from "./ToolCard";
-import "../css/Home.css";
+import Header from './Header';
+import ToolCard from './ToolCard';
+import '../css/Home.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function Home(props) {
+function Home() {
   const classes = useStyles()
 
   //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
