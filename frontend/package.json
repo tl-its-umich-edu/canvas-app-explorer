@@ -5,6 +5,12 @@
   "main": "index.js",
   "author": "",
   "license": "",
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
@@ -16,11 +22,5 @@
     "webpack-bundle-tracker": "1.0.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.0.0"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0"
   }
 }
