@@ -1,30 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles';
 
 import Header from './Header';
 import ToolCard from './ToolCard';
 import '../css/Home.css';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: theme.spacing(2)
-  },
-  container: {
-    margin: theme.spacing(3)
-  },
-  subtitle: {
-    textAlign: 'center',
-    marginBottom: theme.spacing(3)
-  },
-  footer: {
-    textAlign: 'center'
-  }
-}))
-
 function Home() {
-  const classes = useStyles()
-
   //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
   const [APIData, setAPIData] = useState(null); // holds the data read from API
   const [tools, setTools] = useState(null); // to display the tools
@@ -99,21 +81,27 @@ function Home() {
       </Grid>
     )
 
+  const Root = styled('div')(({ theme }) => ({
+    margin: theme.spacing(2)
+  }));
+
+  const MainContainer = styled('div')(({ theme }) => ({
+    margin: theme.spacing(3)
+  }))
+
   return (
-    <div className={classes.root}>
+    <Root>
       <Header onFilterChange={(v) => setSearchFilter(v)}/>
-      <div className={classes.container}>
-        <Typography variant='h5' component='h2' className={classes.subtitle}>
+      <MainContainer>
+        <Typography variant='h5' component='h2' sx={{ textAlign: 'center', marginBottom: 3 }}>
           Find the best tools for your class and students
         </Typography>
         {toolCardContainer}
-      </div>
-      <footer className={classes.footer}>
-        <Typography>
-          Copyright © 2022 The Regents of the University of Michigan
-        </Typography>
-      </footer>
-    </div>
+      </MainContainer>
+      <Typography component='footer' sx={{ textAlign: 'center' }}>
+        Copyright © 2022 The Regents of the University of Michigan
+      </Typography>
+    </Root>
   );
 }
 

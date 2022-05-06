@@ -1,54 +1,44 @@
 import React from 'react';
 import { Grid, Paper, TextField, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import makeStyles from '@mui/styles/makeStyles';
-
-const useStyles = makeStyles((theme) => ({
-  titleBar: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(2)
-  },
-  searchIcon: {
-    marginRight: theme.spacing(1)
-  },
-  filterField: {
-    background: theme.palette.primary.contrastText
-  },
-  inputText: {
-    fontSize: '20px'
-  }
-}));
 
 export default function Header (props) {
-  const classes = useStyles();
   return (
-    <Grid container className={classes.titleBar} spacing={2} justifyContent='center'>
-      <Grid item md={5} sm={12}>
-        <Typography variant='h4' component='h1'>Canvas App Explorer</Typography>
+    <Grid
+      container
+      spacing={2}
+      justifyContent='flex-start'
+      sx={{
+        backgroundColor: 'primary.main',
+        color: 'primary.contrastText',
+        padding: 2,
+        marginBottom: 2
+      }}
+    >
+      <Grid item md={6} sm={12} xs={12}>
+        <Typography variant='h4' component='h1' sx={{ marginBottom: 1 }}>
+          Canvas App Explorer
+        </Typography>
       </Grid>
       <Grid
         item
-        container
-        md={5}
+        md={6}
         sm={12}
-        className={classes.filterField}
+        xs={12}
         component={Paper}
-        alignItems='flex-end'
+        sx={{ padding: 1 }}
       >
         <Grid container justifyContent='flex-start' alignItems='center'>
           <Grid item xs='auto'>
-            <SearchIcon fontSize='medium' className={classes.searchIcon} />
+            <SearchIcon sx={{ marginRight: 1 }} />
           </Grid>
           <Grid item xs>
             <TextField
               id='tool-filter'
               placeholder='Filter by name or description'
               aria-label='Filter tools by name or description'
-              InputProps={{ classes: { input: classes.inputText } }}
+              InputProps={{ sx: { fontSize: '20px' } }}
               variant='standard'
-              className={classes.filterField}
               color='primary'
               fullWidth
               onChange={(e) => props.onFilterChange(e.target.value)}
