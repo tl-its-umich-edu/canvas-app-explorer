@@ -79,7 +79,7 @@ function Home() {
       <Grid container spacing={2} justifyContent='center'>
         {tools.map(tool => <Grid item key={tool.id}><ToolCard tool={tool} /></Grid>)}
       </Grid>
-    )
+    );
 
   const Root = styled('div')(({ theme }) => ({
     margin: theme.spacing(2)
@@ -87,11 +87,11 @@ function Home() {
 
   const MainContainer = styled('div')(({ theme }) => ({
     margin: theme.spacing(3)
-  }))
+  }));
 
   return (
     <Root>
-      <Header onFilterChange={(v) => setSearchFilter(v)}/>
+      <Header onFilterChange={(v) => setSearchFilter(v)} />
       <MainContainer>
         <Typography variant='h5' component='h2' sx={{ textAlign: 'center', marginBottom: 3 }}>
           Find the best tools for your class and students
