@@ -7,9 +7,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const DataElement = styled('div')(({ theme }) => ({
-  marginBottom: theme.spacing(2)
-}))
+import DataElement from './DataElement';
 
 const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
   objectFit: 'contain',
@@ -60,11 +58,8 @@ export default function ToolCard(props) {
       </CardActions>
       <Collapse in={learnMoreActive} unmountOnExit>
         <CardContent>
-          <DataElement>
-            <Typography variant='h6' component='h3' gutterBottom>Description</Typography>
-            <Typography variant='body2'>
-              <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
-            </Typography>
+          <DataElement name='Description'>
+            <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
           </DataElement>
           <ContainedCardMedia
             component='img'
@@ -72,23 +67,14 @@ export default function ToolCard(props) {
             height='200'
             image={tool.main_image ?? undefined}
           />
-          <DataElement>
-            <Typography variant='h6' component='h3' gutterBottom>Privacy Agreement</Typography>
-            <Typography variant='body2'>
-              <span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement }} />
-            </Typography>
+          <DataElement name='Privacy Agreement'>
+            <span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement }} />
           </DataElement>
-          <DataElement>
-            <Typography variant='h6' component='h3' gutterBottom>Placements</Typography>
-            <Typography variant='body2'>
-              {tool.canvas_placement_expanded.map(p => p.name).join(', ')}
-            </Typography>
+          <DataElement name='Placements'>
+            {tool.canvas_placement_expanded.map(p => p.name).join(', ')}
           </DataElement>
-          <DataElement>
-            <Typography variant='h6' component='h3' gutterBottom>Support Resources</Typography>
-            <Typography variant='body2'>
-              <span dangerouslySetInnerHTML={{ __html: tool.support_resources }} />
-            </Typography>
+          <DataElement name='Support Resources'>
+            <span dangerouslySetInnerHTML={{ __html: tool.support_resources }} />
           </DataElement>
         </CardContent>
       </Collapse>
