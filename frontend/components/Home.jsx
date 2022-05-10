@@ -6,6 +6,14 @@ import Header from './Header';
 import ToolCard from './ToolCard';
 import '../css/Home.css';
 
+const Root = styled('div')(({ theme }) => ({
+  margin: theme.spacing(2)
+}));
+
+const MainContainer = styled('div')(({ theme }) => ({
+  margin: theme.spacing(3)
+}));
+
 function Home() {
   //const [addedTools, setAddedTools] = useState([]); // each tool has one entry in array, for add/remove
   const [APIData, setAPIData] = useState(null); // holds the data read from API
@@ -80,14 +88,6 @@ function Home() {
         {tools.map(tool => <Grid item key={tool.id}><ToolCard tool={tool} /></Grid>)}
       </Grid>
     );
-
-  const Root = styled('div')(({ theme }) => ({
-    margin: theme.spacing(2)
-  }));
-
-  const MainContainer = styled('div')(({ theme }) => ({
-    margin: theme.spacing(3)
-  }));
 
   return (
     <Root>
