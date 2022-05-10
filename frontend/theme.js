@@ -13,9 +13,6 @@ const theme = createTheme({
     },
     success: {
       main: '#306430'
-    },
-    info: {
-      main: '#3F648E'
     }
   }
 });

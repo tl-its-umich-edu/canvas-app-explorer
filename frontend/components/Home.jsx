@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Typography } from '@mui/material';
+import { Alert, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Header from './Header';
@@ -85,7 +85,11 @@ function Home() {
     ? <div>Loading . . . </div>
     : (
       <Grid container spacing={2} justifyContent='center'>
-        {tools.map(tool => <Grid item key={tool.id}><ToolCard tool={tool} /></Grid>)}
+        {
+          tools.length > 0
+            ? tools.map(tool => <Grid item key={tool.id}><ToolCard tool={tool} /></Grid>)
+            : <Grid item><Alert severity='info'>No matching results</Alert></Grid>
+        }
       </Grid>
     );
 
