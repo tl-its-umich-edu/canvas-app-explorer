@@ -14,7 +14,7 @@ class CanvasLtiManager:
             if "external_tools" in tab.html_url: #filter external tools from all tabs
                 exTools.append(ExternalTool(
                     label=tab.label,
-                    id=tab.id,
+                    id=tab.id.split('_')[-1],
                     isHidden=(hasattr(tab, 'hidden'))
                 ))
         return exTools
