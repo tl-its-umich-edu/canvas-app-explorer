@@ -22,9 +22,9 @@ export default function ToolCard(props) {
   return (
     <Card
       variant='outlined'
-      sx={{ padding: 1, width: 350, borderColor: 'primary.main', borderWidth: '3px' }}
+      sx={{ padding: 1, width: 328, borderColor: 'primary.main', borderWidth: '3px' }}
     >
-      <CardContent sx={{ height: 240 }}>
+      <CardContent sx={{ height: 225 }}>
         <ContainedCardMedia
           component='img'
           alt={tool.logo_image_alt_text}
