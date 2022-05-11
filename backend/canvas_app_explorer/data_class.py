@@ -4,7 +4,7 @@ from dataclasses import dataclass
 class ExternalTool:
     label: str
     id: int
-    isHidden: bool
+    is_hidden: bool
     def __str__(self) -> str:
-        return f'ExternalTool({self.label},{self.id},{self.isHidden})'
+        return f'ExternalTool({self.label},{self.id},{self.is_hidden})'
 

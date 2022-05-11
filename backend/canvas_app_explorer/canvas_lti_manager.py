@@ -1,6 +1,6 @@
 from typing import List
 from canvasapi import Canvas
-from .ExternalTool_interface import ExternalTool
+from .data_class import ExternalTool
 
 class CanvasLtiManager:
     def __init__(self, API_URL : str, API_KEY : str, course_id : int):
@@ -8,14 +8,14 @@ class CanvasLtiManager:
         self.requestor = Canvas(API_URL, API_KEY)
 
     def get_tools_available_in_course(self) -> List[ExternalTool]:
-        exTools = []
+        ex_tools = []
         course = self.requestor.get_course(self.course_id)
         for tab in course.get_tabs():
             if "external_tools" in tab.html_url: #filter external tools from all tabs
-                exTools.append(ExternalTool(
+                ex_tools.append(ExternalTool(
                     label=tab.label,
                     id=tab.id.split('_')[-1],
-                    isHidden=(hasattr(tab, 'hidden'))
+                    is_hidden=(hasattr(tab, 'hidden'))
                 ))
-        return exTools
+        return ex_tools
 
