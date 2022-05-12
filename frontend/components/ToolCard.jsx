@@ -12,7 +12,7 @@ import DataElement from './DataElement';
 const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
   objectFit: 'contain',
   marginBottom: theme.spacing(2)
-}))
+}));
 
 export default function ToolCard(props) {
   const { tool } = props;
