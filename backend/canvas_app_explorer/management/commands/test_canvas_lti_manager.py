@@ -11,7 +11,7 @@ class Command(BaseCommand):
         parser.add_argument('api_url', nargs='?', type=str, default="https://umich-dev.instructure.com")
 
     def handle(self, *args, **options):
-        manager = CanvasLtiManager(API_URL=options['api_url'], API_KEY=options['api_key'][0], course_id=options['course_id'][0])
+        manager = CanvasLtiManager(api_url=options['api_url'], api_key=options['api_key'][0], course_id=options['course_id'][0])
         res = manager.get_tools_available_in_course()
         self.stdout.write(self.style.SUCCESS('#items %s\n' % len(res)))
         for item in res:

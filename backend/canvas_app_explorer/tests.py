@@ -10,7 +10,7 @@ class TestCanvasLtiManager(TestCase):
         API_URL = settings.TEST_API_URL
         API_KEY = settings.TEST_API_KEY
         COURSE_ID = settings.TEST_COURSE_ID
-        manager = CanvasLtiManager(API_URL=API_URL, API_KEY=API_KEY, course_id=COURSE_ID)
+        manager = CanvasLtiManager(api_url=API_URL, api_key=API_KEY, course_id=COURSE_ID)
         res = manager.get_tools_available_in_course()
         for tool in res:
             self.assertIsInstance(tool, ExternalTool)

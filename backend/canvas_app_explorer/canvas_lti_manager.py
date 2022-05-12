@@ -3,9 +3,9 @@ from canvasapi import Canvas
 from .data_class import ExternalTool
 
 class CanvasLtiManager:
-    def __init__(self, API_URL: str, API_KEY: str, course_id: int):
+    def __init__(self, api_url: str, api_key: str, course_id: int):
         self.course_id = course_id
-        self.requestor = Canvas(API_URL, API_KEY)
+        self.requestor = Canvas(api_url, api_key)
 
     def get_tools_available_in_course(self) -> List[ExternalTool]:
         ex_tools = []
