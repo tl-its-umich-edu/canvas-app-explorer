@@ -1,10 +1,18 @@
 {
-  "name": "example",
+  "name": "canvas-app-explorer",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "author": "Owais Lone",
-  "license": "MIT",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
@@ -12,15 +20,9 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
     "webpack": "^4.0.0",
     "webpack-bundle-tracker": "1.0.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.0.0"
-  },
-  "dependencies": {
-    "@plasmicapp/cli": "^0.1.178",
-    "@plasmicapp/react-web": "^0.2.95"
   }
 }
