@@ -1,7 +1,7 @@
 gunicorn
 
 Django>=3.2,<3.3
-django-webpack-loader
+django-webpack-loader==1.5.0
 mysqlclient
 django-mysql
 

@@ -35,7 +35,6 @@ services:
       - ${HOME}/mylasecrets:/secrets
     ports:
       - "5000:5000"
-      - "3000:3000"
     container_name: canvas_app_explorer
     env_file:
       - .env

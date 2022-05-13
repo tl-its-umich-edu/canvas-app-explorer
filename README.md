@@ -2,14 +2,14 @@
 
 ### Development mode
 
-Development mode for this application starts up 2 servers in the same container, one running on port 5000 (Python/Django backend) and one running on port 3000 (Node/React frontend). This allows for changes to be picked up and re-built from the mounted local volumes.
+Development mode for this application starts up 2 processes in the same container, one running on port 5000 (Python/Django backend) and one that writes to the disk and recompiles the frontend. This allows for changes to be picked up and re-built from the mounted local volumes.
 
 With Docker installed run
 `docker-compose down; docker-compose build && docker-compose up`
 
 Then the app in development should be accessible on http://localhost:5000/
 
-Now you can make changes to `frontend/js/app.jsx` and the changes **should** show up in the browser automagically.
+Now you can make changes to files in `frontend` and the changes **should** show up in the browser automagically.
 
 To create a local admin user you should run this.
 
