@@ -22,3 +22,5 @@ https://github.com/Harvard-University-iCommons/django-canvas-oauth/archive/v1.1.
 
 # For serving static files
 whitenoise==5.3.0
+
+canvasapi==2.2.0

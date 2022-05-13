@@ -14,12 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import os
-from django.contrib import admin
-from django.contrib.auth import views as auth_views
 
 from django.conf import settings
+from django.contrib import admin
 from django.urls import include, path, re_path 
-from django.views.generic import TemplateView
 from django.views import static
 from rest_framework import routers
 
@@ -44,21 +42,19 @@ urlpatterns = [
 ]
 
 # This is to aid local development. 
-# This exposes the frontend/public/plasmic directory on a url in static and allows browsing.
+# This exposes the frontend/public directory on a url in static and allows browsing.
 # Whitenoise currently handles this otherwise
 if settings.DEBUG:
     from django.contrib.staticfiles import views as static_views
 
     urlpatterns += [
-        re_path(r'^static/plasmic/(?P<path>.*)$', 
+        re_path(r'^static/(?P<path>.*)$',
             view = static.serve, 
             kwargs = {
-                'document_root': os.path.join(settings.BASE_DIR, 'frontend/public/plasmic'), 
+                'document_root': os.path.join(settings.BASE_DIR, 'frontend/public'),
                 'show_indexes' : True
             }
         ),
         # Matches STATIC_URL in settings
         re_path(r'^django_static/(?P<path>.*)$', static_views.serve),
     ]
-
-
