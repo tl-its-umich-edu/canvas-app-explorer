@@ -7,10 +7,7 @@ from backend.canvas_app_explorer.data_class import ExternalTool
 # Create your tests here.
 class TestCanvasLtiManager(TestCase):
     def test_get_ex_tools(self):
-        API_URL = settings.TEST_API_URL
-        API_KEY = settings.TEST_API_KEY
-        COURSE_ID = settings.TEST_COURSE_ID
-        manager = CanvasLtiManager(api_url=API_URL, api_key=API_KEY, course_id=COURSE_ID)
+        manager = CanvasLtiManager(settings.TEST_API_URL, settings.TEST_API_KEY, settings.TEST_COURSE_ID)
         res = manager.get_tools_available_in_course()
         for tool in res:
             self.assertIsInstance(tool, ExternalTool)
