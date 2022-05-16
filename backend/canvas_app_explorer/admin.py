@@ -6,6 +6,7 @@ from backend.canvas_app_explorer.models import LtiTool, CanvasPlacement
 class LtiToolAdmin(admin.ModelAdmin):
     fields = (
         'name',
+        'canvas_id',
         ('logo_image', 'logo_image_alt_text'),
         ('main_image', 'main_image_alt_text'),
         'short_description',
@@ -14,8 +15,14 @@ class LtiToolAdmin(admin.ModelAdmin):
         'support_resources',
         'canvas_placement'
     )
+    list_display = ('name', 'canvas_id')
+
+
 admin.site.register(LtiTool, LtiToolAdmin)
+
 
 class CanvasPlacementAdmin(admin.ModelAdmin):
     pass
+
+
 admin.site.register(CanvasPlacement, CanvasPlacementAdmin) 
