@@ -51,36 +51,6 @@ function Home() {
     }
   }, [searchFilter])
 
-  // -----------------------ADD/REMOVE BUTTON FUNCTIONALITY CODE---------------------------
-  // const addRemoveBlock = (
-  // addRemoveSlot={(
-  //     <div>
-  //         {addedTools[tool.id] === false ?
-  //             <AddRemoveButton
-  //                 onClick={(e) => {
-  //                     console.log(HELLOOO)
-  //                     e.preventDefault();
-  //                     let addedToolsCopy = [...addedTools]
-  //                     addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
-  //                     setAddedTools(addedToolsCopy)
-  //                 }}
-  //             />
-  //         :
-  //             <AddRemoveButton
-  //                 onClick={(e) => {
-  //                     console.log(YOOOOOOOOO)
-  //                     e.preventDefault();
-  //                     let addedToolsCopy = [...addedTools]
-  //                     addedToolsCopy[tool.id] = !addedToolsCopy[tool.id]
-  //                     setAddedTools(addedToolsCopy)
-  //                 }}
-  //                 removeToolFromSite={true}
-  //             />
-  //         }
-  //     </div>
-  // )}
-  // )
-
   const toolCardContainer = tools === null
     ? <div>Loading . . . </div>
     : (
