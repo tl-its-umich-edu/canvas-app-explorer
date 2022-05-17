@@ -139,6 +139,11 @@ def create_user_in_django(request, message_launch):
     user_obj.backend = 'django.contrib.auth.backends.ModelBackend'
     django_login(request, user_obj)
 
+    if course_id is not None and isinstance(course_id, int):
+        request.session['course_id'] = course_id
+    else:
+        raise Exception('The canvas_course_id custom LTI variable must be configured.')
+
 @csrf_exempt
 def login(request):
     target_link_uri = request.POST.get('target_link_uri', request.GET.get('target_link_uri'))
