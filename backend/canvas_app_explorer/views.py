@@ -28,6 +28,4 @@ class LTIToolViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         available_tool_ids = [t.id for t in self.get_serializer_context()['available_tools']]
-        return models.LtiTool.objects\
-            .filter(canvas_id__isnull=False)\
-            .filter(canvas_id__in=available_tool_ids)
+        return models.LtiTool.objects.filter(canvas_id__isnull=False, canvas_id__in=available_tool_ids)
