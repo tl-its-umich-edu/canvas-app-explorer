@@ -22,6 +22,7 @@ class LtiToolSerializer(serializers.ModelSerializer):
 
     def get_enabled(self, obj: models.LtiTool) -> Union[bool, None]:
         available_tools = self.context['available_tools']
+        # Search in tools available in the context for a canvas ID matching the model instance
         matches: List[ExternalTool] = list(filter(lambda x: x.id == obj.canvas_id, available_tools))
         if len(matches) > 0:
             first_match = matches[0] # Canvas IDs should be unique
