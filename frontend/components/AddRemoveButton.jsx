@@ -4,9 +4,9 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { Button, SvgIcon, Typography } from '@mui/material';
 
 export default function AddRemoveButton (props) {
-  const { enabled, onClick } = props;
+  const { navEnabled, onClick } = props;
 
-  const buttonProps = !enabled
+  const buttonProps = !navEnabled
     ? {
       id: 'add-tool-button',
       'aria-label': 'Add tool to course',
@@ -29,9 +29,8 @@ export default function AddRemoveButton (props) {
       onClick={onClick}
       {...buttonProps}
     >
-      {enabled ? <RemoveIcon {...commonIconProps} /> : <AddIcon {...commonIconProps} />}
-      <Typography component='span'>{enabled ? 'Remove' : 'Add'} tool</Typography>
+      {navEnabled ? <RemoveIcon {...commonIconProps} /> : <AddIcon {...commonIconProps} />}
+      <Typography component='span'>{navEnabled ? 'Remove' : 'Add'} tool</Typography>
     </Button>
   )
 }
-

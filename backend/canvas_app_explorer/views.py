@@ -15,6 +15,10 @@ class LTIToolViewSet(viewsets.ModelViewSet):
     queryset = models.LtiTool.objects.all()
 
     def get_serializer_context(self):
+        """
+        Extends context for LtiToolSerializer to include data (from the Cavnas API) about tools available
+        in the course and whether they are enabled for the navigation.
+        """
         context = super(LTIToolViewSet, self).get_serializer_context()
         request: Request = context['request']
         access_token = get_oauth_token(request)
@@ -27,5 +31,9 @@ class LTIToolViewSet(viewsets.ModelViewSet):
         return context
 
     def get_queryset(self):
+        """
+        Overrides default queryset to limit results to LtiTool model instances with a non-null Canvas ID
+        and with matching data from Canvas indicating it is available in the course.
+        """
         available_tool_ids = [t.id for t in self.get_serializer_context()['available_tools']]
         return models.LtiTool.objects.filter(canvas_id__isnull=False, canvas_id__in=available_tool_ids)

@@ -37,7 +37,7 @@ export default function ToolCard(props) {
       </CardContent>
       <CardActions>
         <Grid container justifyContent='space-between'>
-          <AddRemoveButton enabled={tool.enabled} />
+          <AddRemoveButton navEnabled={tool.navigation_enabled} />
           <IconButton
             onClick={() => setLearnMoreActive(!learnMoreActive)}
             aria-expanded={learnMoreActive}
