@@ -16,8 +16,8 @@ class LTIToolViewSet(viewsets.ModelViewSet):
 
     def get_serializer_context(self):
         """
-        Extends context for LtiToolSerializer to include data (from the Cavnas API) about tools available
-        in the course and whether they are enabled for the navigation.
+        Extends context for LtiToolSerializer to include data (from the Canvas API) about tools available
+        in the course and whether they are enabled for the navigation
         """
         context = super(LTIToolViewSet, self).get_serializer_context()
         request: Request = context['request']
