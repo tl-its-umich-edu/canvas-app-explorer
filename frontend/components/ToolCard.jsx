@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AddIcon from '@mui/icons-material/Add';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
@@ -7,6 +6,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import AddRemoveButton from './AddRemoveButton';
 import DataElement from './DataElement';
 
 const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
@@ -37,15 +37,7 @@ export default function ToolCard(props) {
       </CardContent>
       <CardActions>
         <Grid container justifyContent='space-between'>
-          <Button
-            id='add-remove-button'
-            aria-label='Add tool to course'
-            variant='contained'
-            color='success'
-          >
-            <AddIcon sx={{ marginRight: 1 }} fontSize='medium' />
-            <Typography component='span'>Add tool</Typography>
-          </Button>
+          <AddRemoveButton navEnabled={tool.navigation_enabled} />
           <IconButton
             onClick={() => setLearnMoreActive(!learnMoreActive)}
             aria-expanded={learnMoreActive}

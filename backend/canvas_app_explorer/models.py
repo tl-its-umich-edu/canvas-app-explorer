@@ -21,6 +21,7 @@ class MainImage(models.Model):
 
 class LtiTool(models.Model):
     name = models.CharField(max_length=50)
+    canvas_id = models.IntegerField(unique=True, blank=True, null=True)
     logo_image = models.ImageField(upload_to='canvas_app_explorer.LogoImage/bytes/filename/mimetype', blank=True, null=True)
     logo_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
     main_image = models.ImageField(upload_to='canvas_app_explorer.MainImage/bytes/filename/mimetype', blank=True, null=True)
