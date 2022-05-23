@@ -9,7 +9,6 @@ import { styled } from '@mui/material/styles';
 import AddRemoveButton from './AddRemoveButton';
 import DataElement from './DataElement';
 
-
 const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
   objectFit: 'contain',
   marginBottom: theme.spacing(2)
