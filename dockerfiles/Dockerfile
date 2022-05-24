@@ -17,16 +17,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /code/frontend
 
 ENV NODE_VERSION=16.14.2
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-ENV NVM_DIR=/root/.nvm
-RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION} && \
-    . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION} && \
-    . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
-ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-RUN node --version && npm --version
 
-COPY /frontend/package*.json /code/frontend/
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt install -y nodejs
 
+COPY /frontend/package*.json /code/frontend
 RUN npm install
 
 WORKDIR /code

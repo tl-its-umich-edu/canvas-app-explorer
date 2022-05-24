@@ -38,10 +38,5 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    devMiddleware: {
-      writeToDisk: true,
-    }
   }
 }
