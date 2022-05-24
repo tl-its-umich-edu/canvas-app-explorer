@@ -3,14 +3,11 @@ var BundleTracker = require('webpack-bundle-tracker');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Try the environment variable
-const PUBLIC_PATH = process.env.PUBLIC_PATH || '/static/bundles/';
-
 module.exports = {
   context: __dirname,
   entry: './components/index',
   output: {
     path: path.resolve('./bundles/'),
-    publicPath: PUBLIC_PATH,
     filename: "[name]-[hash].js",
     chunkFilename: "[name]-[hash].js"
   },
@@ -41,5 +38,5 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx']
-  },
+  }
 }

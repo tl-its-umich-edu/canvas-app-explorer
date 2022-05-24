@@ -22,10 +22,8 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/Dockerfile.openshift
-      # This path has to be passed during the build here
       args:
         - TZ=${TZ}
-        - PUBLIC_PATH=/static/bundles/
     volumes:
       # Only map the secrets for prod build
       - ${HOME}/mylasecrets:/secrets

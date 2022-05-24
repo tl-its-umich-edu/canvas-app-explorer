@@ -27,15 +27,12 @@ services:
       args:
         TZ: ${TZ}
     volumes:
-      - .:/code:delegated
-      # use the container's node_modules and bundles folder (don't override)
-      - /code/frontend/node_modules/
-      - /code/frontend/bundles/
-      - /code/static/
+      # Mount only the needed directories for local development
+      - ./frontend/components:/code/frontend/components
+      - ./backend:/code/backend
       - ${HOME}/mylasecrets:/secrets
     ports:
       - "5000:5000"
-      - "3000:3000"
     container_name: canvas_app_explorer
     env_file:
       - .env
