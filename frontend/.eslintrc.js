@@ -1,6 +1,7 @@
 module.exports = {
   'env': {
     'browser': true,
+    'node': true,
     'es2021': true
   },
   'extends': [
@@ -20,6 +21,11 @@ module.exports = {
     'react',
     '@typescript-eslint'
   ],
+  'settings': {
+    'react': {
+      'version': 'detect'
+    }
+  },
   'rules': {
     'indent': [
       'error',

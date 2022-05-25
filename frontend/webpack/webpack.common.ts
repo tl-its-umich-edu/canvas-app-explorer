@@ -8,8 +8,8 @@ const commonConfig: webpack.Configuration = {
   entry: path.resolve('components', 'index'),
   output: {
     path: path.resolve('./bundles/'),
-    filename: "[name]-[fullhash].js",
-    chunkFilename: "[name]-[chunkhash].js"
+    filename: '[name]-[fullhash].js',
+    chunkFilename: '[name]-[chunkhash].js'
   },
 
   plugins: [
@@ -39,6 +39,6 @@ const commonConfig: webpack.Configuration = {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   }
-}
+};
 
-export default commonConfig
+export default commonConfig;
