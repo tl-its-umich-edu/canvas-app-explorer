@@ -4,8 +4,8 @@ import { styled } from '@mui/material/styles';
 
 import Header from './Header';
 import ToolCard from './ToolCard';
-import { Tool } from '../interfaces';
 import '../css/Home.css';
+import { Tool } from '../interfaces';
 
 const Root = styled('div')(({ theme }) => ({
   margin: theme.spacing(2)

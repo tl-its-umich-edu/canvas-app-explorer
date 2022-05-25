@@ -1,4 +1,4 @@
-interface CanvasLTIPlacement {
+interface CanvasPlacement {
   name: string
 }
 
@@ -13,7 +13,7 @@ interface Tool {
   main_image: string | null,
   main_image_alt_text: string | null,
   privacy_agreement: string,
-  canvas_placement_expanded: CanvasLTIPlacement[],
+  canvas_placement_expanded: CanvasPlacement[],
   support_resources: string
   navigation_enabled: boolean
 }
