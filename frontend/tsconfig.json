@@ -21,8 +21,7 @@
       "esnext"
     ],
     "jsx": "react",
-    "sourceMap": true,
-    "allowJs": true
+    "sourceMap": true
   },
   "include": [
     "components",

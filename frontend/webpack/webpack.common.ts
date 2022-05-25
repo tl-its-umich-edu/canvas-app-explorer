@@ -3,8 +3,10 @@ import * as webpack from 'webpack';
 import BundleTrackerPlugin from 'webpack-bundle-tracker';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
+const frontendPath = path.resolve(__dirname, '..');
+
 const commonConfig: webpack.Configuration = {
-  context: path.resolve(__dirname, '..'),
+  context: frontendPath,
   entry: path.resolve('components', 'index'),
   output: {
     path: path.resolve('./bundles/'),
@@ -22,11 +24,15 @@ const commonConfig: webpack.Configuration = {
 
   module: {
     rules: [
-      // we pass the output from babel loader to react-hot loader
       {
-        test: /\.(js|jsx|tsx|ts)?$/,
+        test: /\.(tsx|ts)?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            configFile: path.resolve(frontendPath, 'tsconfig.json')
+          }
+        }
       },
       {
         test: /\.css$/,
@@ -37,7 +43,7 @@ const commonConfig: webpack.Configuration = {
 
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   }
 };
 
