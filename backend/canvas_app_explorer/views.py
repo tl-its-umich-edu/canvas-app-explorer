@@ -17,7 +17,7 @@ class LTIToolViewSet(viewsets.ViewSet):
     """
     permission_classes = [permissions.IsAuthenticated]
 
-    def list(self, request: Request):
+    def list(self, request: Request) -> Response:
         access_token = get_oauth_token(request)
         logger.debug(f"Course ID: {request.session['course_id']}")
         manager = CanvasLtiManager(
