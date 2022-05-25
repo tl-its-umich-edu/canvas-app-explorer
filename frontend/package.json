@@ -5,7 +5,8 @@
   "author": "",
   "license": "",
   "scripts": {
-    "watch": "webpack --config webpack/webpack.dev.ts --watch"
+    "watch": "webpack --config webpack/webpack.dev.ts --watch",
+    "build:frontend": "webpack --config webpack/webpack.prod.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
