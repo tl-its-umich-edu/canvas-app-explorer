@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List
 
 from rest_framework import serializers
 
@@ -25,6 +25,8 @@ class LtiToolSerializer(serializers.ModelSerializer):
         Matching serializer method for navigation_enabled field that finds the expected tool data and
         returns the navigation status
         """
+        if 'available_tools' not in self.context:
+            raise Exception('"available_tools" must be passed to the LtiToolSerializer context.')
         available_tools = self.context['available_tools']
         # Search in tools available in the context for a canvas ID matching the model instance
         matches: List[ExternalTool] = list(filter(lambda x: x.id == obj.canvas_id, available_tools))

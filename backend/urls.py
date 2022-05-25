@@ -27,7 +27,7 @@ from backend.canvas_app_explorer import views as canvas_app_explorer_views #type
 from . import views
 # This is for Django Rest Framework
 router = routers.DefaultRouter()
-router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet)
+router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet, basename='ltitool')
 
 urlpatterns = [
     path('api/', include(router.urls)),
