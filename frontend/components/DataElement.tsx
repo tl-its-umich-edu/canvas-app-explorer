@@ -7,7 +7,12 @@ const Container = styled('div')(({ theme }) => ({
   marginBottom: theme.spacing(2)
 }));
 
-export default function DataElement (props) {
+interface DataElementProps {
+  name: string
+  children: React.ReactNode
+}
+
+export default function DataElement (props: DataElementProps) {
   const { name, children } = props;
 
   return (
