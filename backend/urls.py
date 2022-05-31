@@ -46,6 +46,7 @@ urlpatterns = [
 # Whitenoise currently handles this otherwise
 if settings.DEBUG:
     from django.contrib.staticfiles import views as static_views
+    from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
     urlpatterns += [
         re_path(r'^static/(?P<path>.*)$',
@@ -57,4 +58,6 @@ if settings.DEBUG:
         ),
         # Matches STATIC_URL in settings
         re_path(r'^django_static/(?P<path>.*)$', static_views.serve),
+        path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+        path('api/schema/swagger-ui', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui')
     ]

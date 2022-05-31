@@ -1,6 +1,6 @@
 from typing import List
 
-from rest_framework import serializers
+from rest_framework import fields, serializers
 
 from backend.canvas_app_explorer import models
 from backend.canvas_app_explorer.data_class import ExternalTool
@@ -14,11 +14,17 @@ class CanvasPlacementSerializer(serializers.ModelSerializer):
 class LtiToolSerializer(serializers.ModelSerializer):
     # Addiitonal expanded ead only field to make it easier on the front-end
     canvas_placement_expanded = CanvasPlacementSerializer(read_only=True, many=True, source="canvas_placement")
-    navigation_enabled = serializers.SerializerMethodField()
 
     class Meta:
         model = models.LtiTool
-        fields = '__all__'
+        fields = [
+            'name', 'canvas_id', 'logo_image', 'logo_image_alt_text', 'main_image',
+            'main_image_alt_text', 'short_description', 'long_description', 'privacy_agreement',
+            'support_resources', 'canvas_placement_expanded'
+        ]
+
+class LtiToolWithNavSerializer(LtiToolSerializer):
+    navigation_enabled = serializers.SerializerMethodField()
 
     def get_navigation_enabled(self, obj: models.LtiTool) -> bool:
         """
@@ -37,3 +43,6 @@ class LtiToolSerializer(serializers.ModelSerializer):
             'Expected exactly one match for available tool data from Canvas; '
             f'{len(matches)} were found.'
         )
+
+    class Meta(LtiToolSerializer.Meta):
+        fields = LtiToolSerializer.Meta.fields + ['navigation_enabled']

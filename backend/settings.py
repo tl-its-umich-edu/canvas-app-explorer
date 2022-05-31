@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'pylti1p3.contrib.django.lti1p3_tool_config',
     'tinymce',
     'canvas_oauth.apps.CanvasOAuthConfig',
+    'drf_spectacular'
 ]
 
 MIDDLEWARE = [
@@ -238,6 +239,20 @@ CSRF_COOKIE_SAMESITE = os.getenv("CSRF_COOKIE_SAMESITE", 'None')
 
 LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION = os.getenv('LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION', False)
 RANDOM_PASSWORD_DEFAULT_LENGTH = os.getenv('RANDOM_PASSWORD_DEFAULT_LENGTH', 32)
+
+# DRF, Spectacular, etc.
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Canvas App Explorer API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
 
 TEST_API_KEY = os.getenv('TEST_API_KEY', '')
 TEST_API_URL = os.getenv('TEST_API_URL', '')
