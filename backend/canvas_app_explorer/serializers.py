@@ -1,6 +1,6 @@
 from typing import List
 
-from rest_framework import serializers
+from rest_framework import fields, serializers
 
 from backend.canvas_app_explorer import models
 from backend.canvas_app_explorer.data_class import ExternalToolTab
@@ -46,3 +46,6 @@ class LtiToolWithNavSerializer(LtiToolSerializer):
 
     class Meta(LtiToolSerializer.Meta):
         fields = LtiToolSerializer.Meta.fields + ['navigation_enabled']
+
+class UpdateLtiToolNavigationSerializer(serializers.Serializer):
+    navigation_enabled = fields.BooleanField()

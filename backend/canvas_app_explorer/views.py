@@ -38,14 +38,31 @@ class LTIToolViewSet(viewsets.ViewSet):
         )
         return Response(serializer.data)
 
-    @extend_schema(parameters=[OpenApiParameter(
-        'canvas_id', location='path', required=True
-    )])
-    def update(self, request: Request, canvas_id: int):
+    @extend_schema(
+        parameters=[OpenApiParameter('canvas_id', location='path', required=True)],
+        request=serializers.UpdateLtiToolNavigationSerializer
+    )
+    def update(self, request: Request, canvas_id: str):
+        logger.debug(canvas_id)
+        try:
+            canvas_id_num = int(canvas_id)
+        except ValueError:
+            return Response(data='canvas_id must be an integer.', status=400)
+        logger.debug(request.data)
+        serializer = serializers.UpdateLtiToolNavigationSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        navigation_enabled = serializer.validated_data['navigation_enabled']
+
         access_token = get_oauth_token(request)
         manager = CanvasLtiManager(
             f'https://{settings.CANVAS_OAUTH_CANVAS_DOMAIN}',
             access_token,
             request.session['course_id']
         )
-        return Response({ 'canvas_id': canvas_id })
+        try:
+            manager.update_tool_visibility(canvas_id_num, not navigation_enabled)
+        except Exception as err:
+            logger.error(err)
+            return Response(status=500)
+        return Response(status=200)
