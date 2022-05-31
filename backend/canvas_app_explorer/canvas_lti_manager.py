@@ -1,21 +1,44 @@
-from typing import List
+from typing import List, TypedDict
+
 from canvasapi import Canvas
-from .data_class import ExternalTool
+from canvasapi.tab import Tab
+
+from .data_class import ExternalToolTab
+
+class TabUpdateParams(TypedDict):
+    hidden: bool
 
 class CanvasLtiManager:
+    external_tool_prefix = 'context_external_tool_'
+
     def __init__(self, api_url: str, api_key: str, course_id: int):
         self.course_id = course_id
         self.requestor = Canvas(api_url, api_key)
 
-    def get_tools_available_in_course(self) -> List[ExternalTool]:
+    def create_external_tool_tab(self, tab: Tab) -> ExternalToolTab:
+        return ExternalToolTab(
+            label=tab.label,
+            id=int(tab.id.replace(self.external_tool_prefix, '')),
+            is_hidden=(hasattr(tab, 'hidden'))
+        )
+
+    def get_tools_available_in_course(self) -> List[ExternalToolTab]:
         ex_tools = []
         course = self.requestor.get_course(self.course_id)
         for tab in course.get_tabs():
             if 'external_tools' in tab.html_url: #filter external tools from all tabs
-                ex_tools.append(ExternalTool(
-                    label=tab.label,
-                    id=int(tab.id.split('_')[-1]),
-                    is_hidden=(hasattr(tab, 'hidden'))
-                ))
+                ex_tools.append(self.create_external_tool_tab(tab))
         return ex_tools
 
+    def update_tool_visibility(self, canvas_id: int, is_hidden: bool):
+        update_params: TabUpdateParams = { 'hidden': is_hidden }
+
+        tool_tab = Tab(
+            self.requestor._Canvas__requester, # Is there a better way?
+            {
+                'id': self.external_tool_prefix + str(canvas_id),
+                'course_id': self.course_id
+            }
+        )
+        data = tool_tab.update(**update_params)
+        return self.create_external_tool_tab(data)

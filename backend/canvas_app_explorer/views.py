@@ -43,4 +43,9 @@ class LTIToolViewSet(viewsets.ViewSet):
     )])
     def update(self, request: Request, canvas_id: int):
         access_token = get_oauth_token(request)
+        manager = CanvasLtiManager(
+            f'https://{settings.CANVAS_OAUTH_CANVAS_DOMAIN}',
+            access_token,
+            request.session['course_id']
+        )
         return Response({ 'canvas_id': canvas_id })

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass
-class ExternalTool:
+class ExternalToolTab:
     label: str
     id: int
     is_hidden: bool

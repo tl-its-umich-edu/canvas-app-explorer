@@ -1,9 +1,9 @@
 from typing import List
 
-from rest_framework import fields, serializers
+from rest_framework import serializers
 
 from backend.canvas_app_explorer import models
-from backend.canvas_app_explorer.data_class import ExternalTool
+from backend.canvas_app_explorer.data_class import ExternalToolTab
 
 class CanvasPlacementSerializer(serializers.ModelSerializer):
 
@@ -35,7 +35,7 @@ class LtiToolWithNavSerializer(LtiToolSerializer):
             raise Exception('"available_tools" must be passed to the LtiToolSerializer context.')
         available_tools = self.context['available_tools']
         # Search in tools available in the context for a canvas ID matching the model instance
-        matches: List[ExternalTool] = list(filter(lambda x: x.id == obj.canvas_id, available_tools))
+        matches: List[ExternalToolTab] = list(filter(lambda x: x.id == obj.canvas_id, available_tools))
         if len(matches) == 1:
             first_match = matches[0] # Canvas IDs should be unique
             return not first_match.is_hidden
