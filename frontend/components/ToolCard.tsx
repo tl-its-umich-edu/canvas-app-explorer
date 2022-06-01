@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import AddRemoveButton from './AddRemoveButton';
+import { AddToolButton, RemoveToolButton } from './toolButtons';
 import DataElement from './DataElement';
 import { Tool } from '../interfaces';
 
@@ -62,7 +62,7 @@ export default function ToolCard(props: ToolCardProps) {
       </CardContent>
       <CardActions>
         <Grid container justifyContent='space-between'>
-          <AddRemoveButton navEnabled={tool.navigation_enabled} />
+          {tool.navigation_enabled ? <RemoveToolButton /> : <AddToolButton />}
           <IconButton
             onClick={() => setLearnMoreActive(!learnMoreActive)}
             aria-expanded={learnMoreActive}
