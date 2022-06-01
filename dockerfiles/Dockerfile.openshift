@@ -1,10 +1,17 @@
-# FROM directive instructing base image to build upon
-# This could be used as a base instead: 
-# https://hub.docker.com/r/nikolaik/python-nodejs
-FROM python:3.8-slim
+# node-build stage
 
-# NOTE: requirements.txt not likely to change between dev builds
-COPY requirements.txt .
+FROM docker-registry.default.svc:5000/openshift/node:16-slim AS node-build
+WORKDIR /build/
+
+COPY frontend .
+RUN npm install
+
+RUN npm run build:frontend
+
+# main stage
+
+FROM docker-registry.default.svc:5000/openshift/python:3.8-slim AS main
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential default-libmysqlclient-dev netcat vim-tiny jq python3-dev git supervisor curl && \
@@ -12,32 +19,24 @@ RUN apt-get update && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /code/frontend
-
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt install -y nodejs
-
-COPY /frontend/package*.json /code/frontend/
-
-RUN npm install
-
 WORKDIR /code
 
-# NOTE: project files likely to change between dev builds
-COPY . .
+# Copy only what is needed into /code/
+COPY backend ./backend
+COPY static ./static
+COPY templates ./templates
+COPY manage.py start_backend.sh ./
 
-# Build the frontend with webpack
-WORKDIR /code/frontend
-
-RUN ./node_modules/.bin/webpack --config webpack.config.js 
+COPY --from=node-build /build/bundles ./frontend/bundles 
+COPY --from=node-build /build/webpack-stats.json ./frontend/
 
 # Collect the static files in the backend
-WORKDIR /code
 RUN python manage.py collectstatic --verbosity 0
 
-# Sets the locl timezone of the docker image
+# Sets the local timezone of the docker image
 ARG TZ
 ENV TZ ${TZ:-America/Detroit}
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -46,4 +45,5 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 EXPOSE 5000
 
 CMD ["/code/start_backend.sh"]
-# done!
+
+# Done!

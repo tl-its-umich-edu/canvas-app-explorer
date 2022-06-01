@@ -2,7 +2,11 @@ import React from 'react';
 import { Grid, Paper, TextField, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function Header (props) {
+interface HeaderProps {
+  onFilterChange: (v: string) => void
+}
+
+export default function Header (props: HeaderProps) {
   return (
     <Grid
       container

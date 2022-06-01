@@ -16,8 +16,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /code/frontend
 
-ENV NODE_VERSION=16.14.2
-
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt install -y nodejs
 
