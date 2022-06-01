@@ -52,7 +52,7 @@ class LTIToolViewSet(viewsets.ViewSet):
 
         manager = MANAGER_FACTORY.create_manager(request)
         try:
-            manager.update_tool_visibility(canvas_id_num, not navigation_enabled)
+            manager.update_tool_navigation(canvas_id_num, not navigation_enabled)
         except Exception as err:
             logger.error(err)
             return Response(status=500)

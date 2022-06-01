@@ -37,7 +37,7 @@ class CanvasLtiManager:
                 ex_tool_tabs.append(self.create_external_tool_tab(tab))
         return ex_tool_tabs
 
-    def update_tool_visibility(self, canvas_id: int, is_hidden: bool):
+    def update_tool_navigation(self, canvas_id: int, is_hidden: bool) -> ExternalToolTab:
         update_params: TabUpdateParams = { 'hidden': is_hidden }
         tab_attributes: TabAttributes = {
             'id': self.external_tool_prefix + str(canvas_id),
