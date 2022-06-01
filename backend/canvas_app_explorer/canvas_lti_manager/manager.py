@@ -23,12 +23,12 @@ class CanvasLtiManager:
         )
 
     def get_tools_available_in_course(self) -> List[ExternalToolTab]:
-        ex_tools = []
+        ex_tool_tabs = []
         course = self.requestor.get_course(self.course_id)
         for tab in course.get_tabs():
-            if 'external_tools' in tab.html_url: #filter external tools from all tabs
-                ex_tools.append(self.create_external_tool_tab(tab))
-        return ex_tools
+            if 'external_tools' in tab.html_url:
+                ex_tool_tabs.append(self.create_external_tool_tab(tab))
+        return ex_tool_tabs
 
     def update_tool_visibility(self, canvas_id: int, is_hidden: bool):
         update_params: TabUpdateParams = { 'hidden': is_hidden }
