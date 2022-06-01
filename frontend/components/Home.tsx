@@ -24,7 +24,7 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
   );
 };
 
-function Home() {
+function Home () {
   const [tools, setTools] = useState<null | Tool[]>(null);
   const [searchFilter, setSearchFilter] = useState('');
 

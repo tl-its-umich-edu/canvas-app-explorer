@@ -26,7 +26,7 @@ interface ToolCardProps {
   tool: Tool
 }
 
-export default function ToolCard(props: ToolCardProps) {
+export default function ToolCard (props: ToolCardProps) {
   const { tool } = props;
 
   const [learnMoreActive, setLearnMoreActive] = useState(false);
