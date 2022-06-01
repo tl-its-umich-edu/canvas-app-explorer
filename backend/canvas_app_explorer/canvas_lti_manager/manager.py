@@ -8,7 +8,14 @@ from .data_class import ExternalToolTab
 class TabUpdateParams(TypedDict):
     hidden: bool
 
+class TabAttributes(TypedDict):
+    id: str
+    course_id: int
+
 class CanvasLtiManager:
+    """
+    Adapter for canvasapi library focused on managing LTI tools in a course context
+    """
     external_tool_prefix = 'context_external_tool_'
 
     def __init__(self, api_url: str, api_key: str, course_id: int):
@@ -32,13 +39,14 @@ class CanvasLtiManager:
 
     def update_tool_visibility(self, canvas_id: int, is_hidden: bool):
         update_params: TabUpdateParams = { 'hidden': is_hidden }
+        tab_attributes: TabAttributes = {
+            'id': self.external_tool_prefix + str(canvas_id),
+            'course_id': self.course_id
+        }
 
         tool_tab = Tab(
             self.requestor._Canvas__requester, # Is there a better way?
-            {
-                'id': self.external_tool_prefix + str(canvas_id),
-                'course_id': self.course_id
-            }
+            tab_attributes
         )
         data = tool_tab.update(**update_params)
         return self.create_external_tool_tab(data)

@@ -12,8 +12,10 @@ class CanvasPlacementSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class LtiToolSerializer(serializers.ModelSerializer):
-    # Addiitonal expanded ead only field to make it easier on the front-end
-    canvas_placement_expanded = CanvasPlacementSerializer(read_only=True, many=True, source="canvas_placement")
+    """
+    Serializer for LtiTool model, with nested CanvasPlacements
+    """
+    canvas_placement_expanded = CanvasPlacementSerializer(read_only=True, many=True, source='canvas_placement')
 
     class Meta:
         model = models.LtiTool
@@ -24,6 +26,9 @@ class LtiToolSerializer(serializers.ModelSerializer):
         ]
 
 class LtiToolWithNavSerializer(LtiToolSerializer):
+    """
+    Serializer extending LtiToolSerializer with additional navigation data specific to a course context
+    """
     navigation_enabled = serializers.SerializerMethodField()
 
     def get_navigation_enabled(self, obj: models.LtiTool) -> bool:
@@ -48,4 +53,7 @@ class LtiToolWithNavSerializer(LtiToolSerializer):
         fields = LtiToolSerializer.Meta.fields + ['navigation_enabled']
 
 class UpdateLtiToolNavigationSerializer(serializers.Serializer):
+    """
+    Serializer for body data expected when updating a tool's navigation status in a course context
+    """
     navigation_enabled = fields.BooleanField()

@@ -11,9 +11,7 @@ from backend.canvas_app_explorer.canvas_lti_manager.django_factory import Django
 
 logger = logging.getLogger(__name__)
 
-MANAGER_FACTORY = DjangoCourseLtiManagerFactory(
-    f'https://{settings.CANVAS_OAUTH_CANVAS_DOMAIN}'
-)
+MANAGER_FACTORY = DjangoCourseLtiManagerFactory(f'https://{settings.CANVAS_OAUTH_CANVAS_DOMAIN}')
 
 class LTIToolViewSet(viewsets.ViewSet):
     """
