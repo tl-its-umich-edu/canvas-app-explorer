@@ -7,4 +7,4 @@ class ExternalToolTab:
     is_hidden: bool
 
     def __str__(self) -> str:
-        return f'ExternalTool({self.label},{self.id},{self.is_hidden})'
+        return f'ExternalToolTab({self.label},{self.id},{self.is_hidden})'

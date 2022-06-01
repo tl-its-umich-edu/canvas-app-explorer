@@ -3,7 +3,7 @@ from typing import List
 from rest_framework import fields, serializers
 
 from backend.canvas_app_explorer import models
-from backend.canvas_app_explorer.data_class import ExternalToolTab
+from backend.canvas_app_explorer.canvas_lti_manager.data_class import ExternalToolTab
 
 class CanvasPlacementSerializer(serializers.ModelSerializer):
 

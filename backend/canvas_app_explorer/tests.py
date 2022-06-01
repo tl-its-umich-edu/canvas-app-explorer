@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.test import TestCase
 
-from backend.canvas_app_explorer.canvas_lti_manager import CanvasLtiManager
-from backend.canvas_app_explorer.data_class import ExternalToolTab
+from backend.canvas_app_explorer.canvas_lti_manager.manager import CanvasLtiManager
+from backend.canvas_app_explorer.canvas_lti_manager.data_class import ExternalToolTab
 
 # Create your tests here.
 class TestCanvasLtiManager(TestCase):
