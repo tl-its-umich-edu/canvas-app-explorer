@@ -26,7 +26,6 @@ WORKDIR /code
 
 # Copy only what is needed into /code/
 COPY backend ./backend
-COPY static ./static
 COPY templates ./templates
 COPY manage.py start_backend.sh ./
 
