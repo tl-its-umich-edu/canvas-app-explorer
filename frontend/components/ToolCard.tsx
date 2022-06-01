@@ -6,8 +6,8 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { AddToolButton, RemoveToolButton } from './toolButtons';
 import DataElement from './DataElement';
+import { AddToolButton, RemoveToolButton } from './toolButtons';
 import { Tool } from '../interfaces';
 
 const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
