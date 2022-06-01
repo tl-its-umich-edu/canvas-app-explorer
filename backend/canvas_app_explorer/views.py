@@ -39,15 +39,13 @@ class LTIToolViewSet(viewsets.ViewSet):
         request=serializers.UpdateLtiToolNavigationSerializer
     )
     def update(self, request: Request, canvas_id: str):
-        logger.debug(canvas_id)
+        logger.debug(f"Canvas ID: {canvas_id}; request data: {request.data}")
         try:
             canvas_id_num = int(canvas_id)
         except ValueError:
             return Response(data='canvas_id must be an integer.', status=400)
-        logger.debug(request.data)
         serializer = serializers.UpdateLtiToolNavigationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-
         navigation_enabled: bool = serializer.validated_data['navigation_enabled']
 
         manager = MANAGER_FACTORY.create_manager(request)
