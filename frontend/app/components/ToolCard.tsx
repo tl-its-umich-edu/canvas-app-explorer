@@ -11,23 +11,11 @@ import DataElement from './DataElement';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
 import { Tool } from '../interfaces';
 
-const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
-  objectFit: 'contain',
-  marginBottom: theme.spacing(2)
-}));
-
 const DialogImg = styled('img')(() => ({
   width: '100%',
   height: 'auto',
   objectFit: 'scale-down'
 }));
-
-interface CardImageProps {
-  image?: string
-  component: 'img'
-  height: number
-  alt: string
-}
 
 interface ToolCardProps {
   tool: Tool
@@ -39,24 +27,6 @@ export default function ToolCard (props: ToolCardProps) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
-  let logoImageProps: CardImageProps = {
-    component: 'img',
-    height: 150,
-    alt: tool.logo_image_alt_text ?? 'Logo for tool'
-  };
-  if (tool.logo_image !== null) {
-    logoImageProps = { image: tool.logo_image, ...logoImageProps };
-  }
-
-  let mainImageProps: CardImageProps = {
-    component: 'img',
-    height: 150,
-    alt: tool.main_image_alt_text ?? 'Image of tool in use'
-  };
-  if (tool.main_image !== null) {
-    mainImageProps = { image: tool.main_image, ...mainImageProps };
-  }
-
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
 
   return (
@@ -65,7 +35,13 @@ export default function ToolCard (props: ToolCardProps) {
       sx={{ padding: 1, width: 328, borderColor: 'primary.main', borderWidth: '3px' }}
     >
       <CardContent sx={{ height: 225 }}>
-        <ContainedCardMedia {...logoImageProps} />
+        <CardMedia
+          component='img'
+          height={150}
+          alt={tool.logo_image_alt_text ?? 'Logo for tool'}
+          image={tool.logo_image ?? ''}
+          sx={{ marginBottom: 2, objectFit: 'contain' }}
+        />
         <Typography variant='body2'>
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
@@ -88,7 +64,13 @@ export default function ToolCard (props: ToolCardProps) {
           <DataElement name='Description'>
             <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
           </DataElement>
-          <ContainedCardMedia {...mainImageProps} />
+          <CardMedia
+            component='img'
+            height={150}
+            alt={tool.main_image_alt_text ?? 'Image of tool in use'}
+            image={tool.main_image ?? ''}
+            sx={{ marginBottom: 2, objectFit: 'contain' }}
+          />
           <CardActions>
             <Button onClick={() => setScreenshotDialogOpen(true)}>Show Screenshot</Button>
           </CardActions>
