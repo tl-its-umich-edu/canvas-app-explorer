@@ -8,10 +8,18 @@
 venv/
 **/__pycache__/
 .mypy_cache/
+mypy.ini
 
 # Database
 .data
 
+# Docs
+**/*.md
+
+# Git
+.git
+.gitignore
+
 # IDE/OS stuff
 .idea/
-.DS_Store
+**/.DS_Store
