@@ -1,13 +1,12 @@
 version: "3.9"
    
 services:
-
   mysql:
-    image: mysql:5.7
-    restart: unless-stopped
-    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
-    entrypoint: ['docker-entrypoint.sh', '--default-authentication-plugin=mysql_native_password']
+    image: mysql/mysql-server:8.0
+    restart: on-failure
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--socket=/tmp/mysql.sock']
     environment:
+      - MYSQL_ROOT_HOST="0.0.0.0"     
       - MYSQL_ROOT_PASSWORD=cae_root_pw
       - MYSQL_HOST=canvas_app_explorer_mysql
       - MYSQL_PORT=3306
@@ -17,8 +16,7 @@ services:
     ports:
       - "6306:3306"
     volumes:
-      - ./.data/mysql:/var/lib/mysql:delegated
-      - ./mysql:/docker-entrypoint-initdb.d:ro
+      - ./.data/mysql:/var/lib/mysql
     container_name: canvas_app_explorer_mysql
   web:
     build:
