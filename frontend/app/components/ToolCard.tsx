@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Dialog, DialogActions,
+  DialogContent, DialogTitle, Grid, Typography
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -13,6 +14,12 @@ import { Tool } from '../interfaces';
 const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
   objectFit: 'contain',
   marginBottom: theme.spacing(2)
+}));
+
+const DialogImg = styled('img')(() => ({
+  width: '100%',
+  height: 'auto',
+  objectFit: 'scale-down'
 }));
 
 interface CardImageProps {
@@ -30,6 +37,7 @@ export default function ToolCard (props: ToolCardProps) {
   const { tool } = props;
 
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
   let logoImageProps: CardImageProps = {
     component: 'img',
@@ -81,6 +89,30 @@ export default function ToolCard (props: ToolCardProps) {
             <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
           </DataElement>
           <ContainedCardMedia {...mainImageProps} />
+          <CardActions>
+            <Button onClick={() => setScreenshotDialogOpen(true)}>Show Screenshot</Button>
+          </CardActions>
+          <Dialog
+            fullWidth
+            maxWidth='xl'
+            open={screenshotDialogOpen}
+            onClose={() => setScreenshotDialogOpen(false)}
+            aria-labelledby='main-image-dialog-title'
+          >
+            <DialogTitle id='main-image-dialog-title'>
+              Screenshot of {tool.name} in use
+            </DialogTitle>
+            <DialogContent>
+              <DialogImg
+                tabIndex={0}
+                src={tool.main_image ?? ''}
+                alt={tool.main_image_alt_text ?? ''}
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setScreenshotDialogOpen(false)}>Close</Button>
+            </DialogActions>
+          </Dialog>
           <DataElement name='Privacy Agreement'>
             <span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement }} />
           </DataElement>
