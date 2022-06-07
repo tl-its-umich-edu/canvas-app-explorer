@@ -1,5 +1,5 @@
-from django.core.management.base import BaseCommand, CommandError
-from canvas_app_explorer.canvas_lti_manager import CanvasLtiManager
+from django.core.management.base import BaseCommand
+from canvas_app_explorer.canvas_lti_manager.manager import CanvasLtiManager
 
 #  manage.py TestCanvasLtiManager <API_KEY> <course_id>
 class Command(BaseCommand):

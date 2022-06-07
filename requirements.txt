@@ -13,6 +13,7 @@ django-tinymce # Rich text editor
 djangorestframework
 markdown       # Markdown support for the browsable API.
 django-filter  # Filtering support
+drf-spectacular==0.22.1
 
 #LTI 
 PyLTI1p3==1.9.1

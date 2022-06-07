@@ -17,7 +17,18 @@ To create a local admin user you should run this.
 docker exec -it canvas_app_explorer ./manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')"
 ```
 
-Please see the Wiki for instructions on configuring with LTI
+Please see the Wiki for instructions on configuring with LTI.
+
+#### Using OpenAPI and Swagger
+
+The backend uses the [Django Rest Framework](https://www.django-rest-framework.org/) to build out a REST API. When `DEBUG` is equal to `True` in Django settings, the application leverages the [drf-spectacular](https://drf-spectacular.readthedocs.io/en/latest/index.html) library to document existing endpoints and provide for API testing using Swagger.
+
+The OpenAPI schema can be downloaded as a YAML file from `http://localhost:5000/api/schema`. To use the Swagger UI, do the following:
+1. Launch the tool from a course in Canvas.
+2. Right-click in the iframe and select "View Frame Source" in Chrome (or your browser's equivalent).
+3. Change the URL to navigate to `/api/schema/swagger-ui`.
+
+Once on the page, requests can be made against the API using the "Try it out" functionality.
 
 ### Testing production (Openshift) build
 
