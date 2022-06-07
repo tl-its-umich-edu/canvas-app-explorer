@@ -45,7 +45,7 @@ class CanvasLtiManager:
         }
 
         tool_tab = Tab(
-            self.canvas_api._Canvas__requester, # Is there a better way?
+            self.canvas_api._Canvas__requester,
             tab_attributes
         )
         data = tool_tab.update(**update_params)
