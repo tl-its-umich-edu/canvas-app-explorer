@@ -1,5 +1,5 @@
-from django.http import HttpRequest
 from canvas_oauth.oauth import get_oauth_token
+from django.http import HttpRequest
 
 from .manager import CanvasLtiManager
 
