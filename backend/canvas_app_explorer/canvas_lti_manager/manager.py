@@ -19,8 +19,8 @@ class CanvasLtiManager:
     external_tool_prefix = 'context_external_tool_'
 
     def __init__(self, api_url: str, api_key: str, course_id: int):
-        self.course_id = course_id
-        self.requestor = Canvas(api_url, api_key)
+        self.course_id: int = course_id
+        self.canvas_api: Canvas = Canvas(api_url, api_key)
 
     def create_external_tool_tab(self, tab: Tab) -> ExternalToolTab:
         return ExternalToolTab(
@@ -31,7 +31,7 @@ class CanvasLtiManager:
 
     def get_tools_available_in_course(self) -> List[ExternalToolTab]:
         ex_tool_tabs = []
-        course = self.requestor.get_course(self.course_id)
+        course = self.canvas_api.get_course(self.course_id)
         for tab in course.get_tabs():
             if 'external_tools' in tab.html_url:
                 ex_tool_tabs.append(self.create_external_tool_tab(tab))
@@ -45,7 +45,7 @@ class CanvasLtiManager:
         }
 
         tool_tab = Tab(
-            self.requestor._Canvas__requester, # Is there a better way?
+            self.canvas_api._Canvas__requester, # Is there a better way?
             tab_attributes
         )
         data = tool_tab.update(**update_params)
