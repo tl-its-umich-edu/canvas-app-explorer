@@ -24,11 +24,9 @@
     "sourceMap": true
   },
   "include": [
-    "components",
+    "app",
     /* Including webpack and .eslintrc.js to make linter happy. */
-    "webpack.dev.ts",
-    "webpack.prod.ts",
-    "webpack.common.ts",
+    "webpack",
     ".eslintrc.js"
   ]
 }

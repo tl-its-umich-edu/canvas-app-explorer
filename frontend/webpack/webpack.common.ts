@@ -7,7 +7,7 @@ const frontendPath = path.resolve(__dirname, '..');
 
 const commonConfig: webpack.Configuration = {
   context: frontendPath,
-  entry: path.resolve('components', 'index'),
+  entry: path.resolve('app', 'index'),
   output: {
     path: path.resolve('./bundles/'),
     filename: '[name]-[fullhash].js',

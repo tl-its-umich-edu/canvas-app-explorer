@@ -26,7 +26,7 @@ services:
         TZ: ${TZ}
     volumes:
       # Mount only the needed directories for local development
-      - ./frontend/components:/code/frontend/components
+      - ./frontend/app:/code/frontend/app
       - ./backend:/code/backend
       - ${HOME}/mylasecrets:/secrets
     ports:

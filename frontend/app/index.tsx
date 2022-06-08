@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@mui/material';
 
-import theme from '../theme';
-
-import Home from './Home';
+import Home from './components/Home';
+import theme from './theme';
 
 ReactDOM.render(
   (
