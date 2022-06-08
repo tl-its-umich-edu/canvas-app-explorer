@@ -1,8 +1,16 @@
+from django.core.validators import MaxLengthValidator
 from django.db import models
+from django.utils.deconstruct import deconstructible
+from django.utils.html import strip_tags
 from db_file_storage.model_utils import delete_file, delete_file_if_needed
 from tinymce.models import HTMLField
 
-# Create your models here.
+# Validator that checks the length but ignores HTML tags
+# Use in your model as validators=[MaxLengthIgnoreHTMLValidator(limit_value=120)]
+@deconstructible
+class MaxLengthIgnoreHTMLValidator(MaxLengthValidator):
+    def clean (self, value: str):
+        return len(strip_tags(value))
 
 class CanvasPlacement(models.Model):
     name = models.CharField(max_length=150)
@@ -26,7 +34,7 @@ class LtiTool(models.Model):
     logo_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
     main_image = models.ImageField(upload_to='canvas_app_explorer.MainImage/bytes/filename/mimetype', blank=True, null=True)
     main_image_alt_text = models.CharField(max_length=255, blank=True, null=True)
-    short_description = HTMLField(max_length=120)
+    short_description = HTMLField(validators=[MaxLengthIgnoreHTMLValidator(limit_value=120)])
     long_description = HTMLField()
     privacy_agreement = HTMLField()
     support_resources = HTMLField()
