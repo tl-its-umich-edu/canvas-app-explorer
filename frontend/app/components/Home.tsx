@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAsync, useAsyncCallback } from 'react-async-hook';
+import { useAsync } from 'react-async-hook';
 import { Alert, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -24,36 +24,31 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
 };
 
 function Home () {
-  const {
-    result: tools, loading: getToolsLoading, error: getToolsError, merge: updateGetToolsState
-  } = useAsync<Tool[], []>(api.getTools, []);
+  const [tools, setTools] = useState<undefined | Tool[]>(undefined);
+  const { loading: getToolsLoading, error: getToolsError } = useAsync<Tool[], []>(
+    api.getTools, [], { onSuccess: (result) => setTools(result) }
+  );
 
-  const {
-    execute: executeUpdateToolNav, error: updateToolNavError, loading: updateToolNavLoading
-  } = useAsyncCallback<void, [number, boolean]>(api.updateToolNav, {});
-
-  const doUpdateToolNav = async (canvas_tool_id: number, navEnabled: boolean): Promise<void> => {
-    await executeUpdateToolNav(canvas_tool_id, navEnabled);
-    if (tools === undefined) throw Error('tools should be defined');
-    const newTools = tools.map(t => {
-      if (t.canvas_id === canvas_tool_id) {
-        console.log('updating');
-        return {...t, navigation_enabled: navEnabled };
-      } else {
-        return t;
-      }
+  const onToolUpdate = (newTool: Tool) => {
+    /*
+    Creates new array with newTool replacing its previous version;
+    Uses function inside setState hook to handle overlapping requests
+    */
+    setTools((oldTools) => {
+      if (oldTools === undefined) throw Error('Expected tools variable to be defined!');
+      const newTools = oldTools.map(t => t.canvas_id === newTool.canvas_id ? newTool : t);
+      return newTools;
     });
-    updateGetToolsState({ result: newTools });
   };
 
   const [searchFilter, setSearchFilter] = useState('');
 
-  const isLoading = getToolsLoading || updateToolNavLoading;
+  const isLoading = getToolsLoading;
   const loadingBlock = isLoading && (
     <div>Loading . . . </div>
   );
 
-  const errors = [getToolsError, updateToolNavError].filter(e => e !== undefined) as Error[];
+  const errors = [getToolsError].filter(e => e !== undefined) as Error[];
   const errorsBlock = (errors.length > 0) && (
     <div>
       {errors.map((e, i) => <Alert key={i} severity='error'>{e.message}</Alert>)}
@@ -68,9 +63,7 @@ function Home () {
         {
           filteredTools.length > 0
             ? filteredTools.map(t => (
-              <Grid item key={t.id}>
-                <ToolCard tool={t} disabled={updateToolNavLoading} doUpdateToolNav={doUpdateToolNav} />
-              </Grid>
+              <Grid item key={t.id}><ToolCard tool={t} onToolUpdate={onToolUpdate} /></Grid>
             ))
             : <Grid item><Alert severity='info'>No matching results</Alert></Grid>
         }

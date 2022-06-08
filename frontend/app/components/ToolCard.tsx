@@ -1,29 +1,52 @@
 import React, { useState } from 'react';
 import AddBox from '@mui/icons-material/AddBox';
+import { useAsyncCallback } from 'react-async-hook';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
+  Alert, Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
 } from '@mui/material';
 
 import DataElement from './DataElement';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
+import * as api from '../api';
 import { Tool } from '../interfaces';
 
 interface ToolCardProps {
   tool: Tool
-  disabled?: boolean
-  doUpdateToolNav: (canvas_tool_id: number, navEnabled: boolean) => Promise<void>
+  onToolUpdate: (tool: Tool) => void;
 }
 
 export default function ToolCard (props: ToolCardProps) {
-  const { tool, disabled, doUpdateToolNav } = props;
+  const { tool, onToolUpdate } = props;
 
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
+
+  const {
+    execute: executeUpdateToolNav, error: updateToolNavError, loading: updateToolNavLoading
+  } = useAsyncCallback<void, [number, boolean]>(api.updateToolNav);
+
+  const doUpdateToolNav = async (canvas_tool_id: number, navEnabled: boolean) => {
+    await executeUpdateToolNav(canvas_tool_id, navEnabled);
+    const newTool = { ...tool, navigation_enabled: navEnabled };
+    onToolUpdate(newTool);
+  };
+
+  const isLoading = updateToolNavLoading;
+  const loadingBlock = isLoading && (
+    <div>Loading . . . </div>
+  );
+
+  const errors = [updateToolNavError].filter(e => e !== undefined) as Error[];
+  const errorsBlock = errors.length > 0 && (
+    <Grid container spacing={2}>
+      {errors.map((e, i) => <Grid key={i} item><Alert key={i} severity='error'>{e.message}</Alert></Grid>)}
+    </Grid>
+  );
 
   let mainImageBlock;
   if (tool.main_image !== null) {
@@ -68,13 +91,15 @@ export default function ToolCard (props: ToolCardProps) {
         <Typography variant='body2'>
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
+        {loadingBlock}
+        {errorsBlock}
       </CardContent>
       <CardActions>
         <Grid container justifyContent='space-between'>
           {
             tool.navigation_enabled
-              ? <RemoveToolButton disabled={disabled} onClick={() => doUpdateToolNav(tool.canvas_id, false)} />
-              : <AddToolButton disabled={disabled} onClick={() => doUpdateToolNav(tool.canvas_id, true)} />
+              ? <RemoveToolButton disabled={updateToolNavLoading} onClick={() => doUpdateToolNav(tool.canvas_id, false)} />
+              : <AddToolButton disabled={updateToolNavLoading} onClick={() => doUpdateToolNav(tool.canvas_id, true)} />
           }
           <Button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
