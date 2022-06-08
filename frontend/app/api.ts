@@ -1,6 +1,17 @@
+import Cookies from 'js-cookie';
+
 import { Tool } from './interfaces';
 
+export const getCSRFToken = (): string | undefined => Cookies.get('csrftoken');
+
 const API_BASE = '/api';
+const JSON_MIME_TYPE = 'application/json';
+
+const BASE_MUTATION_HEADERS: HeadersInit = {
+  Accept: JSON_MIME_TYPE,
+  'Content-Type': JSON_MIME_TYPE,
+  'X-Requested-With': 'XMLHttpRequest'
+};
 
 const createErrorMessage = async (res: Response): Promise<string> => {
   let errorBody;
@@ -28,4 +39,20 @@ async function getTools (): Promise<Tool[]> {
   return data;
 }
 
-export { getTools };
+async function updateToolNav (canvas_tool_id: number, navEnabled: boolean): Promise<void> {
+  const body = { navigation_enabled: navEnabled };
+  const url = `${API_BASE}/lti_tools/${canvas_tool_id}/`;
+  const requestInit: RequestInit = {
+    method: 'PUT',
+    body: JSON.stringify(body),
+    headers: {
+      ...BASE_MUTATION_HEADERS,
+      'X-CSRFTOKEN': getCSRFToken() ?? '' // Could throw error?
+    }
+  };
+  const res = await fetch(url, requestInit);
+  if (!res.ok) throw new Error(await createErrorMessage(res));
+  return;
+}
+
+export { getTools, updateToolNav };

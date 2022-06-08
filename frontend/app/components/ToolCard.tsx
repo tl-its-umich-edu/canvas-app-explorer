@@ -13,10 +13,12 @@ import { Tool } from '../interfaces';
 
 interface ToolCardProps {
   tool: Tool
+  disabled?: boolean
+  doUpdateToolNav: (canvas_tool_id: number, navEnabled: boolean) => Promise<void>
 }
 
 export default function ToolCard (props: ToolCardProps) {
-  const { tool } = props;
+  const { tool, disabled, doUpdateToolNav } = props;
 
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
@@ -69,7 +71,11 @@ export default function ToolCard (props: ToolCardProps) {
       </CardContent>
       <CardActions>
         <Grid container justifyContent='space-between'>
-          {tool.navigation_enabled ? <RemoveToolButton /> : <AddToolButton />}
+          {
+            tool.navigation_enabled
+              ? <RemoveToolButton disabled={disabled} onClick={() => doUpdateToolNav(tool.canvas_id, false)} />
+              : <AddToolButton disabled={disabled} onClick={() => doUpdateToolNav(tool.canvas_id, true)} />
+          }
           <Button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
             aria-expanded={showMoreInfo}
