@@ -13,7 +13,6 @@ class MaxLengthIgnoreHTMLValidator(MaxLengthValidator):
     def clean (self, value: str):
         return len(strip_tags(value))
 
-### Models are below
 class CanvasPlacement(models.Model):
     name = models.CharField(max_length=150)
     def __str__(self):
