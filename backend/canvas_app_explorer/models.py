@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.core.validators import MaxLengthValidator
 from django.db import models
 from django.utils.deconstruct import deconstructible
