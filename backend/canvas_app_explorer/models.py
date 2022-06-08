@@ -21,7 +21,7 @@ class MaxLenIgnoreHTMLValidator:
         value = strip_tags(value.strip())
         if len(value) > self.max_length:
             raise ValidationError(
-                (f'This field without tags is {len(value)}, greater than max length of {self.max_length}'),
+                (f'This field without tags is {len(value)}, which is greater than the max length of {self.max_length}.'),
             )
 
 ### Models are below
