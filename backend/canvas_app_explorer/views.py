@@ -28,7 +28,8 @@ class LTIToolViewSet(viewsets.ViewSet):
         available_tools = manager.get_tools_available_in_course()
         logger.debug('available_tools: ' + ', '.join([tool.__str__() for tool in available_tools]))
         available_tool_ids = [t.id for t in available_tools]
-        queryset = models.LtiTool.objects.filter(canvas_id__isnull=False, canvas_id__in=available_tool_ids)
+        queryset = models.LtiTool.objects.filter(canvas_id__isnull=False, canvas_id__in=available_tool_ids)\
+            .order_by('name')
         serializer = serializers.LtiToolWithNavSerializer(
             queryset, many=True, context={ 'available_tools': available_tools }
         )

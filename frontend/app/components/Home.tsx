@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useAsync } from 'react-async';
 import { Alert, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import HeaderAppBar from './HeaderAppBar';
 import ToolCard from './ToolCard';
+import * as api from '../api';
 import '../css/Home.css';
 import { Tool } from '../interfaces';
 
@@ -22,27 +24,14 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
 };
 
 function Home () {
-  const [tools, setTools] = useState<null | Tool[]>(null);
+  const { data: tools, isPending, error } = useAsync(api.getTools);
   const [searchFilter, setSearchFilter] = useState('');
 
-  useEffect(() => {
-    const fetchToolData = async () => {
-      const url = '/api/lti_tools/';
-      const response = await fetch(url);
-      const data: Tool[] = await response.json();
-      // sort data alphabetically by name
-      data.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase())
-        ? 1
-        : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0)
-      );
-      setTools(data);
-    };
-    fetchToolData();
-  }, []);
-
   let toolCardContainer;
-  if (tools === null) {
-    toolCardContainer = (<div>Loading . . . </div>);
+  if (error !== undefined) {
+    toolCardContainer = <Alert severity='error'>{error.message}</Alert>;
+  } else if (isPending || tools === undefined) {
+    toolCardContainer = <div>Loading . . . </div>;
   } else {
     const filteredTools = searchFilter !== '' ? filterTools(tools, searchFilter) : tools;
     toolCardContainer = (
