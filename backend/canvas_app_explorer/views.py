@@ -23,6 +23,10 @@ class LTIToolViewSet(viewsets.ViewSet):
     lookup_url_kwarg = 'canvas_id'
 
     def list(self, request: Request) -> Response:
+        if not 'course_id' in request.session:
+            msg_miss_course_id = "Cannot find course id in session."
+            logger.warn(msg_miss_course_id)
+            return Response(msg_miss_course_id)
         logger.debug(f"Course ID: {request.session['course_id']}")
         manager = MANAGER_FACTORY.create_manager(request)
         available_tools = manager.get_tools_available_in_course()
