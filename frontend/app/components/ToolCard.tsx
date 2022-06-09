@@ -27,15 +27,15 @@ export default function ToolCard (props: ToolCardProps) {
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
 
-  const {
-    execute: executeUpdateToolNav, error: updateToolNavError, loading: updateToolNavLoading
-  } = useAsyncCallback<void, [number, boolean]>(api.updateToolNav);
-
-  const doUpdateToolNav = async (canvas_tool_id: number, navEnabled: boolean) => {
-    await executeUpdateToolNav(canvas_tool_id, navEnabled);
+  const updateToolNavAndTool = async (canvasToolId: number, navEnabled: boolean) => {
+    await api.updateToolNav(canvasToolId, navEnabled);
     const newTool = { ...tool, navigation_enabled: navEnabled };
     onToolUpdate(newTool);
   };
+
+  const {
+    execute: doUpdateToolNav, error: updateToolNavError, loading: updateToolNavLoading
+  } = useAsyncCallback<void, [number, boolean]>(updateToolNavAndTool);
 
   const isLoading = updateToolNavLoading;
   const loadingBlock = isLoading && (

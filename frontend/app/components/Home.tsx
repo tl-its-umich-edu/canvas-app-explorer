@@ -25,9 +25,9 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
 
 function Home () {
   const [tools, setTools] = useState<undefined | Tool[]>(undefined);
-  const { loading: getToolsLoading, error: getToolsError } = useAsync<Tool[], []>(
-    api.getTools, [], { onSuccess: (result) => setTools(result) }
-  );
+
+  const getAndSetTools = async (): Promise<void> => setTools(await api.getTools());
+  const { loading: getToolsLoading, error: getToolsError } = useAsync<void, []>(getAndSetTools, []);
 
   const onToolUpdate = (newTool: Tool) => {
     /*
