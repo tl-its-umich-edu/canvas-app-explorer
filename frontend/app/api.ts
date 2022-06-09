@@ -23,7 +23,7 @@ const createErrorMessage = async (res: Response): Promise<string> => {
   }
   return (
     'Error occurred! ' +
-    `Status: ${res.status}${res.statusText !== '' ? ' ' + res.statusText : ''}` +
+    `Status: ${res.status}` + (res.statusText !== '' ? ` (${res.statusText})` : '') +
     (errorBody !== undefined ? '; Body: ' + JSON.stringify(errorBody) : '.')
   );
 };
@@ -51,7 +51,10 @@ async function updateToolNav (canvas_tool_id: number, navEnabled: boolean): Prom
     }
   };
   const res = await fetch(url, requestInit);
-  if (!res.ok) throw new Error(await createErrorMessage(res));
+  if (!res.ok) {
+    console.error(res);
+    throw new Error(await createErrorMessage(res));
+  }
   return;
 }
 
