@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAsync } from 'react-async-hook';
-import { Alert, Grid, Typography } from '@mui/material';
+import { Alert, Box, Grid, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import HeaderAppBar from './HeaderAppBar';
@@ -45,7 +45,7 @@ function Home () {
 
   const isLoading = getToolsLoading;
   const loadingBlock = isLoading && (
-    <div>Loading . . . </div>
+    <Box sx={{ padding: 2 }}><LinearProgress id='tool-card-container-loading' /></Box>
   );
 
   const errors = [getToolsError].filter(e => e !== undefined) as Error[];
@@ -80,7 +80,9 @@ function Home () {
         </Typography>
         {loadingBlock}
         {errorsBlock}
-        {toolCardContainer}
+        <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
+          {toolCardContainer}
+        </div>
       </MainContainer>
       <Typography component='footer' sx={{ textAlign: 'center' }}>
         Copyright © 2022 The Regents of the University of Michigan

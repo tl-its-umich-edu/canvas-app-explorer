@@ -4,7 +4,8 @@ import { useAsyncCallback } from 'react-async-hook';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Alert, Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
+  Alert, Box, Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid,
+  LinearProgress, Typography
 } from '@mui/material';
 
 import DataElement from './DataElement';
@@ -38,7 +39,7 @@ export default function ToolCard (props: ToolCardProps) {
 
   const isLoading = updateToolNavLoading;
   const loadingBlock = isLoading && (
-    <div>Loading . . . </div>
+    <Box sx={{ padding: 2 }}><LinearProgress id='add-remove-tool-button-loading' /></Box>
   );
 
   const errors = [updateToolNavError].filter(e => e !== undefined) as Error[];
@@ -91,15 +92,32 @@ export default function ToolCard (props: ToolCardProps) {
         <Typography variant='body2'>
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
+      </CardContent>
+      <CardContent>
         {loadingBlock}
         {errorsBlock}
       </CardContent>
       <CardActions>
-        <Grid container justifyContent='space-between'>
+        <Grid
+          container
+          justifyContent='space-between'
+          aria-describedby='add-remove-tool-button-loading'
+          aria-busy={updateToolNavLoading}
+        >
           {
             tool.navigation_enabled
-              ? <RemoveToolButton disabled={updateToolNavLoading} onClick={() => doUpdateToolNav(tool.canvas_id, false)} />
-              : <AddToolButton disabled={updateToolNavLoading} onClick={() => doUpdateToolNav(tool.canvas_id, true)} />
+              ? (
+                <RemoveToolButton
+                  disabled={updateToolNavLoading}
+                  onClick={() => doUpdateToolNav(tool.canvas_id, false)}
+                />
+              )
+              : (
+                <AddToolButton
+                  disabled={updateToolNavLoading}
+                  onClick={() => doUpdateToolNav(tool.canvas_id, true)}
+                />
+              )
           }
           <Button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
