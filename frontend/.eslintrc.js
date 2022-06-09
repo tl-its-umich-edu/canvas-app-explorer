@@ -19,6 +19,7 @@ module.exports = {
   },
   'plugins': [
     'react',
+    'react-hooks',
     '@typescript-eslint'
   ],
   'settings': {
@@ -42,6 +43,11 @@ module.exports = {
     'semi': [
       'error',
       'always'
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': [
+      'error',
+      { additionalHooks: '(useAsync|useAsyncCallback)' }
     ]
   }
 };
