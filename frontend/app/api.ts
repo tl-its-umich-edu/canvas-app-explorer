@@ -39,9 +39,15 @@ async function getTools (): Promise<Tool[]> {
   return data;
 }
 
-async function updateToolNav (canvas_tool_id: number, navEnabled: boolean): Promise<void> {
+interface UpdateToolNavData {
+  canvasToolId: number
+  navEnabled: boolean
+}
+
+async function updateToolNav (data: UpdateToolNavData): Promise<void> {
+  const { canvasToolId, navEnabled } = data;
   const body = { navigation_enabled: navEnabled };
-  const url = `${API_BASE}/lti_tools/${canvas_tool_id}/`;
+  const url = `${API_BASE}/lti_tools/${canvasToolId}/`;
   const requestInit: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(body),

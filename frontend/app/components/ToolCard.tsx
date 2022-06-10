@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AddBox from '@mui/icons-material/AddBox';
-import { useAsyncCallback } from 'react-async-hook';
+import { useMutation } from 'react-query';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
@@ -27,22 +27,19 @@ export default function ToolCard (props: ToolCardProps) {
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
 
-  const updateToolNavAndTool = async (canvasToolId: number, navEnabled: boolean) => {
-    await api.updateToolNav(canvasToolId, navEnabled);
-    const newTool = { ...tool, navigation_enabled: navEnabled };
-    onToolUpdate(newTool);
-  };
-
   const {
-    execute: doUpdateToolNav, error: updateToolNavError, loading: updateToolNavLoading
-  } = useAsyncCallback<void, [number, boolean]>(updateToolNavAndTool);
+    mutate: doUpdateToolNav, error: updateToolNavError, isLoading: updateToolNavLoading
+  } = useMutation(api.updateToolNav, { onSuccess: (data, variables) => {
+    const newTool = { ...tool, navigation_enabled: variables.navEnabled };
+    onToolUpdate(newTool);
+  }});
 
   const isLoading = updateToolNavLoading;
   const loadingBlock = isLoading && (
     <Box sx={{ padding: 2 }}><LinearProgress id='add-remove-tool-button-loading' /></Box>
   );
 
-  const errors = [updateToolNavError].filter(e => e !== undefined) as Error[];
+  const errors = [updateToolNavError].filter(e => e !== null) as Error[];
   const errorsBlock = errors.length > 0 && (
     <Grid container spacing={2}>
       {errors.map((e, i) => <Grid key={i} item><Alert key={i} severity='error'>{e.message}</Alert></Grid>)}
@@ -109,13 +106,13 @@ export default function ToolCard (props: ToolCardProps) {
               ? (
                 <RemoveToolButton
                   disabled={updateToolNavLoading}
-                  onClick={() => doUpdateToolNav(tool.canvas_id, false)}
+                  onClick={() => doUpdateToolNav({ canvasToolId: tool.canvas_id, navEnabled: false })}
                 />
               )
               : (
                 <AddToolButton
                   disabled={updateToolNavLoading}
-                  onClick={() => doUpdateToolNav(tool.canvas_id, true)}
+                  onClick={() => doUpdateToolNav({ canvasToolId: tool.canvas_id, navEnabled: true })}
                 />
               )
           }

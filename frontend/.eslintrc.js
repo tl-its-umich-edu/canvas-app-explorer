@@ -45,9 +45,6 @@ module.exports = {
       'always'
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': [
-      'error',
-      { additionalHooks: '(useAsync|useAsyncCallback)' }
-    ]
+    'react-hooks/exhaustive-deps': ['warn']
   }
 };

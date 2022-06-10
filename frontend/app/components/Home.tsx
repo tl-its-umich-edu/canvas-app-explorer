@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAsync } from 'react-async-hook';
+import { useQuery } from 'react-query';
 import { Alert, Box, Grid, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -26,8 +26,9 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
 function Home () {
   const [tools, setTools] = useState<undefined | Tool[]>(undefined);
 
-  const getAndSetTools = async (): Promise<void> => setTools(await api.getTools());
-  const { loading: getToolsLoading, error: getToolsError } = useAsync<void, []>(getAndSetTools, []);
+  const { isLoading: getToolsLoading, error: getToolsError } = useQuery('getTools', api.getTools, {
+    onSuccess: (data) => setTools(data)
+  });
 
   const onToolUpdate = (newTool: Tool) => {
     /*
@@ -48,7 +49,7 @@ function Home () {
     <Box sx={{ padding: 2 }}><LinearProgress id='tool-card-container-loading' /></Box>
   );
 
-  const errors = [getToolsError].filter(e => e !== undefined) as Error[];
+  const errors = [getToolsError].filter(e => e !== null) as Error[];
   const errorsBlock = (errors.length > 0) && (
     <div>
       {errors.map((e, i) => <Alert key={i} severity='error'>{e.message}</Alert>)}
