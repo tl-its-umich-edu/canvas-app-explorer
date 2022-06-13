@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import AddBox from '@mui/icons-material/AddBox';
+import CloseIcon from '@mui/icons-material/Close';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
@@ -72,7 +74,9 @@ export default function ToolCard (props: ToolCardProps) {
             sx={{ marginBottom: 2, objectFit: 'contain' }}
           />
           <CardActions>
-            <Button onClick={() => setScreenshotDialogOpen(true)}>Show Screenshot</Button>
+            <Button onClick={() => setScreenshotDialogOpen(true)}>
+              <AddBox sx={{ marginRight: 1 }} />Enlarge Screenshot
+            </Button>
           </CardActions>
           <Dialog
             fullWidth
@@ -88,11 +92,13 @@ export default function ToolCard (props: ToolCardProps) {
               <DialogImg
                 tabIndex={0}
                 src={tool.main_image ?? ''}
-                alt={tool.main_image_alt_text ?? ''}
+                alt={tool.main_image_alt_text ?? 'Image of tool in use'}
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => setScreenshotDialogOpen(false)}>Close</Button>
+              <Button aria-label='Close screenshot dialog' onClick={() => setScreenshotDialogOpen(false)}>
+                <CloseIcon sx={{ marginRight: 1 }} />Close
+              </Button>
             </DialogActions>
           </Dialog>
           <DataElement name='Privacy Agreement'>
