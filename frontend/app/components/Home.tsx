@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Alert, Grid, LinearProgress, Typography } from '@mui/material';
+import { Alert, Box, Grid, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import ErrorsDisplay from './ErrorsDisplay';
@@ -74,7 +74,7 @@ function Home () {
           Find the best tools for your class and students
         </Typography>
         {loadingBlock}
-        <ErrorsDisplay errors={errors} />
+        <Box sx={{ marginBottom: 2 }}><ErrorsDisplay errors={errors} /></Box>
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
