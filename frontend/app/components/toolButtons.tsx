@@ -13,7 +13,6 @@ function AddToolButton (props: ButtonProps) {
     <Button
       id='add-tool-button'
       aria-label='Add tool to course'
-      color='success'
       variant='contained'
       {...props}
     >
@@ -28,8 +27,7 @@ function RemoveToolButton (props: ButtonProps) {
     <Button
       id='remove-tool-button'
       aria-label='Remove tool from course'
-      color='error'
-      variant='contained'
+      variant='outlined'
       {...props}
     >
       <RemoveIcon {...iconProps} />
