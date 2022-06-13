@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Card, CardActions, CardContent, CardMedia, Collapse, Grid, IconButton, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -29,7 +29,7 @@ interface ToolCardProps {
 export default function ToolCard (props: ToolCardProps) {
   const { tool } = props;
 
-  const [learnMoreActive, setLearnMoreActive] = useState(false);
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   let logoImageProps: CardImageProps = {
     component: 'img',
@@ -63,17 +63,20 @@ export default function ToolCard (props: ToolCardProps) {
       <CardActions>
         <Grid container justifyContent='space-between'>
           {tool.navigation_enabled ? <RemoveToolButton /> : <AddToolButton />}
-          <IconButton
-            onClick={() => setLearnMoreActive(!learnMoreActive)}
-            aria-expanded={learnMoreActive}
-            aria-label={`${learnMoreActive ? 'Close ' : ''}Learn More`}
-            size='large'
+          <Button
+            onClick={() => setShowMoreInfo(!showMoreInfo)}
+            aria-expanded={showMoreInfo}
+            aria-label={`Show ${!showMoreInfo ? 'More' : 'Less'} Info`}
           >
-            {!learnMoreActive ? <ExpandMoreIcon /> : <ExpandLessIcon />}
-          </IconButton>
+            {
+              !showMoreInfo
+                ? <><ExpandMoreIcon sx={{ marginRight: 1 }} />More</>
+                : <><ExpandLessIcon sx={{ marginRight: 1 }} />Less</>
+            }
+          </Button>
         </Grid>
       </CardActions>
-      <Collapse in={learnMoreActive} unmountOnExit>
+      <Collapse in={showMoreInfo} unmountOnExit>
         <CardContent>
           <DataElement name='Description'>
             <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
