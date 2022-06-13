@@ -16,7 +16,7 @@ import { Tool } from '../interfaces';
 const DialogImg = styled('img')(() => ({
   width: '100%',
   height: 'auto',
-  objectFit: 'scale-down'
+  objectFit: 'contain'
 }));
 
 interface ToolCardProps {
@@ -85,9 +85,7 @@ export default function ToolCard (props: ToolCardProps) {
             onClose={() => setScreenshotDialogOpen(false)}
             aria-labelledby='main-image-dialog-title'
           >
-            <DialogTitle id='main-image-dialog-title'>
-              Screenshot of {tool.name} in use
-            </DialogTitle>
+            <DialogTitle id='main-image-dialog-title'>Screenshot of {tool.name}</DialogTitle>
             <DialogContent>
               <DialogImg
                 tabIndex={0}
