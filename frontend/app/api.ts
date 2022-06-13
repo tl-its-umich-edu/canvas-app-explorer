@@ -53,7 +53,7 @@ async function updateToolNav (data: UpdateToolNavData): Promise<void> {
     body: JSON.stringify(body),
     headers: {
       ...BASE_MUTATION_HEADERS,
-      'X-CSRFTOKEN': getCSRFToken() ?? '' // Could throw error?
+      'X-CSRFTOKEN': getCSRFToken() ?? ''
     }
   };
   const res = await fetch(url, requestInit);
