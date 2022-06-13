@@ -4,8 +4,7 @@ import { useMutation } from 'react-query';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid,
-  LinearProgress, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, LinearProgress, Typography
 } from '@mui/material';
 
 import DataElement from './DataElement';

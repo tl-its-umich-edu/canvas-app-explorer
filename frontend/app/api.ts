@@ -2,8 +2,6 @@ import Cookies from 'js-cookie';
 
 import { Tool } from './interfaces';
 
-export const getCSRFToken = (): string | undefined => Cookies.get('csrftoken');
-
 const API_BASE = '/api';
 const JSON_MIME_TYPE = 'application/json';
 
@@ -12,6 +10,8 @@ const BASE_MUTATION_HEADERS: HeadersInit = {
   'Content-Type': JSON_MIME_TYPE,
   'X-Requested-With': 'XMLHttpRequest'
 };
+
+const getCSRFToken = (): string | undefined => Cookies.get('csrftoken');
 
 const createErrorMessage = async (res: Response): Promise<string> => {
   let errorBody;
