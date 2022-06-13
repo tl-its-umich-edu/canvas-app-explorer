@@ -6,7 +6,16 @@ import { ThemeProvider } from '@mui/material';
 import Home from './components/Home';
 import theme from './theme';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      retryOnMount: false,
+      staleTime: Infinity
+    },
+    mutations: { retry: false }
+  }
+});
 
 ReactDOM.render(
   (
