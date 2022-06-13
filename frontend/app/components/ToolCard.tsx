@@ -4,11 +4,12 @@ import { useMutation } from 'react-query';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Alert, Box, Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid,
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid,
   LinearProgress, Typography
 } from '@mui/material';
 
 import DataElement from './DataElement';
+import ErrorsDisplay from './ErrorsDisplay';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
 import * as api from '../api';
@@ -35,16 +36,9 @@ export default function ToolCard (props: ToolCardProps) {
   }});
 
   const isLoading = updateToolNavLoading;
-  const loadingBlock = isLoading && (
-    <Box sx={{ padding: 2 }}><LinearProgress id='add-remove-tool-button-loading' /></Box>
-  );
+  const loadingBlock = isLoading && <LinearProgress sx={{ margin: 2 }} id='add-remove-tool-button-loading' />;
 
   const errors = [updateToolNavError].filter(e => e !== null) as Error[];
-  const errorsBlock = errors.length > 0 && (
-    <Grid container spacing={2}>
-      {errors.map((e, i) => <Grid key={i} item><Alert key={i} severity='error'>{e.message}</Alert></Grid>)}
-    </Grid>
-  );
 
   let mainImageBlock;
   if (tool.main_image !== null) {
@@ -92,7 +86,7 @@ export default function ToolCard (props: ToolCardProps) {
       </CardContent>
       <CardContent>
         {loadingBlock}
-        {errorsBlock}
+        <ErrorsDisplay errors={errors} />
       </CardContent>
       <CardActions>
         <Grid

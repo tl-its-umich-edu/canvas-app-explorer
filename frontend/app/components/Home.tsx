@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Alert, Box, Grid, LinearProgress, Typography } from '@mui/material';
+import { Alert, Grid, LinearProgress, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import ErrorsDisplay from './ErrorsDisplay';
 import HeaderAppBar from './HeaderAppBar';
 import ToolCard from './ToolCard';
 import * as api from '../api';
@@ -45,16 +46,9 @@ function Home () {
   const [searchFilter, setSearchFilter] = useState('');
 
   const isLoading = getToolsLoading;
-  const loadingBlock = isLoading && (
-    <Box sx={{ padding: 2 }}><LinearProgress id='tool-card-container-loading' /></Box>
-  );
+  const loadingBlock = isLoading && <LinearProgress sx={{ margin: 2 }} id='tool-card-container-loading' />;
 
   const errors = [getToolsError].filter(e => e !== null) as Error[];
-  const errorsBlock = (errors.length > 0) && (
-    <div>
-      {errors.map((e, i) => <Alert key={i} severity='error'>{e.message}</Alert>)}
-    </div>
-  );
 
   let toolCardContainer;
   if (tools !== undefined) {
@@ -80,7 +74,7 @@ function Home () {
           Find the best tools for your class and students
         </Typography>
         {loadingBlock}
-        {errorsBlock}
+        <ErrorsDisplay errors={errors} />
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
