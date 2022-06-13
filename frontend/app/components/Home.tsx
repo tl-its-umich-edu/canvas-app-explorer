@@ -26,6 +26,7 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
 
 function Home () {
   const [tools, setTools] = useState<undefined | Tool[]>(undefined);
+  const [showRefreshAlert, setShowRefreshAlert] = useState<undefined | boolean>(undefined);
 
   const { isLoading: getToolsLoading, error: getToolsError } = useQuery('getTools', api.getTools, {
     onSuccess: (data) => setTools(data)
@@ -41,6 +42,8 @@ function Home () {
       const newTools = oldTools.map(t => t.canvas_id === newTool.canvas_id ? newTool : t);
       return newTools;
     });
+
+    if (showRefreshAlert === undefined) setShowRefreshAlert(true);
   };
 
   const [searchFilter, setSearchFilter] = useState('');
@@ -74,7 +77,12 @@ function Home () {
           Find the best tools for your class and students
         </Typography>
         {loadingBlock}
-        <Box sx={{ marginBottom: 2 }}><ErrorsDisplay errors={errors} /></Box>
+        {errors.length > 0 && <Box sx={{ marginBottom: 2 }}><ErrorsDisplay errors={errors} /></Box>}
+        {showRefreshAlert && (
+          <Alert severity='success' onClose={() => setShowRefreshAlert(false)} sx={{ marginBottom: 2 }}>
+            Refresh the page to make tool changes appear in the left-hand navigation.
+          </Alert>
+        )}
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
