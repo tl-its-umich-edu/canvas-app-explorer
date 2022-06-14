@@ -1,12 +1,7 @@
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { Button, ButtonProps, SvgIconProps } from '@mui/material';
-
-const iconProps: SvgIconProps = {
-  fontSize: 'medium',
-  sx: { marginRight: 1 }
-};
+import { Button, ButtonProps } from '@mui/material';
 
 function AddToolButton (props: ButtonProps) {
   return (
@@ -14,9 +9,10 @@ function AddToolButton (props: ButtonProps) {
       id='add-tool-button'
       aria-label='Add tool to course'
       variant='contained'
+      startIcon={<AddIcon />}
       {...props}
     >
-      <AddIcon {...iconProps} />Add tool
+      Add tool
     </Button>
   );
 }
@@ -27,9 +23,10 @@ function RemoveToolButton (props: ButtonProps) {
       id='remove-tool-button'
       aria-label='Remove tool from course'
       variant='outlined'
+      startIcon={<RemoveIcon />}
       {...props}
     >
-      <RemoveIcon {...iconProps} />Remove tool
+      Remove tool
     </Button>
   );
 }

@@ -49,6 +49,8 @@ export default function ToolCard (props: ToolCardProps) {
     mainImageProps = { image: tool.main_image, ...mainImageProps };
   }
 
+  const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
+
   return (
     <Card
       variant='outlined'
@@ -66,13 +68,10 @@ export default function ToolCard (props: ToolCardProps) {
           <Button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
             aria-expanded={showMoreInfo}
-            aria-label={`Show ${!showMoreInfo ? 'More' : 'Less'} Info`}
+            aria-label={`Show ${moreOrLessText} Info`}
+            startIcon={!showMoreInfo ? <ExpandMoreIcon /> : <ExpandLessIcon />}
           >
-            {
-              !showMoreInfo
-                ? <><ExpandMoreIcon sx={{ marginRight: 1 }} />More</>
-                : <><ExpandLessIcon sx={{ marginRight: 1 }} />Less</>
-            }
+            {moreOrLessText}
           </Button>
         </Grid>
       </CardActions>
