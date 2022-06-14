@@ -74,8 +74,8 @@ export default function ToolCard (props: ToolCardProps) {
             sx={{ marginBottom: 2, objectFit: 'contain' }}
           />
           <CardActions>
-            <Button onClick={() => setScreenshotDialogOpen(true)}>
-              <AddBox sx={{ marginRight: 1 }} />Enlarge Screenshot
+            <Button onClick={() => setScreenshotDialogOpen(true)} startIcon={<AddBox />}>
+              Enlarge Screenshot
             </Button>
           </CardActions>
           <Dialog
@@ -94,8 +94,12 @@ export default function ToolCard (props: ToolCardProps) {
               />
             </DialogContent>
             <DialogActions>
-              <Button aria-label='Close screenshot dialog' onClick={() => setScreenshotDialogOpen(false)}>
-                <CloseIcon sx={{ marginRight: 1 }} />Close
+              <Button
+                aria-label='Close screenshot dialog'
+                onClick={() => setScreenshotDialogOpen(false)}
+                startIcon={<CloseIcon />}
+              >
+                Close
               </Button>
             </DialogActions>
           </Dialog>
