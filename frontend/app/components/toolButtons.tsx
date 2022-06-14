@@ -1,7 +1,7 @@
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { Button, ButtonProps, SvgIconProps, Typography } from '@mui/material';
+import { Button, ButtonProps, SvgIconProps } from '@mui/material';
 
 const iconProps: SvgIconProps = {
   fontSize: 'medium',
@@ -16,8 +16,7 @@ function AddToolButton (props: ButtonProps) {
       variant='contained'
       {...props}
     >
-      <AddIcon {...iconProps} />
-      <Typography component='span'>Add tool</Typography>
+      <AddIcon {...iconProps} />Add tool
     </Button>
   );
 }
@@ -30,8 +29,7 @@ function RemoveToolButton (props: ButtonProps) {
       variant='outlined'
       {...props}
     >
-      <RemoveIcon {...iconProps} />
-      <Typography component='span'>Remove tool</Typography>
+      <RemoveIcon {...iconProps} />Remove tool
     </Button>
   );
 }
