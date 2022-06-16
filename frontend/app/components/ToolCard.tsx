@@ -30,6 +30,7 @@ export default function ToolCard (props: ToolCardProps) {
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
+  const defaultMainImageAltText = `Image of ${tool.name} tool in use`;
 
   return (
     <Card
@@ -40,7 +41,7 @@ export default function ToolCard (props: ToolCardProps) {
         <CardMedia
           component='img'
           height={150}
-          alt={tool.logo_image_alt_text ?? 'Logo for tool'}
+          alt={tool.logo_image_alt_text ?? `Logo for ${tool.name} tool`}
           image={tool.logo_image ?? ''}
           sx={{ marginBottom: 2, objectFit: 'contain' }}
         />
@@ -69,7 +70,7 @@ export default function ToolCard (props: ToolCardProps) {
           <CardMedia
             component='img'
             height={150}
-            alt={tool.main_image_alt_text ?? 'Image of tool in use'}
+            alt={tool.main_image_alt_text ?? defaultMainImageAltText}
             image={tool.main_image ?? ''}
             sx={{ marginBottom: 2, objectFit: 'contain' }}
           />
@@ -90,7 +91,7 @@ export default function ToolCard (props: ToolCardProps) {
               <DialogImg
                 tabIndex={0}
                 src={tool.main_image ?? ''}
-                alt={tool.main_image_alt_text ?? 'Image of tool in use'}
+                alt={tool.main_image_alt_text ?? defaultMainImageAltText}
               />
             </DialogContent>
             <DialogActions>
