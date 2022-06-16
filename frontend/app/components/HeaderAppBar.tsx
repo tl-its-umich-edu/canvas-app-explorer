@@ -12,7 +12,9 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
       <Toolbar>
         <Grid container direction='row' alignItems='center'>
           <Grid item xs={6}>
-            <Typography variant='h5' component='h1' sx={{ marginRight: 1 }}>Canvas App Explorer</Typography>
+            <Typography variant='h5' component='h1' sx={{ marginRight: 1 }}>
+              Canvas App Explorer
+            </Typography>
           </Grid>
           <Grid
             item
@@ -24,7 +26,9 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
             variant='outlined'
             sx={{ paddingLeft: 1, paddingRight: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
           >
-            <Grid item xs='auto'><SearchIcon sx={{ marginRight: 1 }} /></Grid>
+            <Grid item xs='auto'>
+              <SearchIcon sx={{ marginRight: 1 }} />
+            </Grid>
             <Grid item xs>
               <InputBase
                 id='tool-filter'
