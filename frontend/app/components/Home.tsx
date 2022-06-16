@@ -2,17 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import Header from './Header';
+import HeaderAppBar from './HeaderAppBar';
 import ToolCard from './ToolCard';
 import '../css/Home.css';
 import { Tool } from '../interfaces';
 
-const Root = styled('div')(({ theme }) => ({
-  margin: theme.spacing(2)
-}));
-
 const MainContainer = styled('div')(({ theme }) => ({
-  margin: theme.spacing(3)
+  marginTop: theme.spacing(3),
+  marginBottom: theme.spacing(3)
 }));
 
 const filterTools = (tools: Tool[], filter: string): Tool[] => {
@@ -60,10 +57,10 @@ function Home () {
   }
 
   return (
-    <Root>
-      <Header onFilterChange={(v) => setSearchFilter(v)} />
+    <div id='root'>
+      <HeaderAppBar onFilterChange={(v) => setSearchFilter(v)} />
       <MainContainer>
-        <Typography variant='h5' component='h2' sx={{ textAlign: 'center', marginBottom: 3 }}>
+        <Typography variant='h6' component='h2' sx={{ textAlign: 'center', marginBottom: 3 }}>
           Find the best tools for your class and students
         </Typography>
         {toolCardContainer}
@@ -71,7 +68,7 @@ function Home () {
       <Typography component='footer' sx={{ textAlign: 'center' }}>
         Copyright © 2022 The Regents of the University of Michigan
       </Typography>
-    </Root>
+    </div>
   );
 }
 
