@@ -24,9 +24,7 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
             variant='outlined'
             sx={{ paddingLeft: 1, paddingRight: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
           >
-            <Grid item xs='auto'>
-              <SearchIcon sx={{ marginRight: 1 }} />
-            </Grid>
+            <Grid item xs='auto'><SearchIcon sx={{ marginRight: 1 }} /></Grid>
             <Grid item xs>
               <InputBase
                 id='tool-filter'
