@@ -30,7 +30,52 @@ export default function ToolCard (props: ToolCardProps) {
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
-  const defaultMainImageAltText = `Image of ${tool.name} tool in use`;
+
+  let mainImageBlock;
+  if (tool.main_image !== null) {
+    const defaultMainImageAltText = `Image of ${tool.name} tool in use`;
+    mainImageBlock = (
+      <>
+        <CardMedia
+          component='img'
+          height={150}
+          alt={tool.main_image_alt_text ?? defaultMainImageAltText}
+          image={tool.main_image ?? ''}
+          sx={{ marginBottom: 2, objectFit: 'contain' }}
+        />
+        <CardActions>
+          <Button onClick={() => setScreenshotDialogOpen(true)} startIcon={<AddBox />}>
+            Enlarge Screenshot
+          </Button>
+        </CardActions>
+        <Dialog
+          fullWidth
+          maxWidth='xl'
+          open={screenshotDialogOpen}
+          onClose={() => setScreenshotDialogOpen(false)}
+          aria-labelledby='main-image-dialog-title'
+        >
+          <DialogTitle id='main-image-dialog-title'>Screenshot of {tool.name}</DialogTitle>
+          <DialogContent>
+            <DialogImg
+              tabIndex={0}
+              src={tool.main_image ?? ''}
+              alt={tool.main_image_alt_text ?? defaultMainImageAltText}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button
+              aria-label='Close screenshot dialog'
+              onClick={() => setScreenshotDialogOpen(false)}
+              startIcon={<CloseIcon />}
+            >
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </>
+    );
+  }
 
   return (
     <Card
@@ -67,43 +112,7 @@ export default function ToolCard (props: ToolCardProps) {
           <DataElement name='Description'>
             <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
           </DataElement>
-          <CardMedia
-            component='img'
-            height={150}
-            alt={tool.main_image_alt_text ?? defaultMainImageAltText}
-            image={tool.main_image ?? ''}
-            sx={{ marginBottom: 2, objectFit: 'contain' }}
-          />
-          <CardActions>
-            <Button onClick={() => setScreenshotDialogOpen(true)} startIcon={<AddBox />}>
-              Enlarge Screenshot
-            </Button>
-          </CardActions>
-          <Dialog
-            fullWidth
-            maxWidth='xl'
-            open={screenshotDialogOpen}
-            onClose={() => setScreenshotDialogOpen(false)}
-            aria-labelledby='main-image-dialog-title'
-          >
-            <DialogTitle id='main-image-dialog-title'>Screenshot of {tool.name}</DialogTitle>
-            <DialogContent>
-              <DialogImg
-                tabIndex={0}
-                src={tool.main_image ?? ''}
-                alt={tool.main_image_alt_text ?? defaultMainImageAltText}
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button
-                aria-label='Close screenshot dialog'
-                onClick={() => setScreenshotDialogOpen(false)}
-                startIcon={<CloseIcon />}
-              >
-                Close
-              </Button>
-            </DialogActions>
-          </Dialog>
+          {mainImageBlock}
           <DataElement name='Privacy Agreement'>
             <span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement }} />
           </DataElement>
