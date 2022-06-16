@@ -41,7 +41,7 @@ export default function ToolCard (props: ToolCardProps) {
         <CardMedia
           component='img'
           height={150}
-          alt={tool.logo_image_alt_text ?? `Logo for ${tool.name} tool`}
+          alt={tool.logo_image_alt_text ?? `Logo image for ${tool.name} tool`}
           image={tool.logo_image ?? ''}
           sx={{ marginBottom: 2, objectFit: 'contain' }}
         />
