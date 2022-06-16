@@ -3,10 +3,6 @@ import { AppBar, Grid, InputBase, Paper, Toolbar, Typography } from '@mui/materi
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 
-interface HeaderProps {
-  onFilterChange: (v: string) => void
-}
-
 const StyledPaper = styled(Paper)(({ theme }) => ({
   variant: 'outlined',
   paddingLeft: theme.spacing(1),
@@ -15,7 +11,11 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   paddingBottom: theme.spacing(0.5)
 }));
 
-export default function HeaderAppBar (props: HeaderProps) {
+interface HeaderAppBarProps {
+  onFilterChange: (v: string) => void
+}
+
+export default function HeaderAppBar (props: HeaderAppBarProps) {
   return (
     <AppBar position='sticky'>
       <Toolbar>
