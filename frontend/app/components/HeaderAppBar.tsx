@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppBar, Grid, InputBase, Paper, Toolbar, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { AppBar, Grid, InputBase, Paper, Toolbar, Typography } from '@mui/material';
 
 interface HeaderAppBarProps {
   onFilterChange: (v: string) => void
@@ -30,7 +30,6 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
                 id='tool-filter'
                 placeholder='Filter by name or description'
                 aria-label='Filter tools by name or description'
-                color='primary'
                 fullWidth
                 onChange={(e) => props.onFilterChange(e.target.value)}
               />
