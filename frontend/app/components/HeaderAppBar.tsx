@@ -1,15 +1,6 @@
 import React from 'react';
 import { AppBar, Grid, InputBase, Paper, Toolbar, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled } from '@mui/material/styles';
-
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  variant: 'outlined',
-  paddingLeft: theme.spacing(1),
-  paddingRight: theme.spacing(1),
-  paddingTop: theme.spacing(0.5),
-  paddingBottom: theme.spacing(0.5)
-}));
 
 interface HeaderAppBarProps {
   onFilterChange: (v: string) => void
@@ -29,7 +20,9 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
             container
             justifyContent='flex-start'
             alignItems='center'
-            component={StyledPaper}
+            component={Paper}
+            variant='outlined'
+            sx={{ paddingLeft: 1, paddingRight: 1, paddingTop: 0.5, paddingBottom: 0.5 }}
           >
             <Grid item xs='auto'>
               <SearchIcon sx={{ marginRight: 1 }} />
