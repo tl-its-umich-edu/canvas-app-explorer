@@ -26,6 +26,7 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
 
 function Home () {
   const [tools, setTools] = useState<undefined | Tool[]>(undefined);
+  const [searchFilter, setSearchFilter] = useState('');
   const [showRefreshAlert, setShowRefreshAlert] = useState<undefined | boolean>(undefined);
 
   const { isLoading: getToolsLoading, error: getToolsError } = useQuery('getTools', api.getTools, {
@@ -46,12 +47,23 @@ function Home () {
     if (showRefreshAlert === undefined) setShowRefreshAlert(true);
   };
 
-  const [searchFilter, setSearchFilter] = useState('');
-
   const isLoading = getToolsLoading;
-  const loadingBlock = isLoading && <LinearProgress sx={{ margin: 2 }} id='tool-card-container-loading' />;
-
   const errors = [getToolsError].filter(e => e !== null) as Error[];
+
+  let feedbackBlock;
+  if (isLoading || errors.length > 0 || showRefreshAlert) {
+    feedbackBlock = (
+      <Box sx={{ margin: 2 }}>
+        {isLoading && <LinearProgress id='tool-card-container-loading' sx={{ marginBottom: 2 }} />}
+        {errors.length > 0 && <Box sx={{ marginBottom: 1 }}><ErrorsDisplay errors={errors} /></Box>}
+        {showRefreshAlert && (
+          <Alert severity='success' sx={{ marginBottom: 1 }} onClose={() => setShowRefreshAlert(false)}>
+            Refresh the page to make tool changes appear in the left-hand navigation.
+          </Alert>
+        )}
+      </Box>
+    );
+  }
 
   let toolCardContainer;
   if (tools !== undefined) {
@@ -76,13 +88,7 @@ function Home () {
         <Typography variant='h6' component='h2' sx={{ textAlign: 'center', marginBottom: 3 }}>
           Find the best tools for your class and students
         </Typography>
-        {loadingBlock}
-        {errors.length > 0 && <Box sx={{ marginBottom: 2 }}><ErrorsDisplay errors={errors} /></Box>}
-        {showRefreshAlert && (
-          <Alert severity='success' onClose={() => setShowRefreshAlert(false)} sx={{ marginBottom: 2 }}>
-            Refresh the page to make tool changes appear in the left-hand navigation.
-          </Alert>
-        )}
+        {feedbackBlock}
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
