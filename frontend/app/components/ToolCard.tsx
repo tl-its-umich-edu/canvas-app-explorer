@@ -11,7 +11,7 @@ import DataElement from './DataElement';
 import ErrorsDisplay from './ErrorsDisplay';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
-import * as api from '../api';
+import { updateToolNav  } from '../api';
 import { Tool } from '../interfaces';
 
 interface ToolCardProps {
@@ -28,7 +28,7 @@ export default function ToolCard (props: ToolCardProps) {
 
   const {
     mutate: doUpdateToolNav, error: updateToolNavError, isLoading: updateToolNavLoading
-  } = useMutation(api.updateToolNav, { onSuccess: (data, variables) => {
+  } = useMutation(updateToolNav, { onSuccess: (data, variables) => {
     const newTool = { ...tool, navigation_enabled: variables.navEnabled };
     onToolUpdate(newTool);
   }});

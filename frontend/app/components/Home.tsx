@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import ErrorsDisplay from './ErrorsDisplay';
 import HeaderAppBar from './HeaderAppBar';
 import ToolCard from './ToolCard';
-import * as api from '../api';
+import { getTools } from '../api';
 import '../css/Home.css';
 import { Tool } from '../interfaces';
 
@@ -29,7 +29,7 @@ function Home () {
   const [searchFilter, setSearchFilter] = useState('');
   const [showRefreshAlert, setShowRefreshAlert] = useState<undefined | boolean>(undefined);
 
-  const { isLoading: getToolsLoading, error: getToolsError } = useQuery('getTools', api.getTools, {
+  const { isLoading: getToolsLoading, error: getToolsError } = useQuery('getTools', getTools, {
     onSuccess: (data) => setTools(data)
   });
 
