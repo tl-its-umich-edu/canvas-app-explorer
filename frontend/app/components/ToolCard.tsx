@@ -1,26 +1,15 @@
 import React, { useState } from 'react';
+import AddBox from '@mui/icons-material/AddBox';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
 
 import DataElement from './DataElement';
+import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
 import { Tool } from '../interfaces';
-
-const ContainedCardMedia = styled(CardMedia)(({ theme }) => ({
-  objectFit: 'contain',
-  marginBottom: theme.spacing(2)
-}));
-
-interface CardImageProps {
-  image?: string
-  component: 'img'
-  height: number
-  alt: string
-}
 
 interface ToolCardProps {
   tool: Tool
@@ -30,26 +19,36 @@ export default function ToolCard (props: ToolCardProps) {
   const { tool } = props;
 
   const [showMoreInfo, setShowMoreInfo] = useState(false);
-
-  let logoImageProps: CardImageProps = {
-    component: 'img',
-    height: 150,
-    alt: tool.logo_image_alt_text ?? 'Logo for tool'
-  };
-  if (tool.logo_image !== null) {
-    logoImageProps = { image: tool.logo_image, ...logoImageProps };
-  }
-
-  let mainImageProps: CardImageProps = {
-    component: 'img',
-    height: 150,
-    alt: tool.main_image_alt_text ?? 'Image of tool in use'
-  };
-  if (tool.main_image !== null) {
-    mainImageProps = { image: tool.main_image, ...mainImageProps };
-  }
+  const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
+
+  let mainImageBlock;
+  if (tool.main_image !== null) {
+    const defaultMainImageAltText = `Image of ${tool.name} tool in use`;
+    mainImageBlock = (
+      <>
+        <CardMedia
+          component='img'
+          height={150}
+          alt={tool.main_image_alt_text ?? defaultMainImageAltText}
+          image={tool.main_image ?? ''}
+          sx={{ marginBottom: 2, objectFit: 'contain' }}
+        />
+        <CardActions>
+          <Button onClick={() => setScreenshotDialogOpen(true)} startIcon={<AddBox />}>
+            Enlarge Screenshot
+          </Button>
+        </CardActions>
+        <ImageDialog
+          titleData={{ title: `Screenshot for ${tool.name}`, id: 'main-image-dialog-title' }}
+          imageData={{ src: tool.main_image, altText: defaultMainImageAltText }}
+          open={screenshotDialogOpen}
+          onClose={() => setScreenshotDialogOpen(false)}
+        />
+      </>
+    );
+  }
 
   return (
     <Card
@@ -57,7 +56,13 @@ export default function ToolCard (props: ToolCardProps) {
       sx={{ padding: 1, width: 328, borderColor: 'primary.main', borderWidth: '3px' }}
     >
       <CardContent sx={{ height: 225 }}>
-        <ContainedCardMedia {...logoImageProps} />
+        <CardMedia
+          component='img'
+          height={150}
+          alt={tool.logo_image_alt_text ?? `Logo image for ${tool.name} tool`}
+          image={tool.logo_image ?? ''}
+          sx={{ marginBottom: 2, objectFit: 'contain' }}
+        />
         <Typography variant='body2'>
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
@@ -80,7 +85,7 @@ export default function ToolCard (props: ToolCardProps) {
           <DataElement name='Description'>
             <span dangerouslySetInnerHTML={{ __html: tool.long_description }} />
           </DataElement>
-          <ContainedCardMedia {...mainImageProps} />
+          {mainImageBlock}
           <DataElement name='Privacy Agreement'>
             <span dangerouslySetInnerHTML={{ __html: tool.privacy_agreement }} />
           </DataElement>
