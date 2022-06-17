@@ -25,7 +25,6 @@ export default function ToolCard (props: ToolCardProps) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
-  const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
 
   const {
     mutate: doUpdateToolNav, error: updateToolNavError, isLoading: updateToolNavLoading
@@ -34,9 +33,10 @@ export default function ToolCard (props: ToolCardProps) {
     onToolUpdate(newTool);
   }});
 
-  const isLoading = updateToolNavLoading;
-  const loadingBlock = isLoading && <LinearProgress sx={{ margin: 2 }} id='add-remove-tool-button-loading' />;
+  const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
 
+  const isLoading = updateToolNavLoading;
+  const loadingBlock = isLoading && <LinearProgress id='add-remove-tool-button-loading' sx={{ margin: 2 }} />;
   const errors = [updateToolNavError].filter(e => e !== null) as Error[];
 
   let mainImageBlock;
