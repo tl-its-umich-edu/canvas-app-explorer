@@ -7,14 +7,10 @@ interface ErrorsDisplayProps {
 
 export default function ErrorsDisplay (props: ErrorsDisplayProps) {
   return (
-    props.errors.length === 0
-      ? <></>
-      : (
-        <Grid container spacing={1} justifyContent='center' direction='column'>
-          {props.errors.map((e, i) => (
-            <Grid key={i} item><Alert severity='error'>{e.message}</Alert></Grid>
-          ))}
-        </Grid>
-      )
+    <Grid container spacing={1} justifyContent='center' direction='column'>
+      {props.errors.map((e, i) => (
+        <Grid key={i} item><Alert severity='error'>{e.message}</Alert></Grid>
+      ))}
+    </Grid>
   );
 }
