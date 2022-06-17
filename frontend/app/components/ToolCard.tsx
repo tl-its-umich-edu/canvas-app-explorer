@@ -25,7 +25,6 @@ export default function ToolCard (props: ToolCardProps) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
-
   const {
     mutate: doUpdateToolNav, error: updateToolNavError, isLoading: updateToolNavLoading
   } = useMutation(updateToolNav, { onSuccess: (data, variables) => {
