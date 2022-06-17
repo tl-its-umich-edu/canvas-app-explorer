@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
 import AddBox from '@mui/icons-material/AddBox';
-import CloseIcon from '@mui/icons-material/Close';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Dialog, DialogActions,
-  DialogContent, DialogTitle, Grid, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
 
 import DataElement from './DataElement';
+import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
 import { Tool } from '../interfaces';
-
-const DialogImg = styled('img')(() => ({
-  width: '100%',
-  height: 'auto',
-  objectFit: 'contain'
-}));
 
 interface ToolCardProps {
   tool: Tool
@@ -48,31 +40,12 @@ export default function ToolCard (props: ToolCardProps) {
             Enlarge Screenshot
           </Button>
         </CardActions>
-        <Dialog
-          fullWidth
-          maxWidth='xl'
+        <ImageDialog
+          titleData={{ title: `Screenshot for ${tool.name}`, id: 'main-image-dialog-title' }}
+          imageData={{ src: tool.main_image, altText: defaultMainImageAltText }}
           open={screenshotDialogOpen}
           onClose={() => setScreenshotDialogOpen(false)}
-          aria-labelledby='main-image-dialog-title'
-        >
-          <DialogTitle id='main-image-dialog-title'>Screenshot of {tool.name}</DialogTitle>
-          <DialogContent>
-            <DialogImg
-              tabIndex={0}
-              src={tool.main_image ?? ''}
-              alt={tool.main_image_alt_text ?? defaultMainImageAltText}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button
-              aria-label='Close screenshot dialog'
-              onClick={() => setScreenshotDialogOpen(false)}
-              startIcon={<CloseIcon />}
-            >
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+        />
       </>
     );
   }
