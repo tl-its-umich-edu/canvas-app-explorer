@@ -11,7 +11,7 @@ import DataElement from './DataElement';
 import ErrorsDisplay from './ErrorsDisplay';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
-import { updateToolNav  } from '../api';
+import { updateToolNav } from '../api';
 import { Tool } from '../interfaces';
 
 interface ToolCardProps {
@@ -35,8 +35,17 @@ export default function ToolCard (props: ToolCardProps) {
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
 
   const isLoading = updateToolNavLoading;
-  const loadingBlock = isLoading && <LinearProgress id='add-remove-tool-button-loading' sx={{ margin: 2 }} />;
   const errors = [updateToolNavError].filter(e => e !== null) as Error[];
+
+  let feedbackBlock;
+  if (isLoading || errors.length > 0) {
+    feedbackBlock = (
+      <CardContent>
+        {isLoading && <LinearProgress id='add-remove-tool-button-loading' sx={{ margin: 2 }} />}
+        {errors.length > 0 && <ErrorsDisplay errors={errors} />}
+      </CardContent>
+    );
+  }
 
   let mainImageBlock;
   if (tool.main_image !== null) {
@@ -82,10 +91,7 @@ export default function ToolCard (props: ToolCardProps) {
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
       </CardContent>
-      <CardContent>
-        {loadingBlock}
-        <ErrorsDisplay errors={errors} />
-      </CardContent>
+      {feedbackBlock}
       <CardActions>
         <Grid
           container
