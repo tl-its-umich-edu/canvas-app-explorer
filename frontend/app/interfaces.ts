@@ -1,3 +1,13 @@
+interface User {
+  username: string
+  is_staff: boolean
+}
+
+interface Globals {
+  user: User | null
+  help_url: string
+}
+
 interface CanvasPlacement {
   name: string
 }
@@ -18,4 +28,4 @@ interface Tool {
   navigation_enabled: boolean
 }
 
-export type { Tool };
+export type { Globals, Tool, User };

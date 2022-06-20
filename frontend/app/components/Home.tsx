@@ -8,7 +8,7 @@ import HeaderAppBar from './HeaderAppBar';
 import ToolCard from './ToolCard';
 import { getTools } from '../api';
 import '../css/Home.css';
-import { Tool } from '../interfaces';
+import { Globals, Tool } from '../interfaces';
 
 const MainContainer = styled('div')(({ theme }) => ({
   marginTop: theme.spacing(3),
@@ -24,7 +24,13 @@ const filterTools = (tools: Tool[], filter: string): Tool[] => {
   );
 };
 
-function Home () {
+interface HomeProps {
+  globals: Globals
+}
+
+function Home (props: HomeProps) {
+  const { globals } = props;
+
   const [tools, setTools] = useState<undefined | Tool[]>(undefined);
   const [searchFilter, setSearchFilter] = useState('');
   const [showRefreshAlert, setShowRefreshAlert] = useState<undefined | boolean>(undefined);
@@ -83,7 +89,7 @@ function Home () {
 
   return (
     <div id='root'>
-      <HeaderAppBar onFilterChange={(v) => setSearchFilter(v)} />
+      <HeaderAppBar user={globals.user} helpURL={globals.help_url} onFilterChange={(v) => setSearchFilter(v)} />
       <MainContainer>
         <Typography variant='h6' component='h2' sx={{ textAlign: 'center', marginBottom: 3 }}>
           Find the best tools for your class and students

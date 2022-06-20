@@ -1,9 +1,16 @@
 from typing import List
 
+from django.contrib.auth.models import User
 from rest_framework import fields, serializers
 
 from backend.canvas_app_explorer import models
 from backend.canvas_app_explorer.canvas_lti_manager.data_class import ExternalToolTab
+
+class GlobalsUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['username', 'is_staff']
 
 class CanvasPlacementSerializer(serializers.ModelSerializer):
 
