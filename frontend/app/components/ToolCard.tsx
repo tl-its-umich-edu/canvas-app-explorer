@@ -1,27 +1,51 @@
 import React, { useState } from 'react';
 import AddBox from '@mui/icons-material/AddBox';
+import { useMutation } from 'react-query';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, LinearProgress, Typography
 } from '@mui/material';
 
 import DataElement from './DataElement';
+import ErrorsDisplay from './ErrorsDisplay';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
+import { updateToolNav } from '../api';
 import { Tool } from '../interfaces';
 
 interface ToolCardProps {
   tool: Tool
+  onToolUpdate: (tool: Tool) => void;
 }
 
 export default function ToolCard (props: ToolCardProps) {
-  const { tool } = props;
+  const { tool, onToolUpdate } = props;
 
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [screenshotDialogOpen, setScreenshotDialogOpen] = useState(false);
 
+  const {
+    mutate: doUpdateToolNav, error: updateToolNavError, isLoading: updateToolNavLoading
+  } = useMutation(updateToolNav, { onSuccess: (data, variables) => {
+    const newTool = { ...tool, navigation_enabled: variables.navEnabled };
+    onToolUpdate(newTool);
+  }});
+
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
+
+  const isLoading = updateToolNavLoading;
+  const errors = [updateToolNavError].filter(e => e !== null) as Error[];
+
+  let feedbackBlock;
+  if (isLoading || errors.length > 0) {
+    feedbackBlock = (
+      <CardContent>
+        {isLoading && <LinearProgress id='add-remove-tool-button-loading' sx={{ margin: 2 }} />}
+        {errors.length > 0 && <ErrorsDisplay errors={errors} />}
+      </CardContent>
+    );
+  }
 
   let mainImageBlock;
   if (tool.main_image !== null) {
@@ -67,9 +91,29 @@ export default function ToolCard (props: ToolCardProps) {
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
       </CardContent>
+      {feedbackBlock}
       <CardActions>
-        <Grid container justifyContent='space-between'>
-          {tool.navigation_enabled ? <RemoveToolButton /> : <AddToolButton />}
+        <Grid
+          container
+          justifyContent='space-between'
+          aria-describedby='add-remove-tool-button-loading'
+          aria-busy={updateToolNavLoading}
+        >
+          {
+            tool.navigation_enabled
+              ? (
+                <RemoveToolButton
+                  disabled={updateToolNavLoading}
+                  onClick={() => doUpdateToolNav({ canvasToolId: tool.canvas_id, navEnabled: false })}
+                />
+              )
+              : (
+                <AddToolButton
+                  disabled={updateToolNavLoading}
+                  onClick={() => doUpdateToolNav({ canvasToolId: tool.canvas_id, navEnabled: true })}
+                />
+              )
+          }
           <Button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
             aria-expanded={showMoreInfo}
