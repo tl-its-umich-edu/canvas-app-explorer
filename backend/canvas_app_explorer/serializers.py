@@ -7,6 +7,9 @@ from backend.canvas_app_explorer import models
 from backend.canvas_app_explorer.canvas_lti_manager.data_class import ExternalToolTab
 
 class GlobalsUserSerializer(serializers.ModelSerializer):
+    """
+    Basic serializer for User model for sharing basic attributes with the UI as globals
+    """
 
     class Meta:
         model = User
