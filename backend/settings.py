@@ -79,6 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'backend.canvas_app_explorer.context_processors.cae_globals'
             ],
         },
     },
@@ -254,6 +255,8 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
+
+HELP_URL = os.getenv('HELP_URL', '')
 
 TEST_API_KEY = os.getenv('TEST_API_KEY', '')
 TEST_API_URL = os.getenv('TEST_API_URL', '')

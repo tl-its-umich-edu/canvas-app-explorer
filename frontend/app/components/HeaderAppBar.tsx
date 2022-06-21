@@ -1,9 +1,13 @@
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import { AppBar, Grid, InputBase, Paper, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Grid, InputBase, Paper, Toolbar, Typography } from '@mui/material';
+
+import { User } from '../interfaces';
 
 interface HeaderAppBarProps {
   onFilterChange: (v: string) => void
+  user: User | null
+  helpURL: string
 }
 
 export default function HeaderAppBar (props: HeaderAppBarProps) {
@@ -11,14 +15,15 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
     <AppBar position='sticky'>
       <Toolbar>
         <Grid container direction='row' alignItems='center'>
-          <Grid item xs={6}>
-            <Typography variant='h5' component='h1' sx={{ marginRight: 1 }}>
+          <Grid item sm={5} xs={6}>
+            <Typography variant='h5' component='h1'>
               Canvas App Explorer
             </Typography>
           </Grid>
           <Grid
             item
-            xs={6}
+            sm={6}
+            xs={5}
             container
             justifyContent='flex-start'
             alignItems='center'
@@ -39,6 +44,10 @@ export default function HeaderAppBar (props: HeaderAppBarProps) {
               />
             </Grid>
           </Grid>
+        </Grid>
+        <Grid item xs='auto' container justifyContent='space-around'>
+          <Button color='inherit' target='_blank' href={props.helpURL}>Help</Button>
+          {props.user?.is_staff && <Button color='inherit' href='/admin'>Admin</Button>}
         </Grid>
       </Toolbar>
     </AppBar>
