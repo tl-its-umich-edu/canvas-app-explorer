@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Any, Dict
 
 from django.conf import settings
 from django.http import HttpRequest
