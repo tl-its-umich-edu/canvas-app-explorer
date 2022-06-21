@@ -6,6 +6,7 @@ from rest_framework import fields, serializers
 from backend.canvas_app_explorer import models
 from backend.canvas_app_explorer.canvas_lti_manager.data_class import ExternalToolTab
 
+
 class GlobalsUserSerializer(serializers.ModelSerializer):
     """
     Basic serializer for User model for sharing basic attributes with the UI as globals
@@ -15,11 +16,13 @@ class GlobalsUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'is_staff']
 
+
 class CanvasPlacementSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.CanvasPlacement
         fields = '__all__'
+
 
 class LtiToolSerializer(serializers.ModelSerializer):
     """
@@ -34,6 +37,7 @@ class LtiToolSerializer(serializers.ModelSerializer):
             'main_image_alt_text', 'short_description', 'long_description', 'privacy_agreement',
             'support_resources', 'canvas_placement_expanded'
         ]
+
 
 class LtiToolWithNavSerializer(LtiToolSerializer):
     """
@@ -61,6 +65,7 @@ class LtiToolWithNavSerializer(LtiToolSerializer):
 
     class Meta(LtiToolSerializer.Meta):
         fields = LtiToolSerializer.Meta.fields + ['navigation_enabled']
+
 
 class UpdateLtiToolNavigationSerializer(serializers.Serializer):
     """
