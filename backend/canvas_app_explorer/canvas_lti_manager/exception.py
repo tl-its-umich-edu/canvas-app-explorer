@@ -25,11 +25,14 @@ class CanvasHTTPError(Exception):
         if (
             isinstance(error_data, list) and
             all([isinstance(obj, dict) for obj in error_data]) and
-            all(['message' in obj for obj in error_data])
+            all(['message' in obj for obj in error_data]) and
+            all([isinstance(obj['message'], str) for obj in error_data])
         ):
             canvas_error_data: List[StandardCanvasErrorData] = error_data
             joined_error_messages = '; '.join([error['message'] for error in canvas_error_data])
             message_ending = f'"{joined_error_messages}"'
+        elif isinstance(error_data, str):
+            message_ending = f'"{error_data}"'
         else:
             message_ending = f'Non-standard data shape found: "{json.dumps(error_data)}"'
 
