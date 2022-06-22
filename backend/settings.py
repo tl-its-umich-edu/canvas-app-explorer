@@ -248,7 +248,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
     ),
-    'EXCEPTION_HANDLER': 'backend.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'backend.canvas_app_explorer.utils.custom_exception_handler'
 }
 
 SPECTACULAR_SETTINGS = {
