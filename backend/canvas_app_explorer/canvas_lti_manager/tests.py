@@ -1,8 +1,7 @@
 from django.conf import settings
 from django.test import TestCase
 
-from backend.canvas_app_explorer.canvas_lti_manager.exception import CanvasHTTPError
-
+from .exception import CanvasHTTPError
 from .manager import CanvasLtiManager
 from .data_class import ExternalToolTab
 
