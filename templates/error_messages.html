@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% if messages %}
+There was one or more errors launching this page:
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+</body>
+</html>
