@@ -8,7 +8,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=cae_root_pw
       - MYSQL_HOST=canvas_app_explorer_mysql
-      - MYSQL_PORT=3306
+      - MYSQL_TCP_PORT=3306
       - MYSQL_DATABASE=canvas_app_explorer_local
       - MYSQL_USER=cae_user
       - MYSQL_PASSWORD=cae_pw
