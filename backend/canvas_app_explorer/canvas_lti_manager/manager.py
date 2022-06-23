@@ -1,4 +1,4 @@
-import json
+from http import HTTPStatus
 from typing import List, TypedDict
 
 from canvasapi import Canvas
@@ -13,14 +13,14 @@ from .exception import CanvasHTTPError
 
 
 EXCEPTION_STATUS_MAP = {
-    BadRequest: 400,
-    InvalidAccessToken: 401,
-    Unauthorized: 401,
-    Forbidden: 403,
-    RateLimitExceeded: 403,
-    ResourceDoesNotExist: 404,
-    UnprocessableEntity: 422,
-    Conflict: 409
+    BadRequest: HTTPStatus.BAD_REQUEST.value,
+    InvalidAccessToken: HTTPStatus.UNAUTHORIZED.value,
+    Unauthorized: HTTPStatus.UNAUTHORIZED.value,
+    Forbidden: HTTPStatus.FORBIDDEN.value,
+    RateLimitExceeded: HTTPStatus.FORBIDDEN.value,
+    ResourceDoesNotExist: HTTPStatus.NOT_FOUND.value,
+    UnprocessableEntity: HTTPStatus.UNPROCESSABLE_ENTITY.value,
+    Conflict: HTTPStatus.CONFLICT.value
 }
 
 
