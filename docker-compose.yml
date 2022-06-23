@@ -16,6 +16,7 @@ services:
       - "6306:3306"
     volumes:
       - ./.data/mysql:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d:ro
     container_name: canvas_app_explorer_mysql
   web:
     build:
