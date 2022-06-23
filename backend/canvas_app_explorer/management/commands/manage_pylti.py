@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+from platform import platform
 
 from Crypto.PublicKey import RSA
 from Crypto.PublicKey.RSA import RsaKey
@@ -14,15 +15,10 @@ class Command(BaseCommand):
     help = "Generate a private/public key pair and add them to the pylti13 database. This can be called with the same issuer + client ID to update a previous key. The Tool Key will be re-used"
 
     def add_arguments(self, parser: CommandParser):
-        parser.add_argument('--auth_login_url', dest='auth_login_url', type=str, help="Canvas Login URL",
-                            default="https://canvas.instructure.com/api/lti/authorize_redirect")
-        parser.add_argument('--auth_token_url', dest='auth_token_url', type=str,
-                            help="Canvas Token URL", default="https://canvas.instructure.com/login/oauth2/token")
+        parser.add_argument('--platform', dest='platform', type=str,
+                            help="Canvas Platform for LTI Launch, with or without https://",
+                            default="canvas.instructure.com")
         parser.add_argument('--client_id', dest='client_id', type=int, required=True, help="Canvas LTI Client ID")
-        parser.add_argument('--issuer', dest='issuer', type=str,
-                            default="https://canvas.instructure.com", help="Usually https://canvas.instructure.com")
-        parser.add_argument('--key_set_url', dest='key_set_url', type=str,
-                            help="Canvas Key Set URL", default="https://canvas.instructure.com/api/lti/security/jwks")
         parser.add_argument('--title', dest='title', required=True, type=str, help="LTI Title")
         parser.add_argument('--tool_key', dest='tool_key', required=True, type=str,
                             help="Name of Tool Key to use, will create if new")
@@ -33,6 +29,17 @@ class Command(BaseCommand):
         key: RsaKey = RSA.generate(4096)
 
         self.stdout.write('Generating public and private key for LTI Tool Key table')
+
+        platform = options["platform"]
+
+        # If platform doesn't contain https add it
+        if not platform.startswith("https://"):
+            platform = f"https://{platform}"
+
+        auth_login_url = f"{platform}/api/lti/authorize_redirect"
+        auth_token_url = f"{platform}/login/oauth2/token"
+        issuer = platform
+        key_set_url = f"{platform}/api/lti/security/jwks"
 
         # This will try to create the tool key and if it already exists it will look it up instead
         try:
@@ -49,15 +56,15 @@ class Command(BaseCommand):
 
         # Update or create a value based on the client_id and issuer keys
         LtiTool.objects.update_or_create(client_id=options["client_id"],
-                                         issuer=options["issuer"],
+                                         issuer=issuer,
                                          defaults=dict(title=options["title"],
                                                        is_active=True,
                                                        client_id=options["client_id"],
-                                                       issuer=options["issuer"],
+                                                       issuer=issuer,
                                                        use_by_default=False,
-                                                       auth_login_url=options["auth_login_url"],
-                                                       auth_token_url=options["auth_token_url"],
-                                                       key_set_url=options["key_set_url"],
+                                                       auth_login_url=auth_login_url,
+                                                       auth_token_url=auth_token_url,
+                                                       key_set_url=key_set_url,
                                                        tool_key=lti_key,
                                                        deployment_ids=options["deployment_ids"]
                                                        ))
