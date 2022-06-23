@@ -1,7 +1,3 @@
-import os
-from datetime import datetime
-from platform import platform
-
 from Crypto.PublicKey import RSA
 from Crypto.PublicKey.RSA import RsaKey
 from django.core.management.base import BaseCommand, CommandParser
