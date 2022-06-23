@@ -9,6 +9,6 @@ def get_home_template(request):
     return render(request, 'home.html')
 
 
-def get_login_template(request):
-    messages.error(request, "You need to launch this tool from an LTI tool provider.")
+def get_error_template(request, error_msg="Error"):
+    messages.error(request, error_msg)
     return render(request, "error_messages.html")

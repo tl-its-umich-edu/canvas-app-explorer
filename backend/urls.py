@@ -34,9 +34,12 @@ urlpatterns = [
     path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # Redirect all of these to a login template page to display a message
-    path('accounts/login/', views.get_login_template, name='custom_login_view_accounts'),
-    path('admin/login/', views.get_login_template, name='custom_login_page_admin'),
-    path('admin/logout/', views.get_login_template, name='custom_logout_view_admin'),
+    path('accounts/login/', views.get_error_template, name='custom_login_view_accounts',
+         kwargs={'error_msg': "Account login is disabled as you need to launch this tool from an LTI tool provider"}),
+    path('admin/login/', views.get_error_template, name='custom_login_page_admin',
+         kwargs={'error_msg': "Admin login is disabled as you need to launch this tool from an LTI tool provider"}),
+    path('admin/logout/', views.get_error_template, name='custom_logout_view_admin',
+         kwargs={'error_msg': "Admin logout is disabled as you need to launch this tool from an LTI tool provider"}),
     path('admin/', admin.site.urls),
     path('', views.get_home_template, name = 'home'),
 
