@@ -27,7 +27,7 @@ def create_initial_canvas_placements(apps, schema_editor) -> None:
         'Link Selection',
         'Migration Selection',
         'Module Menu',
-        'Post Grades'
+        'Post Grades',
         'Quiz Menu',
         'Tool Configuration',
         'User Navigation',
