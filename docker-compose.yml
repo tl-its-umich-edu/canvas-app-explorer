@@ -2,14 +2,13 @@ version: "3.9"
    
 services:
   mysql:
-    image: mysql/mysql-server:8.0
+    image: mysql:8-oracle
     restart: unless-stopped
     command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--socket=/tmp/mysql.sock']
     environment:
-      - MYSQL_ROOT_HOST="0.0.0.0"
       - MYSQL_ROOT_PASSWORD=cae_root_pw
       - MYSQL_HOST=canvas_app_explorer_mysql
-      - MYSQL_PORT=3306
+      - MYSQL_TCP_PORT=3306
       - MYSQL_DATABASE=canvas_app_explorer_local
       - MYSQL_USER=cae_user
       - MYSQL_PASSWORD=cae_pw
@@ -17,6 +16,7 @@ services:
       - "6306:3306"
     volumes:
       - ./.data/mysql:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d:ro
     container_name: canvas_app_explorer_mysql
   web:
     build:
