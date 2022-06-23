@@ -34,7 +34,6 @@ PLACEMENT_NAMES = [
 
 def create_initial_canvas_placements(apps, schema_editor) -> None:
     CanvasPlacement = apps.get_model('canvas_app_explorer', 'CanvasPlacement')
-
     CanvasPlacement.objects.bulk_create([
         CanvasPlacement(name=placement_name) for placement_name in PLACEMENT_NAMES
     ])
@@ -42,7 +41,6 @@ def create_initial_canvas_placements(apps, schema_editor) -> None:
 
 def reverse_canvas_placement_creation(apps, schema_editor) -> None:
     CanvasPlacement = apps.get_model('canvas_app_explorer', 'CanvasPlacement')
-
     CanvasPlacement.objects.filter(name__in=PLACEMENT_NAMES).delete()
 
 
