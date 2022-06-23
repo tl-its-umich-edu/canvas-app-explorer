@@ -7,36 +7,43 @@
 from django.db import migrations
 
 
+PLACEMENT_NAMES = [
+    'Account Navigation',
+    'Assignment Configuration',
+    'Assignment Menu',
+    'Assignment Selection',
+    'Collaboration',
+    'Course Home Sub Navigation',
+    'Course Navigation',
+    'Course Settings Sub Navigation',
+    'Discussion Menu',
+    'Editor Button',
+    'File Menu',
+    'Global Navigation',
+    'Homework Submission',
+    'Link Selection',
+    'Migration Selection',
+    'Module Menu',
+    'Post Grades',
+    'Quiz Menu',
+    'Tool Configuration',
+    'User Navigation',
+    'Wiki Page Menu'
+]
+
+
 def create_initial_canvas_placements(apps, schema_editor) -> None:
     CanvasPlacement = apps.get_model('canvas_app_explorer', 'CanvasPlacement')
 
-    placement_names = [
-        'Account Navigation',
-        'Assignment Configuration',
-        'Assignment Menu',
-        'Assignment Selection',
-        'Collaboration',
-        'Course Home Sub Navigation',
-        'Course Navigation',
-        'Course Settings Sub Navigation',
-        'Discussion Menu',
-        'Editor Button',
-        'File Menu',
-        'Global Navigation',
-        'Homework Submission',
-        'Link Selection',
-        'Migration Selection',
-        'Module Menu',
-        'Post Grades',
-        'Quiz Menu',
-        'Tool Configuration',
-        'User Navigation',
-        'Wiki Page Menu'
-    ]
-
     CanvasPlacement.objects.bulk_create([
-        CanvasPlacement(name=placement_name) for placement_name in placement_names
+        CanvasPlacement(name=placement_name) for placement_name in PLACEMENT_NAMES
     ])
+
+
+def reverse_canvas_placement_creation(apps, schema_editor) -> None:
+    CanvasPlacement = apps.get_model('canvas_app_explorer', 'CanvasPlacement')
+
+    CanvasPlacement.objects.filter(name__in=PLACEMENT_NAMES).delete()
 
 
 class Migration(migrations.Migration):
@@ -46,5 +53,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_initial_canvas_placements),
+        migrations.RunPython(create_initial_canvas_placements, reverse_canvas_placement_creation),
     ]
