@@ -2,35 +2,22 @@
 
 # Resource(s):
 # - https://docs.djangoproject.com/en/4.0/topics/migrations/#data-migrations
-# - https://lti.colcampus.com/xml_builder
+# - https://canvas.instructure.com/doc/api/file.tools_intro.html
 
 from django.db import migrations
 
 
 PLACEMENT_NAMES = [
     'Account Navigation',
-    'Assignment Configuration',
-    'Assignment Menu',
     'Assignment Selection',
     'Collaboration',
-    'Course Home Sub Navigation',
     'Course Navigation',
-    'Course Settings Sub Navigation',
-    'Discussion Menu',
     'Editor Button',
-    'File Menu',
-    'Global Navigation',
     'Homework Submission',
     'Link Selection',
     'Migration Selection',
-    'Module Menu',
-    'Post Grades',
-    'Quiz Menu',
-    'Tool Configuration',
-    'User Navigation',
-    'Wiki Page Menu'
+    'User Navigation'
 ]
-
 
 def create_initial_canvas_placements(apps, schema_editor) -> None:
     CanvasPlacement = apps.get_model('canvas_app_explorer', 'CanvasPlacement')
