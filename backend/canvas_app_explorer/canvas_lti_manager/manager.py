@@ -48,7 +48,7 @@ class CanvasLtiManager:
         for class_key in EXCEPTION_STATUS_MAP:
             if isinstance(exception, class_key):
                 return CanvasHTTPError(exception.message, EXCEPTION_STATUS_MAP[class_key])
-        return CanvasHTTPError(exception.message, 500)
+        return CanvasHTTPError(exception.message, HTTPStatus.INTERNAL_SERVER_ERROR.value)
 
     def create_external_tool_tab(self, tab: Tab) -> ExternalToolTab:
         return ExternalToolTab(
