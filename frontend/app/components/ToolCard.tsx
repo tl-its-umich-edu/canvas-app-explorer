@@ -33,6 +33,7 @@ export default function ToolCard (props: ToolCardProps) {
   }});
 
   const moreOrLessText = !showMoreInfo ? 'More' : 'Less';
+  const buttonLoadingId = `add-remove-tool-button-loading-${tool.canvas_id}`;
 
   const isLoading = updateToolNavLoading;
   const errors = [updateToolNavError].filter(e => e !== null) as Error[];
@@ -41,7 +42,7 @@ export default function ToolCard (props: ToolCardProps) {
   if (isLoading || errors.length > 0) {
     feedbackBlock = (
       <CardContent>
-        {isLoading && <LinearProgress id='add-remove-tool-button-loading' sx={{ margin: 2 }} />}
+        {isLoading && <LinearProgress id={buttonLoadingId} sx={{ margin: 2 }} />}
         {errors.length > 0 && <ErrorsDisplay errors={errors} />}
       </CardContent>
     );
@@ -65,7 +66,7 @@ export default function ToolCard (props: ToolCardProps) {
           </Button>
         </CardActions>
         <ImageDialog
-          titleData={{ title: `Screenshot for ${tool.name}`, id: 'main-image-dialog-title' }}
+          titleData={{ title: `Screenshot for ${tool.name}`, id: `main-image-dialog-title-${tool.canvas_id}` }}
           imageData={{ src: tool.main_image, altText: defaultMainImageAltText }}
           open={screenshotDialogOpen}
           onClose={() => setScreenshotDialogOpen(false)}
@@ -76,6 +77,7 @@ export default function ToolCard (props: ToolCardProps) {
 
   return (
     <Card
+      id={`${tool.name}-tool-${tool.canvas_id}`}
       variant='outlined'
       sx={{ padding: 1, width: 328, borderColor: 'primary.main', borderWidth: '3px' }}
     >
@@ -96,7 +98,7 @@ export default function ToolCard (props: ToolCardProps) {
         <Grid
           container
           justifyContent='space-between'
-          aria-describedby='add-remove-tool-button-loading'
+          aria-describedby={buttonLoadingId}
           aria-busy={updateToolNavLoading}
         >
           {
