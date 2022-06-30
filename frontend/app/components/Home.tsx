@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Alert, Box, Grid, LinearProgress, Typography } from '@mui/material';
+import { Alert, Box, Grid, LinearProgress, Snackbar, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import ErrorsDisplay from './ErrorsDisplay';
@@ -53,20 +53,17 @@ function Home (props: HomeProps) {
     if (showRefreshAlert === undefined) setShowRefreshAlert(true);
   };
 
+  const handleRefreshAlertClose = () => setShowRefreshAlert(false);
+
   const isLoading = getToolsLoading;
   const errors = [getToolsError].filter(e => e !== null) as Error[];
 
   let feedbackBlock;
-  if (isLoading || errors.length > 0 || showRefreshAlert) {
+  if (isLoading || errors.length > 0) {
     feedbackBlock = (
       <Box sx={{ margin: 2 }}>
         {isLoading && <LinearProgress id='tool-card-container-loading' sx={{ marginBottom: 2 }} />}
         {errors.length > 0 && <Box sx={{ marginBottom: 1 }}><ErrorsDisplay errors={errors} /></Box>}
-        {showRefreshAlert && (
-          <Alert severity='success' sx={{ marginBottom: 1 }} onClose={() => setShowRefreshAlert(false)}>
-            Refresh the page to make tool changes appear in the left-hand navigation.
-          </Alert>
-        )}
       </Box>
     );
   }
@@ -102,6 +99,11 @@ function Home (props: HomeProps) {
       <Typography component='footer' sx={{ textAlign: 'center' }}>
         Copyright © 2022 The Regents of the University of Michigan
       </Typography>
+      <Snackbar open={showRefreshAlert} onClose={handleRefreshAlertClose} autoHideDuration={10000}>
+        <Alert severity='info' elevation={2} onClose={handleRefreshAlertClose}>
+          Refresh the page to update the tool&apos;s appearance in the left-hand navigation.
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
