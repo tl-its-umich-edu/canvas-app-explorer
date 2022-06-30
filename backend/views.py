@@ -1,9 +1,11 @@
+import logging
+
 from canvas_oauth.oauth import get_oauth_token, handle_missing_token
 from canvas_oauth.models import CanvasOAuth2Token
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.contrib.auth.models import User
-import logging
+
 
 logger = logging.getLogger(__name__)
 
