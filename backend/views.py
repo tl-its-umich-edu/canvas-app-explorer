@@ -2,6 +2,8 @@ import logging
 
 from canvas_oauth.oauth import get_oauth_token, handle_missing_token
 from canvas_oauth.models import CanvasOAuth2Token
+from canvas_oauth.exceptions import CanvasOAuthError, MissingTokenError, InvalidOAuthStateError, InvalidOAuthReturnError
+
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
@@ -13,12 +15,22 @@ logger = logging.getLogger(__name__)
 def get_home_template(request):
     try:
         access_token = get_oauth_token(request)
+    except InvalidOAuthStateError as err:
+        logger.error("InvalidOAuthStateError. Remove invalid refresh_token and prompt for reauthentication.")
+        CanvasOAuth2Token.objects.filter(user=request.user).delete()
+        return handle_missing_token(request)
+    except InvalidOAuthReturnError as err:
+        logger.error("InvalidOAuthReturnError. Remove invalid refresh_token and prompt for reauthentication.")
+        CanvasOAuth2Token.objects.filter(user=request.user).delete()
+        return handle_missing_token(request)
+    except MissingTokenError as err:
+        logger.error("MissingTokenError. Prompt for reauthentication.")
+        return handle_missing_token(request)
+    except CanvasOAuthError as err:
+        logger.error("CanvasOAuthError. Remove invalid refresh_token and prompt for reauthentication.")
+        CanvasOAuth2Token.objects.filter(user=request.user).delete()
+        return handle_missing_token(request)
     except Exception as err:
         logger.error(err)
-        if 'refresh_token request failed to get a token' in str(err):
-            logger.error("removing invalid refresh_token")
-            CanvasOAuth2Token.objects.filter(user=request.user).delete()
-        # prompt for new OAuth token
-        return handle_missing_token(request)
 
     return render(request, 'home.html')
