@@ -100,7 +100,7 @@ function Home (props: HomeProps) {
         Copyright © 2022 The Regents of the University of Michigan
       </Typography>
       <Snackbar open={showRefreshAlert} onClose={handleRefreshAlertClose} autoHideDuration={10000}>
-        <Alert severity='success' elevation={2} onClose={handleRefreshAlertClose}>
+        <Alert severity='info' elevation={2} onClose={handleRefreshAlertClose}>
           Refresh the page to update the tool&apos;s appearance in the left-hand navigation.
         </Alert>
       </Snackbar>
