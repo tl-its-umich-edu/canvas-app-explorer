@@ -17,7 +17,9 @@ export default function DataElement (props: DataElementProps) {
 
   return (
     <Container>
-      <Typography variant='h6' component='h3' gutterBottom>{name}</Typography>
+      <Typography variant='subtitle1' component='h3' gutterBottom>
+        <strong>{name}</strong>
+      </Typography>
       <Typography variant='body2'>{children}</Typography>
     </Container>
   );
