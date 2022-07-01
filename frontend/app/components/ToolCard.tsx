@@ -81,7 +81,7 @@ export default function ToolCard (props: ToolCardProps) {
       variant='outlined'
       sx={{ padding: 1, width: 328, borderColor: 'primary.main', borderWidth: '3px' }}
     >
-      <CardContent sx={{ height: 225 }}>
+      <CardContent sx={{ height: 260 }}>
         <CardMedia
           component='img'
           height={150}
@@ -89,6 +89,9 @@ export default function ToolCard (props: ToolCardProps) {
           image={tool.logo_image ?? ''}
           sx={{ marginBottom: 2, objectFit: 'contain' }}
         />
+        <Typography variant='subtitle1' component='h3' gutterBottom>
+          <strong>{tool.name}</strong>
+        </Typography>
         <Typography variant='body2'>
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
