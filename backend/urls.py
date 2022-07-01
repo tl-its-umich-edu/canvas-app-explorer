@@ -17,6 +17,7 @@ import os
 
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from django.urls import include, path, re_path 
 from django.views import static
 from rest_framework import routers
@@ -25,21 +26,17 @@ from backend.canvas_app_explorer import urls as canvas_app_explorer_urls #type: 
 from backend.canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
 
 from . import views
+
 # This is for Django Rest Framework
 router = routers.DefaultRouter()
 router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet, basename='ltitool')
 
+# Require being logged in to get to the admin page
+admin.site.login = login_required(admin.site.login)
+
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-
-    # Redirect all of these to an error template page to display a message
-    path('accounts/login/', views.get_error_template, name='custom_login_view_accounts',
-         kwargs={'error_msg': "Account login is disabled as you need to launch this tool from an LTI tool provider"}),
-    path('admin/login/', views.get_error_template, name='custom_login_page_admin',
-         kwargs={'error_msg': "Admin login is disabled as you need to launch this tool from an LTI tool provider"}),
-    path('admin/logout/', views.get_error_template, name='custom_logout_view_admin',
-         kwargs={'error_msg': "Admin logout is disabled as you need to launch this tool from an LTI tool provider"}),
     path('admin/', admin.site.urls),
     path('', views.get_home_template, name = 'home'),
 
