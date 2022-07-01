@@ -22,34 +22,33 @@ class Command(BaseCommand):
                             nargs='*', type=str, help="List of Deployment ID(s). Can be multiple.", default="")
 
     def handle(self, *args, **options: dict):
-        key: RsaKey = RSA.generate(4096)
-
-        self.stdout.write('Generating public and private key for LTI Tool Key table')
 
         platform = options["platform"]
-
         # If platform doesn't contain https add it
         if not platform.startswith("https://"):
             platform = f"https://{platform}"
 
+        # These are the values for Canvas
         auth_login_url = f"{platform}/api/lti/authorize_redirect"
         auth_token_url = f"{platform}/login/oauth2/token"
         issuer = platform
         key_set_url = f"{platform}/api/lti/security/jwks"
 
-        # This will try to create the tool key and if it already exists it will look it up instead
+        # Attempt to retrieve the LtiToolKey, if it doesn't exist create it
         try:
-            lti_key = LtiToolKey.objects.create(name=options["tool_key"],
-                                                private_key=key.exportKey().decode('utf-8'),
-                                                public_key=key.publickey().exportKey().decode('utf-8')
-                                                )
-        except IntegrityError:
-            # Key must already have been created
-            self.stdout.write(
-                f"Using existing key named {options['tool_key']}")
-            # Lookup the tool key
-            lti_key = LtiToolKey.objects.get(name=options["tool_key"])
+            self.stdout.write(f"Attempting to lookup LTI Tool Key: {options['tool_key']}.")
+            lti_key = LtiToolKey.objects.get(name=options['tool_key'])
+            self.stdout.write('Exiting LTI Tool Key found!')
+        except LtiToolKey.DoesNotExist:
+            self.stdout.write('LTI Tool Key not found, generating new keys for LTI Tool Key.')
+            key = RSA.generate(4096)
+            lti_key = LtiToolKey.objects.create(
+                name=options['tool_key'],
+                private_key=key.exportKey().decode('utf-8'),
+                public_key=key.publickey().exportKey().decode('utf-8')
+            )
 
+        self.stdout.write('Creating or updating LTI Tool with supplied values.')
         # Update or create a value based on the client_id and issuer keys
         LtiTool.objects.update_or_create(client_id=options["client_id"],
                                          issuer=issuer,
