@@ -31,7 +31,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet, basename='ltitool')
 
-# Require being logged in to get to the admin page
+# Deny all access to the admin login page
 admin.site.login = user_passes_test(False, admin.site.login)
 
 urlpatterns = [
