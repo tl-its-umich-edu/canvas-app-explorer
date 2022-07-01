@@ -7,7 +7,10 @@ from pylti1p3.contrib.django.lti1p3_tool_config.models import LtiToolKey, LtiToo
 
 
 class Command(BaseCommand):
-    help = "Generate a private/public key pair and add them to the pylti13 database. This can be called with the same issuer + client ID to update a previous key. The Tool Key will be re-used"
+    help = """Used to create & update the LTI keys in the database for this application.
+    This will generate a key pair named as the "tool_key" arg and add them to the pylti13 database. 
+    This command can be re-run with the same "platform" & "client_id" to update a previous tool. 
+    """
 
     def add_arguments(self, parser: CommandParser):
         parser.add_argument('--platform', dest='platform', type=str,
