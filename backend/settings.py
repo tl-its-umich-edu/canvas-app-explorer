@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'canvas_oauth.middleware.OAuthMiddleware',
+    'csp.middleware.CSPMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -86,7 +87,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -147,8 +147,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 DEFAULT_FILE_STORAGE = 'backend.canvas_app_explorer.storage_get_file.DatabaseFileStorage'
 
-# TODO: Switch this to CSP for additional security
-X_FRAME_OPTIONS = 'ALLOWALL'
 
 # So request works over the proxy
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -235,6 +233,14 @@ if CSRF_COOKIE_SECURE:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     # Enables Proxies that set headers
     USE_X_FORWARDED_HOST = os.getenv('USE_X_FORWARDED_HOST', True)
+
+# Set CSP_FRAME_SRC to the yours Canvas domains
+CSP_FRAME_ANCESTORS = ["'self'",] + os.getenv('CSP_FRAME_ANCESTORS', '').split(',')
+# Allow inline scripts and Google assets. I don't think these need to be configurable
+CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'", "'unsafe-eval'", "www.google-analytics.com"]
+CSP_IMG_SRC = ["'self'", "data:", "www.google-analytics.com"]
+CSP_FONT_SRC = ["'self'", "fonts.gstatic.com"]
+CSP_STYLE_SRC = ["'self'", "'unsafe-inline'"]
 
 SESSION_COOKIE_SAMESITE = os.getenv("SESSION_COOKIE_SAMESITE", 'None')
 CSRF_COOKIE_SAMESITE = os.getenv("CSRF_COOKIE_SAMESITE", 'None')
