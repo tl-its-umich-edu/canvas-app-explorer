@@ -212,9 +212,9 @@ LOGGING = {
 
 TINYMCE_DEFAULT_CONFIG = {
         'menubar': True,
-        "plugins": "advlist,autolink,lists,link,anchor,insertdatetime,media,table,paste,wordcount",
+        "plugins": "advlist,autolink,code,lists,link,anchor,insertdatetime,media,table,paste,wordcount",
         "toolbar": "formatselect | bold italic backcolor | "
-            "bullist numlist outdent indent | removeformat | help",
+            "bullist numlist outdent indent | removeformat | code | help",
         "default_link_target": "_blank",
     }
 
