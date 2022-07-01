@@ -1,3 +1,4 @@
+import json
 from Crypto.PublicKey import RSA
 from Crypto.PublicKey.RSA import RsaKey
 from django.core.management.base import BaseCommand, CommandParser
@@ -61,5 +62,5 @@ class Command(BaseCommand):
                                                        auth_token_url=auth_token_url,
                                                        key_set_url=key_set_url,
                                                        tool_key=lti_key,
-                                                       deployment_ids=options["deployment_ids"]
+                                                       deployment_ids=json.dumps(options["deployment_ids"])
                                                        ))
