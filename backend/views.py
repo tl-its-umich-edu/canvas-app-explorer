@@ -16,7 +16,7 @@ def get_home_template(request):
     try:
         access_token = get_oauth_token(request)
     except InvalidOAuthReturnError as err:
-        logger.error("InvalidOAuthReturnError. Remove invalid refresh_token and prompt for reauthentication.")
+        logger.error(f"InvalidOAuthReturnError for user: {request.user}. Remove invalid refresh_token and prompt for reauthentication.")
         CanvasOAuth2Token.objects.filter(user=request.user).delete()
         return handle_missing_token(request)
     
