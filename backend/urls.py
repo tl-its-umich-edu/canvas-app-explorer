@@ -17,7 +17,7 @@ import os
 
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 from django.urls import include, path, re_path 
 from django.views import static
 from rest_framework import routers
@@ -32,7 +32,7 @@ router = routers.DefaultRouter()
 router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet, basename='ltitool')
 
 # Require being logged in to get to the admin page
-admin.site.login = login_required(admin.site.login)
+admin.site.login = user_passes_test(False, admin.site.login)
 
 urlpatterns = [
     path('api/', include(router.urls)),
