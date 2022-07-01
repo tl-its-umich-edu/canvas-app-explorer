@@ -1,8 +1,6 @@
 import json
 from Crypto.PublicKey import RSA
-from Crypto.PublicKey.RSA import RsaKey
 from django.core.management.base import BaseCommand, CommandParser
-from django.db.utils import IntegrityError
 
 # https://github.com/dmitry-viskov/pylti1.3/blob/master/pylti1p3/contrib/django/lti1p3_tool_config/models.py
 from pylti1p3.contrib.django.lti1p3_tool_config.models import LtiToolKey, LtiTool
