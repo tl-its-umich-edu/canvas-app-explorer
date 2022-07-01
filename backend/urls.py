@@ -33,7 +33,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-    # Redirect all of these to a login template page to display a message
+    # Redirect all of these to an error template page to display a message
     path('accounts/login/', views.get_error_template, name='custom_login_view_accounts',
          kwargs={'error_msg': "Account login is disabled as you need to launch this tool from an LTI tool provider"}),
     path('admin/login/', views.get_error_template, name='custom_login_page_admin',
