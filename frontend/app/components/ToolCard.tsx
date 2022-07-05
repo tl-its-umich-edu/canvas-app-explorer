@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import AddBox from '@mui/icons-material/AddBox';
 import { useMutation } from 'react-query';
+import CheckCircleOutline from '@mui/icons-material/CheckCircleOutline';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, LinearProgress, Typography
+  Button, Card, CardActions, CardContent, CardMedia, Collapse, Grid, LinearProgress,
+  Tooltip, Typography
 } from '@mui/material';
 
 import DataElement from './DataElement';
@@ -12,7 +14,10 @@ import ErrorsDisplay from './ErrorsDisplay';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
 import { updateToolNav } from '../api';
+import { TOOL_MENU_NAME } from '../constants';
 import { Tool } from '../interfaces';
+
+const TOOL_IN_MENU_TEXT = `Tool in ${TOOL_MENU_NAME}`;
 
 interface ToolCardProps {
   tool: Tool
@@ -110,6 +115,7 @@ export default function ToolCard (props: ToolCardProps) {
         <Grid
           container
           justifyContent='space-between'
+          alignItems='center'
           aria-describedby={buttonLoadingId}
           aria-busy={updateToolNavLoading}
         >
@@ -127,6 +133,13 @@ export default function ToolCard (props: ToolCardProps) {
                   onClick={() => doUpdateToolNav({ canvasToolId: tool.canvas_id, navEnabled: true })}
                 />
               )
+          }
+          {
+            tool.navigation_enabled && (
+              <Tooltip placement='top' title={TOOL_IN_MENU_TEXT}>
+                <CheckCircleOutline color='success' tabIndex={0} aria-label={TOOL_IN_MENU_TEXT} />
+              </Tooltip>
+            )
           }
           <Button
             onClick={() => setShowMoreInfo(!showMoreInfo)}
