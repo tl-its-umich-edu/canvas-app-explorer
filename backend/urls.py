@@ -17,6 +17,7 @@ import os
 
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.decorators import user_passes_test
 from django.urls import include, path, re_path 
 from django.views import static
 from rest_framework import routers
@@ -25,14 +26,17 @@ from backend.canvas_app_explorer import urls as canvas_app_explorer_urls #type: 
 from backend.canvas_app_explorer import views as canvas_app_explorer_views #type: ignore
 
 from . import views
+
 # This is for Django Rest Framework
 router = routers.DefaultRouter()
 router.register(r'lti_tools', canvas_app_explorer_views.LTIToolViewSet, basename='ltitool')
 
+# Deny all access to the admin login page
+admin.site.login = user_passes_test(False, admin.site.login)
+
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-
     path('admin/', admin.site.urls),
     path('', views.get_home_template, name = 'home'),
 

@@ -11,14 +11,7 @@ Then the app in development should be accessible on http://localhost:5000/
 
 Now you can make changes to files in `frontend` and the changes **should** show up in the browser automagically.
 
-To create a local admin user you should run this.
-
-```
-docker exec -it canvas_app_explorer ./manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')"
-```
-
-Please see the Wiki for instructions on configuring with LTI.
-
+This app can currently only be launched via LTI.  Please see the Wiki for instructions on configuring with LTI.
 #### Using OpenAPI and Swagger
 
 The backend uses the [Django Rest Framework](https://www.django-rest-framework.org/) to build out a REST API. When `DEBUG` is equal to `True` in Django settings, the application leverages the [drf-spectacular](https://drf-spectacular.readthedocs.io/en/latest/index.html) library to document existing endpoints and provide for API testing using Swagger.
