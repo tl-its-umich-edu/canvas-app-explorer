@@ -53,18 +53,27 @@ export default function ToolCard (props: ToolCardProps) {
     const defaultMainImageAltText = `Image of ${tool.name} tool in use`;
     mainImageBlock = (
       <>
-        <CardMedia
-          component='img'
-          height={150}
-          alt={tool.main_image_alt_text ?? defaultMainImageAltText}
-          image={tool.main_image ?? ''}
-          sx={{ marginBottom: 2, objectFit: 'contain' }}
-        />
-        <CardActions>
-          <Button onClick={() => setScreenshotDialogOpen(true)} startIcon={<AddBox />}>
-            Enlarge Screenshot
-          </Button>
-        </CardActions>
+        <Button sx={{ marginBottom: 1 }} onClick={() => setScreenshotDialogOpen(true)}>
+          <Grid container direction='column'>
+            <Grid item>
+              <CardMedia
+                component='img'
+                height={150}
+                alt={tool.main_image_alt_text ?? defaultMainImageAltText}
+                image={tool.main_image ?? ''}
+                sx={{ marginBottom: 2, objectFit: 'contain' }}
+              />
+            </Grid>
+            <Grid item container alignItems='center'>
+              <Grid item>
+                <AddBox fontSize='small' sx={{ display: 'inherit', marginRight: 1 }} />
+              </Grid>
+              <Grid item>
+                <Typography variant='inherit'>Enlarge Screenshot</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Button>
         <ImageDialog
           titleData={{ title: `Screenshot for ${tool.name}`, id: `main-image-dialog-title-${tool.canvas_id}` }}
           imageData={{ src: tool.main_image, altText: defaultMainImageAltText }}
@@ -81,7 +90,7 @@ export default function ToolCard (props: ToolCardProps) {
       variant='outlined'
       sx={{ padding: 1, width: 328, borderColor: 'primary.main', borderWidth: '3px' }}
     >
-      <CardContent sx={{ height: 225 }}>
+      <CardContent sx={{ height: 260 }}>
         <CardMedia
           component='img'
           height={150}
@@ -89,6 +98,9 @@ export default function ToolCard (props: ToolCardProps) {
           image={tool.logo_image ?? ''}
           sx={{ marginBottom: 2, objectFit: 'contain' }}
         />
+        <Typography variant='subtitle1' component='h3' gutterBottom>
+          <strong>{tool.name}</strong>
+        </Typography>
         <Typography variant='body2'>
           <span dangerouslySetInnerHTML={{ __html: tool.short_description }} />
         </Typography>
