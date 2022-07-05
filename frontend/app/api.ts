@@ -14,17 +14,27 @@ const BASE_MUTATION_HEADERS: HeadersInit = {
 const getCSRFToken = (): string | undefined => Cookies.get('csrftoken');
 
 const createErrorMessage = async (res: Response): Promise<string> => {
-  let errorBody;
+  let errorBody: Record<string, unknown> | undefined;
   try {
     errorBody = await res.json();
   } catch {
     console.error('Error body was not JSON.');
     errorBody = undefined;
   }
+
+  let message;
+  if (errorBody !== undefined) {
+    if ('message' in errorBody && typeof errorBody.message === 'string')
+      message = ' Message: ' + errorBody.message;
+    else {
+      message = `Error Body: ${JSON.stringify(errorBody)}`;
+    }
+  }
+
   return (
     'Error occurred! ' +
     `Status: ${res.status}` + (res.statusText !== '' ? ` (${res.statusText})` : '') +
-    (errorBody !== undefined ? '; Body: ' + JSON.stringify(errorBody) : '.')
+    (message !== undefined ? '; ' + message : '.')
   );
 };
 

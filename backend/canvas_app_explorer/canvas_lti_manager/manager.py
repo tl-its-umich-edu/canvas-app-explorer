@@ -1,16 +1,37 @@
+from http import HTTPStatus
 from typing import List, TypedDict
 
 from canvasapi import Canvas
+from canvasapi.exceptions import (
+    BadRequest, CanvasException, Conflict, Forbidden, InvalidAccessToken, RateLimitExceeded,
+    ResourceDoesNotExist, Unauthorized, UnprocessableEntity
+)
 from canvasapi.tab import Tab
 
 from .data_class import ExternalToolTab
+from .exception import CanvasHTTPError
+
+
+EXCEPTION_STATUS_MAP = {
+    BadRequest: HTTPStatus.BAD_REQUEST.value,
+    InvalidAccessToken: HTTPStatus.UNAUTHORIZED.value,
+    Unauthorized: HTTPStatus.UNAUTHORIZED.value,
+    Forbidden: HTTPStatus.FORBIDDEN.value,
+    RateLimitExceeded: HTTPStatus.FORBIDDEN.value,
+    ResourceDoesNotExist: HTTPStatus.NOT_FOUND.value,
+    UnprocessableEntity: HTTPStatus.UNPROCESSABLE_ENTITY.value,
+    Conflict: HTTPStatus.CONFLICT.value
+}
+
 
 class TabUpdateParams(TypedDict):
     hidden: bool
 
+
 class TabAttributes(TypedDict):
     id: str
     course_id: int
+
 
 class CanvasLtiManager:
     """
@@ -22,6 +43,13 @@ class CanvasLtiManager:
         self.course_id: int = course_id
         self.canvas_api: Canvas = Canvas(api_url, api_key)
 
+    @staticmethod
+    def convert_error(exception: CanvasException) -> CanvasHTTPError:
+        for class_key in EXCEPTION_STATUS_MAP:
+            if isinstance(exception, class_key):
+                return CanvasHTTPError(exception.message, EXCEPTION_STATUS_MAP[class_key])
+        return CanvasHTTPError(exception.message, HTTPStatus.INTERNAL_SERVER_ERROR.value)
+
     def create_external_tool_tab(self, tab: Tab) -> ExternalToolTab:
         return ExternalToolTab(
             label=tab.label,
@@ -31,8 +59,13 @@ class CanvasLtiManager:
 
     def get_tools_available_in_course(self) -> List[ExternalToolTab]:
         ex_tool_tabs = []
-        course = self.canvas_api.get_course(self.course_id)
-        for tab in course.get_tabs():
+        try:
+            course = self.canvas_api.get_course(self.course_id)
+            tabs = course.get_tabs()
+        except CanvasException as error:
+            raise self.convert_error(error)
+
+        for tab in tabs:
             if 'external_tools' in tab.html_url:
                 ex_tool_tabs.append(self.create_external_tool_tab(tab))
         return ex_tool_tabs
@@ -48,5 +81,9 @@ class CanvasLtiManager:
             self.canvas_api._Canvas__requester,
             tab_attributes
         )
-        data = tool_tab.update(**update_params)
+        try:
+            data = tool_tab.update(**update_params)
+        except CanvasException as error:
+            raise self.convert_error(error)
+
         return self.create_external_tool_tab(data)
