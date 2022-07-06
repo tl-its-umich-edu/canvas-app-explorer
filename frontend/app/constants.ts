@@ -1,3 +1,6 @@
-const TOOL_MENU_NAME = 'Course Navigation Menu';
+const constants = Object.freeze({
+  toolMenuName: 'Course Navigation Menu'
+});
 
-export { TOOL_MENU_NAME };
+
+export default constants;

@@ -14,10 +14,10 @@ import ErrorsDisplay from './ErrorsDisplay';
 import ImageDialog from './ImageDialog';
 import { AddToolButton, RemoveToolButton } from './toolButtons';
 import { updateToolNav } from '../api';
-import { TOOL_MENU_NAME } from '../constants';
+import constants from '../constants';
 import { Tool } from '../interfaces';
 
-const TOOL_IN_MENU_TEXT = `Tool in ${TOOL_MENU_NAME}`;
+const TOOL_IN_MENU_TEXT = `Tool in ${constants.toolMenuName}`;
 
 interface ToolCardProps {
   tool: Tool
