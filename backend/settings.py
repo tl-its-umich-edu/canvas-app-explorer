@@ -234,7 +234,7 @@ if CSRF_COOKIE_SECURE:
     # Enables Proxies that set headers
     USE_X_FORWARDED_HOST = os.getenv('USE_X_FORWARDED_HOST', True)
 
-# Set CSP_FRAME_SRC to the yours Canvas domains
+# Set CSP_FRAME_SRC to the your Canvas domains
 CSP_FRAME_ANCESTORS = ["'self'",] + os.getenv('CSP_FRAME_ANCESTORS', '').split(',')
 # Allow inline scripts and Google assets. I don't think these need to be configurable
 CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'", "'unsafe-eval'", "www.google-analytics.com"]
