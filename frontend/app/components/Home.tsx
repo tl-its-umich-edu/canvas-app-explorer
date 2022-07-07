@@ -7,6 +7,7 @@ import ErrorsDisplay from './ErrorsDisplay';
 import HeaderAppBar from './HeaderAppBar';
 import ToolCard from './ToolCard';
 import { getTools } from '../api';
+import constants from '../constants';
 import '../css/Home.css';
 import { Globals, Tool } from '../interfaces';
 
@@ -101,7 +102,7 @@ function Home (props: HomeProps) {
       </Typography>
       <Snackbar open={showRefreshAlert} onClose={handleRefreshAlertClose} autoHideDuration={10000}>
         <Alert severity='info' elevation={2} onClose={handleRefreshAlertClose}>
-          Refresh the page to update the tool&apos;s appearance in the left-hand navigation.
+          Refresh the page to update the tool&apos;s appearance in the {constants.toolMenuName}.
         </Alert>
       </Snackbar>
     </div>
