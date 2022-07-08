@@ -8,6 +8,7 @@ django-mysql
 django-db-file-storage # Support for storage in the database
 Pillow # Needed for images
 django-tinymce # Rich text editor
+django-csp # For Content Security Policy
 
 # DRF
 djangorestframework

@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'canvas_oauth.middleware.OAuthMiddleware',
+    'csp.middleware.CSPMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -86,7 +87,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -147,8 +147,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 DEFAULT_FILE_STORAGE = 'backend.canvas_app_explorer.storage_get_file.DatabaseFileStorage'
 
-# TODO: Switch this to CSP for additional security
-X_FRAME_OPTIONS = 'ALLOWALL'
 
 # So request works over the proxy
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -235,6 +233,15 @@ if CSRF_COOKIE_SECURE:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     # Enables Proxies that set headers
     USE_X_FORWARDED_HOST = os.getenv('USE_X_FORWARDED_HOST', True)
+
+# Set CSP_FRAME_SRC to the your Canvas domains
+CSP_FRAME_ANCESTORS = ["'self'",] + os.getenv('CSP_FRAME_ANCESTORS', '').split(',')
+# This is currently unsafe-inline because of PyLTI scripts. This may be fixed in the future.
+CSP_SCRIPT_SRC = ["'self'", "https:", "'unsafe-inline'"]
+CSP_IMG_SRC = ["'self'", "data:"]
+CSP_FONT_SRC = ["'self'"]
+# Allow inline styles. There are a few styles that come up in the report so it seems easier to just allow unsafe-inline here.
+CSP_STYLE_SRC = ["'self'", "https:", "'unsafe-inline'"]
 
 SESSION_COOKIE_SAMESITE = os.getenv("SESSION_COOKIE_SAMESITE", 'None')
 CSRF_COOKIE_SAMESITE = os.getenv("CSRF_COOKIE_SAMESITE", 'None')
