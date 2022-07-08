@@ -41,7 +41,7 @@ urlpatterns = [
     path('', views.get_home_template, name = 'home'),
 
     # For file storage
-    re_path(r'^files/', include('db_file_storage.urls')),
+    re_path(r'^files/', include('db_file_storage.urls'), {'extra_headers': {'Cache-Control': 'public, max-age=31536000'}}),
     path('',include(canvas_app_explorer_urls))
 ]
 
