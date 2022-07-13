@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    app: web
+    org: umich
+    project: canvas-app-explorer
+    variant: dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: web
+        org: umich
+        project: canvas-app-explorer
+        variant: dev
+    spec:
+      containers:
+      - name: web
+        image: docker-registry.default.svc:5000/canvas-app-explorer-dev/canvas-app-explorer:latest
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: canvas-app-explorer
+        resources:
+          limits:
+            cpu: "1"
+            memory: 4Gi
+  triggers:
+  - type: "ImageChange"
+    imageChangeParams:
+      automatic: true
+      from:
+        kind: "ImageStreamTag"
+        name: "canvas-app-explorer:latest"
+        namespace: "canvas-app-explorer-dev"
+      containerNames:
+      - "web"
