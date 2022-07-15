@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 import os
 
 from django.core.management.utils import get_random_secret_key
-from datetime import timedelta
+
+from backend.canvas_scopes import DEFAUlT_CANVAS_SCOPES
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -221,7 +223,13 @@ TINYMCE_DEFAULT_CONFIG = {
 CANVAS_OAUTH_CLIENT_ID = os.getenv('CANVAS_OAUTH_CLIENT_ID', 'canvas_app_explorer')
 CANVAS_OAUTH_CLIENT_SECRET = os.getenv('CANVAS_OAUTH_CLIENT_SECRET', 'canvas_app_explorer')
 CANVAS_OAUTH_CANVAS_DOMAIN = os.getenv('CANVAS_OAUTH_CANVAS_DOMAIN', 'canvas.instructure.com')
-CANVAS_OAUTH_SCOPES = os.getenv('CANVAS_OAUTH_SCOPES', '').split(',')
+
+# Scopes environment variable provides a way to recover if Canvas changes scope identifiers.
+if isinstance((env_canvas_scopes := os.getenv('CANVAS_OAUTH_SCOPES')), str):
+    CANVAS_OAUTH_SCOPES = env_canvas_scopes.split(',')
+else:
+    CANVAS_OAUTH_SCOPES = DEFAUlT_CANVAS_SCOPES
+
 CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER = os.getenv('CANVAS_OAUTH_TOKEN_EXPIRATION_BUFFER', timedelta())
 CANVAS_OAUTH_ERROR_TEMPLATE = os.getenv('CANVAS_OAUTH_ERROR_TEMPLATE', 'canvas_app_explorer/oauth_error.html')
 
