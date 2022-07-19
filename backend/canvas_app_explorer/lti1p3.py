@@ -28,7 +28,7 @@ class CanvasRole(Enum):
     STUDENT = 'StudentEnrollment'
 
 
-STAFF_COURSE_ROLES = [CanvasRole.ACCOUNT_ADMIN, CanvasRole.SUB_ACCOUNT_ADMIN, CanvasRole.TEACHER]
+STAFF_COURSE_ROLES = [CanvasRole.ACCOUNT_ADMIN.value, CanvasRole.SUB_ACCOUNT_ADMIN.value, CanvasRole.TEACHER.value]
 
 COURSE_MEMBERSHIP = 'http://purl.imsglobal.org/vocab/lis/v2/membership'
 DUMMY_CACHE = 'DummyCache'
