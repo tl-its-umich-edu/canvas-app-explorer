@@ -1,12 +1,13 @@
-import logging, random, string
+import logging, random, string, urllib.parse
 from collections import namedtuple
 from datetime import datetime
+from enum import Enum
 from typing import Any, Dict, Union
-import urllib.parse
 
 from django.conf import settings
 from django.contrib.auth import login as django_login
 from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -16,12 +17,24 @@ from django.views.decorators.http import require_POST
 from pylti1p3.contrib.django import DjangoOIDCLogin, DjangoMessageLaunch, \
     DjangoCacheDataStorage, DjangoDbToolConf
 
+
 logger = logging.getLogger(__name__)
+
+
+class CanvasRole(Enum):
+    ACCOUNT_ADMIN = 'Account Admin'
+    SUB_ACCOUNT_ADMIN = 'Sub-Account Admin'
+    TEACHER = 'TeacherEnrollment'
+    STUDENT = 'StudentEnrollment'
+
+
+STAFF_COURSE_ROLES = [CanvasRole.ACCOUNT_ADMIN, CanvasRole.SUB_ACCOUNT_ADMIN, CanvasRole.TEACHER]
 
 COURSE_MEMBERSHIP = 'http://purl.imsglobal.org/vocab/lis/v2/membership'
 DUMMY_CACHE = 'DummyCache'
 
 TOOL_CONF = DjangoDbToolConf()
+
 
 # do not require deployment ids if LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION is true
 class ExtendedDjangoMessageLaunch(DjangoMessageLaunch):
@@ -30,6 +43,8 @@ class ExtendedDjangoMessageLaunch(DjangoMessageLaunch):
             return self
 
         return super().validate_deployment()
+
+
 def lti_error(error_message: Any) -> JsonResponse:
     """
     Log an error message and return a JSON response with HTTP status 500.
@@ -43,6 +58,7 @@ def lti_error(error_message: Any) -> JsonResponse:
 
 def generate_jwks() -> Dict[str, list]:
     return TOOL_CONF.get_jwks()
+
 
 def get_jwks(_: Any) -> JsonResponse:
     """
@@ -100,7 +116,8 @@ def get_cache_config():
     cache_lifetime = cache_ttl if cache_ttl else 7200
     return CacheConfig(is_dummy_cache, launch_data_storage, cache_lifetime)
 
-def create_user_in_django(request, message_launch):
+
+def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMessageLaunch):
     launch_data = message_launch.get_launch_data()
     logger.debug(f'lti launch data {launch_data}')
     custom_params = launch_data['https://purl.imsglobal.org/spec/lti/claim/custom']
@@ -113,6 +130,14 @@ def create_user_in_django(request, message_launch):
     roles = launch_data['https://purl.imsglobal.org/spec/lti/claim/roles']
     username = custom_params['user_username']
     course_id = custom_params['canvas_course_id']
+    course_roles = custom_params['canvas_course_roles'].split(',')
+
+    staff_course_roles = [course_role for course_role in course_roles if course_role in STAFF_COURSE_ROLES]
+    user_is_course_staff = len(staff_course_roles) > 0
+    if not user_is_course_staff:
+        logger.info(f'User {username} does not have a staff role.')
+        raise PermissionDenied()
+
     if 'email' not in launch_data.keys():
         logger.info('Possibility that LTI launch by Instructor/admin becoming Canvas Test Student')
         error_message = 'Student view is not available for Canvas App Explorer.'
@@ -144,6 +169,7 @@ def create_user_in_django(request, message_launch):
     else:
         raise Exception('The canvas_course_id custom LTI variable must be configured.')
 
+
 @csrf_exempt
 def login(request):
     target_link_uri = request.POST.get('target_link_uri', request.GET.get('target_link_uri'))
@@ -153,6 +179,7 @@ def login(request):
     CacheConfig = get_cache_config()
     oidc_login = DjangoOIDCLogin(request, TOOL_CONF, launch_data_storage=CacheConfig.launch_data_storage)
     return oidc_login.enable_check_cookies().redirect(target_link_uri)
+
 
 @require_POST
 @csrf_exempt
