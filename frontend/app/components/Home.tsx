@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 
 import ErrorsDisplay from './ErrorsDisplay';
 import HeaderAppBar from './HeaderAppBar';
+import ScreenreaderOnly from './ScreenreaderOnly';
 import ToolCard from './ToolCard';
 import { getTools } from '../api';
 import constants from '../constants';
@@ -70,8 +71,10 @@ function Home (props: HomeProps) {
   }
 
   let toolCardContainer;
+  let toolNumString = '0';
   if (tools !== undefined) {
     const filteredTools = searchFilter !== '' ? filterTools(tools, searchFilter) : tools;
+    toolNumString = `${filteredTools.length} of ${tools.length}`;
     toolCardContainer = (
       <Grid container spacing={2} justifyContent='center'>
         {
@@ -93,6 +96,11 @@ function Home (props: HomeProps) {
           Find the best tools for your class and students
         </Typography>
         {feedbackBlock}
+        <ScreenreaderOnly>
+          <Typography aria-live='polite' aria-atomic>
+            {toolNumString} tools displayed
+          </Typography>
+        </ScreenreaderOnly>
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
