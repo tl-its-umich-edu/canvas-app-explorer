@@ -5,7 +5,6 @@ import { styled } from '@mui/material/styles';
 
 import ErrorsDisplay from './ErrorsDisplay';
 import HeaderAppBar from './HeaderAppBar';
-import ScreenreaderOnly from './ScreenreaderOnly';
 import ToolCard from './ToolCard';
 import { getTools } from '../api';
 import constants from '../constants';
@@ -96,9 +95,13 @@ function Home (props: HomeProps) {
           Find the best tools for your class and students
         </Typography>
         {feedbackBlock}
-        <ScreenreaderOnly>
-          <span aria-live='polite' aria-atomic>{toolNumString} tools displayed</span>
-        </ScreenreaderOnly>
+        <Grid container justifyContent='center'>
+          <Grid item>
+            <Typography aria-live='polite' aria-atomic sx={{ marginBottom: 2 }}>
+              {toolNumString} tools displayed
+            </Typography>
+          </Grid>
+        </Grid>
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
