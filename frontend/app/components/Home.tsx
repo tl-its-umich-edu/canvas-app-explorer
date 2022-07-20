@@ -95,11 +95,9 @@ function Home (props: HomeProps) {
           Find the best tools for your class and students
         </Typography>
         {feedbackBlock}
-        <Grid container justifyContent='center'>
+        <Grid container justifyContent='center' sx={{ marginBottom: 2 }}>
           <Grid item>
-            <Typography aria-live='polite' aria-atomic sx={{ marginBottom: 2 }}>
-              {toolNumString} tools displayed
-            </Typography>
+            <Typography aria-live='polite' aria-atomic>{toolNumString} tools displayed</Typography>
           </Grid>
         </Grid>
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
