@@ -97,9 +97,7 @@ function Home (props: HomeProps) {
         </Typography>
         {feedbackBlock}
         <ScreenreaderOnly>
-          <Typography aria-live='polite' aria-atomic>
-            {toolNumString} tools displayed
-          </Typography>
+          <span aria-live='polite' aria-atomic>{toolNumString} tools displayed</span>
         </ScreenreaderOnly>
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
