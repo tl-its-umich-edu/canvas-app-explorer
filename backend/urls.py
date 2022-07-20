@@ -40,7 +40,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.get_home_template, name = 'home'),
 
-    # For file storage
+    # These are for the images in the database. When the a new file is uploaded it will have a new name and ID. 
+    # extra_headers are passed to cache these files for 1 year which was recommended from 
+    #   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
     re_path(r'^files/', include('db_file_storage.urls'), {'extra_headers': {'Cache-Control': 'public, max-age=31536000'}}),
     path('',include(canvas_app_explorer_urls))
 ]
