@@ -70,8 +70,10 @@ function Home (props: HomeProps) {
   }
 
   let toolCardContainer;
+  let toolNumString = '0';
   if (tools !== undefined) {
     const filteredTools = searchFilter !== '' ? filterTools(tools, searchFilter) : tools;
+    toolNumString = `${filteredTools.length} of ${tools.length}`;
     toolCardContainer = (
       <Grid container spacing={2} justifyContent='center'>
         {
@@ -93,6 +95,11 @@ function Home (props: HomeProps) {
           Find the best tools for your class and students
         </Typography>
         {feedbackBlock}
+        <Grid container justifyContent='center' sx={{ marginBottom: 2 }}>
+          <Grid item>
+            <Typography aria-live='polite' aria-atomic>{toolNumString} tools displayed</Typography>
+          </Grid>
+        </Grid>
         <div aria-describedby='tool-card-container-loading' aria-busy={getToolsLoading}>
           {toolCardContainer}
         </div>
