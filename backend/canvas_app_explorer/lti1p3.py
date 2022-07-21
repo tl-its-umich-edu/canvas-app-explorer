@@ -8,7 +8,7 @@ from django.conf import settings
 from django.contrib.auth import login as django_login
 from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
-from django.http import HttpRequest, HttpResponse, JsonResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseForbidden, JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -25,7 +25,6 @@ class CanvasRole(Enum):
     ACCOUNT_ADMIN = 'Account Admin'
     SUB_ACCOUNT_ADMIN = 'Sub-Account Admin'
     TEACHER = 'TeacherEnrollment'
-    STUDENT = 'StudentEnrollment'
 
 
 STAFF_COURSE_ROLES = [CanvasRole.ACCOUNT_ADMIN.value, CanvasRole.SUB_ACCOUNT_ADMIN.value, CanvasRole.TEACHER.value]
@@ -132,16 +131,18 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
     course_id = custom_params['canvas_course_id']
     course_roles = custom_params['canvas_course_roles'].split(',')
 
+    if 'email' not in launch_data.keys():
+        logger.warn('An instructor/admin likely launched the tool using Student View (Test Student).')
+        error_message = 'Student View is not available for Canvas App Explorer.'
+        raise PermissionDenied(error_message)
+
     staff_course_roles = [course_role for course_role in course_roles if course_role in STAFF_COURSE_ROLES]
     user_is_course_staff = len(staff_course_roles) > 0
-    if not user_is_course_staff:
-        logger.info(f'User {username} does not have a staff role.')
-        raise PermissionDenied()
 
-    if 'email' not in launch_data.keys():
-        logger.info('Possibility that LTI launch by Instructor/admin becoming Canvas Test Student')
-        error_message = 'Student view is not available for Canvas App Explorer.'
-        raise Exception(error_message)
+    if not user_is_course_staff:
+        logger.warn(f'User {username} does not have a staff role.')
+        error_message = 'You must be an instructor in this course or an administrator to access this tool.'
+        raise PermissionDenied(error_message)
 
     email = launch_data['email']
     first_name = launch_data['given_name']
@@ -194,7 +195,11 @@ def launch(request):
         logger.info('DummyCache is set up, recommended atleast to us Mysql DB cache for LTI advantage services')
 
     # TODO: Implement custom AUTHENTICATION_BACKEND rather than using this one
-    create_user_in_django(request, message_launch)
+    try:
+        create_user_in_django(request, message_launch)
+    except PermissionDenied as e:
+        message = f': {e.args[0]}' if len(e.args) >= 1 else ''
+        return HttpResponseForbidden('Permission denied' + message)
 
     url = reverse('home')
     return redirect(url)
