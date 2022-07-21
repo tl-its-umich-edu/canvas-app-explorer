@@ -1,7 +1,6 @@
 import logging, random, string, urllib.parse
 from collections import namedtuple
 from datetime import datetime
-from enum import Enum
 from typing import Any, Dict, Union
 
 from django.conf import settings
@@ -13,21 +12,14 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-
 from pylti1p3.contrib.django import DjangoOIDCLogin, DjangoMessageLaunch, \
     DjangoCacheDataStorage, DjangoDbToolConf
 
+from .canvas_roles import STAFF_COURSE_ROLES
 
 logger = logging.getLogger(__name__)
 
 
-class CanvasRole(Enum):
-    ACCOUNT_ADMIN = 'Account Admin'
-    SUB_ACCOUNT_ADMIN = 'Sub-Account Admin'
-    TEACHER = 'TeacherEnrollment'
-
-
-STAFF_COURSE_ROLES = [CanvasRole.ACCOUNT_ADMIN.value, CanvasRole.SUB_ACCOUNT_ADMIN.value, CanvasRole.TEACHER.value]
 
 COURSE_MEMBERSHIP = 'http://purl.imsglobal.org/vocab/lis/v2/membership'
 DUMMY_CACHE = 'DummyCache'
@@ -136,8 +128,9 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
         error_message = 'Student View is not available for Canvas App Explorer.'
         raise PermissionDenied(error_message)
 
-    staff_course_roles = [course_role for course_role in course_roles if course_role in STAFF_COURSE_ROLES]
-    user_is_course_staff = len(staff_course_roles) > 0
+    staff_course_role_values = [role.value for role in STAFF_COURSE_ROLES]
+    user_staff_course_roles = [course_role for course_role in course_roles if course_role in staff_course_role_values]
+    user_is_course_staff = len(user_staff_course_roles) > 0
 
     if not user_is_course_staff:
         logger.warn(f'User {username} does not have a staff role.')
