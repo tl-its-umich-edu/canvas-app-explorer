@@ -5,10 +5,10 @@ using [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kusto
 
 ## Setup
 
-1. Populate `service/secrets/*`.
+1. Populate secrets.
 
-    Sensitive values and files are located in the
-    [Office Hours Secrets](https://www.dropbox.com/sh/n1igrgdsm4rt4uf/AAAXLbZOT7tpVk8XZEQj5E0ca?dl=0)
+    Sensitive values and files are located in Dropbox in the 
+    `TL Security files -> Canvas App Explorer -> secrets`
     Dropbox folder. Merge the `base` and `overlays` directories with their equivalents in the `service`
     directory in your local repository.
 
@@ -16,10 +16,12 @@ using [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kusto
 
     You can install Kustomize using the command from the
     [website](https://kubectl.docs.kubernetes.io/installation/kustomize/binaries/),
-    and adding version 3.8.5 (what is supported for now) as an argument.
+    and adding version 4.5.5 (what is supported for now) as an argument.
     ```
-    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash -s 3.8.5
+    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash -s 4.5.5`
     ```
+
+    This will download the binary to the local directory. Ideally you'd move this somewhere on your path.
 
 ## Updating a project
 
