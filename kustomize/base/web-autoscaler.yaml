@@ -1,0 +1,11 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: web
+spec:
+  scaleTargetRef:
+    apiVersion: v1
+    kind: DeploymentConfig
+    name: canvas-app-explorer-web-dev
+  minReplicas: 1
+  maxReplicas: 1 

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: web
+spec:
+  output:
+    to:
+      kind: DockerImage
+      name: docker-registry.default.svc:5000/canvas-app-explorer-dev/canvas-app-explorer:latest
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://github.com/tl-its-umich-edu/canvas-app-explorer.git
+      ref: "main"
+    type: Git
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: dockerfiles/Dockerfile.openshift
+      noCache: true
+      forcePull: true
+  triggers:
+  - type: "GitHub"
+    github:
+      secretReference:
+        name: github
+  nodeSelector: {}
+status:
+  lastVersion: 0
