@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/output/to/name
-  value: docker-registry.default.svc:5000/canvas-app-explorer-test/canvas-app-explorer:latest
