@@ -219,15 +219,10 @@ TINYMCE_DEFAULT_CONFIG = {
         "default_link_target": "_blank",
     }
 
-# Watchman settings
-WATCHMAN_CHECKS = (
-    'watchman.checks.caches',
-    'watchman.checks.databases'
-)
-if isinstance((env_watchman_tokens := os.getenv('DJANGO_WATCHMAN_TOKENS')), str):
-    WATCHMAN_TOKENS = env_watchman_tokens.split(',')
-    WATCHMAN_TOKEN_NAME = os.getenv('DJANGO_WATCHMAN_TOKEN_NAME', 'token')
-
+# Watchman settings (https://github.com/mwarkentin/django-watchman)
+WATCHMAN_TOKENS = os.getenv('DJANGO_WATCHMAN_TOKENS', None)
+WATCHMAN_TOKEN_NAME = os.getenv('DJANGO_WATCHMAN_TOKEN_NAME', 'token')
+WATCHMAN_CHECKS = ('watchman.checks.caches', 'watchman.checks.databases')
 
 # OAuth Settings, get these from the environment
 # TODO: Add some of these to the Django LTI model
