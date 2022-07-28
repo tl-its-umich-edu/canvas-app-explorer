@@ -224,7 +224,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 # Watchman settings (https://github.com/mwarkentin/django-watchman)
 WATCHMAN_TOKENS = os.getenv('DJANGO_WATCHMAN_TOKENS', None)
-WATCHMAN_TOKEN_NAME = os.getenv('DJANGO_WATCHMAN_TOKEN_NAME', 'token')
+WATCHMAN_TOKEN_NAME = os.getenv('DJANGO_WATCHMAN_TOKEN_NAME', 'cae-watchman-token')
 WATCHMAN_CHECKS = ('watchman.checks.caches', 'watchman.checks.databases')
 
 # OAuth Settings, get these from the environment
