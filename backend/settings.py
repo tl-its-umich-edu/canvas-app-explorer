@@ -203,7 +203,10 @@ LOGGING = {
             'level': 'WARNING',
             'handlers': ['console'],
         },
-
+        'watchman': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        }
     },
     'root': {
         'level': os.getenv('ROOT_LOG_LEVEL', 'INFO'),
