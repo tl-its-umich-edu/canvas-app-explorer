@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'pylti1p3.contrib.django.lti1p3_tool_config',
     'tinymce',
     'canvas_oauth.apps.CanvasOAuthConfig',
-    'drf_spectacular'
+    'drf_spectacular',
+    'watchman'
 ]
 
 MIDDLEWARE = [
@@ -202,7 +203,10 @@ LOGGING = {
             'level': 'WARNING',
             'handlers': ['console'],
         },
-
+        'watchman': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        }
     },
     'root': {
         'level': os.getenv('ROOT_LOG_LEVEL', 'INFO'),
@@ -217,6 +221,11 @@ TINYMCE_DEFAULT_CONFIG = {
             "bullist numlist outdent indent | removeformat | code | help",
         "default_link_target": "_blank",
     }
+
+# Watchman settings (https://github.com/mwarkentin/django-watchman)
+WATCHMAN_TOKENS = os.getenv('DJANGO_WATCHMAN_TOKENS', None)
+WATCHMAN_TOKEN_NAME = os.getenv('DJANGO_WATCHMAN_TOKEN_NAME', 'cae-watchman-token')
+WATCHMAN_CHECKS = ('watchman.checks.caches', 'watchman.checks.databases')
 
 # OAuth Settings, get these from the environment
 # TODO: Add some of these to the Django LTI model
