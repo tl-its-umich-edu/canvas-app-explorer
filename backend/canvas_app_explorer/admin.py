@@ -13,7 +13,8 @@ class LtiToolAdmin(admin.ModelAdmin):
         'long_description',
         'privacy_agreement',
         'support_resources',
-        'canvas_placement'
+        'canvas_placement',
+        'metadata' # github issue 10: a place to store metadata, only visible to admin
     )
     list_display = ('name', 'canvas_id')
 
