@@ -137,7 +137,14 @@ export default function ToolCard (props: ToolCardProps) {
           {
             tool.navigation_enabled && (
               <Tooltip placement='top' title={TOOL_IN_MENU_TEXT}>
-                <CheckCircleOutline color='success' tabIndex={0} aria-label={TOOL_IN_MENU_TEXT} />
+                <CheckCircleOutline
+                  color='success'
+                  tabIndex={0}
+                  aria-label={TOOL_IN_MENU_TEXT}
+                  role='button'
+                  aria-hidden={false}
+                  focusable
+                />
               </Tooltip>
             )
           }
