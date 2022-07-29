@@ -40,7 +40,7 @@ class LtiTool(models.Model):
     support_resources = HTMLField()
     canvas_placement = models.ManyToManyField(CanvasPlacement)
 
-    metadata = HTMLField() # GitHub issue #10
+    metadata = HTMLField(null=True) # GitHub issue #10, allow null
 
     def __str__(self):
         return self.name
