@@ -39,8 +39,7 @@ class LtiTool(models.Model):
     privacy_agreement = HTMLField()
     support_resources = HTMLField()
     canvas_placement = models.ManyToManyField(CanvasPlacement)
-
-    metadata = HTMLField(null=True) # GitHub issue #10, allow null
+    metadata = HTMLField(null=True)
 
     def __str__(self):
         return self.name

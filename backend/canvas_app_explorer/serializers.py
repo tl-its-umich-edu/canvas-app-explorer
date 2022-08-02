@@ -38,8 +38,6 @@ class LtiToolSerializer(serializers.ModelSerializer):
             'support_resources', 'canvas_placement_expanded'
         ]
 
-        # exclude = ('metadata',)
-
 
 class LtiToolWithNavSerializer(LtiToolSerializer):
     """
