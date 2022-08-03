@@ -188,30 +188,17 @@ LOGGING = {
             'formatter': 'generic',
         },
     },
+    'root': {
+        'level': os.getenv('ROOT_LOG_LEVEL', 'INFO'),
+        'handlers': ['console']
+    },
     'loggers': {
         'django': {
             'handlers': ['console'],
             'propagate': False,
             'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-        },
-        'rules': {
-            'handlers': ['console'],
-            'propagate': False,
-            'level': os.getenv('RULES_LOG_LEVEL', 'INFO'),
-        },
-        '': {
-            'level': 'WARNING',
-            'handlers': ['console'],
-        },
-        'watchman': {
-            'handlers': ['console'],
-            'level': os.getenv('DJANGO_WATCHMAN_LOG_LEVEL', 'INFO'),
         }
-    },
-    'root': {
-        'level': os.getenv('ROOT_LOG_LEVEL', 'INFO'),
-        'handlers': ['console']
-    },
+    }
 }
 
 TINYMCE_DEFAULT_CONFIG = {
