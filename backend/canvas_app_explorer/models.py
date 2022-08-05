@@ -39,7 +39,7 @@ class LtiTool(models.Model):
     privacy_agreement = HTMLField()
     support_resources = HTMLField()
     canvas_placement = models.ManyToManyField(CanvasPlacement)
-    metadata = HTMLField(null=True)
+    internal_notes = HTMLField(null=True, help_text="a place to put helpful info for admins, not visible to users")
 
     def __str__(self):
         return self.name
