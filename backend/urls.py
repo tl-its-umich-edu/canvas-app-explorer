@@ -48,7 +48,7 @@ urlpatterns = [
 
     re_path(r'^files/', include('db_file_storage.urls'), {'extra_headers': {'Cache-Control': 'public, max-age=31536000'}}),
     path('', include(canvas_app_explorer_urls)),
-    re_path(r'^watchman/', include('watchman.urls'))
+    re_path(r'^status/', include('watchman.urls'))
 ]
 
 # This is to aid local development. 
