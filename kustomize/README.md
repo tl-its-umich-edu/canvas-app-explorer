@@ -9,7 +9,7 @@ using [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kusto
 
     Sensitive values and files are located in Dropbox in the 
     `TL Security files -> Canvas App Explorer -> secrets`
-    Dropbox folder. Merge the `base` and `overlays` directories with their equivalents in the `service`
+    Dropbox folder. Merge the `base` and `overlays` directories with their equivalents in the `kustomize`
     directory in your local repository.
 
 2. Install `kustomize`.
