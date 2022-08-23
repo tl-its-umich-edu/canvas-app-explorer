@@ -18,7 +18,7 @@ using [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kusto
     [website](https://kubectl.docs.kubernetes.io/installation/kustomize/binaries/),
     and adding version 4.5.5 (what is supported for now) as an argument.
     ```
-    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash -s 4.5.5`
+    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash -s 4.5.5
     ```
 
     This will download the binary to the local directory. Ideally you'd move this somewhere on your path.
