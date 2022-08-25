@@ -204,12 +204,11 @@ LOGGING = {
 TINYMCE_DEFAULT_CONFIG = {
         'menubar': True,
         "plugins": "advlist,autolink,code,lists,link,anchor,insertdatetime,media,table,paste,wordcount",
-        "toolbar": "formatselect | bold italic backcolor | "
+        "toolbar": "bold italic backcolor | "
             "bullist numlist outdent indent | removeformat | code | help",
         "default_link_target": "_blank",
         "invalid_elements": "span, h1, h2, h3, h4, h5, h6",
-        "invalid_styles": "color, font-family, background-color"
-
+        "invalid_styles": "color, font-family, background-color",
     }
 
 # Watchman settings (https://github.com/mwarkentin/django-watchman)
