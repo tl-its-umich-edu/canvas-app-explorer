@@ -202,38 +202,47 @@ LOGGING = {
 }
 
 TINYMCE_DEFAULT_CONFIG = {
-        'menubar': True,
-        "plugins": "advlist,autolink,code,lists,link,anchor,insertdatetime,media,table,paste,wordcount",
-        "toolbar": "bold italic backcolor | "
-            "bullist numlist outdent indent | removeformat | code | help",
-        "default_link_target": "_blank",
-        "invalid_elements": "span, h1, h2, h3, h4, h5, h6",
-        "invalid_styles": "color, font-family, background-color",
+    'menubar': True,
+    "plugins": "advlist,autolink,code,lists,link,anchor,insertdatetime,media,table,paste,wordcount",
+    "toolbar": "bold italic backcolor | "
+        "bullist numlist outdent indent | removeformat | code | help",
+    "default_link_target": "_blank",
+    "invalid_elements": "span, h1, h2, h3, h4, h5, h6",
+    "invalid_styles": "color, font-family, background-color",
 
-        "style_formats": [
-            { "title": 'Inline', "items": [
-            { "title": 'Bold', "format": 'bold' },
-            { "title": 'Italic', "format": 'italic' },
-            { "title": 'Underline', "format": 'underline' },
-            { "title": 'Strikethrough', "format": 'strikethrough' },
-            { "title": 'Superscript', "format": 'superscript' },
-            { "title": 'Subscript', "format": 'subscript' },
-            { "title": 'Code', "format": 'code' }
-            ]},
-            { "title": 'Blocks',  "items": [
-            { "title": 'Paragraph', "format": 'p' },
-            { "title": 'Blockquote', "format": 'blockquote' },
-            { "title": 'Div', "format": 'div' },
-            { "title": 'Pre', "format": 'pre' }
-            ]},
-            { "title": 'Align',  "items": [
-            { "title": 'Left', "format": 'alignleft' },
-            { "title": 'Center', "format": 'aligncenter' },
-            { "title": 'Right', "format": 'alignright' },
-            { "title": 'Justify', "format": 'alignjustify' }
-            ]}
-            ],
-            "block_formats": "Paragraph=p",
+    "style_formats": [
+        { 
+            "title": 'Inline', 
+            "items": [
+                { "title": 'Bold', "format": 'bold' },
+                { "title": 'Italic', "format": 'italic' },
+                { "title": 'Underline', "format": 'underline' },
+                { "title": 'Strikethrough', "format": 'strikethrough' },
+                { "title": 'Superscript', "format": 'superscript' },
+                { "title": 'Subscript', "format": 'subscript' },
+                { "title": 'Code', "format": 'code' }
+            ]
+        },
+        { 
+            "title": 'Blocks',  
+            "items": [
+                { "title": 'Paragraph', "format": 'p' },
+                { "title": 'Blockquote', "format": 'blockquote' },
+                { "title": 'Div', "format": 'div' },
+                { "title": 'Pre', "format": 'pre' }
+            ]
+        },
+        { 
+            "title": 'Align',  
+            "items": [
+                { "title": 'Left', "format": 'alignleft' },
+                { "title": 'Center', "format": 'aligncenter' },
+                { "title": 'Right', "format": 'alignright' },
+                { "title": 'Justify', "format": 'alignjustify' }
+            ]
+        }
+        ],
+        "block_formats": "Paragraph=p",
     }
 
 # Watchman settings (https://github.com/mwarkentin/django-watchman)
