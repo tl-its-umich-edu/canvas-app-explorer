@@ -36,3 +36,6 @@ services:
       - .env
     environment:
       - DEBUG=True
+  redis:
+    build:
+      context: redis
