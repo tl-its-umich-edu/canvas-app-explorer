@@ -242,8 +242,8 @@ TINYMCE_DEFAULT_CONFIG = {
             ]
         }
         ],
-        "block_formats": "Paragraph=p",
-    }
+    "block_formats": "Paragraph=p",
+}
 
 # Watchman settings (https://github.com/mwarkentin/django-watchman)
 WATCHMAN_TOKENS = os.getenv('DJANGO_WATCHMAN_TOKENS', None)
