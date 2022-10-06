@@ -241,7 +241,7 @@ TINYMCE_DEFAULT_CONFIG = {
                 { "title": 'Justify', "format": 'alignjustify' }
             ]
         }
-        ],
+    ],
     "block_formats": "Paragraph=p",
 }
 
