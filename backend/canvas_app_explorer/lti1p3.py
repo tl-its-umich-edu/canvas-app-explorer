@@ -12,19 +12,29 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from pylti1p3.contrib.django import DjangoOIDCLogin, DjangoMessageLaunch, \
-    DjangoCacheDataStorage, DjangoDbToolConf
+from pylti1p3.contrib.django import (
+    DjangoCacheDataStorage, DjangoDbToolConf, DjangoMessageLaunch, DjangoOIDCLogin
+)
+from pylti1p3.exception import LtiException
 
 from .canvas_roles import STAFF_COURSE_ROLES
 
+
 logger = logging.getLogger(__name__)
 
-
-
 COURSE_MEMBERSHIP = 'http://purl.imsglobal.org/vocab/lis/v2/membership'
-DUMMY_CACHE = 'DummyCache'
-
 TOOL_CONF = DjangoDbToolConf()
+
+CacheConfig = namedtuple('CacheConfig', ['launch_data_storage', 'cache_lifetime'])
+
+
+def extract_error_message(error: Exception) -> Union[str, None]:
+    """
+    Check Exception for a string message as the first position argument.
+    """
+    if len(error.args) >= 1 and isinstance(error.args[0], str):
+        return error.args[0]
+    return None
 
 
 # do not require deployment ids if LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION is true
@@ -99,17 +109,14 @@ def generate_config_json(request: HttpRequest) -> \
     return HttpResponse(config_json, content_type='application/json')
 
 
-def get_cache_config():
-    CacheConfig = namedtuple('CacheConfig', ['is_dummy_cache', 'launch_data_storage', 'cache_lifetime'])
-    is_dummy_cache = DUMMY_CACHE in settings.DB_CACHE_CONFIGS['BACKEND']
-    launch_data_storage = DjangoCacheDataStorage(cache_name='default') if not is_dummy_cache else None
+def get_cache_config() -> CacheConfig:
+    launch_data_storage = DjangoCacheDataStorage()
     cache_ttl = settings.DB_CACHE_CONFIGS['CACHE_TTL']
     cache_lifetime = cache_ttl if cache_ttl else 7200
-    return CacheConfig(is_dummy_cache, launch_data_storage, cache_lifetime)
+    return CacheConfig(launch_data_storage, cache_lifetime)
 
 
-def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMessageLaunch):
-    launch_data = message_launch.get_launch_data()
+def create_user_in_django(request: HttpRequest, launch_data: Dict[str, Any]):
     logger.debug(f'lti launch data {launch_data}')
     custom_params = launch_data['https://purl.imsglobal.org/spec/lti/claim/custom']
     logger.debug(f'lti_custom_param {custom_params}')
@@ -165,34 +172,44 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
 
 
 @csrf_exempt
-def login(request):
+def login(request: HttpRequest):
+    cache_config = get_cache_config()
     target_link_uri = request.POST.get('target_link_uri', request.GET.get('target_link_uri'))
     if not target_link_uri:
         error_message = 'LTI Login failed due to missing "target_link_uri" param'
         return lti_error(error_message)
-    CacheConfig = get_cache_config()
-    oidc_login = DjangoOIDCLogin(request, TOOL_CONF, launch_data_storage=CacheConfig.launch_data_storage)
+    oidc_login = DjangoOIDCLogin(request, TOOL_CONF, launch_data_storage=cache_config.launch_data_storage)
     return oidc_login.enable_check_cookies().redirect(target_link_uri)
 
 
 @require_POST
 @csrf_exempt
-def launch(request):
-    CacheConfig = get_cache_config()
-    message_launch = ExtendedDjangoMessageLaunch(request, TOOL_CONF, launch_data_storage=CacheConfig.launch_data_storage)
-    if not CacheConfig.is_dummy_cache:
-        # fetch platform's public key from cache instead of calling the API will speed up the launch process
-        message_launch.set_public_key_caching(CacheConfig.launch_data_storage,
-                                              cache_lifetime=CacheConfig.cache_lifetime)
-    else:
-        logger.info('DummyCache is set up, recommended atleast to us Mysql DB cache for LTI advantage services')
+def launch(request: HttpRequest):
+    cache_config = get_cache_config()
+    message_launch = ExtendedDjangoMessageLaunch(request, TOOL_CONF, launch_data_storage=cache_config.launch_data_storage)
+    message_launch.set_public_key_caching(cache_config.launch_data_storage, cache_config.cache_lifetime)
+
+    try:
+        launch_data: Dict[str, Any] = message_launch.get_launch_data()
+    except LtiException as lti_exception:
+        logger.error(lti_exception)
+        message = f'LTI launch error occurred. Please try launching the tool again.'
+        error_message = extract_error_message(lti_exception)
+        if error_message:
+            message += f' Error: {error_message}.'
+        response = HttpResponse(message)
+        response.status_code = 401
+        return response
 
     # TODO: Implement custom AUTHENTICATION_BACKEND rather than using this one
     try:
-        create_user_in_django(request, message_launch)
+        create_user_in_django(request, launch_data)
     except PermissionDenied as e:
-        message = f': {e.args[0]}' if len(e.args) >= 1 else ''
-        return HttpResponseForbidden('Permission denied' + message)
+        message = 'Permission denied.'
+        error_message = extract_error_message(e)
+        if error_message:
+            message += ' ' + error_message
+        return HttpResponseForbidden(message)
 
     url = reverse('home')
     return redirect(url)
