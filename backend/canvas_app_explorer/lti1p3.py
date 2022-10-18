@@ -26,6 +26,15 @@ DUMMY_CACHE = 'DummyCache'
 
 TOOL_CONF = DjangoDbToolConf()
 
+# Custom LTI variable keys
+USERNAME_KEY = 'user_username'
+COURSE_ID_KEY = 'canvas_course_id'
+COURSE_ROLES_KEY = 'canvas_course_roles'
+
+
+class LTILaunchError(Exception):
+    pass
+
 
 # do not require deployment ids if LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION is true
 class ExtendedDjangoMessageLaunch(DjangoMessageLaunch):
@@ -114,14 +123,28 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
     custom_params = launch_data['https://purl.imsglobal.org/spec/lti/claim/custom']
     logger.debug(f'lti_custom_param {custom_params}')
     if not custom_params:
-        raise Exception(
-            f'You need to have custom parameters configured on your LTI Launch. Please see the LTI installation guide on the Github Wiki for more information.'
+        raise LTILaunchError(
+            'You need to have custom parameters configured on your LTI Launch. ' +
+            'Please see the LTI installation guide on the Github Wiki for more information.'
         )
+
+    custom_param_keys = custom_params.keys()
+    if not (
+        USERNAME_KEY in custom_param_keys and
+        COURSE_ID_KEY in custom_param_keys and
+        COURSE_ROLES_KEY in custom_param_keys
+    ):
+        raise LTILaunchError(
+            'One or more required custom LTI variables were not defined. ' +
+            f'These variables are required: {", ".join([USERNAME_KEY, COURSE_ID_KEY, COURSE_ROLES_KEY])}'
+        )
+
     course_name = launch_data['https://purl.imsglobal.org/spec/lti/claim/context']['title']
     roles = launch_data['https://purl.imsglobal.org/spec/lti/claim/roles']
-    username = custom_params['user_username']
-    course_id = custom_params['canvas_course_id']
-    course_roles = custom_params['canvas_course_roles'].split(',')
+
+    username = custom_params[USERNAME_KEY]
+    course_id = custom_params[COURSE_ID_KEY]
+    course_roles = custom_params[COURSE_ROLES_KEY].split(',')
 
     if 'email' not in launch_data.keys():
         logger.warn('An instructor/admin likely launched the tool using Student View (Test Student).')
@@ -162,11 +185,11 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
         try:
             course_id_int = int(course_id)
         except ValueError:
-            raise Exception(f'Course ID from LTI launch cannot be converted to an integer. Value: {course_id}')
+            raise LTILaunchError(f'Course ID from LTI launch cannot be converted to an integer. Value: {course_id}')
 
         request.session['course_id'] = course_id_int
     else:
-        raise Exception(f'Course ID from LTI launch cannot be null.')
+        raise LTILaunchError(f'Course ID from LTI launch cannot be null.')
 
 
 @csrf_exempt
