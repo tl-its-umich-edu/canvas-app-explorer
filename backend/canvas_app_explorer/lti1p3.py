@@ -33,7 +33,9 @@ COURSE_ROLES_KEY = 'canvas_course_roles'
 
 
 class LTILaunchError(Exception):
-    pass
+    """
+    Exception class for errors that occur while processing data from the LTI launch
+    """
 
 
 # do not require deployment ids if LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION is true
@@ -128,12 +130,7 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
             'Please see the LTI installation guide on the Github Wiki for more information.'
         )
 
-    custom_param_keys = custom_params.keys()
-    if not (
-        USERNAME_KEY in custom_param_keys and
-        COURSE_ID_KEY in custom_param_keys and
-        COURSE_ROLES_KEY in custom_param_keys
-    ):
+    if not set([USERNAME_KEY, COURSE_ID_KEY, COURSE_ROLES_KEY]).issubset(set(custom_params.keys())):
         raise LTILaunchError(
             'One or more required custom LTI variables were not defined. ' +
             f'These variables are required: {", ".join([USERNAME_KEY, COURSE_ID_KEY, COURSE_ROLES_KEY])}'
