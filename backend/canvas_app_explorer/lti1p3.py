@@ -158,17 +158,15 @@ def create_user_in_django(request: HttpRequest, message_launch: ExtendedDjangoMe
     user_obj.backend = 'django.contrib.auth.backends.ModelBackend'
     django_login(request, user_obj)
 
-    course_id_error = Exception('The canvas_course_id custom LTI variable must be configured.')
     if course_id is not None:
         try:
             course_id_int = int(course_id)
         except ValueError:
-            logger.error(f'Course ID from LTI launch cannot be converted to an integer: {course_id}')
-            raise course_id_error
+            raise Exception(f'Course ID from LTI launch cannot be converted to an integer. Value: {course_id}')
 
         request.session['course_id'] = course_id_int
     else:
-        raise course_id_error
+        raise Exception(f'Course ID from LTI launch cannot be null.')
 
 
 @csrf_exempt
