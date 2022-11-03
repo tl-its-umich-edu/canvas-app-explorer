@@ -207,7 +207,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar": "bold italic backcolor | "
         "bullist numlist outdent indent | removeformat | code | help",
     "default_link_target": "_blank",
-    "invalid_elements": "span, h1, h2, h3, h4, h5, h6",
+    "invalid_elements": "h1, h2, h3, h4, h5, h6",
     "invalid_styles": "color, font-family, background-color",
 
     "style_formats": [
