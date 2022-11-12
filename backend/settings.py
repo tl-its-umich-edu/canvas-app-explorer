@@ -208,7 +208,7 @@ TINYMCE_DEFAULT_CONFIG = {
         "bullist numlist outdent indent | removeformat | code | help",
     "default_link_target": "_blank",
     "invalid_elements": "h1, h2, h3, h4, h5, h6",
-    "invalid_styles": "color, font-family, background-color",
+    "invalid_styles": "color, font-family, background-color, line-height",
 
     "style_formats": [
         { 
@@ -243,6 +243,7 @@ TINYMCE_DEFAULT_CONFIG = {
         }
     ],
     "block_formats": "Paragraph=p",
+    "removed_menuitems": "fontformats fontsizes lineheight forecolor backcolor",
 }
 
 # Watchman settings (https://github.com/mwarkentin/django-watchman)
