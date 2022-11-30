@@ -197,6 +197,10 @@ LOGGING = {
             'handlers': ['console'],
             'propagate': False,
             'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'canvas_oauth': {
+            'handlers': ['console'],
+            'level': 'WARN'
         }
     }
 }
