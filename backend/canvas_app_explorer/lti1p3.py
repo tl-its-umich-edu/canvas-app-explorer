@@ -41,7 +41,8 @@ class LTILaunchError(Exception):
 # do not require deployment ids if LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION is true
 class ExtendedDjangoMessageLaunch(DjangoMessageLaunch):
     def validate_deployment(self):
-        if settings.LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION:
+        # Check the deployment id is set otherwise the code will raise an exception
+        if settings.LTI_CONFIG_DISABLE_DEPLOYMENT_ID_VALIDATION and self._get_deployment_id():
             return self
 
         return super().validate_deployment()
