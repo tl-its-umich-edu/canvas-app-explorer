@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  rules:
+  - host: dev-canvas-app-explorer-dev.webplatformsunpublished.umich.edu 
+    http:
+      paths:
+      - path: /
+        backend:
+         serviceName: web
+         servicePort: 5000
+  tls:
+  - hosts:
+    - dev-canvas-app-explorer-dev.webplatformsunpublished.umich.edu
+    secret:
+      optional: true

@@ -1,0 +1,6 @@
+- op: add
+  path: /spec/rules/0/host
+  value: test-cae.tl.it.umich.edu
+- op: replace
+  path: /spec/tls/0/hosts/0
+  value: test-cae.tl.it.umich.edu

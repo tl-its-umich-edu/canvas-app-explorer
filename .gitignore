@@ -4,6 +4,7 @@ webpack-stats.json
 # MySQL data files
 .data
 ngrok.yml
+**/secret
 
 # Temp files
 *.swp

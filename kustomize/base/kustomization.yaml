@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  org: umich
+  project: canvas-app-explorer
+resources:
+- web-autoscaler.yaml
+- web-deployment.yaml
+- web-service.yaml
+# - web-ingress.yaml
+- build.yaml
+namePrefix: canvas-app-explorer-
+configMapGenerator:
+- name: canvas-app-explorer
+crds:  # Use CRDs to support OpenShift resource kinds
+- openshift-buildconfig.json
+- openshift-deploymentconfig.json
+- openshift-route.json
