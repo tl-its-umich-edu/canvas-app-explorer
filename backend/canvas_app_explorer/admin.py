@@ -7,6 +7,7 @@ class LtiToolAdmin(admin.ModelAdmin):
     fields = (
         'name',
         'canvas_id',
+        'is_public',
         ('logo_image', 'logo_image_alt_text'),
         ('main_image', 'main_image_alt_text'),
         'short_description',
@@ -14,9 +15,9 @@ class LtiToolAdmin(admin.ModelAdmin):
         'privacy_agreement',
         'support_resources',
         'canvas_placement',
-        'internal_notes'
+        'internal_notes',
     )
-    list_display = ('name', 'canvas_id')
+    list_display = ('name', 'canvas_id', 'is_public')
 
 
 admin.site.register(LtiTool, LtiToolAdmin)
