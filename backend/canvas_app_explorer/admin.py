@@ -3,6 +3,14 @@
 from django.contrib import admin
 from backend.canvas_app_explorer.models import LtiTool, CanvasPlacement
 
+@admin.action(description='Make selected lti tools visible to users')
+def publish_tool(ltitooladmin, request, queryset):
+    queryset.update(is_public=True)
+
+@admin.action(description="Hide selected lti tools from users")
+def unpublish_tool(ltitooladmin, request, queryset):
+    queryset.update(is_public=False)
+
 class LtiToolAdmin(admin.ModelAdmin):
     fields = (
         'name',
@@ -18,6 +26,7 @@ class LtiToolAdmin(admin.ModelAdmin):
         'internal_notes',
     )
     list_display = ('name', 'canvas_id', 'is_public')
+    actions = [publish_tool, unpublish_tool]
 
 
 admin.site.register(LtiTool, LtiToolAdmin)
