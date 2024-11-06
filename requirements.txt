@@ -4,7 +4,7 @@ mysqlclient==2.1.1
 # Django and related
 Django==4.2.16
 django-csp==3.7 # For Content Security Policy
-django-db-file-storage==0.5.5 # Support for storage in the database
+django-db-file-storage==0.5.6.1 # Support for storage in the database
 django-mysql==4.15.0
 django-tinymce==4.1.0 # Rich text editor
 django-watchman==1.3
