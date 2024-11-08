@@ -3,7 +3,7 @@
   "configurations": [
     
       {
-          "name": "CAE Django",
+          "name": "IPT Django",
           "type": "debugpy",
           "request": "attach",
           "pathMappings": [
