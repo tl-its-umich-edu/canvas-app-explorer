@@ -20,7 +20,7 @@ markdown==3.4.1 # Markdown support for the browsable API
 
 # LTI
 pycryptodome==3.19.1 # For generating LTI keys
-PyLTI1p3==1.12.1
+PyLTI1p3==2.0.0
 
 # Canvas
 canvasapi==3.3.0
