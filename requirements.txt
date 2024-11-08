@@ -26,4 +26,4 @@ PyLTI1p3==1.12.1
 canvasapi==3.3.0
 
 # Not in pypi https://github.com/Harvard-University-iCommons/django-canvas-oauth
-https://github.com/Harvard-University-iCommons/django-canvas-oauth/archive/v1.1.0.tar.gz
+https://github.com/Harvard-University-iCommons/django-canvas-oauth/archive/v1.1.1.tar.gz
